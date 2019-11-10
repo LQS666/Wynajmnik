@@ -20,3 +20,5 @@ Route::post('/account/register', 'Auth\RegisterController@register');
 
 Route::get('/account/login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('/account/login', 'Auth\LoginController@login');
+
+Route::post('/account/logout', 'Auth\LoginController@logout')->name('logout');
