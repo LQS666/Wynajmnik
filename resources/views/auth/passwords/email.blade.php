@@ -8,7 +8,7 @@
     <div class="header-container">
         <div class="login-box">
             <h2 class="font-semibold">Przypomnij hasło</h2>
-            <form action="/" action="" class="form">
+            <form method="POST" action="{{ route('password.email') }}" class="form">
                 @csrf
                 <div class="form--input-box">
                     <label for="email">Adres e-mail</label>
