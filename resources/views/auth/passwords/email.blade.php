@@ -7,7 +7,7 @@
 <div class="container mx-auto">
     <div class="header-container">
         <div class="login-box">
-            <h2 class="font-semibold">Zapomniałem hasła</h2>
+            <h2 class="font-semibold">Przypomnij hasło</h2>
             <form action="/" action="" class="form">
                 @csrf
                 <div class="form--input-box">
