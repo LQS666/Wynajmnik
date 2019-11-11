@@ -20,7 +20,7 @@
                 </div>
                 <div class="form--options">
                     <div>
-                        <a href="{{ route('account.password.request') }}">Zapomniałeś hasła?</a>
+                        <a href="{{ route('password.request') }}">Zapomniałeś hasła?</a>
                     </div>
                     <div>
                         Nie posiadasz konta? <a href="{{ route('account.register') }}">Zarejestruj się</a>
