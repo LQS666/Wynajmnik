@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use RealRashid\SweetAlert\Facades\Alert;
 
-class DisplayValidationErrors
+class DisplaySweetToasts
 {
     /**
      * Handle an incoming request.

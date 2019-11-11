@@ -51,6 +51,8 @@ class LoginController extends Controller
             'last_login_ip' => $request->getClientIp(),
             'last_login_at' => now()
         ]);
+
+        session()->flash('sweet.success', "You'he been logged in!");
     }
 
     /**
@@ -59,8 +61,8 @@ class LoginController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return mixed
      */
-    protected function loggedOut(Request $request)
+    protected function loggedOut()
     {
-
+        session()->flash('sweet.success', "You'he been logged out!");
     }
 }

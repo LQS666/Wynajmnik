@@ -8,11 +8,11 @@
     <div class="header-container">
         <div class="login-box">
             <h2 class="font-semibold" data-title="Logowanie">Logowanie</h2>
-            <form action="GET" action="" class="form">
+            <form method="POST" action="{{ route('account.login') }}" class="form">
                 @csrf
                 <div class="form--input-box">
                     <label for="email">Adres e-mail</label>
-                    <input type="email" name="email" id="email" autocomplete="off">
+                    <input type="email" name="email" id="email" value="{{ old('email')  }}" autocomplete="off">
                 </div>
                 <div class="form--input-box">
                     <label for="password">Hasło</label>

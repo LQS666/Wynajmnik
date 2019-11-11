@@ -28,7 +28,7 @@ Route::get('/account/password/reset/{token}', 'Auth\ResetPasswordController@show
 Route::post('/account/password/reset', 'Auth\ResetPasswordController@reset')->name('account.password.update');
 Route::post('/account/password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('account.password.email');
 
-Route::get('/account/email/resend', 'Auth\VerificationController@resend')->name('account.email.resend');
-Route::get('/account/email/verify', 'Auth\VerificationController@show')->name('account.email.notice');
-Route::get('/account/email/verify/{id}/{hash}', 'Auth\VerificationController@verify')->name('account.email.verify');
+Route::get('/account/email/resend', 'Auth\VerificationController@resend')->name('verification.resend');
+Route::get('/account/email/verify', 'Auth\VerificationController@show')->name('verification.notice');
+Route::get('/account/email/verify/{id}/{hash}', 'Auth\VerificationController@verify')->name('verification.verify');
 
