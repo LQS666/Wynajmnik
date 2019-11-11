@@ -8,10 +8,11 @@
     <div class="header-container">
         <div class="login-box">
             <h2 class="font-semibold" data-title="Logowanie">Logowanie</h2>
-            <form action="/" class="form">
+            <form action="GET" action="" class="form">
+                @csrf
                 <div class="form--input-box">
-                    <label for="login">Nazwa użytkownika</label>
-                    <input type="text" name="login" id="login" autocomplete="off">
+                    <label for="email">Adres e-mail</label>
+                    <input type="email" name="email" id="email" autocomplete="off">
                 </div>
                 <div class="form--input-box">
                     <label for="password">Hasło</label>
@@ -19,10 +20,10 @@
                 </div>
                 <div class="form--options">
                     <div>
-                        <a href="/">Zapomniałeś hasła?</a>
+                        <a href="{{ route('account.password.request') }}">Zapomniałeś hasła?</a>
                     </div>
                     <div>
-                        Nie posiadasz konta? <a href="/">Zarejestruj się</a>
+                        Nie posiadasz konta? <a href="{{ route('account.register') }}">Zarejestruj się</a>
                     </div>
                 </div>
                 <button type="submit" class="button button--block">Zaloguj się</button>

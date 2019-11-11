@@ -48,6 +48,11 @@ a {
             @apply w-full border-0 bg-transparent text-lg leading-loose outline-none mt-5;   
         }
 
+        &[data-title="date"] > label {
+            @apply top-0;
+            font-size: 0.7rem;
+        }
+
         label {
             @apply absolute;
             top: 23px;
@@ -70,6 +75,16 @@ a {
                 @apply top-0;
                 font-size: 0.7rem;
             }
+        }
+
+        [type="date"] {
+            background:#fff url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)  97% 50% no-repeat ;
+        }
+        [type="date"]::-webkit-inner-spin-button {
+            display: none;
+        }
+        [type="date"]::-webkit-calendar-picker-indicator {
+            opacity: 0;
         }
     }
 

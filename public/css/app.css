@@ -11729,6 +11729,11 @@ a {
   margin-top: 1.25rem;
 }
 
+.form .form--input-box[data-title=date] > label {
+  top: 0;
+  font-size: 0.7rem;
+}
+
 .form .form--input-box label {
   position: absolute;
   top: 23px;
@@ -11748,6 +11753,18 @@ a {
 .form .form--input-box.active label {
   top: 0;
   font-size: 0.7rem;
+}
+
+.form .form--input-box [type=date] {
+  background: #fff url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png) 97% 50% no-repeat;
+}
+
+.form .form--input-box [type=date]::-webkit-inner-spin-button {
+  display: none;
+}
+
+.form .form--input-box [type=date]::-webkit-calendar-picker-indicator {
+  opacity: 0;
 }
 
 .form .form--options {
