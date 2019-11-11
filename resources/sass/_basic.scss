@@ -1,0 +1,63 @@
+body {
+    @apply text-black;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    overflow-x: hidden;
+}
+
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+    color: #fff; 
+    @apply bg-purple-second;
+} 
+
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-button {
+    background: #f2f2f2;
+}
+
+::-webkit-scrollbar-thumb {
+    @apply bg-purple-second;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    @apply bg-purple-second;
+}
+
+::-webkit-scrollbar-track {
+    background: #f2f2f2;
+}
+
+::-webkit-scrollbar-track-piece {
+    background: #f2f2f2;
+}
+
+::-webkit-scrollbar-corner {
+    background: #999;
+}
+
+::-webkit-resizer {
+    background: #f2f2f2;
+}
+
+.responsive-container {
+    position: relative;
+    overflow: hidden;
+    padding-top: 56.25%;
+}
+
+.responsive-iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}

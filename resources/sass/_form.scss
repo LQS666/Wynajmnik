@@ -1,0 +1,96 @@
+$color-primary: #6C63FF;
+
+a {
+    @apply no-underline font-semibold text-purple-second;
+    transition: color .2s;
+}
+
+.header-container {
+    @apply flex justify-center items-center;
+    min-height: calc(100vh - 60px);
+}
+
+.login-box {
+    @apply py-24 px-12 bg-white text-center rounded-lg border border-gray-300 overflow-hidden;
+    width: 400px;
+    box-shadow: 0 15px 35px rgba($color-primary, 0.2);
+    box-sizing: border-box;
+    h2 {
+        @apply pb-6 relative mb-3 text-2xl;
+        &::before {
+            content: attr(data-title);
+            @apply absolute w-full h-full text-5xl opacity-10 text-purple-second;
+            left: 0;
+            top: -100%;
+        }
+    }
+}
+
+.form {
+    .form--input-box {
+        @apply relative text-left mb-3;
+        &::after,
+        &::before {
+            @apply inset-x-0 bottom-0;
+            content: "";
+            position: absolute;
+            height: 2px;
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        &::before {
+            @apply z-10 bg-purple-second;
+            right: 100%;
+            transition: right .5s;
+        }
+
+        input {
+            @apply w-full border-0 bg-transparent text-lg leading-loose outline-none mt-5;   
+        }
+
+        label {
+            @apply absolute;
+            top: 23px;
+            transition: top .2s, font-size .2s;
+        }
+
+        &.focused {
+            &::before {
+                @apply right-0;
+            }
+
+            &:not(.active) label {
+                @apply top-0;
+                font-size: 0.7rem;
+            }
+        }
+
+        &.active {
+            label {
+                @apply top-0;
+                font-size: 0.7rem;
+            }
+        }
+    }
+
+    .form--options {
+        @apply text-left;
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        font-size: 0.7rem;
+        > div:last-of-type {
+            @apply text-right;
+        }
+    }
+}
+
+.button {
+    @apply border-0 text-white text-lg cursor-pointer mt-12 outline-none ;
+    background: $color-primary;
+    line-height: 2.5;
+    border-radius: 50px;
+    box-shadow: 0 5px 10px rgba($color-primary, 0.2);
+    &--block {
+        @apply block w-full;
+    }
+}

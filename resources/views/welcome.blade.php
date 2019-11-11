@@ -1,100 +1,17 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.base')
 
-        <title>Laravel</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+@section('content')
+<div class="container mx-auto pt-24">
+    <div>
+        <div class="mx-auto text-xl py-16 text-center">
+            <h2 class="font-bold text-4xl mx-6 mb-12">Dlaczego my?</h2>
+            <div class="text-lg sm:text-xl mx-3 mb-12">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ut tincidunt velit, at sodales libero. Pellentesque hendrerit dapibus lobortis. Sed tempor erat lectus, quis interdum odio efficitur vel. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec justo mauris, vestibulum eget sapien a, rutrum porttitor metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ut tincidunt velit, at sodales libero. Pellentesque hendrerit dapibus lobortis. Sed tempor erat lectus, quis interdum odio efficitur vel. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec justo mauris, vestibulum eget sapien a, rutrum porttitor metus.
             </div>
-        </div>
-    </body>
-</html>
+
+            <div class="responsive-container">
+            <iframe class="responsive-iframe w-full h-full top-0 left-0 border-0" src="https://www.youtube.com/embed/bK6XUxbbUEQ"" style="border:0;" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div> 
+    </div>
+</div>
+@endsection
