@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="{{ asset('/css/app.css') }}">
         <title>@yield('title', 'Strona główna') - Wynajmnik.pl</title>
     </head>
-    
+
     <body>
         <div>
             <header>
@@ -54,6 +54,7 @@
                 </div>
             </footer>
         </div>
+        @include('sweetalert::alert')
     </body>
 </html>
 
