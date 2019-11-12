@@ -1,7 +1,7 @@
 @extends('layouts.base')
 
 @section('content')
-<div class="container mx-auto pt-24">
+<div class="container mx-auto">
     <div>
         <div class="mx-auto text-xl py-16 text-center">
             <h2 class="font-bold text-4xl mx-6 mb-12">Dlaczego my?</h2>

@@ -173,12 +173,29 @@ function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Form_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Form.js */ "./resources/js/Form.js");
+/* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Form */ "./resources/js/Form.js");
 // require('./bootstrap');
 
 window.addEventListener('load', function () {
-  new _Form_js__WEBPACK_IMPORTED_MODULE_0__["default"]('.form');
+  new _Form__WEBPACK_IMPORTED_MODULE_0__["default"]('.form');
 });
+
+(function () {
+  var body = document.querySelector('body');
+  var menu = document.querySelector('.menu-icon');
+
+  var animateMobileMenu = function init() {
+    menu.addEventListener('click', function () {
+      if (body.classList.contains('nav-active')) {
+        body.classList.remove('nav-active');
+      } else {
+        body.classList.add('nav-active');
+      }
+    });
+  };
+
+  animateMobileMenu();
+})();
 
 /***/ }),
 

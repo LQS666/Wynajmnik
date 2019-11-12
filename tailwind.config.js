@@ -19,6 +19,7 @@ module.exports = {
 
         'purple-main': '#EEEDFC',
         'purple-second': '#6C63FF',
+        'green-main': '#2ecc71',
       },
     },
   },

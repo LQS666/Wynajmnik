@@ -1,5 +1,3 @@
-$color-primary: #6C63FF;
-
 a {
     @apply no-underline font-semibold text-purple-second;
     transition: color .2s;
@@ -7,7 +5,7 @@ a {
 
 .header-container {
     @apply flex justify-center items-center;
-    min-height: calc(100vh - 60px);
+    min-height: calc(100vh - 140px);
 }
 
 .login-box {
