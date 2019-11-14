@@ -20,7 +20,8 @@ Route::group(['namespace' => 'Auth'], function() {
     Route::post('/account/password/email', 'ForgotPasswordController@sendResetLinkEmail')->name('password.email');
 
     // Password change
-
+    Route::get('/account/password/change', 'ChangePasswordController@showChangeForm')->name('password.change');
+    Route::post('/account/password/change', 'ChangePasswordController@change');
 
     // E-mail verification
     Route::get('/account/email/resend', 'VerificationController@resend')->name('verification.resend');

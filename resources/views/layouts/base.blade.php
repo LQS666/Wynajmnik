@@ -53,7 +53,7 @@
                                 <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-indigo-500 hover:text-white rounded font-normal">Moje zamówienia</a>
                                 <div class="w-full border-gray-200 border-b-2"></div>
                                 <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-indigo-500 hover:text-white rounded font-normal">Konto</a>
-                                <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-indigo-500 hover:text-white rounded font-normal">Zmiana hasła</a>
+                                <a href="{{ route('password.change') }}" class="block px-4 py-2 text-gray-700 hover:bg-indigo-500 hover:text-white rounded font-normal">Zmiana hasła</a>
                                 <div class="w-full border-gray-200 border-b-2"></div>
                                 <a href="{{ route('account.logout') }}" class="block px-4 py-2 text-gray-700 hover:bg-indigo-500 hover:text-white rounded font-normal">Wyloguj się</a>
                             </div>

@@ -17,8 +17,14 @@ class DisplaySweetToasts
     public function handle($request, Closure $next)
     {
         if ($errors = session('errors', false)) {
+            if (is_string($errors)) {
+                $errors = [$errors];
+            } else {
+                $errors = $errors->all();
+            }
+
             $errors_concat = '<span style="text-align: left;">';
-            foreach ($errors->all() as $i => $error) {
+            foreach ($errors as $i => $error) {
                 $errors_concat .= ($i > 0 ? '<br />' : '') . $error;
             }
             $errors_concat .= '</span>';
