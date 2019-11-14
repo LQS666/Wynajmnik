@@ -10,9 +10,10 @@
             <h2 class="font-semibold">Zresetuj hasło</h2>
             <form method="POST" action="{{ route('password.update') }}" class="form">
                 @csrf
+                <input type="hidden" name="token" value="{{ $token  }}">
                 <div class="form--input-box">
                     <label for="email">Adres e-mail</label>
-                    <input type="email" name="email" id="email" autocomplete="off">
+                    <input type="email" name="email" id="email" value="{{ $email }}" autocomplete="off">
                 </div>
                 <div class="form--input-box">
                     <label for="password">Hasło</label>
