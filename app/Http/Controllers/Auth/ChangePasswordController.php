@@ -51,6 +51,6 @@ class ChangePasswordController extends Controller
      */
     protected function changed(Request $request, $user)
     {
-        session()->flash('sweet.success', "Your password has been changed");
+        session()->flash('sweet.success', trans('message.passwordChanged'));
     }
 }

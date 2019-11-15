@@ -52,7 +52,7 @@ class LoginController extends Controller
             'last_login_at' => now()
         ]);
 
-        session()->flash('sweet.success', "You'he been logged in!");
+        session()->flash('sweet.success', trans('message.login'));
     }
 
     /**
@@ -63,6 +63,6 @@ class LoginController extends Controller
      */
     protected function loggedOut()
     {
-        session()->flash('sweet.success', "You'he been logged out!");
+        session()->flash('sweet.success', trans('message.logout'));
     }
 }
