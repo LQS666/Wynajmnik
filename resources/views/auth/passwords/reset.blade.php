@@ -7,7 +7,7 @@
 <div class="container mx-auto">
     <div class="header-container">
         <div class="login-box">
-            <h2 class="font-semibold">{{ __('auth/reset.title') }}</h2>
+            <h2 class="font-semibold" data-title="{{ __('auth/reset.title') }}">{{ __('auth/reset.title') }}</h2>
             <form method="POST" action="{{ route('password.update') }}" class="form">
                 @csrf
                 <input type="hidden" name="token" value="{{ $token  }}">

@@ -7,7 +7,7 @@
 <div class="container mx-auto">
     <div class="header-container">
         <div class="login-box">
-            <h2 class="font-semibold">{{ __('auth/email.title') }}</h2>
+            <h2 class="font-semibold" data-title="{{ __('auth/email.title') }}">{{ __('auth/email.title') }}</h2>
             <form method="POST" action="{{ route('password.email') }}" class="form">
                 @csrf
                 <div class="form--input-box">
