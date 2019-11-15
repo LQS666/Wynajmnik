@@ -52,7 +52,9 @@ class LoginController extends Controller
             'last_login_at' => now()
         ]);
 
-        session()->flash('sweet.success', trans('message.login'));
+        session()->flash('sweet.success', trans('message.login', [
+            'name' => $user->name
+        ]));
     }
 
     /**

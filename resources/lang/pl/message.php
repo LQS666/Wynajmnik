@@ -1,10 +1,8 @@
 <?php
 
 return [
-
-    'registered' => 'Zostałeś zarejestrowany i zalogowany!',
-    'login' => 'Zostałeś poprawnie zalogowany!',
-    'logout' => 'Zostałeś poprawanie wylogowany!',
-    'passwordChanged' => 'Twoje hasło zostało zmienione!',
-
+    'registered' => 'Witaj :name!#Zostałeś poprawnie zarejestrowany i zalogowany!',
+    'login' => 'Witaj :name!#Zostałeś poprawnie zalogowany!',
+    'logout' => 'Do zobaczenia!#Zostałeś poprawanie wylogowany!',
+    'passwordChanged' => 'Sukces!#Twoje hasło zostało zmienione!',
 ];

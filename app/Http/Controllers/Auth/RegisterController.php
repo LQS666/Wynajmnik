@@ -90,6 +90,8 @@ class RegisterController extends Controller
             'last_login_at' => now()
         ]);
 
-        session()->flash('sweet.success', trans('message.registered'));
+        session()->flash('sweet.success', trans('message.registered', [
+            'name' => $user->name
+        ]));
     }
 }

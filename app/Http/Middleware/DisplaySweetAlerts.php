@@ -8,13 +8,19 @@ use RealRashid\SweetAlert\Facades\Alert;
 class DisplaySweetAlerts
 {
     private function prepare(string $value) {
-        return explode(',', $value);
+        return array_map('trim', explode('#', $value));
     }
 
     private function success($value) {
         $value = $this->prepare($value);
 
         Alert::success($value[0], !empty($value[1]) ? $value[1] : $value[0]);
+    }
+
+    private function info(string $value) {
+        $value = $this->prepare($value);
+
+        Alert::info($value[0], !empty($value[1]) ? $value[1] : $value[0]);
     }
 
     /**

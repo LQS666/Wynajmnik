@@ -13,9 +13,9 @@ return [
     |
     */
 
-    'reset' => 'Twoje hasło zostało zresetowane!',
-    'sent' => 'Na podany przez Ciebie adres e-mail wysłaliśmy link do zresetowania hasła!',
-    'token' => 'Token zmiany hasła jest nieważny.',
+    'reset' => 'Sukces!#Twoje hasło zostało zmienione!',
+    'sent' => 'Uwaga!#Na podany przez Ciebie adres e-mail, wysłaliśmy link do zresetowania hasła!',
+    'token' => 'Nieprawidłowy token!',
     'user' => 'Nie możemy znaleźć użytkownika o podanym adresie e-mail.',
 
 ];
