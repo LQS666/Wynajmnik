@@ -1,0 +1,106 @@
+header {
+    background: rgb(248,248,255);
+    background: linear-gradient(0deg, rgba(248,248,255,1) 0%, rgba(255,255,255,1) 100%);
+}
+
+$primary-color: #607D8B;
+
+.header-container {
+    @apply mx-auto relative;
+    height: 60vh;
+    @media screen and (min-width: 768px) {
+        height: 90vh;
+    }
+    &__item1 {
+        @apply absolute;
+        bottom: 0;
+        left: -50px;
+        @media screen and (min-width: 768px) {
+            left: -250px;
+        }
+    }
+    &__item2 {
+        @apply absolute;
+        top: 0;
+        right: 50%;
+        transform: translateX(50%);
+        @media screen and (min-width: 768px) {
+            top: auto;
+            right: 0;
+            transform: translateX(0);
+        }
+    }
+    &__title {
+        @apply hidden text-5xl font-bold text-right text-gray-800;
+        @media screen and (min-width: 768px) {
+            @apply block;
+        }
+    }
+    &__desc {
+        @apply hidden mb-12 mt-1 text-right text-gray-600;
+        @media screen and (min-width: 768px) {
+            @apply block;
+        }
+    }
+    &__other {
+        @apply mt-6 mr-5 text-right;
+        a {
+            @apply inline-block text-sm px-4 py-2 leading-none border rounded text-purple-second border-purple-second;
+            &:hover {
+                @apply border-indigo-700 text-white bg-indigo-500;
+            }
+        }
+        span {
+            @apply mr-1;
+        }
+    }
+    &__searchbar {
+        @apply flex mx-auto my-0 mt-6 border-2 rounded border-purple-second;
+        flex: 1;
+        width: 320px;
+        box-shadow: 0 7px 14px rgba(0, 0, 0, 0.12), 0 5px 5px rgba(0, 0, 0, 0.12);
+        @media screen and (min-width: 350px) {
+            width: 350px;
+        }
+        @media screen and (min-width: 768px) {
+            @apply mt-0;
+            width: 700px;
+        }
+        .search {
+            @apply flex items-center bg-white;
+            flex: 1;
+            .search__input {
+                @apply flex pl-3 relative border-none outline-none;
+                flex: 1;
+                letter-spacing: .07rem;
+                transition: background .5s;
+                @media screen and (min-width: 768px) {
+                    @apply pl-16;
+                    background: url(../images/search.png) no-repeat 1rem 50%;
+                    background-size: 2rem;
+                    &:focus {
+                        background: url(../images/search.png) no-repeat 1rem 40% ;
+                        background-size: 2.5rem;
+                    }
+                }
+            }
+            .search__btn {
+                @apply uppercase font-bold cursor-pointer text-white border-0;
+                margin: 6px;
+                padding: 12px 10px;
+                border-radius: 6px;
+                background-size: 200%;
+                background-image: linear-gradient(315deg, #6e72fc 0%, #ad1deb 74%);
+                transition: background .5s;
+                @media screen and (min-width: 768px) {
+                    margin: 8px 16px;
+                    padding: 12px 50px;
+                }
+                &:hover {
+                    background-position: right;
+                }
+            }
+        }
+    }
+}
+

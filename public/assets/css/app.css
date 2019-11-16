@@ -11661,6 +11661,10 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 
+input:required {
+  box-shadow: none;
+}
+
 ::-moz-selection {
   color: #fff;
   background-color: #6C63FF;
@@ -12135,6 +12139,205 @@ a {
 .nav-active .nav__list-item:nth-child(6) {
   -webkit-transition-delay: 1.3s;
           transition-delay: 1.3s;
+}
+
+header {
+  background: ghostwhite;
+  background: -webkit-gradient(linear, left bottom, left top, from(ghostwhite), to(white));
+  background: linear-gradient(0deg, ghostwhite 0%, white 100%);
+}
+
+.header-container {
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  height: 60vh;
+}
+
+@media screen and (min-width: 768px) {
+  .header-container {
+    height: 90vh;
+  }
+}
+
+.header-container__item1 {
+  position: absolute;
+  bottom: 0;
+  left: -50px;
+}
+
+@media screen and (min-width: 768px) {
+  .header-container__item1 {
+    left: -250px;
+  }
+}
+
+.header-container__item2 {
+  position: absolute;
+  top: 0;
+  right: 50%;
+  -webkit-transform: translateX(50%);
+          transform: translateX(50%);
+}
+
+@media screen and (min-width: 768px) {
+  .header-container__item2 {
+    top: auto;
+    right: 0;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+.header-container__title {
+  display: none;
+  font-size: 3rem;
+  font-weight: 700;
+  text-align: right;
+  color: #2d3748;
+}
+
+@media screen and (min-width: 768px) {
+  .header-container__title {
+    display: block;
+  }
+}
+
+.header-container__desc {
+  display: none;
+  margin-bottom: 3rem;
+  margin-top: 0.25rem;
+  text-align: right;
+  color: #718096;
+}
+
+@media screen and (min-width: 768px) {
+  .header-container__desc {
+    display: block;
+  }
+}
+
+.header-container__other {
+  margin-top: 1.5rem;
+  margin-right: 1.25rem;
+  text-align: right;
+}
+
+.header-container__other a {
+  display: inline-block;
+  font-size: 0.875rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  line-height: 1;
+  border-width: 1px;
+  border-radius: 0.25rem;
+  color: #6C63FF;
+  border-color: #6C63FF;
+}
+
+.header-container__other a:hover {
+  border-color: #4c51bf;
+  color: #fff;
+  background-color: #667eea;
+}
+
+.header-container__other span {
+  margin-right: 0.25rem;
+}
+
+.header-container__searchbar {
+  display: -webkit-box;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-top: 1.5rem;
+  border-width: 2px;
+  border-radius: 0.25rem;
+  border-color: #6C63FF;
+  -webkit-box-flex: 1;
+          flex: 1;
+  width: 320px;
+  box-shadow: 0 7px 14px rgba(0, 0, 0, 0.12), 0 5px 5px rgba(0, 0, 0, 0.12);
+}
+
+@media screen and (min-width: 350px) {
+  .header-container__searchbar {
+    width: 350px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .header-container__searchbar {
+    margin-top: 0;
+    width: 700px;
+  }
+}
+
+.header-container__searchbar .search {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+  background-color: #fff;
+  -webkit-box-flex: 1;
+          flex: 1;
+}
+
+.header-container__searchbar .search .search__input {
+  display: -webkit-box;
+  display: flex;
+  padding-left: 0.75rem;
+  position: relative;
+  border-style: none;
+  outline: 0;
+  -webkit-box-flex: 1;
+          flex: 1;
+  letter-spacing: 0.07rem;
+  -webkit-transition: background 0.5s;
+  transition: background 0.5s;
+}
+
+@media screen and (min-width: 768px) {
+  .header-container__searchbar .search .search__input {
+    padding-left: 4rem;
+    background: url(../images/search.png) no-repeat 1rem 50%;
+    background-size: 2rem;
+  }
+
+  .header-container__searchbar .search .search__input:focus {
+    background: url(../images/search.png) no-repeat 1rem 40%;
+    background-size: 2.5rem;
+  }
+}
+
+.header-container__searchbar .search .search__btn {
+  text-transform: uppercase;
+  font-weight: 700;
+  cursor: pointer;
+  color: #fff;
+  border-width: 0;
+  margin: 6px;
+  padding: 12px 10px;
+  border-radius: 6px;
+  background-size: 200%;
+  background-image: linear-gradient(315deg, #6e72fc 0%, #ad1deb 74%);
+  -webkit-transition: background 0.5s;
+  transition: background 0.5s;
+}
+
+@media screen and (min-width: 768px) {
+  .header-container__searchbar .search .search__btn {
+    margin: 8px 16px;
+    padding: 12px 50px;
+  }
+}
+
+.header-container__searchbar .search .search__btn:hover {
+  background-position: right;
 }
 
 @media (min-width: 640px){
