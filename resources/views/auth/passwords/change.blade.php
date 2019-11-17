@@ -8,7 +8,7 @@
     <div class="header-container">
         <div class="login-box">
             <h2 class="font-semibold" data-title="{{ __('auth/change.title') }}">{{ __('auth/change.title') }}</h2>
-            <form method="POST" action="{{ route('password.change') }}" class="form">
+            <form method="POST" action="{{ route('my-account.password-change') }}" class="form">
                 @csrf
                 <div class="form--input-box">
                     <label for="email">{{ __('auth/change.passwordOld') }}</label>

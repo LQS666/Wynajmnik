@@ -1,31 +1,27 @@
 <?php
 
-Route::group(['namespace' => 'Auth'], function() {
+Route::group(['prefix' => '', 'namespace' => 'Auth'], function() {
 
     // Register
-    Route::get('/account/register', 'RegisterController@showRegistrationForm')->name('account.register');
-    Route::post('/account/register', 'RegisterController@register');
+    Route::get('/register', 'RegisterController@showRegistrationForm')->name('register');
+    Route::post('/register', 'RegisterController@register');
 
     // Login
-    Route::get('/account/login', 'LoginController@showLoginForm')->name('account.login');
-    Route::post('/account/login', 'LoginController@login');
+    Route::get('/login', 'LoginController@showLoginForm')->name('login');
+    Route::post('/login', 'LoginController@login');
 
     // Logout
-    Route::get('/account/logout', 'LoginController@logout')->name('account.logout');
+    Route::get('/logout', 'LoginController@logout')->name('logout');
 
     // Password reset
-    Route::get('/account/password/reset', 'ForgotPasswordController@showLinkRequestForm')->name('password.request');
-    Route::get('/account/password/reset/{token}', 'ResetPasswordController@showResetForm')->name('password.reset');
-    Route::post('/account/password/reset', 'ResetPasswordController@reset')->name('password.update');
-    Route::post('/account/password/email', 'ForgotPasswordController@sendResetLinkEmail')->name('password.email');
-
-    // Password change
-    Route::get('/account/password/change', 'ChangePasswordController@showChangeForm')->name('password.change');
-    Route::post('/account/password/change', 'ChangePasswordController@change');
+    Route::get('/password/reset', 'ForgotPasswordController@showLinkRequestForm')->name('password.request');
+    Route::get('/password/reset/{token}', 'ResetPasswordController@showResetForm')->name('password.reset');
+    Route::post('/password/reset', 'ResetPasswordController@reset')->name('password.update');
+    Route::post('/password/email', 'ForgotPasswordController@sendResetLinkEmail')->name('password.email');
 
     // E-mail verification
-    Route::get('/account/email/resend', 'VerificationController@resend')->name('verification.resend');
-    Route::get('/account/email/verify', 'VerificationController@show')->name('verification.notice');
-    Route::get('/account/email/verify/{id}/{hash}', 'VerificationController@verify')->name('verification.verify');
+    Route::get('/email/resend', 'VerificationController@resend')->name('verification.resend');
+    Route::get('/email/verify', 'VerificationController@show')->name('verification.notice');
+    Route::get('/email/verify/{id}/{hash}', 'VerificationController@verify')->name('verification.verify');
 
 });

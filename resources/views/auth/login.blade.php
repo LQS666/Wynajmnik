@@ -8,7 +8,7 @@
     <div class="header-container">
         <div class="login-box">
             <h2 class="font-semibold" data-title="{{ __('auth/login.title') }}">{{ __('auth/login.title') }}</h2>
-            <form method="POST" action="{{ route('account.login') }}" class="form">
+            <form method="POST" action="{{ route('login') }}" class="form">
                 @csrf
                 <div class="form--input-box">
                     <label for="email">{{ __('auth/login.email') }}</label>
@@ -23,7 +23,7 @@
                         <a href="{{ route('password.request') }}">{{ __('auth/login.reset') }}</a>
                     </div>
                     <div>
-                        {{ __('auth/login.registerQuestion') }} <a href="{{ route('account.register') }}">{{ __('auth/login.register') }}</a>
+                        {{ __('auth/login.registerQuestion') }} <a href="{{ route('register') }}">{{ __('auth/login.register') }}</a>
                     </div>
                 </div>
                 <button type="submit" class="button button--block">{{ __('auth/login.submit') }}</button>

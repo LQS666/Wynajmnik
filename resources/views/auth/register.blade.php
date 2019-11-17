@@ -8,7 +8,7 @@
     <div class="header-container">
         <div class="login-box">
             <h2 class="font-semibold" data-title="{{ __('auth/register.title') }}">{{ __('auth/register.title') }}</h2>
-            <form method="POST" action="{{ route('account.register') }}" class="form">
+            <form method="POST" action="{{ route('register') }}" class="form">
                 @csrf
                 <div class="form--input-box">
                     <label for="email">{{ __('auth/register.email') }}</label>

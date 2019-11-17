@@ -40,6 +40,8 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapWebRoutes();
 
         $this->mapAuthRoutes();
+
+        $this->mapMyAccountRoutes();
     }
 
     /**
@@ -74,7 +76,7 @@ class RouteServiceProvider extends ServiceProvider
     /**
      * Define the "auth" routes for the application.
      *
-     * These routes all receive the same same as web routes
+     * These routes all receive the same middlewares as web routes
      *
      * @return void
      */
@@ -83,5 +85,19 @@ class RouteServiceProvider extends ServiceProvider
         Route::middleware(['web', 'auth'])
              ->namespace($this->namespace)
              ->group(base_path('routes/auth.php'));
+    }
+
+    /**
+     * Define the "my-account" routes for the application.
+     *
+     * These routes all receive the same middlewares as web routes
+     *
+     * @return void
+     */
+    protected function mapMyAccountRoutes()
+    {
+        Route::middleware(['web', 'my-account'])
+             ->namespace($this->namespace)
+             ->group(base_path('routes/my-account.php'));
     }
 }

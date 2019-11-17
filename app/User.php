@@ -38,4 +38,8 @@ class User extends Authenticatable implements MustVerifyEmail
         'birth_date' => 'date',
         'last_login_at' => 'datetime'
     ];
+
+    public function addresses() {
+        return $this->hasMany(UserAddress::class);
+    }
 }

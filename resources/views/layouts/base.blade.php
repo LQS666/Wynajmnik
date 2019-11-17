@@ -27,7 +27,7 @@
                     </div>
                     @guest
                     <div class="text-sm flex-grow">
-                        <a href="{{ route('account.login') }}" class="inline-block mt-0 mr-8 text-purple-second hover:text-indigo-700 transition">{{ __('base.login') }}</a>
+                        <a href="{{ route('login') }}" class="inline-block mt-0 mr-8 text-purple-second hover:text-indigo-700 transition">{{ __('base.login') }}</a>
                     </div>
                     @endguest
                     @auth
@@ -45,10 +45,10 @@
                             <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-indigo-500 hover:text-white rounded font-normal">{{ __('base.myItems') }}</a>
                             <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-indigo-500 hover:text-white rounded font-normal">{{ __('base.myOffers') }}</a>
                             <div class="w-full border-gray-200 border-b-2"></div>
-                            <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-indigo-500 hover:text-white rounded font-normal">{{ __('base.myAccount') }}</a>
-                            <a href="{{ route('password.change') }}" class="block px-4 py-2 text-gray-700 hover:bg-indigo-500 hover:text-white rounded font-normal">{{ __('base.passwordChange') }}</a>
+                            <a href="{{ route('my-account.profile') }}" class="block px-4 py-2 text-gray-700 hover:bg-indigo-500 hover:text-white rounded font-normal">{{ __('base.myAccount') }}</a>
+                            <a href="{{ route('my-account.password-change') }}" class="block px-4 py-2 text-gray-700 hover:bg-indigo-500 hover:text-white rounded font-normal">{{ __('base.passwordChange') }}</a>
                             <div class="w-full border-gray-200 border-b-2"></div>
-                            <a href="{{ route('account.logout') }}" class="block px-4 py-2 text-gray-700 hover:bg-indigo-500 hover:text-white rounded font-normal">{{ __('base.logout') }}</a>
+                            <a href="{{ route('logout') }}" class="block px-4 py-2 text-gray-700 hover:bg-indigo-500 hover:text-white rounded font-normal">{{ __('base.logout') }}</a>
                         </div>
                     </div>
                     @endauth
@@ -73,12 +73,12 @@
                         @auth <li class="nav__list-item"><a href="#">{{ __('base.addItem') }}</a></li> @endauth
                                 <li class="nav__list-item"><a href="#">{{ __('base.offers') }}</a></li>
                                 <li class="nav__list-item"><a href="#">{{ __('base.map') }}</a></li>
-                        @auth <li class="nav__list-item"><a href="#">{{ __('base.myAccount') }}</a></li> @endauth
+                        @auth <li class="nav__list-item"><a href="{{ route('my-account.profile') }}">{{ __('base.myAccount') }}</a></li> @endauth
 
                         @guest
-                            <li class="nav__list-item"><a href="{{ route('account.login') }}">{{ __('base.login') }}</a></li>
+                            <li class="nav__list-item"><a href="{{ route('login') }}">{{ __('base.login') }}</a></li>
                         @else
-                            <li class="nav__list-item"><a href="{{ route('account.logout') }}">{{ __('base.logout') }}</a></li>
+                            <li class="nav__list-item"><a href="{{ route('logout') }}">{{ __('base.logout') }}</a></li>
                         @endguest
                     </ul>
                 </div>
