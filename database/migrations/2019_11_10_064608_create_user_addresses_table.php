@@ -20,7 +20,7 @@ class CreateUserAddressesTable extends Migration
             $table->string('home_number', 10);
             $table->string('apartment_number', 10)->nullable();
             $table->string('city');
-            $table->char('zip_code', 5);
+            $table->string('zip_code', 6);
             $table->decimal('latitude', 9, 7)->nullable();
             $table->decimal('longitude', 10, 7)->nullable();
             $table->timestamps();
