@@ -17,9 +17,11 @@ module.exports = {
         black: '#000',
         white: '#fff',
 
-        'purple-main': '#EEEDFC',
-        'purple-second': '#6C63FF',
+        'purple-main': '#eeedfc',
+        'purple-second': '#6c63ff',
+        'purple-third': '#f8f9ff',
         'green-main': '#2ecc71',
+        'gray-main': '#fcfcfc',
       },
     },
   },
