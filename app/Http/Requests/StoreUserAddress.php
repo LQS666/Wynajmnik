@@ -13,10 +13,6 @@ class StoreUserAddress extends FormRequest
      */
     public function authorize()
     {
-        //
-        // $comment = Comment::find($this->route('comment')); => Route::post('comment/{comment}');
-        // $this->user()->can('update', )
-        //
         return true;
     }
 

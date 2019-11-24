@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
 
@@ -25,8 +26,9 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //TODO Gate
-        //Gate::define('update-account', function ($account, $id) {
-        //});
+        // If passed model belongs to user
+        Gate::define('update-this', function ($user, Model $model) {
+            return $user->id === $model->user_id;
+        });
     }
 }
