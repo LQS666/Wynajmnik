@@ -25,6 +25,8 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        //TODO Gate
+        //Gate::define('update-account', function ($account, $id) {
+        //});
     }
 }

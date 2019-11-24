@@ -44,4 +44,6 @@ class DisplaySweetAlerts
 
         return $next($request);
     }
+
+    // TODO public function terminate($request, $response)
 }

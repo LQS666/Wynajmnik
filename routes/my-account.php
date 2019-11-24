@@ -1,9 +1,12 @@
 <?php
 
+// TODO Route::name('my-account')->group
 Route::group(['prefix' => 'my-account', 'namespace' => 'MyAccount'], function() {
 
     // My Account
-    Route::get('/profile', 'MyAccountController@show')->name('my-account.profile');
+    Route::get('/', 'MyAccountController')->name('my-account.profile');
+    Route::post('/account-change', 'ChangeAccountController@change')->name('my-account.account-change');
+    Route::post('/password-change', 'ChangePasswordController@change')->name('my-account.password-change');
 
     // Offers
     //Route::get('/offers', 'OffersController@show')->name('my-account.offers');
@@ -11,12 +14,8 @@ Route::group(['prefix' => 'my-account', 'namespace' => 'MyAccount'], function() 
     // Addresses
     Route::get('/addresses', 'UserAddressController@index')->name('my-account.addresses');
     Route::post('/addresses', 'UserAddresscController@store');
-    Route::get('/addresses/{id}', 'UserAddressController@edit')->where('id', '[0-9]');
-    Route::delete('/addresses/{id}', 'UserAddressController@destroy')->where('id', '[0-9]');
-    Route::patch('/addresses/{id}', 'UserAddresscController@update')->where('id', '[0-9]');
-
-    // Password change
-    Route::get('/password-change', 'ChangePasswordController@showChangeForm')->name('my-account.password-change');
-    Route::post('/password-change', 'ChangePasswordController@change');
+    Route::get('/addresses/{id}', 'UserAddressController@edit');
+    Route::delete('/addresses/{id}', 'UserAddressController@destroy');
+    Route::patch('/addresses/{id}', 'UserAddresscController@update');
 
 });

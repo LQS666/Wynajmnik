@@ -7,7 +7,12 @@ use Illuminate\Http\Request;
 
 class MyAccountController extends Controller
 {
-    public function show() {
-        return dd('MOJE KONTO - PROFIL');
+    public function __construct()
+    {
+        // auth middleware defined for group in RouteServiceProvider
+    }
+
+    public function __invoke() {
+        return view('my-account.profile');
     }
 }

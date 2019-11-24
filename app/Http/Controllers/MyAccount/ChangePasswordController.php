@@ -12,11 +12,11 @@ class ChangePasswordController extends Controller
     use ChangePasswords;
 
     /**
-     * Where to redirect users after resetting their password.
+     * Where to redirect users after changing their password.
      *
      * @var string
      */
-    protected $redirectTo = '/account/password/change';
+    protected $redirectTo = '/my-account';
 
     /**
      * Create a new controller instance.
@@ -25,7 +25,7 @@ class ChangePasswordController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        // auth middleware defined for group in RouteServiceProvider
     }
 
     /**

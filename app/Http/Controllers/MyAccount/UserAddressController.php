@@ -3,11 +3,10 @@
 namespace App\Http\Controllers\MyAccount;
 
 use App\Http\Controllers\Controller;
-use App\User;
+use App\Http\Requests\StoreUserAddress;
 use App\UserAddress;
 use Illuminate\Foundation\Auth\RedirectsUsers;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
 
 class UserAddressController extends Controller
 {
@@ -20,23 +19,9 @@ class UserAddressController extends Controller
      */
     protected $redirectTo = '/my-account/addresses';
 
-    /**
-     * Get a validator for an incoming change request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    protected function validator(array $data)
+    public function __construct()
     {
-        return Validator::make($data, [
-            'street' => ['required', 'string', 'max:255'],
-            'home_number' => ['required', 'string', 'max:10'],
-            'apartment_number' => ['nullable', 'string', 'max:10'],
-            'city' => ['required', 'string', 'max:255'],
-            'zip_code' => ['required', 'string', 'max:6'],
-            'latitude' => ['nullable', 'numeric', 'between:-90,00.90,00'],
-            'longitude' => ['nullable', 'numeric', 'between:-90,00.90,00']
-        ]);
+        // auth middleware defined for group in RouteServiceProvider
     }
 
     /**
@@ -58,12 +43,12 @@ class UserAddressController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\StoreUserAddress  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreUserAddress $request)
     {
-        $this->validator($request->all())->validate();
+        // $request->validated();
 
         UserAddress::create([
             'user_id' => $request->user()->id,
@@ -86,7 +71,7 @@ class UserAddressController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Request $request, $id)
+    public function edit(Request $request, $id) // TODO Request $request, UserAddress $address
     {
         $address = UserAddress::user($request->user()->id)
                               ->findOrFail($id);
@@ -103,7 +88,7 @@ class UserAddressController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id) // TODO Request $request, UserAddress $address
     {
         UserAddress::user($request->user()->id)
                    ->findOrFail($id);
@@ -123,7 +108,7 @@ class UserAddressController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request, $id)
+    public function destroy(Request $request, $id) // TODO Request $request, UserAddress $address
     {
         $address = UserAddress::user($request->user()->id)
                               ->findOrFail($id);
