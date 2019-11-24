@@ -13,6 +13,8 @@
 @import "./form";
 @import "./menu";
 
-// Pages
-@import "./welcome";
-@import "./dashboard";
+// Homepage
+@import "./home/welcome";
+
+// Dashboard
+@import "./dashboard/index";

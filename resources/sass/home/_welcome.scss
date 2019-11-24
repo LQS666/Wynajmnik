@@ -3,8 +3,6 @@ header {
     background: linear-gradient(0deg, rgba(248,248,255,1) 0%, rgba(255,255,255,1) 100%);
 }
 
-$primary-color: #607D8B;
-
 .header-container {
     @apply mx-auto relative;
     height: 60vh;
