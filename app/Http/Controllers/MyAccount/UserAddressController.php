@@ -48,18 +48,9 @@ class UserAddressController extends Controller
      */
     public function store(StoreUserAddress $request)
     {
-        // $request->validated();
-
-        UserAddress::create([
-            'user_id' => $request->user()->id,
-            'street' => $request->street,
-            'home_number' => $request->home_number,
-            'apartment_number' => $request->apartment_number,
-            'city' => $request->city,
-            'zip_code' => $request->zip_code,
-            'latitude' => $request->latitude,
-            'longitude' => $request->longitude
-        ]);
+        UserAddress::create(
+            Arr::add($request->validated(), 'user_id', $request->user()->id)
+        );
 
         return redirect($this->redirectPath())
                              ->with('sweet.success', trans('message.addressAdded'));
@@ -68,15 +59,14 @@ class UserAddressController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\UserAddress  $address
      * @return \Illuminate\Http\Response
      */
-    public function edit(Request $request, $id) // TODO Request $request, UserAddress $address
+    public function edit(UserAddress $address)
     {
-        $address = UserAddress::user($request->user()->id)
-                              ->findOrFail($id);
+        $this->authorize('update-this', $address);
 
-        return view('my-account.edit', [
+        return view('my-account.address', [
             'address' => $address
         ]);
     }
@@ -84,19 +74,16 @@ class UserAddressController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Http\Requests\StoreUserAddress  $request
+     * @param  \App\UserAddress  $address
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id) // TODO Request $request, UserAddress $address
+    public function update(StoreUserAddress $request, UserAddress $address)
     {
-        UserAddress::user($request->user()->id)
-                   ->findOrFail($id);
+        $this->authorize('update-this', $address);
 
-        $this->validator($request->all())->validate();
-
-        UserAddress::where('id', $id)
-                   ->update((array) $request->user());
+        $address->fill($request->validated());
+        $address->save();
 
         return redirect($this->redirectPath())
                              ->with('sweet.success', trans('message.addressUpdated'));
@@ -105,13 +92,13 @@ class UserAddressController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\UserAddress  $address
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request, $id) // TODO Request $request, UserAddress $address
+    public function destroy(UserAddress $address)
     {
-        $address = UserAddress::user($request->user()->id)
-                              ->findOrFail($id);
+        $this->authorize('update-this', $address);
+
         $address->delete();
 
         return redirect($this->redirectPath())
