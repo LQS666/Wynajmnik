@@ -39,7 +39,6 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris et libero porta,
 ## Technologie
 
 * Laravel 6.0
-* Vue
 * SCSS
 * TailwindCSS
 

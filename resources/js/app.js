@@ -6,7 +6,7 @@ window.addEventListener('load', () => {
 });
 
 // Mobile Menu
-(function () {
+window.addEventListener('DOMContentLoaded', () => {
     const body = document.querySelector('body');
     const menu = document.querySelector('.menu-icon');
 
@@ -20,21 +20,4 @@ window.addEventListener('load', () => {
         });
     };
     animateMobileMenu();
-})();
-
-// Mobile Sidebar Dashboard
-(function () {
-    const menuIconEl = document.querySelector('.sidebar-icon');
-    const sidenavEl = document.querySelector('.sidenav');
-
-    const animateSidebar = function init() {
-        menuIconEl.addEventListener('click', () => {
-            if (sidenavEl.classList.contains('active')) {
-                sidenavEl.classList.remove('active');
-            } else {
-                sidenavEl.classList.add('active');
-            }
-        });
-    };
-    animateSidebar();
-})();
+});

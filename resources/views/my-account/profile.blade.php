@@ -1,8 +1,8 @@
 @extends('layouts.admin')
 
-@section('title', __('dashboard/change.title'))
+@section('title', __('dashboard/profile.title'))
 
-@section('content')
+@section('profile')
 
 
 

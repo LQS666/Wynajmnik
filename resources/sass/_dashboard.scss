@@ -8,13 +8,6 @@
     padding-top: 70px;
 }
 
-.sidebar-icon {
-    @apply flex items-center justify-center text-purple-second font-semibold cursor-pointer p-3 bg-purple-third;
-
-    @media screen and (min-width: 768px) {
-        @apply hidden;
-    }
-}
 
 .sidenav {
     @apply flex flex-col h-full fixed bg-white border border-gray-200 overflow-y-auto z-10;
@@ -23,84 +16,92 @@
     transform: translateX(-245px);
     box-shadow: 0 5px 15px 0 hsla(0, 2%, 49%, .14);
     transition: all .6s ease-in-out;
-}
 
-.sidenav.active {
-    transform: translateX(0);
-}
-
-
-.sidenav__list {
-    @apply p-6 list-none mt-12;
-}
-
-.sidenav__list-item {
-    @apply block p-2 my-1 rounded;
-    transition: all .2s ease-in-out;
-    &:hover {
-        @apply bg-gray-200;
-    }
-    &:hover > a {
-        @apply text-gray-800;
-        svg {
-
-            path,
-            circle {
-                fill: #2d3748;
-            }
-        }
+    &.active {
+        transform: translateX(0);
     }
 
-    a {
-        @apply flex items-center justify-start text-gray-500 text-sm no-underline;
-        transition: color .2s ease;
+    .sidenav-list {
+        @apply p-6 list-none mt-12;
 
-        svg {
-            @apply block mr-3;
+        &__item {
+            @apply block p-0 my-1;
 
-            path,
-            circle {
-                fill: #a0aec0;
-                transition: fill .2s ease;
-            }
-        }
+            a {
+                @apply flex items-center p-2 justify-start text-gray-500 text-sm no-underline rounded;
+                transition: all .2s ease;
 
-        &.active {
-            @apply text-purple-second;
+                &:hover {
+                    @apply text-gray-800 bg-gray-200;
 
-            svg {
+                    svg {
 
-                path,
-                circle {
-                    fill: #6C63FF;
+                        path,
+                        circle {
+                            fill: #2d3748;
+                        }
+                    }
+                }
+
+                svg {
+                    @apply block mr-3;
+
+                    path,
+                    circle {
+                        fill: #a0aec0;
+                        transition: fill .2s ease;
+                    }
+                }
+
+                &.active {
+                    @apply text-purple-second;
+
+                    svg {
+
+                        path,
+                        circle {
+                            fill: #6C63FF;
+                        }
+                    }
                 }
             }
         }
     }
 }
 
+
 .main {
     @apply bg-gray-main;
     grid-area: main;
+
+    .sidebar-icon {
+        @apply flex items-center justify-center text-purple-second font-semibold cursor-pointer p-3 bg-purple-third;
+
+        @media screen and (min-width: 768px) {
+            @apply hidden;
+        }
+    }
+
+    .main-header {
+        @apply flex justify-between bg-yellow-400 border border-gray-200 text-gray-800 px-6 py-8 m-6;
+        box-shadow: 0 5px 15px 0 hsla(0, 2%, 49%, .14);
+        border-radius: 8px;
+
+        @media screen and (min-width: 768px) {
+            @apply mx-12 my-6;
+        }
+
+        span {
+            @apply font-semibold;
+        }
+
+        &:hover {
+            @apply text-gray-700;
+        }
+    }
 }
 
-.main-header {
-    @apply flex justify-between bg-yellow-400 border border-gray-200 text-gray-800 px-6 py-8 m-6;
-    box-shadow: 0 5px 15px 0 hsla(0, 2%, 49%, .14);
-    border-radius: 8px;
 
-    @media screen and (min-width: 768px) {
-        @apply mx-12 my-6;
-    }
-
-    span {
-        @apply font-semibold;
-    }
-
-    &:hover {
-        @apply text-gray-700;
-    }
-}
 
 .main-statistics-panel {
     @apply m-6;
@@ -139,7 +140,7 @@
 
     &__profile {
         @apply py-16;
-        min-height: 550px;
+        min-height: 580px;
 
         .form--input-box {
             @apply flex-1;

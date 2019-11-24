@@ -1,7 +1,7 @@
 @extends('layouts.base')
 
 @section('content')
-    <header>
+    <header style="padding-top:80px">
         <div class="header-container container">
             <div class="header-container__item1 header-container__img">
                 <img class="" src="{{ asset('/assets/images/header.svg') }}" alt="Header">

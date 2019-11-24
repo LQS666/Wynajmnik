@@ -9,8 +9,9 @@ return [
     'logout' => 'Wyloguj się',
     'addItem' => 'Dodaj przedmiot',
     'myItems' => 'Moje przedmioty',
-    'myOffers' => 'Moje oferty',
+    'myOffers' => 'Złożone oferty',
     'myAccount' => 'Ustawienia',
+    'payment' => 'Płatności',
     'passwordChange' => 'Zmiana hasła',
     'rights' => 'Wszelkie prawa zastrzeżone',
 ];

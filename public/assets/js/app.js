@@ -19321,7 +19321,7 @@ window.addEventListener('load', function () {
   new _Form__WEBPACK_IMPORTED_MODULE_0__["default"]('.form');
 }); // Mobile Menu
 
-(function () {
+window.addEventListener('DOMContentLoaded', function () {
   var body = document.querySelector('body');
   var menu = document.querySelector('.menu-icon');
 
@@ -19336,25 +19336,7 @@ window.addEventListener('load', function () {
   };
 
   animateMobileMenu();
-})(); // Mobile Sidebar Dashboard
-
-
-(function () {
-  var menuIconEl = document.querySelector('.sidebar-icon');
-  var sidenavEl = document.querySelector('.sidenav');
-
-  var animateSidebar = function init() {
-    menuIconEl.addEventListener('click', function () {
-      if (sidenavEl.classList.contains('active')) {
-        sidenavEl.classList.remove('active');
-      } else {
-        sidenavEl.classList.add('active');
-      }
-    });
-  };
-
-  animateSidebar();
-})();
+});
 
 /***/ }),
 
