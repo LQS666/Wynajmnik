@@ -10,6 +10,7 @@ return [
     'addItem' => 'Dodaj przedmiot',
     'myItems' => 'Moje przedmioty',
     'myOffers' => 'Złożone oferty',
+    'myAddress' => 'Adresy',
     'myAccount' => 'Ustawienia',
     'payment' => 'Płatności',
     'passwordChange' => 'Zmiana hasła',
