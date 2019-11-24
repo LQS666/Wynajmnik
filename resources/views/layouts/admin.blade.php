@@ -12,7 +12,7 @@
         <div class="sidebar-icon">
             <span>Menu</span>
         </div>
-        <div class="main-header">
+        {{-- <div class="main-header">
             <div class="main-header__heading">
                 <span>Drogi Użytkowniku!</span>
                 <p>Dziękujemy za zainteresowanie naszą platformą... lorem ipsum lorem ipsum lorem ipsum lorem ipsum
@@ -20,7 +20,7 @@
                     ipsum</p>
                 <p>Sprawdź proszę nasz regulamin... lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum</p>
             </div>
-        </div>
+        </div> --}}
 
         <div class="main-statistics-panel">
             <div class="statistics-panel">
@@ -41,9 +41,7 @@
             </div>
         </div>
 
-        <div class="main-content-panels">
-            @yield('profile')
-        </div>
+        @yield('profile')
     </main>
 </div>
 
