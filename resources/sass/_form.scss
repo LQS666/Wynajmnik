@@ -51,6 +51,11 @@ a {
             font-size: 0.7rem;
         }
 
+        &[data-title="address"] > label {
+            @apply top-0;
+            font-size: 0.7rem;
+        }
+
         label {
             @apply absolute;
             top: 23px;
