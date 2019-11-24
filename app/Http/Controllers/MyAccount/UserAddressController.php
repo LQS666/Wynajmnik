@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUserAddress;
 use App\UserAddress;
 use Illuminate\Foundation\Auth\RedirectsUsers;
-use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 
 class UserAddressController extends Controller
 {
@@ -29,15 +29,10 @@ class UserAddressController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        $addresses = UserAddress::user($request->user()->id)
-                                ->orderBy('created_at')
-                                ->get();
-
-        return view('my-account.addresses', [
-            'addresses' => $addresses
-        ]);
+        // Values [$addresses] bound to view in ViewServiceProvider
+        return view('my-account.addresses');
     }
 
     /**

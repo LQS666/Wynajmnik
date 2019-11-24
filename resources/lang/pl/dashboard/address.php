@@ -8,5 +8,7 @@ return [
     'zip_code' => 'Kod pocztowy',
     'city' => 'Miasto',
     'save' => 'Zatwierdź',
-    'clear' => 'Wyczyść'
+    'clear' => 'Wyczyść',
+    'delete' => 'Usuń',
+    'return' => 'Powrót'
 ];

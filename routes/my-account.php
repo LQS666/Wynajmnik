@@ -13,9 +13,9 @@ Route::group(['prefix' => 'my-account', 'namespace' => 'MyAccount'], function() 
 
     // Addresses
     Route::get('/addresses', 'UserAddressController@index')->name('my-account.addresses');
-    Route::post('/addresses', 'UserAddresscController@store');
-    Route::get('/addresses/{address}', 'UserAddressController@edit');
+    Route::post('/addresses', 'UserAddressController@store');
+    Route::get('/addresses/{address}', 'UserAddressController@edit')->name('my-account.address');
     Route::delete('/addresses/{address}', 'UserAddressController@destroy');
-    Route::patch('/addresses/{address}', 'UserAddresscController@update');
+    Route::patch('/addresses/{address}', 'UserAddressController@update');
 
 });
