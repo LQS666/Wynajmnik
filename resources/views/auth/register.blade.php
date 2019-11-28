@@ -34,7 +34,7 @@
                     <label for="birth_date">{{ __('auth/register.birth_date') }}</label>
                     <input type="date" name="birth_date" id="birth_date" value="{{ old('birth_date') }}">
                 </div>
-                <button type="submit" class="button button--block">{{ __('auth/register.submit') }}</button>
+                <button type="submit" class="button button--block mt-12">{{ __('auth/register.submit') }}</button>
             </form>
         </div>
     </div>

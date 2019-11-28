@@ -8,7 +8,7 @@
 <div class="main-addresses-panels">
 
     <div class="main-addresses-panel">
-        <h2 class="font-semibold">{{ __('dashboard/address.title') }}</h2>
+        <h2 class="font-semibold">{{ __('dashboard/address.edit') }}</h2>
 
         <div class="container">
             <form method="post" action="{{ route('my-account.address', ['address' => $address['id']]) }}" id="addEditForm" class="form">
@@ -34,16 +34,16 @@
                     <label for="email">{{ __('dashboard/address.city') }}</label>
                     <input type="text" name="city" id="city" value="{{ old('city', $address['city']) }}" />
                 </div>
-                <div class="flex justify-center">
-                    <button id="button_save" class="button button--block">{{ __('dashboard/address.save') }}</button>
-                    <a href="{{ route('my-account.addresses') }}" class="button button--block">{{ __('dashboard/address.return') }}</a>
+                <div class="flex justify-center mt-12">
+                    <button id="button_save" class="button">{{ __('dashboard/address.save') }}</button>
                 </div>
             </form>
             <form method="post" action="{{ route('my-account.address', ['address' => $address['id']]) }}" id="addDeleteForm" class="form">
                 @csrf
                 @method('DELETE')
-                <div class="flex justify-center">
-                    <button id="button_save" class="button button--block">{{ __('dashboard/address.delete') }}</button>
+                <div class="flex">
+                    <a href="{{ route('my-account.addresses') }}" class="button font-normal">{{ __('dashboard/address.return') }}</a>
+                    <button id="button_save" class="button button--danger ml-3">{{ __('dashboard/address.delete') }}</button>
                 </div>
             </form>
         </div>

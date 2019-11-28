@@ -3,7 +3,7 @@
     grid-area: main;
 
     .sidebar-icon {
-        @apply flex items-center justify-center text-purple-second font-semibold cursor-pointer p-3 bg-purple-third;
+        @apply flex items-center justify-center text-purple-second font-semibold cursor-pointer p-3 bg-purple-main;
 
         @media screen and (min-width: 768px) {
             @apply hidden;
@@ -28,7 +28,6 @@
         }
     }
 }
-
 
 
 .main-statistics-panel {

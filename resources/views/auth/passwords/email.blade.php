@@ -14,7 +14,7 @@
                     <label for="email">{{ __('auth/email.email') }}</label>
                     <input type="email" name="email" id="email" autocomplete="off">
                 </div>
-                <button type="submit" class="button button--block">{{ __('auth/email.submit') }}</button>
+                <button type="submit" class="button button--block mt-12">{{ __('auth/email.submit') }}</button>
             </form>
         </div>
     </div>

@@ -1,7 +1,8 @@
 <?php
 
 return [
-    'title' => 'Dane adresowe',
+    'title' => 'Adresy',
+    'edit' => 'Edytuj',
     'street' => 'Ulica',
     'home_number' => 'Numer domu',
     'apartment_number' => 'Numer mieszkania',
@@ -10,5 +11,6 @@ return [
     'save' => 'Zatwierdź',
     'clear' => 'Wyczyść',
     'delete' => 'Usuń',
-    'return' => 'Powrót'
+    'return' => 'Powrót',
+    'add' => 'Dodaj nowy',
 ];

@@ -23,7 +23,7 @@
                     <label for="password">{{ __('auth/reset.passwordNewConfirm') }}</label>
                     <input type="password" name="password_confirmation" id="password_confirmation">
                 </div>
-                <button type="submit" class="button button--block">{{ __('auth/reset.submit') }}</button>
+                <button type="submit" class="button button--block mt-12">{{ __('auth/reset.submit') }}</button>
             </form>
         </div>
     </div>

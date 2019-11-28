@@ -1,7 +1,7 @@
 module.exports = {
   theme: {
     fontFamily: {
-      'sans': ['Montserrat', 'Arial', 'sans-serif'],
+      'sans': ['Roboto', 'Arial', 'sans-serif'],
     },
     extend: {
       opacity: {

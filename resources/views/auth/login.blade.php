@@ -23,10 +23,10 @@
                         <a href="{{ route('password.request') }}">{{ __('auth/login.reset') }}</a>
                     </div>
                     <div>
-                        {{ __('auth/login.registerQuestion') }} <a href="{{ route('register') }}">{{ __('auth/login.register') }}</a>
+                        <span class="block">{{ __('auth/login.registerQuestion') }}</span> <a href="{{ route('register') }}">{{ __('auth/login.register') }}</a>
                     </div>
                 </div>
-                <button type="submit" class="button button--block">{{ __('auth/login.submit') }}</button>
+                <button type="submit" class="button button--block mt-12">{{ __('auth/login.submit') }}</button>
             </form>
         </div>
     </div>

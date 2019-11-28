@@ -103,12 +103,15 @@ a {
 }
 
 .button {
-    @apply border-0 text-white text-lg cursor-pointer mt-12 outline-none ;
+    @apply border-0 text-white text-lg cursor-pointer outline-none px-12;
     background: $color-primary;
     line-height: 2.5;
     border-radius: 50px;
     box-shadow: 0 5px 10px rgba($color-primary, 0.2);
     &--block {
-        @apply block mx-auto px-12;
+        @apply block mx-auto;
+    }
+    &--danger {
+        @apply bg-red-500;
     }
 }

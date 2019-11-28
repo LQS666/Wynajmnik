@@ -28,7 +28,7 @@
                 <input type="date" name="birth_date" id="birth_date"
                     value="{{ old('birth_date', $user['birth_date']->format('Y-m-d')) }}">
             </div>
-            <button type="submit" class="button button--block">{{ __('dashboard/profile.submit') }}</button>
+            <button type="submit" class="button button--block mt-12">{{ __('dashboard/profile.submit') }}</button>
         </form>
     </div>
 
@@ -48,7 +48,7 @@
                 <label for="password">{{ __('dashboard/change.passwordNewConfirm') }}</label>
                 <input type="password" name="password-new_confirmation" id="password-new_confirmation">
             </div>
-            <button type="submit" class="button button--block">{{ __('dashboard/change.submit') }}</button>
+            <button type="submit" class="button button--block mt-12">{{ __('dashboard/change.submit') }}</button>
         </form>
     </div>
 </div>
