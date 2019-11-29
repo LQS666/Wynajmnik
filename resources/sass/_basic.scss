@@ -15,7 +15,7 @@ input:required {
 
 ::selection {
     @apply bg-gray-800 text-white;
-} 
+}
 
 ::-webkit-scrollbar {
     @apply w-2;
@@ -52,6 +52,34 @@ input:required {
 .responsive-container {
     @apply relative overflow-hidden;
     padding-top: 56.25%;
+}
+
+.container {
+    width: 100%;
+}
+
+@media (min-width: 640px) {
+    .container {
+        max-width: 640px;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 768px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        max-width: 1024px;
+    }
+}
+
+@media (min-width: 1280px) {
+    .container {
+        max-width: 1600px;
+    }
 }
 
 .responsive-iframe {

@@ -1,87 +1,88 @@
 header {
-    background: rgb(248,248,255);
-    background: linear-gradient(0deg, rgba(248,248,255,1) 0%, rgba(255,255,255,1) 100%);
+    background: rgb(248, 248, 255);
+    background: linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(248, 248, 255, 1) 100%);
+    padding-top: 80px;
 }
 
-.header-container {
-    @apply mx-auto relative;
-    height: 60vh;
+.header-content {
+    @apply px-3 mx-auto flex flex-wrap flex-col items-center;
+
     @media screen and (min-width: 768px) {
-        height: 90vh;
+        @apply pt-32 flex-row;
     }
-    &__item1 {
-        @apply absolute;
-        bottom: 0;
-        left: -50px;
-        @media screen and (min-width: 768px) {
-            left: -250px;
+
+    &__left {
+        @apply flex flex-col w-full justify-center items-start text-center;
+
+        @media screen and (min-width: 992px) {
+            @apply w-1/2 text-left;
         }
     }
-    &__item2 {
-        @apply absolute;
-        top: 0;
-        right: 50%;
-        transform: translateX(50%);
-        @media screen and (min-width: 768px) {
-            top: auto;
-            right: 0;
-            transform: translateX(0);
+
+    &__right {
+        @apply w-full py-6 text-center;
+
+        @media screen and (min-width: 992px) {
+            @apply w-1/2 py-0;
         }
     }
+
     &__title {
-        @apply hidden text-5xl font-bold text-right text-gray-800;
-        @media screen and (min-width: 768px) {
-            @apply block;
-        }
+        @apply block my-4 text-5xl font-bold leading-tight text-gray-800;
     }
+
     &__desc {
-        @apply hidden mb-12 mt-1 text-right text-gray-600;
-        @media screen and (min-width: 768px) {
-            @apply block;
-        }
+        @apply leading-normal text-2xl mb-8 text-gray-600;
     }
+
     &__other {
         @apply mt-6 mr-5 text-right;
+
         a {
             @apply inline-block text-sm px-4 py-2 leading-none border rounded text-purple-second border-purple-second;
+
             &:hover {
                 @apply border-indigo-700 text-white bg-indigo-500;
             }
         }
+
         span {
             @apply mr-1;
         }
     }
+
     &__searchbar {
-        @apply flex mx-auto my-0 mt-6 border-2 rounded border-purple-second;
+        @apply flex w-full my-0 mt-6 border-2 rounded border-purple-second z-10;
         flex: 1;
-        width: 320px;
         box-shadow: 0 7px 14px rgba(0, 0, 0, 0.12), 0 5px 5px rgba(0, 0, 0, 0.12);
-        @media screen and (min-width: 350px) {
-            width: 350px;
-        }
+
         @media screen and (min-width: 768px) {
             @apply mt-0;
             width: 700px;
         }
+
         .search {
             @apply flex items-center bg-white;
             flex: 1;
+
             .search__input {
                 @apply flex pl-3 relative border-none outline-none;
                 flex: 1;
                 letter-spacing: .07rem;
                 transition: background .5s;
+
                 @media screen and (min-width: 768px) {
                     @apply pl-16;
                     background: url(../images/search.png) no-repeat 1rem 50%;
                     background-size: 2rem;
+
                     &:focus {
-                        background: url(../images/search.png) no-repeat 1rem 40% ;
+                        background: url(../images/search.png) no-repeat 1rem 40%;
                         background-size: 2.5rem;
                     }
                 }
             }
+
             .search__btn {
                 @apply uppercase font-bold cursor-pointer text-white border-0;
                 margin: 6px;
@@ -90,10 +91,12 @@ header {
                 background-size: 200%;
                 background-image: linear-gradient(315deg, #6e72fc 0%, #ad1deb 74%);
                 transition: background .5s;
+
                 @media screen and (min-width: 768px) {
                     margin: 8px 16px;
                     padding: 12px 50px;
                 }
+
                 &:hover {
                     background-position: right;
                 }
@@ -101,4 +104,3 @@ header {
         }
     }
 }
-
