@@ -21,3 +21,9 @@ $factory->define(Product::class, function (Faker $faker) {
         'visible' => (bool) rand(0, 1)
     ];
 });
+
+$factory->state(Product::class, 'first', function (Faker $faker) {
+    return [
+        'user_id' => 1
+    ];
+});

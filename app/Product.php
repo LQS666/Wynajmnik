@@ -11,6 +11,10 @@ class Product extends Model
         'slug', 'name', 'desc', 'price', 'premium', 'visible'
     ];
 
+    public function scopeUser($query, $user_id) {
+        return $query->where('user_id', $user_id);
+    }
+
     public function setNameAttribute($value) {
         $this->attributes['name'] = $value;
         $this->attributes['slug'] = Str::slug($value);
