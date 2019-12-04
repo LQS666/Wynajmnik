@@ -35,11 +35,13 @@
                         <img src="{{ asset('/assets/images/avatar.jpg') }}" alt="Item" />
                     </td>
                     <td>
-                        <span class="block pb-2">{{ $product['name'] }}</span>
+                        <span class="block pb-2">{{ Str::limit($product['name'], 80, ' ...') }}</span>
                         <hr class="pb-2">
-                        <span class="block lg:inline text-xs font-semibold text-black">{{ __('dashboard/product.rate') }}:</span>
+                        <span
+                            class="block lg:inline text-xs font-semibold text-black">{{ __('dashboard/product.rate') }}:</span>
                         <span class="block lg:inline text-xs font-semibold text-purple-second">4</span>
-                        <span class="block lg:inline text-xs font-semibold text-black">{{ __('dashboard/product.offers_length') }}:</span>
+                        <span
+                            class="block lg:inline text-xs font-semibold text-black">{{ __('dashboard/product.offers_length') }}:</span>
                         <span class="block lg:inline text-xs font-semibold text-purple-second">111</span>
                     </td>
                     <td>
