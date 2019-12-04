@@ -22,7 +22,7 @@
             </div>
         </div> --}}
 
-        <div class="main-statistics-panel">
+        {{-- <div class="main-statistics-panel">
             <div class="statistics-panel">
                 <div class="statistics-panel__icon">Złożonych ofert</div>
                 <div class="statistics-panel__info">10</div>
@@ -39,7 +39,7 @@
                 <div class="statistics-panel__icon">Ilość ofert w serwisie</div>
                 <div class="statistics-panel__info">10</div>
             </div>
-        </div>
+        </div> --}}
 
         @yield('profile')
     </main>

@@ -11889,7 +11889,7 @@ input:required {
 
 @media (min-width: 1280px) {
   .container {
-    max-width: 1600px;
+    max-width: 1280px;
   }
 }
 
@@ -11904,6 +11904,187 @@ input:required {
 
 .group:hover .group-hover\:block {
   display: block !important;
+}
+
+img {
+  border-radius: 50%;
+  height: 60px;
+  width: 60px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.table-items {
+  border-width: 1px;
+  border-radius: 0.5rem;
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+  max-width: calc(100% - 2em);
+  max-width: 1200px;
+}
+
+table {
+  width: 100%;
+}
+
+table td,
+table th {
+  color: #718096;
+  padding: 10px;
+}
+
+table td {
+  text-align: center;
+  vertical-align: middle;
+}
+
+table th {
+  color: #000;
+}
+
+table tr:nth-child(2n) {
+  background-color: #fff;
+}
+
+table tr:nth-child(2n+1) {
+  background-color: #f8f9ff;
+}
+
+@media screen and (max-width: 750px) {
+  table,
+tr,
+td {
+    display: block;
+  }
+
+  td:first-child {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+    width: 100px;
+  }
+
+  td:not(:first-child) {
+    text-align: left;
+    position: relative;
+    clear: both;
+    margin-left: 100px;
+    padding: 4px 20px 4px 90px;
+  }
+
+  td:not(:first-child):before {
+    color: #000;
+    display: block;
+    position: absolute;
+    content: "";
+    left: 0;
+  }
+
+  td:nth-child(1):before {
+    content: "ID:";
+  }
+
+  td:nth-child(2):before {
+    content: "Zdjecie:";
+  }
+
+  td:nth-child(3):before {
+    content: "Nazwa:";
+  }
+
+  td:nth-child(4):before {
+    content: "Cena:";
+  }
+
+  td:nth-child(5):before {
+    content: "Data dodania:";
+  }
+
+  td:nth-child(6):before {
+    content: "Aktywne:";
+  }
+
+  td:nth-child(7):before {
+    content: "Premium:";
+  }
+
+  td:nth-child(7):before {
+    content: "Akcje:";
+  }
+
+  tr {
+    position: relative;
+    padding: 10px 0;
+  }
+
+  tr:first-child {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .header {
+    padding: 0;
+    background-color: transparent;
+    color: white;
+    font-size: 2em;
+    font-weight: 700;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  img {
+    border: 3px solid;
+    border-color: white;
+    height: 100px;
+    margin: 0.5rem 0;
+    width: 100px;
+  }
+
+  td:first-child {
+    position: relative;
+    width: 100%;
+    background-color: white;
+    border-bottom: 1px solid #fcfcff;
+    border-radius: 10px 10px 0 0;
+    top: 0;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+
+  td:not(:first-child) {
+    margin: 0;
+    width: 100%;
+    padding: 5px 1em;
+  }
+
+  td:not(:first-child):before {
+    font-size: 0.8em;
+    padding-top: 0.3em;
+    position: relative;
+  }
+
+  td:last-child {
+    padding-bottom: 1rem !important;
+  }
+
+  tr {
+    padding: 0;
+    background-color: white !important;
+    border: 1px solid #ccc9ff;
+    border-radius: 10px;
+    box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+    margin: 0.5rem 0;
+  }
+
+  .table-items {
+    border-style: none;
+    overflow: visible;
+    box-shadow: none;
+  }
 }
 
 a {

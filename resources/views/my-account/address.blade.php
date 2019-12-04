@@ -15,23 +15,23 @@
                 @csrf
                 @method('PATCH')
                 <div class="form--input-box" data-title="address">
-                    <label for="email">{{ __('dashboard/address.street') }}</label>
+                    <label for="street">{{ __('dashboard/address.street') }}</label>
                     <input type="text" name="street" id="street" value="{{ old('street', $address['street']) }}" />
                 </div>
                 <div class="form--input-box" data-title="address">
-                    <label for="email">{{ __('dashboard/address.home_number') }}</label>
+                    <label for="home_number">{{ __('dashboard/address.home_number') }}</label>
                     <input type="text" name="home_number" id="home_number" value="{{ old('home_number', $address['home_number']) }}" />
                 </div>
                 <div class="form--input-box" data-title="address">
-                    <label for="email">{{ __('dashboard/address.apartment_number') }}</label>
+                    <label for="apartment_number">{{ __('dashboard/address.apartment_number') }}</label>
                     <input type="text" name="apartment_number" id="apartment_number" value="{{ old('apartment_number', $address['apartment_number']) }}" />
                 </div>
                 <div class="form--input-box" data-title="address">
-                    <label for="email">{{ __('dashboard/address.zip_code') }}</label>
+                    <label for="zip_code">{{ __('dashboard/address.zip_code') }}</label>
                     <input type="text" name="zip_code" id="zip_code" value="{{ old('zip_code', $address['zip_code']) }}" />
                 </div>
                 <div class="form--input-box" data-title="address">
-                    <label for="email">{{ __('dashboard/address.city') }}</label>
+                    <label for="city">{{ __('dashboard/address.city') }}</label>
                     <input type="text" name="city" id="city" value="{{ old('city', $address['city']) }}" />
                 </div>
                 <div class="flex justify-center mt-12">
