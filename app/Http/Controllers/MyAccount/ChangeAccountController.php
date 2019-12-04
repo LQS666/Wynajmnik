@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\UpdateUser;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\RedirectsUsers;
+use Illuminate\Support\Facades\Storage;
 
 class ChangeAccountController extends Controller
 {
@@ -23,8 +24,18 @@ class ChangeAccountController extends Controller
     {
         $validated = $request->validated();
 
+        $avatar = $request->user()->avatar;
+
+        if (isset($validated['avatar'])) {
+            $validated['avatar'] = $request->file('avatar')->store('avatars');
+        }
+
         $request->user()->fill($validated);
         $request->user()->save();
+
+        if ($avatar) {
+            Storage::delete($avatar);
+        }
 
         return redirect()->back()
                          ->with('sweet.success', trans('message.accountChanged'));

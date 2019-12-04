@@ -4,6 +4,7 @@ namespace App\Http\View\Composers;
 
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Storage;
 
 class GlobalComposer
 {
@@ -14,6 +15,9 @@ class GlobalComposer
     }
 
     public function compose(View $view) {
+        if (!empty($this->user->avatar)) {
+            $this->user->avatar = Storage::url($this->user->avatar);
+        }
         $view->with('user', $this->user);
     }
 }

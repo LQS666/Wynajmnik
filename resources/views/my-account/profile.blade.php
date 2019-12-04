@@ -7,12 +7,18 @@
 <div class="main-content-panels">
     <div class="main-content-panel main-content-panel__profile">
         <h2 class="font-semibold">{{ __('dashboard/profile.title') }}</h2>
-        <form method="POST" action="{{ route('my-account.account-change') }}" class="form">
+        <form method="POST" action="{{ route('my-account.account-change') }}" enctype="multipart/form-data" class="form">
             @csrf
+            <div class="form--input-box">
+                @if ($user->avatar)
+                    <img src="{{ $user->avatar }}" alt="">
+                @endif
+                <input type="file" name="avatar" id="avatar" autocomplete="off">
+            </div>
             <div class="form--input-box">
                 <label for="email">{{ __('dashboard/profile.email') }}</label>
                 <input type="email" name="email" id="email" value="{{ old('email', $user['email']) }}"
-                    autocomplete="off">
+                    autocomplete="off" disabled>
             </div>
             <div class="form--input-box">
                 <label for="name">{{ __('dashboard/profile.name') }}</label>
