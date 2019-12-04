@@ -4,17 +4,18 @@ $imageBig: 100px;
 $imageSmall: 60px;
 $padding: 10px;
 
-img {
-    border-radius: 50%;
-    height: $imageSmall;
-    width: $imageSmall;
-    @apply object-cover;
-}
 
 .table-items {
     @apply border rounded-lg my-1 mx-auto overflow-hidden;
     max-width: calc(100% - 2em);
     max-width: 1200px;
+
+    img {
+        border-radius: 50%;
+        height: $imageSmall;
+        width: $imageSmall;
+        @apply object-cover;
+    }
 }
 
 table {
@@ -73,6 +74,7 @@ table {
                 left: 0;
             }
         }
+
         &:nth-child(1):before {
             content: 'ID:';
         }

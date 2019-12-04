@@ -11906,14 +11906,6 @@ input:required {
   display: block !important;
 }
 
-img {
-  border-radius: 50%;
-  height: 60px;
-  width: 60px;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
 .table-items {
   border-width: 1px;
   border-radius: 0.5rem;
@@ -11924,6 +11916,14 @@ img {
   overflow: hidden;
   max-width: calc(100% - 2em);
   max-width: 1200px;
+}
+
+.table-items img {
+  border-radius: 50%;
+  height: 60px;
+  width: 60px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 table {
