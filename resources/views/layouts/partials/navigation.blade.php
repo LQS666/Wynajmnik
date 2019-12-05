@@ -33,7 +33,11 @@
             <div class="relative hidden sm:block sm:ml-6 group">
                 <button id="mobileMenu"
                     class="relative z-10 block h-10 w-10 rounded-full overflow-hidden border-2 border-purple-second focus:outline-none">
-                    <img class="h-full w-full object-cover" src="{{ asset('/assets/images/avatar.jpg') }}" alt="Avatar">
+                    @if ($user->avatar)
+                        <img class="h-full w-full object-cover" src="{{ $user->avatarUrl }}" alt="Avatar">
+                    @else
+                        <img class="h-full w-full object-cover" src="{{ asset('/assets/images/avatar.jpg') }}" alt="Avatar">
+                    @endif
                 </button>
                 <div class="hidden group-hover:block absolute right-0 w-56 py-3 bg-white rounded-lg shadow-xl text-sm">
                     <span class="block px-4 pt-6 text-black text-lg font-semibold rounded">

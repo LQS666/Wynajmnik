@@ -11,7 +11,7 @@
             @csrf
             <div class="form--input-box">
                 @if ($user->avatar)
-                    <img src="{{ $user->avatar }}" alt="">
+                    <img src="{{ $user->avatarUrl }}" alt="">
                 @endif
                 <input type="file" name="avatar" id="avatar" autocomplete="off">
             </div>
