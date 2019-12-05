@@ -5,9 +5,9 @@
 @section('profile')
 
 
-<div class="main-addresses-panels">
+<div class="main-dashboard-panels">
 
-    <div class="main-addresses-panel">
+    <div class="main-dashboard-panel">
 
         <h2 class="font-semibold">{{ __('dashboard/product.title') }}</h2>
 
@@ -61,10 +61,18 @@
                         {{ $product['created_at'] }}
                     </td>
                     <td class="py-6 flex justify-end lg:justify-center items-center">
-                        <a href="" class="block pr-3 text-black text-2xl"><i class="fa fa-pencil"
-                                aria-hidden="true"></i></a>
-                        <a href="" class="block text-red-500 text-2xl"><i class="fa fa-trash"
-                                aria-hidden="true"></i></a>
+                        <a href="{{ route('my-account.product', ['product' => $product['id']]) }}"
+                            class="block pr-3 text-black text-2xl"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                        <form method="post" action="{{ route('my-account.product', ['product' => $product['id']]) }}"
+                            id="addDeleteForm" class="form m-0">
+                            @csrf
+                            @method('DELETE')
+                            <button>
+                                <span class="block text-red-500 text-2xl">
+                                    <i class="fa fa-trash" aria-hidden="true"></i>
+                                </span>
+                            </button>
+                        </form>
                     </td>
                 </tr>
                 @endforeach

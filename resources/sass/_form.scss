@@ -49,6 +49,10 @@ a {
             @apply w-full border-0 bg-transparent text-lg leading-loose outline-none mt-5;   
         }
 
+        textarea {
+            @apply w-full border-0 bg-transparent text-lg leading-loose outline-none mt-8;   
+        }
+
         &[data-title="date"] > label {
             @apply top-0;
             font-size: 0.7rem;

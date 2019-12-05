@@ -5,9 +5,9 @@
 @section('profile')
 
 
-<div class="main-addresses-panels">
+<div class="main-dashboard-panels">
 
-    <div class="main-addresses-panel">
+    <div class="main-dashboard-panel">
         <h2 class="font-semibold">{{ __('dashboard/address.title') }}</h2>
 
         <div class="container">

@@ -5,6 +5,7 @@ return [
     'id' => 'ID',
     'photo' => 'Zdjęcie',
     'name' => 'Nazwa',
+    'desc' => 'Opis',
     'price' => 'Cena',
     'visible' => 'Aktywne',
     'premium' => 'Premium',
@@ -13,4 +14,8 @@ return [
     'rate' => 'Ocena',
     'offers_length' => 'Ilość ofert',
     'currency' => 'zł',
+    'edit' => 'Edytuj',
+    'return' => 'Powrót',
+    'save' => 'Zatwierdź',
+
 ];
