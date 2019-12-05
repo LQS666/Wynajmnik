@@ -16,7 +16,7 @@ class GlobalComposer
 
     public function compose(View $view) {
         if (!empty($this->user->avatar)) {
-            $this->user->avatar = Storage::url($this->user->avatar);
+            $this->user->avatarUrl = Storage::url($this->user->avatar);
         }
         $view->with('user', $this->user);
     }
