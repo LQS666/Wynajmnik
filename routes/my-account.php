@@ -9,7 +9,8 @@ Route::group(['prefix' => 'my-account', 'namespace' => 'MyAccount'], function() 
     Route::post('/password-change', 'ChangePasswordController@change')->name('my-account.password-change');
 
     // Offers
-    //Route::get('/offers', 'OffersController@show')->name('my-account.offers');
+    Route::get('/offers', 'OfferController@index')->name('my-account.offers');
+    Route::post('/offers', 'OfferController@update');
 
     // Addresses
     Route::get('/addresses', 'UserAddressController@index')->name('my-account.addresses');
