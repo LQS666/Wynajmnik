@@ -12,7 +12,7 @@
         <h2 class="font-semibold">{{ __('dashboard/product.edit') }}</h2>
 
         <div class="container">
-            <form method="post" action="{{ route('my-account.product', ['product' => $product['id']]) }}" class="form">
+            <form method="post" action="{{ route('my-account.product', ['product' => $product['id']]) }}" class="form" enctype="multipart/form-data">
                 @csrf
                 @method('PATCH')
                 <div class="form--input-box" data-title="address">
@@ -29,7 +29,7 @@
                 </div>
                 <div class="form--input-box" data-title="address">
                     <label for="price">{{ __('dashboard/product.price') }}</label>
-                    <input type="text" name="price" id="price" value="{{ old('price', $product['price']) }} {{ __('dashboard/product.currency') }}" />
+                    <input type="text" name="price" id="price" value="{{ old('price', $product['price']) }}" />
                 </div>
                 <div class="form--input-box" data-title="address">
                     <label for="visible">{{ __('dashboard/product.visible') }}</label>
@@ -42,6 +42,9 @@
                 <div class="form--input-box" data-title="address">
                     <label for="add_date">{{ __('dashboard/product.add_date') }}</label>
                     <input type="date" name="add_date" id="add_date" value="{{ old('created_at', $product['created_at']) }}" />
+                </div>
+                <div class="form--input-box" data-title="address">
+                    <input type="file" name="pictures[]" multiple/>
                 </div>
                 <div class="flex justify-between mt-12">
                     <a href="{{ route('my-account.products') }}"

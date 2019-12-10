@@ -2,13 +2,18 @@
 
 namespace App;
 
+use App\Events\ImageHandleOnDelete;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
 class Product extends Model
 {
     protected $fillable = [
-        'slug', 'name', 'desc', 'price', 'premium', 'visible'
+        'user_id', 'slug', 'name', 'desc', 'price', 'premium', 'visible'
+    ];
+
+    protected $dispatchesEvents = [
+        'deleting' => ImageHandleOnDelete::class
     ];
 
     public function scopeUser($query, $user_id) {
@@ -24,7 +29,7 @@ class Product extends Model
         return $this->hasMany(ProductAvailability::class);
     }
 
-    public function pictures() {
+    public function images() {
         return $this->hasMany(ProductPicture::class);
     }
 

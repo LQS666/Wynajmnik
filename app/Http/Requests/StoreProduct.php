@@ -24,7 +24,13 @@ class StoreProduct extends FormRequest
     public function rules()
     {
         return [
+            'name' => ['required', 'string', 'max:255'],
+            'desc' => ['required', 'string'],
+            'price' => ['required', 'numeric', 'min:0.01'],
+            'premium' => ['required', 'boolean'],
+            'visible' => ['required', 'boolean'],
 
+            'pictures.*' => ['nullable', 'image', 'max:400', 'dimensions:max_width=1920,max_height:1080']
         ];
     }
 }

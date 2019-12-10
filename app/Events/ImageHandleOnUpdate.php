@@ -11,23 +11,20 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class ImageChanged
+class ImageHandleOnUpdate
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     public $model;
-
-    public $images;
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct(Model $model, array $images)
+    public function __construct(Model $model)
     {
         $this->model = $model;
-        $this->images = $images;
     }
 
     /**

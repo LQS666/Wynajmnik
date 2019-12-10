@@ -9,17 +9,20 @@ use Illuminate\Support\Str;
 class ProductPicture extends Model
 {
     protected $fillable = [
-        'product_id', 'name', 'alt', 'file', 'visible'
+        'product_id', 'alt', 'file', 'visible'
     ];
 
-    public function setNameAttribute($value) {
-        $this->attributes['name'] = $value;
+    public $dir = 'product_picture';
+
+    public function setFileAttribute($value) {
+        $this->attributes['file'] = $value;
         if (empty($this->attributes['alt'])) {
-            $this->attributes['alt'] = $value;
+            $this->attributes['alt'] = explode('/', $this->attributes['file']);
+            $this->attributes['alt'] = end($this->attributes['alt']);
         }
     }
 
-    public function getFileAttribute() {
+    public function getUrlAttribute() {
         return Str::startsWith($this->file, 'http') ? $this->file : Storage::url($this->file);
     }
 

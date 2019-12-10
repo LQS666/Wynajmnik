@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Events\ImageHandleOnUpdate;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -37,6 +38,16 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
         'birth_date' => 'date',
         'last_login_at' => 'datetime'
+    ];
+
+    protected $dispatchesEvents = [
+        'updated' => ImageHandleOnUpdate::class
+    ];
+
+    public $dir = 'avatars';
+
+    public $images = [
+        'avatar'
     ];
 
     public function addresses() {
