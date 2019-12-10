@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Events\ImageHandleOnDelete;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
@@ -10,6 +11,10 @@ class ProductPicture extends Model
 {
     protected $fillable = [
         'product_id', 'alt', 'file', 'visible'
+    ];
+
+    protected $dispatchesEvents = [
+        'deleting' => ImageHandleOnDelete::class
     ];
 
     public $dir = 'product_picture';

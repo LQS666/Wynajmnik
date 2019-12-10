@@ -38,6 +38,10 @@ class ImageSubscriber
             }
         }
 
+        if (!empty($event->model->file)) {
+            $to_delete[] = $event->model->file;
+        }
+
         ImageHandlerService::deleteImages($to_delete);
     }
 

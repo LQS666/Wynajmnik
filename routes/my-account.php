@@ -26,4 +26,7 @@ Route::group(['prefix' => 'my-account', 'namespace' => 'MyAccount'], function() 
     Route::delete('/products/{product}', 'ProductController@destroy');
     Route::patch('/products/{product}', 'ProductController@update');
 
+    // Product Pictures
+    Route::delete('/product-pictures/{picture}', 'ProductController@destroyPicture')->name('my-account.product-picture');
+
 });

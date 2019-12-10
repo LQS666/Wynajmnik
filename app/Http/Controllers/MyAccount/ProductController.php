@@ -77,4 +77,14 @@ class ProductController extends Controller
         return redirect($this->redirectPath())
                              ->with('sweet.success', trans('message.addressDeleted'));
     }
+
+    public function destroyPicture(ProductPicture $picture)
+    {
+        $this->authorize('update-this', $picture->product);
+
+        $picture->delete(); // Fire event on deleting to delete images from storage
+
+        return redirect($this->redirectPath())
+                             ->with('sweet.success', trans('message.addressDeleted'));
+    }
 }
