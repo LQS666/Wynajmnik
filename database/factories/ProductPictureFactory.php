@@ -13,7 +13,7 @@ $factory->define(ProductPicture::class, function (Faker $faker) {
 
     return [
         'product_id' => $faker->randomElement($products),
-        'name' => $faker->word(),
+        //'name' => $faker->word(),
         //'alt' => $faker->words(1, 5),
         'file' => $faker->imageUrl(1200, 800) // $faker->image('public/storage/products', 640, 480, null, false)
     ];
