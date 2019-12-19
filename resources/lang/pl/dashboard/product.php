@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'title' => 'Lista przedmiotów',
+    'title' => 'Moje przedmioty',
     'id' => 'ID',
     'photo' => 'Zdjęcie',
     'name' => 'Nazwa',
@@ -17,5 +17,4 @@ return [
     'edit' => 'Edytuj',
     'return' => 'Powrót',
     'save' => 'Zatwierdź',
-
 ];

@@ -14,7 +14,7 @@
         </li>
         <hr class="my-6">
         <li class="sidenav-list__item">
-            <a href="{{ route('my-account.products') }}" class="">
+            <a href="{{ route('my-account.products') }}" {!! request()->routeIs('my-account.products') ? 'class="active"' : '' !!}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                     <path
                         d="M15,8H8V5L4,9l4,4v-3h7c1.654,0,3,1.346,3,3s-1.346,3-3,3h-3v2h3c2.757,0,5-2.243,5-5S17.757,8,15,8z" />
@@ -23,7 +23,7 @@
             </a>
         </li>
         <li class="sidenav-list__item">
-            <a href="{{ route('my-account.offer') }}" class="">
+            <a href="{{ route('my-account.offer') }}" {!! request()->routeIs('my-account.offer') ? 'class="active"' : '' !!}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                     <path
                         d="M20,9l-4-4v3H9c-2.757,0-5,2.243-5,5s2.243,5,5,5h3v-2H9c-1.654,0-3-1.346-3-3s1.346-3,3-3h7v3L20,9z" />
