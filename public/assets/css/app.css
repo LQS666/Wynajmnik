@@ -11914,7 +11914,6 @@ input:required {
   margin-left: auto;
   margin-right: auto;
   overflow: hidden;
-  max-width: calc(100% - 2em);
   max-width: 1200px;
 }
 
@@ -11933,7 +11932,7 @@ table {
 table td,
 table th {
   color: #718096;
-  padding: 10px;
+  padding: 20px;
 }
 
 table td {
@@ -11953,27 +11952,18 @@ table tr:nth-child(2n+1) {
   background-color: #f8f9ff;
 }
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 1400px) {
   table,
 tr,
 td {
     display: block;
   }
 
-  td:first-child {
-    position: absolute;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-            transform: translateY(-50%);
-    width: 100px;
-  }
-
   td:not(:first-child) {
     text-align: left;
     position: relative;
-    clear: both;
-    margin-left: 100px;
-    padding: 4px 20px 4px 90px;
+    margin-left: 20px;
+    padding: 4px 20px 4px 170px;
   }
 
   td:not(:first-child):before {
@@ -11984,41 +11974,65 @@ td {
     left: 0;
   }
 
-  td:nth-child(1):before {
-    content: "ID:";
+  td.product:nth-child(1):before {
+    content: "";
   }
 
-  td:nth-child(2):before {
-    content: "Zdjecie:";
-  }
-
-  td:nth-child(3):before {
+  td.product:nth-child(2):before {
     content: "Nazwa:";
   }
 
-  td:nth-child(4):before {
+  td.product:nth-child(3):before {
     content: "Cena:";
   }
 
-  td:nth-child(5):before {
-    content: "Data dodania:";
-  }
-
-  td:nth-child(6):before {
+  td.product:nth-child(4):before {
     content: "Aktywne:";
   }
 
-  td:nth-child(7):before {
+  td.product:nth-child(5):before {
     content: "Premium:";
   }
 
-  td:nth-child(7):before {
+  td.product:nth-child(6):before {
+    content: "Data dodania:";
+  }
+
+  td.product:nth-child(7):before {
     content: "Akcje:";
+  }
+
+  td.offer:nth-child(1):before {
+    content: "";
+  }
+
+  td.offer:nth-child(2):before {
+    content: "Nazwa:";
+  }
+
+  td.offer:nth-child(3):before {
+    content: "Cena:";
+  }
+
+  td.offer:nth-child(4):before {
+    content: "Od:";
+  }
+
+  td.offer:nth-child(5):before {
+    content: "Do:";
+  }
+
+  td.offer:nth-child(6):before {
+    content: "Zaakceptowano dnia:";
+  }
+
+  td.offer:nth-child(7):before {
+    content: "Odrzucono dnia:";
   }
 
   tr {
     position: relative;
-    padding: 10px 0;
+    padding: 20px 0;
   }
 
   tr:first-child {
@@ -12065,6 +12079,10 @@ td {
     font-size: 0.8em;
     padding-top: 0.3em;
     position: relative;
+  }
+
+  td:nth-child(7):before {
+    content: ":";
   }
 
   td:last-child {
@@ -13217,7 +13235,7 @@ footer .footer-content__item__li a:hover {
   font-size: 1.5rem;
 }
 
-@media only screen and (min-width: 1020px) {
+@media only screen and (min-width: 1350px) {
   .main-content-panels {
     -webkit-column-count: 2;
        -moz-column-count: 2;

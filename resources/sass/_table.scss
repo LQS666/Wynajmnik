@@ -2,12 +2,11 @@ $baseColor: #6c63ff;
 $borderRadius: 10px;
 $imageBig: 100px;
 $imageSmall: 60px;
-$padding: 10px;
+$padding: 20px;
 
 
 .table-items {
     @apply border rounded-lg my-1 mx-auto overflow-hidden;
-    max-width: calc(100% - 2em);
     max-width: 1200px;
 
     img {
@@ -46,7 +45,7 @@ table {
     }
 }
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 1400px) {
 
     table,
     tr,
@@ -55,18 +54,10 @@ table {
     }
 
     td {
-        &:first-child {
-            @apply absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: $imageBig;
-        }
-
         &:not(:first-child) {
             @apply text-left relative;
-            clear: both;
-            margin-left: $imageBig;
-            padding: 4px 20px 4px 90px;
+            margin-left: 20px;
+            padding: 4px 20px 4px 170px;
 
             &:before {
                 @apply text-black block absolute;
@@ -74,37 +65,65 @@ table {
                 left: 0;
             }
         }
+    }
 
+    td.product {
         &:nth-child(1):before {
-            content: 'ID:';
+            content: '';
         }
 
         &:nth-child(2):before {
-            content: 'Zdjecie:';
-        }
-
-        &:nth-child(3):before {
             content: 'Nazwa:';
         }
 
-        &:nth-child(4):before {
+        &:nth-child(3):before {
             content: 'Cena:';
         }
 
-        &:nth-child(5):before {
-            content: 'Data dodania:';
-        }
-
-        &:nth-child(6):before {
+        &:nth-child(4):before {
             content: 'Aktywne:';
         }
 
-        &:nth-child(7):before {
+        &:nth-child(5):before {
             content: 'Premium:';
+        }
+
+        &:nth-child(6):before {
+            content: 'Data dodania:';
         }
 
         &:nth-child(7):before {
             content: 'Akcje:';
+        }
+    }
+
+    td.offer {
+        &:nth-child(1):before {
+            content: '';
+        }
+
+        &:nth-child(2):before {
+            content: 'Nazwa:';
+        }
+
+        &:nth-child(3):before {
+            content: 'Cena:';
+        }
+
+        &:nth-child(4):before {
+            content: 'Od:';
+        }
+
+        &:nth-child(5):before {
+            content: 'Do:';
+        }
+
+        &:nth-child(6):before {
+            content: 'Zaakceptowano dnia:';
+        }
+
+        &:nth-child(7):before {
+            content: 'Odrzucono dnia:';
         }
     }
 
@@ -154,6 +173,10 @@ table {
                 padding-top: 0.3em;
                 position: relative;
             }
+        }
+
+        &:nth-child(7):before {
+            content: ':';
         }
 
         &:last-child {

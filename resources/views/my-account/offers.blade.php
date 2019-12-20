@@ -17,7 +17,6 @@
             <table cellspacing="0">
 
                 <tr class="border-b">
-                    <th>{{ __('dashboard/offer.id') }}</th>
                     <th>{{ __('dashboard/offer.photo') }}</th>
                     <th>{{ __('dashboard/offer.name') }}</th>
                     <th>{{ __('dashboard/offer.price') }}</th>
@@ -29,29 +28,26 @@
 
                 @foreach($offers as $offer)
                 <tr>
-                    <td>
-                        {{ $offer['id'] }}
-                    </td>
-                    <td>
+                    <td class="offer">
                         <img src="{{ asset('/assets/images/avatar.jpg') }}" alt="Item" />
                     </td>
-                    <td>
+                    <td class="offer">
                         <span class="block pb-2">{{ Str::limit($offer['desc'], 80, ' ...') }}</span>
                     </td>
-                    <td>
+                    <td class="offer">
                         {{ $offer['price'] }} {{ __('dashboard/product.currency') }}
                     </td>
-                    <td>
+                    <td class="offer">
                         {{ $offer['date_start'] }}
                     </td>
-                    <td>
+                    <td class="offer">
                         {{ $offer['date_end'] }}
                     </td>
-                    <td>
-                        {{ $offer['accepted_at'] }}
+                    <td class="offer">
+                        {!! $offer['accepted_at'] ? $offer['accepted_at'] : '-' !!}
                     </td>
-                    <td>
-                        {{ $offer['rejected_at'] }}
+                    <td class="offer">
+                        {!! $offer['rejected_at'] ? $offer['rejected_at'] : '-' !!}
                     </td>
                 </tr>
                 @endforeach

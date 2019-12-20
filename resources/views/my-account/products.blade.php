@@ -16,7 +16,6 @@
             <table cellspacing="0">
 
                 <tr class="border-b">
-                    <th>{{ __('dashboard/product.id') }}</th>
                     <th>{{ __('dashboard/product.photo') }}</th>
                     <th>{{ __('dashboard/product.name') }}</th>
                     <th>{{ __('dashboard/product.price') }}</th>
@@ -28,13 +27,10 @@
 
                 @foreach ($products as $product)
                 <tr>
-                    <td>
-                        {{ $product['id'] }}
-                    </td>
-                    <td>
+                    <td class="product">
                         <img src="{{ asset('/assets/images/avatar.jpg') }}" alt="Item" />
                     </td>
-                    <td>
+                    <td class="product">
                         <span class="block pb-2">{{ Str::limit($product['name'], 80, ' ...') }}</span>
                         <hr class="pb-2">
                         <span
@@ -44,23 +40,23 @@
                             class="block lg:inline text-xs font-semibold text-black">{{ __('dashboard/product.offers_length') }}:</span>
                         <span class="block lg:inline text-xs font-semibold text-purple-second">111</span>
                     </td>
-                    <td>
+                    <td class="product">
                         {{ $product['price'] }} {{ __('dashboard/product.currency') }}
                     </td>
-                    <td>
+                    <td class="product">
                         {!! $product['visible'] ? '<span class="text-green-600 text-2xl"><i class="fa fa-check"
                                 aria-hidden="true"></i></span>' : '<span class="text-red-500 text-2xl"><i
                                 class="fa fa-times" aria-hidden="true"></i></span>' !!}
                     </td>
-                    <td>
+                    <td class="product">
                         {!! $product['premium'] ? '<span class="text-green-600 text-2xl"><i class="fa fa-check"
                                 aria-hidden="true"></i></span>' : '<span class="text-red-500 text-2xl"><i
                                 class="fa fa-times" aria-hidden="true"></i></span>' !!}
                     </td>
-                    <td>
+                    <td class="product">
                         {{ $product['created_at'] }}
                     </td>
-                    <td class="py-6 flex justify-end lg:justify-center items-center">
+                    <td class="product py-6 flex justify-end items-center">
                         <a href="{{ route('my-account.product', ['product' => $product['id']]) }}"
                             class="block pr-3 text-black text-2xl"><i class="fa fa-pencil" aria-hidden="true"></i></a>
                         <form method="post" action="{{ route('my-account.product', ['product' => $product['id']]) }}"
