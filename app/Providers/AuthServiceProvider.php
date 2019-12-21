@@ -30,5 +30,10 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('update-this', function ($user, Model $model) {
             return $user->id === $model->user_id;
         });
+
+        // If passed model does not belong to user
+        Gate::define('add-offer', function ($user, Model $model) {
+            return $user->id !== $model->user_id;
+        });
     }
 }
