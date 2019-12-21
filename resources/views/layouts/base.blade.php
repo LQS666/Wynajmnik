@@ -17,13 +17,15 @@
 
     @yield('content')
 
-    @section('footer')
-    @include('layouts.partials.footer')
-    @show
-
     @yield('beforeScripts')
     @include('layouts.partials.scripts')
     @yield('scripts')
+ 
+    @if (Request::is('/'))
+    @section('footer')
+    @include('layouts.partials.footer')
+    @show
+    @endif
 
     @include('sweetalert::alert')
 </body>
