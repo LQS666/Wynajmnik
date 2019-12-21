@@ -32,7 +32,7 @@
                         <img src="{{ asset('/assets/images/avatar.jpg') }}" alt="Item" />
                     </td>
                     <td class="offer">
-                        <span class="block pb-2">{{ Str::limit($offer['desc'], 80, ' ...') }}</span>
+                        <span class="block pb-2">{{ Str::limit($offer['name'], 80, ' ...') }}</span>
                     </td>
                     <td class="offer">
                         {{ $offer['price'] }} {{ __('dashboard/product.currency') }}

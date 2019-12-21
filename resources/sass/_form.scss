@@ -110,15 +110,17 @@ a {
 }
 
 .button {
-    @apply border-0 text-white text-lg cursor-pointer outline-none px-12;
+    @apply border-0 rounded-lg text-white text-lg cursor-pointer outline-none px-12;
     background: $color-primary;
     line-height: 2.5;
-    border-radius: 50px;
     box-shadow: 0 5px 10px rgba($color-primary, 0.2);
     &--block {
         @apply block mx-auto;
     }
     &--danger {
         @apply bg-red-500;
+    }
+    &--purple {
+        @apply bg-purple-main text-black;
     }
 }

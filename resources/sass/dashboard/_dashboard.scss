@@ -21,7 +21,7 @@
     }
 
     .sidenav-list {
-        @apply p-6 list-none mt-12;
+        @apply p-6 list-none mt-6 mb-12;
 
         &__item {
             @apply block p-0 my-1;

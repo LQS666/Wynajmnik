@@ -11907,22 +11907,23 @@ input:required {
 }
 
 .table-items {
-  border-width: 1px;
   border-radius: 0.5rem;
+  width: 100%;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 0;
+  margin-right: 0;
   overflow: hidden;
-  max-width: 1200px;
 }
 
 .table-items img {
-  border-radius: 50%;
-  height: 60px;
-  width: 60px;
+  border-radius: 0.25rem;
   -o-object-fit: cover;
      object-fit: cover;
+  margin-left: 0;
+  margin-right: 0;
+  height: 60px;
+  width: 60px;
 }
 
 table {
@@ -11950,6 +11951,10 @@ table tr:nth-child(2n) {
 
 table tr:nth-child(2n+1) {
   background-color: #f8f9ff;
+}
+
+table tr:first-child {
+  background-color: #eeedfc;
 }
 
 @media screen and (max-width: 1400px) {
@@ -12265,6 +12270,7 @@ a {
 
 .button {
   border-width: 0;
+  border-radius: 0.5rem;
   color: #fff;
   font-size: 1.125rem;
   cursor: pointer;
@@ -12273,7 +12279,6 @@ a {
   padding-right: 3rem;
   background: #6C63FF;
   line-height: 2.5;
-  border-radius: 50px;
   box-shadow: 0 5px 10px rgba(108, 99, 255, 0.2);
 }
 
@@ -12285,6 +12290,11 @@ a {
 
 .button--danger {
   background-color: #f56565;
+}
+
+.button--purple {
+  background-color: #eeedfc;
+  color: #000;
 }
 
 .menu-logo {
@@ -13003,7 +13013,8 @@ footer .footer-content__item__li a:hover {
 .sidenav .sidenav-list {
   padding: 1.5rem;
   list-style-type: none;
-  margin-top: 3rem;
+  margin-top: 1.5rem;
+  margin-bottom: 3rem;
 }
 
 .sidenav .sidenav-list__item {
@@ -13388,7 +13399,7 @@ footer .footer-content__item__li a:hover {
 }
 
 .main-dashboard-panel .address:hover {
-  background-color: #f7fafc;
+  background-color: #eeedfc;
 }
 
 @media only screen and (min-width: 768px) {
