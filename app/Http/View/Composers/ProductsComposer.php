@@ -17,7 +17,7 @@ class ProductsComposer
     public function compose(View $view) {
         $products = Product::user($this->user->id)
                             ->orderBy('created_at')
-                            ->get();
+                            ->paginate(10);
 
         $view->with('products', $products);
     }

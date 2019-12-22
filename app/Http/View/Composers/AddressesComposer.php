@@ -17,7 +17,7 @@ class AddressesComposer
     public function compose(View $view) {
         $addresses = UserAddress::user($this->user->id)
                                 ->orderBy('created_at')
-                                ->get();
+                                ->paginate(10);
 
         $view->with('addresses', $addresses);
     }
