@@ -40,4 +40,12 @@ class Product extends Model
     public function offers() {
         return $this->hasMany(Offer::class);
     }
+
+    public function categories() {
+        return $this->belongsToMany(Category::class);
+    }
+
+    public function filterValues() {
+        return $this->belongsToMany(FilterValue::class);
+    }
 }

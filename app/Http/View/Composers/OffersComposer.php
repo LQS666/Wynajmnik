@@ -18,7 +18,7 @@ class OffersComposer
     public function compose(View $view) {
         $offers = Offer::whereHas('product', function (Builder $query) {
             $query->user(1);
-        })->get();
+        })->paginate(10);
 
         $view->with('offers', $offers);
     }

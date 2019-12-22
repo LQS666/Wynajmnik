@@ -13,6 +13,19 @@
 
         <div class="container">
             ADD
+            {{--@if (count($categories) > 0)
+                @foreach ($categories as $category)
+                    {{ $category }}
+                    {{ $category['subcategories'] }}
+                @endforeach
+            @endif--}}
+
+            {{--@if (count($filters) > 0)
+                @foreach ($filters as $filter)
+                    {{ $filter }}
+                    {{ $filter['values'] }}
+                @endforeach
+            @endif--}}
         </div>
     </div>
 </div>

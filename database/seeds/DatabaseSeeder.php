@@ -17,7 +17,12 @@ class DatabaseSeeder extends Seeder
             ProductsTableSeeder::class,
             ProductAvailabilitiesTableSeeder::class,
             ProductPicturesTableSeeder::class,
-            OfferTableSeeder::class
+            OfferTableSeeder::class,
+            CategoriesTableSeeder::class,
+            CategoryProductTableSeeder::class,
+            FiltersTableSeeder::class,
+            FilterValuesTableSeeder::class,
+            FilterValueProductTableSeeder::class
         ]);
     }
 }

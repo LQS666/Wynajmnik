@@ -4,7 +4,6 @@
 
 @section('profile')
 
-
 <div class="main-dashboard-panels">
 
     <div class="main-dashboard-panel">
