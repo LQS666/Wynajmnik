@@ -12,4 +12,5 @@ return [
     'date_start' => 'Od',
     'date_end' => 'Do',
     'currency' => 'zł',
+    'empty-table' => 'Brak ofert do wyświetlenia',
 ];

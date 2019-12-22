@@ -75,6 +75,12 @@
             </table>
         </div>
 
+        @else
+
+        <div class="flex justify-center items-center bg-purple-main w-1/2 py-3 rounded-lg">
+            {{ __('dashboard/product.empty-table') }}
+        </div>
+
         @endif
 
     </div>
