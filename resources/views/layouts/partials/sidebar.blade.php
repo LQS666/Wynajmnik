@@ -14,7 +14,7 @@
         </li>
         <hr class="my-6">
         <li class="sidenav-list__item">
-            <a href="{{ route('my-account.products') }}" {!! request()->routeIs('my-account.products') ? 'class="active"' : '' !!}>
+            <a href="{{ route('my-account.products') }}" {!! (request()->routeIs('my-account.products') || request()->routeIs('my-account.product')) ? 'class="active"' : '' !!}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                     <path
                         d="M15,8H8V5L4,9l4,4v-3h7c1.654,0,3,1.346,3,3s-1.346,3-3,3h-3v2h3c2.757,0,5-2.243,5-5S17.757,8,15,8z" />
@@ -33,7 +33,7 @@
         </li>
         <hr class="my-6">
         <li class="sidenav-list__item">
-            <a href="{{ route('my-account.addresses') }}" {!! request()->routeIs('my-account.addresses') ? 'class="active"' : '' !!}>
+            <a href="{{ route('my-account.addresses') }}" {!! (request()->routeIs('my-account.addresses') || request()->routeIs('my-account.address')) ? 'class="active"' : '' !!}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                     <path
                         d="M12.707 2.293A.996.996 0 0 0 12 2H3a1 1 0 0 0-1 1v9c0 .266.105.52.293.707l9 9a.997.997 0 0 0 1.414 0l9-9a.999.999 0 0 0 0-1.414l-9-9zM12 19.586l-8-8V4h7.586l8 8L12 19.586z" />

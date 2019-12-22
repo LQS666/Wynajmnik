@@ -1,0 +1,15 @@
+.photo-upload {
+    @apply flex flex-col justify-center items-center mb-6;
+    &__image {
+        @apply h-48 w-48 rounded-lg;
+    }
+    &__btn {
+        @apply bg-purple-main rounded-lg my-3 py-1 relative flex justify-center items-center;
+        &-uploader {
+            @apply opacity-0 z-10 cursor-pointer;
+        }
+        &-text {
+            @apply absolute cursor-pointer font-bold;
+        }
+    }
+}

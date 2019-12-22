@@ -32,10 +32,10 @@
                         <img src="{{ asset('/assets/images/avatar.jpg') }}" alt="Item" />
                     </td>
                     <td class="offer">
-                        <span class="block pb-2">{{ Str::limit($offer['desc'], 80, ' ...') }}</span>
+                        <span class="block pb-2">{{ Str::limit($offer['name'], 80, ' ...') }}</span>
                     </td>
                     <td class="offer">
-                        {{ $offer['price'] }} {{ __('dashboard/product.currency') }}
+                        {{ $offer['price'] }} {{ __('dashboard/offer.currency') }}
                     </td>
                     <td class="offer">
                         {{ $offer['date_start'] }}
@@ -52,6 +52,12 @@
                 </tr>
                 @endforeach
             </table>
+        </div>
+
+        @else
+
+        <div class="flex justify-center items-center bg-purple-main w-1/2 py-3 rounded-lg">
+            {{ __('dashboard/offer.empty-table') }}
         </div>
 
         @endif

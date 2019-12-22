@@ -7,13 +7,19 @@
 <div class="main-content-panels">
     <div class="main-content-panel main-content-panel__profile">
         <h2 class="font-semibold">{{ __('dashboard/profile.title') }}</h2>
-        <form method="POST" action="{{ route('my-account.account-change') }}" enctype="multipart/form-data" class="form">
+        <form method="POST" action="{{ route('my-account.account-change') }}" enctype="multipart/form-data"
+            class="form">
             @csrf
-            <div class="form--input-box">
+            <div class="photo-upload">
                 @if ($user->avatar)
-                    <img src="{{ $user->avatarUrl }}" alt="Avatar">
+                <img class="photo-upload__image" id="photoUploader" src="{{ $user->avatarUrl }}" alt="Avatar">
                 @endif
-                <input type="file" name="avatar" id="avatar" autocomplete="off">
+                <label class="photo-upload__btn">
+                    <input type="file" name="avatar" id="avatar" class="photo-upload__btn-uploader"
+                        onchange="changeUserAvatar(this);">
+                    <span class="photo-upload__btn-text">{{ __('dashboard/profile.photo_upload_text') }}</span>
+                </label>
+                <p class="text-xs">{{ __('dashboard/profile.photo_upload_requirements') }}</p>
             </div>
             <div class="form--input-box">
                 <label for="email">{{ __('dashboard/profile.email') }}</label>
@@ -58,6 +64,21 @@
         </form>
     </div>
 </div>
+
+<script>
+    function changeUserAvatar(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#photoUploader')
+                        .attr('src', e.target.result);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+</script>
 
 
 @endsection

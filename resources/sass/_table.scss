@@ -6,14 +6,12 @@ $padding: 20px;
 
 
 .table-items {
-    @apply border rounded-lg my-1 mx-auto overflow-hidden;
-    max-width: 1200px;
+    @apply rounded-lg w-full my-1 mx-0 overflow-hidden;
 
     img {
-        border-radius: 50%;
+        @apply rounded object-cover mx-0;
         height: $imageSmall;
         width: $imageSmall;
-        @apply object-cover;
     }
 }
 
@@ -41,6 +39,10 @@ table {
 
         &:nth-child(2n+1) {
             @apply bg-purple-third;
+        }
+
+        &:first-child {
+            @apply bg-purple-main;
         }
     }
 }

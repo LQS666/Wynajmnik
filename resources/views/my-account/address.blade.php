@@ -5,7 +5,8 @@
 @section('profile')
 
 
-<div class="main-dashboard-panels">
+<div class="main-dashboard-panels relative">
+    <a href="{{ route('my-account.addresses') }}" class="absolute button button--purple font-normal" style="left:50px; top:50px;">{{ __('dashboard/address.return') }}</a>
 
     <div class="main-dashboard-panel">
         <h2 class="font-semibold">{{ __('dashboard/address.edit') }}</h2>
@@ -41,9 +42,9 @@
             <form method="post" action="{{ route('my-account.address', ['address' => $address['id']]) }}" id="addDeleteForm" class="form">
                 @csrf
                 @method('DELETE')
-                <div class="flex">
-                    <a href="{{ route('my-account.addresses') }}" class="button font-normal">{{ __('dashboard/address.return') }}</a>
-                    <button id="button_save" class="button button--danger ml-3">{{ __('dashboard/address.delete') }}</button>
+                <div class="flex justify-center items-center">
+                    <i class="fa fa-trash text-red-500 mr-2 mb-1" aria-hidden="true"></i>
+                    <button id="button_save" class="text-red-500">{{ __('dashboard/address.delete') }}</button>
                 </div>
             </form>
         </div>

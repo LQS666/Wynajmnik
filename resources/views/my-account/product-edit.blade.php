@@ -48,7 +48,7 @@
                 </div>
                 <div class="flex justify-between mt-12">
                     <a href="{{ route('my-account.products') }}"
-                        class="button font-normal">{{ __('dashboard/product.return') }}</a>
+                        class="button button--purple font-normal">{{ __('dashboard/product.return') }}</a>
                     <button id="button_save" class="button">{{ __('dashboard/product.save') }}</button>
                 </div>
             </form>

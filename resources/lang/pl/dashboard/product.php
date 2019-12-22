@@ -17,4 +17,5 @@ return [
     'edit' => 'Edytuj',
     'return' => 'Powrót',
     'save' => 'Zatwierdź',
+    'empty-table' => 'Brak przedmiotów do wyświetlenia',
 ];

@@ -11,7 +11,9 @@
         <h2 class="font-semibold">{{ __('dashboard/address.title') }}</h2>
 
         <div class="container">
-            <button class="main-addresses-panel__button button">{{ __('dashboard/address.add') }}</button>
+            <div class="flex">
+                <button class="main-addresses-panel__button button">{{ __('dashboard/address.add') }}</button>
+            </div>
             @if (count($addresses) > 0)
             @foreach ($addresses as $address)
             <a href="{{ route('my-account.address', ['address' => $address['id']]) }}">
@@ -27,7 +29,7 @@
                             <span class="address__city">{{ $address['city'] }}</span>
                         </div>
                     </div>
-                    <div class="address__edit"><span>{{ __('dashboard/address.edit') }}</span></div>
+                    <div class="address__edit"><i class="fa fa-pencil mr-2" aria-hidden="true"></i><span>{{ __('dashboard/address.edit') }}</span></div>
                 </div>
             </a>
             @endforeach
@@ -62,9 +64,9 @@
                         </div>
                         <div class="flex justify-center mt-12">
                             <button id="button_save"
-                                class="button button--block">{{ __('dashboard/address.save') }}</button>
+                                class="button">{{ __('dashboard/address.save') }}</button>
                             <button id="button_clear"
-                                class="button button--block">{{ __('dashboard/address.clear') }}</button>
+                                class="button button--purple">{{ __('dashboard/address.clear') }}</button>
                         </div>
                     </form>
                 </div>

@@ -11907,22 +11907,23 @@ input:required {
 }
 
 .table-items {
-  border-width: 1px;
   border-radius: 0.5rem;
+  width: 100%;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 0;
+  margin-right: 0;
   overflow: hidden;
-  max-width: 1200px;
 }
 
 .table-items img {
-  border-radius: 50%;
-  height: 60px;
-  width: 60px;
+  border-radius: 0.25rem;
   -o-object-fit: cover;
      object-fit: cover;
+  margin-left: 0;
+  margin-right: 0;
+  height: 60px;
+  width: 60px;
 }
 
 table {
@@ -11950,6 +11951,10 @@ table tr:nth-child(2n) {
 
 table tr:nth-child(2n+1) {
   background-color: #f8f9ff;
+}
+
+table tr:first-child {
+  background-color: #eeedfc;
 }
 
 @media screen and (max-width: 1400px) {
@@ -12265,6 +12270,7 @@ a {
 
 .button {
   border-width: 0;
+  border-radius: 0.5rem;
   color: #fff;
   font-size: 1.125rem;
   cursor: pointer;
@@ -12273,7 +12279,6 @@ a {
   padding-right: 3rem;
   background: #6C63FF;
   line-height: 2.5;
-  border-radius: 50px;
   box-shadow: 0 5px 10px rgba(108, 99, 255, 0.2);
 }
 
@@ -12285,6 +12290,11 @@ a {
 
 .button--danger {
   background-color: #f56565;
+}
+
+.button--purple {
+  background-color: #eeedfc;
+  color: #000;
 }
 
 .menu-logo {
@@ -13003,7 +13013,8 @@ footer .footer-content__item__li a:hover {
 .sidenav .sidenav-list {
   padding: 1.5rem;
   list-style-type: none;
-  margin-top: 3rem;
+  margin-top: 1.5rem;
+  margin-bottom: 3rem;
 }
 
 .sidenav .sidenav-list__item {
@@ -13031,7 +13042,7 @@ footer .footer-content__item__li a:hover {
 
 .sidenav .sidenav-list__item a:hover {
   color: #2d3748;
-  background-color: #edf2f7;
+  background-color: #eeedfc;
 }
 
 .sidenav .sidenav-list__item a:hover svg path,
@@ -13076,66 +13087,6 @@ footer .footer-content__item__li a:hover {
   .sidenav__close-icon {
     visibility: hidden;
   }
-}
-
-.main {
-  background-color: #fcfcfc;
-  grid-area: main;
-}
-
-.main .sidebar-icon {
-  display: -webkit-box;
-  display: flex;
-  -webkit-box-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-          justify-content: center;
-  color: #6c63ff;
-  font-weight: 600;
-  cursor: pointer;
-  padding: 0.75rem;
-  background-color: #eeedfc;
-}
-
-@media screen and (min-width: 768px) {
-  .main .sidebar-icon {
-    display: none;
-  }
-}
-
-.main .main-header {
-  display: -webkit-box;
-  display: flex;
-  -webkit-box-pack: justify;
-          justify-content: space-between;
-  background-color: #f6e05e;
-  border-width: 1px;
-  border-color: #edf2f7;
-  color: #2d3748;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  margin: 1.5rem;
-  box-shadow: 0 5px 15px 0 rgba(127, 122, 122, 0.14);
-  border-radius: 8px;
-}
-
-@media screen and (min-width: 768px) {
-  .main .main-header {
-    margin-left: 3rem;
-    margin-right: 3rem;
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
-  }
-}
-
-.main .main-header span {
-  font-weight: 600;
-}
-
-.main .main-header:hover {
-  color: #4a5568;
 }
 
 .main-statistics-panel {
@@ -13448,7 +13399,7 @@ footer .footer-content__item__li a:hover {
 }
 
 .main-dashboard-panel .address:hover {
-  background-color: #f7fafc;
+  background-color: #eeedfc;
 }
 
 @media only screen and (min-width: 768px) {
@@ -13538,6 +13489,53 @@ footer .footer-content__item__li a:hover {
   width: 2rem;
   height: 2rem;
   cursor: pointer;
+}
+
+.photo-upload {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.photo-upload__image {
+  height: 12rem;
+  width: 12rem;
+  border-radius: 0.5rem;
+}
+
+.photo-upload__btn {
+  background-color: #eeedfc;
+  border-radius: 0.5rem;
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  position: relative;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
+}
+
+.photo-upload__btn-uploader {
+  opacity: 0;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.photo-upload__btn-text {
+  position: absolute;
+  cursor: pointer;
+  font-weight: 700;
 }
 
 @media (min-width: 640px){
