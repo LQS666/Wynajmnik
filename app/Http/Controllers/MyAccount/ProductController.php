@@ -28,6 +28,7 @@ class ProductController extends Controller
     }
 
     public function new() {
+        // Values [$categories, $filters] bound to view in ViewServiceProvider
         return view('my-account.product-new');
     }
 
@@ -49,6 +50,7 @@ class ProductController extends Controller
 
     public function edit(Product $product)
     {
+        // Values [$categories, $filters] bound to view in ViewServiceProvider
         $this->authorize('update-this', $product);
 
         return view('my-account.product-edit', [
