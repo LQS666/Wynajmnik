@@ -27,6 +27,10 @@ class ProductController extends Controller
         return view('my-account.products');
     }
 
+    public function new() {
+        return view('my-account.product-new');
+    }
+
     public function store(StoreProduct $request)
     {
         $validated = $request->validated();
@@ -47,7 +51,7 @@ class ProductController extends Controller
     {
         $this->authorize('update-this', $product);
 
-        return view('my-account.product', [
+        return view('my-account.product-edit', [
             'product' => $product
         ]);
     }
