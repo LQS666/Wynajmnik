@@ -20,8 +20,9 @@ Route::group(['prefix' => 'my-account', 'namespace' => 'MyAccount'], function() 
     Route::patch('/addresses/{address}', 'UserAddressController@update');
 
     // Products
-    Route::get('/products', 'ProductController@index')->name('my-account.products');
-    Route::post('/products', 'ProductController@store');
+    Route::get('/products/', 'ProductController@index')->name('my-account.products');
+    Route::get('/products/new', 'ProductController@new')->name('my-account.product-new');
+    Route::post('/products/new', 'ProductController@store');
     Route::get('/products/{product}', 'ProductController@edit')->name('my-account.product');
     Route::delete('/products/{product}', 'ProductController@destroy');
     Route::patch('/products/{product}', 'ProductController@update');
