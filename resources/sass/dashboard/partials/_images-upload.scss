@@ -1,0 +1,60 @@
+#selectedFiles {
+    @apply mb-6 w-full flex justify-center flex-wrap;
+
+    &:hover>.uploadContainer {
+        @apply border-purple-second;
+    }
+
+    div {
+        @media(max-width:768px) {
+            @apply my-0 mx-auto;
+        }
+    }
+
+    .uploadContainer {
+        @apply border-dashed border-2 border-purple-main w-full m-0 p-0 relative opacity-100;
+        height: 150px;
+        order: 999;
+
+        @media(max-width:768px) {
+            @apply mx-auto my-0;
+        }
+
+        .upload {
+            @apply opacity-0 absolute cursor-pointer w-full h-full outline-none;
+            z-index: 10;
+        }
+
+        .uploadText {
+            @apply absolute m-0 uppercase;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            img {
+                @apply h-12 w-12 block mx-auto my-0;
+            }
+
+            p {
+                @apply text-sm text-black;
+            }
+        }
+    }
+
+    div {
+        @apply flex flex-col;
+        transition: border .3s;
+
+        img {
+            @apply relative cursor-pointer;
+            width: 150px;
+            height: 150px;
+            margin: 0px 6px 10px;
+            object-fit: cover;
+        }
+
+        p {
+            @apply text-center text-sm;
+        }
+    }
+}
