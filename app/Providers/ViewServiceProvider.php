@@ -48,6 +48,10 @@ class ViewServiceProvider extends ServiceProvider
             'App\Http\View\Composers\ProductComposer'
         );
 
+        View::composer(
+            ['my-account.payments'], 'App\Http\View\Composers\PaymentsComposer'
+        );
+
         // TODO
         //View::composer(
         //    ['my-account.profile'], 'App\Http\View\Composers\MyAccountComposer'

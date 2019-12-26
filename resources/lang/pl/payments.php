@@ -1,0 +1,57 @@
+<?php
+
+return [
+
+    'payu.desc' => 'Płatność dla serwisu: :app_name',
+
+    'payu.error.100' => 'brak lub błędna wartość parametru pos_id',
+    'payu.error.101' => 'brak parametru session_id',
+    'payu.error.102' => 'brak parametru ts',
+    'payu.error.103' => 'brak lub błędna wartość parametru sig',
+    'payu.error.104' => 'brak parametru desc',
+    'payu.error.105' => 'brak parametru client_ip',
+    'payu.error.106' => 'brak parametru first_name',
+    'payu.error.107' => 'brak parametru last_name',
+    'payu.error.108' => 'brak parametru street',
+    'payu.error.109' => 'brak parametru city',
+    'payu.error.110' => 'brak parametru post_code',
+    'payu.error.111' => 'brak parametru amount',
+    'payu.error.112' => 'błędny numer konta bankowego',
+    'payu.error.113' => 'brak parametru email',
+    'payu.error.114' => 'brak numeru telefonu',
+    'payu.error.200' => 'inny chwilowy błąd',
+    'payu.error.201' => 'inny chwilowy błąd bazy danych',
+    'payu.error.202' => 'POS o podanym identyfikatorze jest zablokowany',
+    'payu.error.203' => 'niedozwolona wartość pay_type dla danego parametru pos_id',
+    'payu.error.204' => 'podana metoda płatności (wartość pay_type) jest chwilowo zablokowana dla danego parametru pos_id, np. przerwa konserwacyjna bramki płatniczej',
+    'payu.error.205' => 'kwota transakcji mniejsza od wartości minimalnej',
+    'payu.error.206' => 'kwota transakcji większa od wartości maksymalnej',
+    'payu.error.207' => 'przekroczona wartość wszystkich transakcji dla jednego klienta w ostatnim przedziale czasowym',
+    'payu.error.208' => 'POS działa w wariancie ExpressPayment lecz nie nastąpiła aktywacja tego wariantu współpracy (czekamy na zgodę działu obsługi klienta)',
+    'payu.error.209' => 'błędny numer pos_id lub pos_auth_key',
+    'payu.error.211' => 'nieprawidłowa waluta transakcji',
+    'payu.error.212' => 'próba utworzenia transakcji częściej niż raz na minutę - dla nieaktywnej firmy',
+    'payu.error.500' => 'transakcja nie istnieje',
+    'payu.error.501' => 'brak autoryzacji dla danej transakcji',
+    'payu.error.502' => 'transakcja rozpoczęta wcześniej',
+    'payu.error.503' => 'autoryzacja do transakcji była już przeprowadzana',
+    'payu.error.504' => 'transakcja anulowana wcześniej',
+    'payu.error.505' => 'transakcja przekazana do odbioru wcześniej',
+    'payu.error.506' => 'transakcja już odebrana',
+    'payu.error.507' => 'błąd podczas zwrotu środków do Klienta',
+    'payu.error.599' => 'błędny stan transakcji, np. nie można uznać transakcji kilka razy lub inny, prosimy o kontakt',
+    'payu.error.777' => 'utworzenie transakcji spowoduje przekroczenie limitu transakcji dla firmy w trakcie weryfikacji, weryfikacja odbędzie się w ciągu jednego dnia roboczego',
+    'payu.error.999' => 'inny błąd krytyczny - prosimy ponowić operację',
+
+    'payu.status.1' => 'nowa',
+    'payu.status.2' => 'anulowana',
+    'payu.status.3' => 'odrzucona',
+    'payu.status.4' => 'rozpoczęta',
+    'payu.status.5' => 'oczekuje na odbiór',
+    'payu.status.7' => 'płatność zwrócona, otrzymano środki od klienta po wcześniejszym anulowaniu transakcji, lub nie było możliwości zwrotu środków w sposób automatyczny, sytuacje takie będą monitorowane i wyjaśniane przez zespół PayU',
+    'payu.status.99' => 'płatność odebrana - zakończona',
+    'payu.status.888' => 'błędny status - prosimy o kontakt',
+
+    'payu.finish' => 'Dziękujemy, płatność została zakończona pozytywnie. W ciągu kilku minut, na Państwa koncie powinny się pojawić zakupione produkty.'
+
+];
