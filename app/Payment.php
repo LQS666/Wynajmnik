@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Payment extends Model
 {
     protected $fillable = [
-        'user_id', 'first_name', 'last_name', 'amount', 'desc', 'client_ip', 'session_id', 'ts', 'sig', 'status', 'error'
+        'user_id', 'first_name', 'last_name', 'amount', 'desc', 'client_ip', 'session_id', 'ts', 'sig', 'status', 'error', 'returned'
     ];
 
     public function scopeUser($query, $user_id) {
