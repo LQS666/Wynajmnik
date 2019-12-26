@@ -19304,6 +19304,113 @@ function () {
 
 /***/ }),
 
+/***/ "./resources/js/add_product.js":
+/*!*************************************!*\
+  !*** ./resources/js/add_product.js ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+var addProduct = $("#product-add").validate({
+  rules: {
+    name: {
+      required: true
+    },
+    desc: {
+      required: true
+    },
+    category: {
+      required: true
+    },
+    subcategory: {
+      required: true
+    },
+    address: {
+      required: true
+    },
+    price: {
+      required: true
+    },
+    dateFrom: {
+      required: true,
+      min: "2019-01-01",
+      max: "2029-01-01"
+    },
+    dateTo: {
+      required: true,
+      min: "2019-01-01",
+      max: "2029-01-01"
+    }
+  },
+  messages: {
+    name: {
+      required: "Wprowadź nazwę"
+    },
+    desc: {
+      required: "Wprowadź opis"
+    },
+    category: {
+      required: "Wybierz kategorię"
+    },
+    subcategory: {
+      required: "Wybierz podkategorię"
+    },
+    address: {
+      required: "Wybierz adres"
+    },
+    price: {
+      required: "Wprowadź cenę"
+    },
+    dateFrom: {
+      required: "Wprowadź datę",
+      min: "Wprowadź datę późniejszą niż 01-01-2019",
+      max: "Wprowadź datę wcześniejszą niż 01-01-2029"
+    },
+    dateTo: {
+      required: "Wprowadź datę",
+      min: "Wprowadź datę późniejszą niż 01-01-2019",
+      max: "Wprowadź datę wcześniejszą niż 01-01-2029"
+    }
+  },
+  errorElement: "span",
+  errorClass: "error",
+  errorPlacement: function errorPlacement(error, element) {
+    error.insertBefore(element);
+  }
+});
+$(".step1").click(function () {
+  if (addProduct.form()) {
+    $(".tab-panel").hide();
+    $("#step2").fadeIn(1000);
+    $('.progressbar-dots').removeClass('active');
+    $('.progressbar-dots:nth-child(2)').addClass('active');
+  }
+});
+$(".step2").click(function () {
+  if (addProduct.form()) {
+    $(".tab-panel").hide();
+    $("#step3").fadeIn(1000);
+    $('.progressbar-dots').removeClass('active');
+    $('.progressbar-dots:nth-child(3)').addClass('active');
+  }
+});
+$(".checkbox :checkbox").click(function () {
+  var filterValue = ".area" + this.value;
+  if (this.checked) $(filterValue).show();else $(filterValue).hide();
+});
+$("#category").click(function () {
+  var el = document.getElementById('category');
+
+  el.onchange = function () {
+    var category = $('#category :selected').attr('class');
+    $('.cat').hide();
+    $('.subcat').show();
+    $('.cat' + category).show();
+  };
+});
+
+/***/ }),
+
 /***/ "./resources/js/app.js":
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
@@ -19316,26 +19423,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Form */ "./resources/js/Form.js");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+__webpack_require__(/*! ./add_product */ "./resources/js/add_product.js");
+
+__webpack_require__(/*! ./upload_images */ "./resources/js/upload_images.js");
+
+__webpack_require__(/*! ./mobile_menu */ "./resources/js/mobile_menu.js");
+
 
 window.addEventListener('load', function () {
   new _Form__WEBPACK_IMPORTED_MODULE_0__["default"]('.form');
-}); // Mobile Menu
-
-window.addEventListener('DOMContentLoaded', function () {
-  var body = document.querySelector('body');
-  var menu = document.querySelector('.menu-icon');
-
-  var animateMobileMenu = function init() {
-    menu.addEventListener('click', function () {
-      if (body.classList.contains('nav-active')) {
-        body.classList.remove('nav-active');
-      } else {
-        body.classList.add('nav-active');
-      }
-    });
-  };
-
-  animateMobileMenu();
 });
 
 /***/ }),
@@ -19369,6 +19465,105 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     encrypted: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/mobile_menu.js":
+/*!*************************************!*\
+  !*** ./resources/js/mobile_menu.js ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+window.addEventListener('DOMContentLoaded', function () {
+  var body = document.querySelector('body');
+  var menu = document.querySelector('.menu-icon');
+
+  var animateMobileMenu = function init() {
+    menu.addEventListener('click', function () {
+      if (body.classList.contains('nav-active')) {
+        body.classList.remove('nav-active');
+      } else {
+        body.classList.add('nav-active');
+      }
+    });
+  };
+
+  animateMobileMenu();
+});
+
+/***/ }),
+
+/***/ "./resources/js/upload_images.js":
+/*!***************************************!*\
+  !*** ./resources/js/upload_images.js ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+var selectedFiles = "";
+var storedFiles = [];
+$(document).ready(function () {
+  $("#files").on("change", handleFileSelect);
+  selectedFiles = $("#selectedFiles");
+  $("body").on("click", ".selFile", removeFile);
+});
+
+function handleFileSelect(e) {
+  var files = e.target.files;
+  var filesArr = Array.prototype.slice.call(files);
+  var container = document.querySelector(".uploadContainer"),
+      text = document.querySelector(".uploadText p"),
+      image = document.querySelector(".uploadText img");
+  filesArr.forEach(function (f) {
+    if (!f.type.match("image.*")) {
+      return;
+    }
+
+    storedFiles.push(f);
+
+    if (storedFiles.length > 0) {
+      container.style.width = "150px";
+      text.innerText = "+";
+      text.style.fontSize = "60px";
+      image.style.display = "none";
+      container.style.border = "2px dashed #eeedfc";
+    }
+
+    var reader = new FileReader();
+
+    reader.onload = function (e) {
+      var html = "<div><img src=\"" + e.target.result + "\" data-file='" + f.name + "' class='selFile' title='Kliknij, aby usunąć'>" + "<p>" + f.name.replace(/(.{18})..+/, "$1…") + "</p></div>";
+      selectedFiles.append(html);
+    };
+
+    reader.readAsDataURL(f);
+  });
+}
+
+function removeFile(e) {
+  var file = $(this).data("file");
+  var container = document.querySelector(".uploadContainer"),
+      text = document.querySelector(".uploadText p"),
+      image = document.querySelector(".uploadText img");
+
+  for (var i = 0; i < storedFiles.length; i++) {
+    if (storedFiles[i].name === file) {
+      storedFiles.splice(i, 1);
+      break;
+    }
+  }
+
+  $(this).parent().remove();
+
+  if (storedFiles.length == 0) {
+    container.style.width = "100%";
+    text.innerText = "Dodaj zdjęcia";
+    text.style.fontSize = "14px";
+    image.style.display = "block";
+    container.style.border = "2px dashed #eeedfc";
+  }
+}
 
 /***/ }),
 

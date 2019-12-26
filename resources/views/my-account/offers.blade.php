@@ -28,7 +28,7 @@
 
                 @foreach($offers as $offer)
                 <tr>
-                    <td class="offer">
+                    <td class="offer flex justify-center">
                         <img src="{{ asset('/assets/images/avatar.jpg') }}" alt="Item" />
                     </td>
                     <td class="offer">
