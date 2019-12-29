@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <a href="https://github.com/LQS666/Wynajmnik/archive/master.zip"><img src="http://wynajmnik.pl/github/wynajmnik.png" alt="Wynajmnik.pl"></a>
+  <a href="https://github.com/LQS666/Wynajmnik/archive/master.zip"><img src="http://pawelturkot.pl/uploads/wynajmnik.png" alt="Wynajmnik.pl"></a>
 </h1>
 
 <h4 align="center">Wypożyczalnia sprzętu specjalistycznego.</h4>
@@ -20,7 +20,7 @@
 <tr>
 <td>
   
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris et libero porta, malesuada leo a, interdum enim. Quisque ut ligula venenatis ligula eleifend aliquet. Sed maximus metus non tortor tristique efficitur. Nunc elementum nibh purus. Aenean sagittis massa at interdum tempus. Proin ultrices mauris vel venenatis aliquam.
+Wynajmnik.pl jest platformą służącą do wymiany dronów i sprzętu z nim związanego. Od specjalistów, dla specjalistów i domowych użytkowników. Jesteś fotografem i potrzebujesz drona na jeden dzień? Znajdź go w wyszukiwarce i pożycz za opłatą! Chciałbyś spróbować lotów dronami RC w goglach? Nic prostszego! Masz na oku nową maszynę, ale nie wiesz czy będzie dla Ciebie idealna? Znajdź, pożycz, lataj! It’s simple to share.
 
 </td>
 </tr>
