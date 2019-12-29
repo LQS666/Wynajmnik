@@ -1,0 +1,64 @@
+.payment {
+    &__options {
+        @apply flex flex-col justify-center items-center my-3;
+    }
+
+    &__items {
+        @apply flex flex-wrap justify-center items-center my-6;
+    }
+
+    &__item {
+        @apply flex flex-col justify-center items-center;
+    }
+
+    &__warning {
+        @apply text-sm mb-6;
+    }
+
+    &__history {
+        @apply mt-6 mb-3 text-xl;
+    }
+
+    &__empty-list {
+        @apply flex justify-center items-center bg-purple-main w-1/2 py-3 rounded-lg;
+    }
+}
+
+.loader {
+    @apply flex flex-col justify-center items-center;
+
+    &__icon {
+        @apply h-32 w-32;
+        animation: pulse 1.8s linear infinite both;
+    }
+
+    .loading:after {
+        @apply text-xl mt-6;
+        content: ".";
+        animation: loading 1.2s ease alternate infinite;
+    }
+}
+
+@keyframes loading {
+    60% {
+        text-shadow: 0.3em 0 0 #000;
+    }
+
+    100% {
+        text-shadow: 0.3em 0 0 #000, 0.6em 0 0 #000;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.4);
+    }
+
+    50% {
+        transform: scale(0.6);
+    }
+
+    100% {
+        transform: scale(0.4);
+    }
+}
