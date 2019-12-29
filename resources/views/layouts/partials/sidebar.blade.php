@@ -51,7 +51,7 @@
             </a>
         </li>
         <li class="sidenav-list__item">
-            <a href="{{ route('my-account.payments') }}" class="">
+            <a href="{{ route('my-account.payments') }}" {!! request()->routeIs('my-account.payments') ? 'class="active"' : '' !!}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                     <path d="M16 12h2v3h-2z" />
                     <path

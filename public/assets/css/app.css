@@ -11908,16 +11908,6 @@ input:required {
   display: block !important;
 }
 
-.table-items {
-  border-radius: 0.5rem;
-  width: 100%;
-  margin-top: 0.25rem;
-  margin-bottom: 0.25rem;
-  margin-left: 0;
-  margin-right: 0;
-  overflow: hidden;
-}
-
 .table-items img {
   border-radius: 0.25rem;
   -o-object-fit: cover;
@@ -12035,6 +12025,22 @@ td {
 
   td.offer:nth-child(7):before {
     content: "Odrzucono dnia:";
+  }
+
+  td.payment:nth-child(1):before {
+    content: "Nr transakcji:";
+  }
+
+  td.payment:nth-child(2):before {
+    content: "Data:";
+  }
+
+  td.payment:nth-child(3):before {
+    content: "Ilo\15B\107   punkt\F3w:";
+  }
+
+  td.payment:nth-child(4):before {
+    content: "Status:";
   }
 
   tr {
@@ -13347,7 +13353,7 @@ footer .footer-content__item__li a:hover {
 }
 
 .main-dashboard-panel .container {
-  max-width: 600px;
+  max-width: 1000px;
 }
 
 .main-dashboard-panel h2 {

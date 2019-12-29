@@ -6,8 +6,6 @@ $padding: 20px;
 
 
 .table-items {
-    @apply rounded-lg w-full my-1 mx-0 overflow-hidden;
-
     img {
         @apply rounded object-cover mx-0;
         height: $imageSmall;
@@ -126,6 +124,24 @@ table {
 
         &:nth-child(7):before {
             content: 'Odrzucono dnia:';
+        }
+    }
+
+    td.payment {
+        &:nth-child(1):before {
+            content: 'Nr transakcji:';
+        }
+
+        &:nth-child(2):before {
+            content: 'Data:';
+        }
+
+        &:nth-child(3):before {
+            content: 'Ilość punktów:';
+        }
+
+        &:nth-child(4):before {
+            content: 'Status:';
         }
     }
 
