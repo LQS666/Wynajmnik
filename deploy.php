@@ -1,42 +1,39 @@
 <?php
 namespace Deployer;
 
+// https://github.com/deployphp/deployer/blob/master/recipe/laravel.php
 require 'recipe/laravel.php';
 
-// Project name
 set('application', 'Wynajmnik.pl');
-
-// Project repository
+set('http_user', 'www-data');
 set('repository', 'ssh://git@github.com/LQS666/Wynajmnik.git');
-
-// [Optional] Allocate tty for git clone. Default value is false.
 set('git_tty', true);
 
-// Shared files/dirs between deploys
-add('shared_files', []);
-add('shared_dirs', []);
-
-// Writable dirs by web server
-add('writable_dirs', []);
-set('allow_anonymous_stats', false);
-
-// Hosts
+// Laravel writable dirs
+set('writable_dirs', [
+    'bootstrap/cache',
+    'storage',
+    'storage/app',
+    'storage/app/public',
+    'storage/framework',
+    'storage/framework/cache',
+    'storage/framework/sessions',
+    'storage/framework/views',
+    'storage/logs',
+    'public'
+]);
 
 host('77.55.194.25')
     ->user('wynajmnik')
     ->port(22)
     ->set('deploy_path', '/home/wynajmnik/html');
 
-// Tasks
+// desc('Override for the original command to skip it');
+// task('artisan:cache:clear', function () {
+//     writeln('Skipping...');
+// });
 
-task('build', function () {
-    run('cd {{release_path}} && build');
-});
-
-// [Optional] if deploy fails automatically unlock.
+after('artisan:config:cache', 'artisan:queue:restart');
+before('deploy:symlink', 'artisan:migrate');
 after('deploy:failed', 'deploy:unlock');
-
-// Migrate database before symlink new release.
-
-#before('deploy:symlink', 'artisan:migrate');
 
