@@ -1,13 +1,13 @@
 @extends('layouts.admin')
 
-@section('title', __('dashboard/address.title'))
+@section('title', __('dashboard/payment.title'))
 
 @section('profile')
 
 
 <div class="main-dashboard-panels">
     <div class="main-dashboard-panel">
-        <h2 class="font-semibold">{{ __('dashboard/payment.title') }}</h2>
+        <h2 class="font-semibold">{{ __('dashboard/payment.name') }}</h2>
         <div class="container">
             @if (isset($payu))
             <form class="flex flex-col" method="{{ $payu['method'] }}" action="{{ $payu['action'] }}" name="payuform">
