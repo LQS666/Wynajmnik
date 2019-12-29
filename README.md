@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <a href="https://github.com/LQS666/Wynajmnik/archive/master.zip"><img src="http://pawelturkot.pl/uploads/wynajmnik.png" alt="Wynajmnik.pl"></a>
+  <a href="https://github.com/LQS666/Wynajmnik/archive/master.zip"><img src="http://pawelturkot.pl/uploads/wynajmnik_logo.png" alt="Wynajmnik.pl"></a>
 </h1>
 
 <h4 align="center">Wypożyczalnia sprzętu specjalistycznego.</h4>
