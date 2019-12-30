@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', __('dashboard/address.title'))
+@section('title', __('dashboard/product.title'))
 
 @section('profile')
 

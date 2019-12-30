@@ -4,7 +4,7 @@
     <nav class="flex fixed w-full z-50 items-center justify-between bg-white py-3 px-12 shadow-md">
         <div>
             <a href="{{ url('/') }}" class="mt-0 text-purple-second hover:text-indigo-700 transition">
-                <span class="font-semibold text-xl tracking-tight">{{ __('base.title') }}</span>
+                <img style="height: 50px;" src="{{ asset('/assets/images/logo_purple.png')}}" />
             </a>
         </div>
         <div class="flex items-center w-auto">

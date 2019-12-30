@@ -11908,16 +11908,6 @@ input:required {
   display: block !important;
 }
 
-.table-items {
-  border-radius: 0.5rem;
-  width: 100%;
-  margin-top: 0.25rem;
-  margin-bottom: 0.25rem;
-  margin-left: 0;
-  margin-right: 0;
-  overflow: hidden;
-}
-
 .table-items img {
   border-radius: 0.25rem;
   -o-object-fit: cover;
@@ -12035,6 +12025,22 @@ td {
 
   td.offer:nth-child(7):before {
     content: "Odrzucono dnia:";
+  }
+
+  td.payment:nth-child(1):before {
+    content: "Nr transakcji:";
+  }
+
+  td.payment:nth-child(2):before {
+    content: "Data:";
+  }
+
+  td.payment:nth-child(3):before {
+    content: "Ilo\15B\107   punkt\F3w:";
+  }
+
+  td.payment:nth-child(4):before {
+    content: "Status:";
   }
 
   tr {
@@ -13347,7 +13353,7 @@ footer .footer-content__item__li a:hover {
 }
 
 .main-dashboard-panel .container {
-  max-width: 600px;
+  max-width: 1000px;
 }
 
 .main-dashboard-panel h2 {
@@ -13749,6 +13755,150 @@ span.error {
   text-transform: uppercase;
   display: block;
   margin-bottom: 0.5rem;
+}
+
+.payment__options {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.payment__items {
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: wrap;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.payment__item {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
+}
+
+.payment__warning {
+  font-size: 0.875rem;
+  margin-bottom: 1.5rem;
+}
+
+.payment__history {
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  font-size: 1.25rem;
+}
+
+.payment__empty-list {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
+  background-color: #eeedfc;
+  width: 50%;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  border-radius: 0.5rem;
+}
+
+.loader {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
+}
+
+.loader__icon {
+  height: 8rem;
+  width: 8rem;
+  -webkit-animation: pulse 1.8s linear infinite both;
+          animation: pulse 1.8s linear infinite both;
+}
+
+.loader .loading:after {
+  font-size: 1.25rem;
+  margin-top: 1.5rem;
+  content: ".";
+  -webkit-animation: loading 1.2s ease alternate infinite;
+          animation: loading 1.2s ease alternate infinite;
+}
+
+@-webkit-keyframes loading {
+  60% {
+    text-shadow: 0.3em 0 0 #000;
+  }
+
+  100% {
+    text-shadow: 0.3em 0 0 #000, 0.6em 0 0 #000;
+  }
+}
+
+@keyframes loading {
+  60% {
+    text-shadow: 0.3em 0 0 #000;
+  }
+
+  100% {
+    text-shadow: 0.3em 0 0 #000, 0.6em 0 0 #000;
+  }
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-transform: scale(0.4);
+            transform: scale(0.4);
+  }
+
+  50% {
+    -webkit-transform: scale(0.6);
+            transform: scale(0.6);
+  }
+
+  100% {
+    -webkit-transform: scale(0.4);
+            transform: scale(0.4);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    -webkit-transform: scale(0.4);
+            transform: scale(0.4);
+  }
+
+  50% {
+    -webkit-transform: scale(0.6);
+            transform: scale(0.6);
+  }
+
+  100% {
+    -webkit-transform: scale(0.4);
+            transform: scale(0.4);
+  }
 }
 
 .photo-upload {
