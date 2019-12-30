@@ -169,7 +169,7 @@ class PayUService
     public static function handleStatus(array $request, Model $model)
     {
         if (!empty($request['pos_id']) && !empty($request['session_id']) && !empty($request['ts']) && !empty($request['sig'])) {
-            if ($request['pos_id'] !== self::POS_ID) {
+            if ((int) $request['pos_id'] !== self::POS_ID) {
                 throw new \Exception('WRONG POS_ID PLACED IN REQUEST: ' . json_encode($request));
             }
 
