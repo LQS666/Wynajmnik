@@ -85,8 +85,10 @@ class PaymentController extends Controller
                         ]);
                     }
                 }
+                return 'OK';
             } catch (\Exception $e) {
                 Log::debug($e->getMessage());
+                return 'INNER ERROR';
             }
         }
     }
