@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Payment extends Model
 {
     protected $fillable = [
-        'user_id', 'first_name', 'last_name', 'amount', 'desc', 'client_ip', 'session_id', 'ts', 'sig', 'status', 'error', 'returned'
+        'user_id', 'first_name', 'last_name', 'amount', 'desc', 'client_ip', 'session_id', 'ts', 'sig', 'transaction_id', 'status', 'error', 'returned'
     ];
 
     public function scopeUser($query, $user_id) {
@@ -27,7 +27,21 @@ class Payment extends Model
         return PayUService::getError($value) ? [$value => PayUService::getError($value)] : $value;
     }
 
+    public function getErrorIdAttribute() {
+        $error = $this->error;
+        return (int) (is_array($error) ? key($error) : $error);
+    }
+
     public function getStatusAttribute($value) {
         return PayUService::getStatus($value) ? [$value => PayUService::getStatus($value)] : $value;
+    }
+
+    public function getStatusIdAttribute() {
+        $status = $this->status;
+        return (int) (is_array($status) ? key($status) : $status);
+    }
+
+    public function owner() {
+        return $this->belongsTo(User::class, 'user_id');
     }
 }

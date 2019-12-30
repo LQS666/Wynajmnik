@@ -17,7 +17,7 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $fillable = [
-        'name', 'surname', 'birth_date', 'avatar', 'register_ip', 'last_login_ip', 'last_login_at', 'email', 'password',
+        'name', 'surname', 'birth_date', 'avatar', 'points', 'register_ip', 'last_login_ip', 'last_login_at', 'email', 'password',
     ];
 
     /**
@@ -49,6 +49,11 @@ class User extends Authenticatable implements MustVerifyEmail
     public $images = [
         'avatar'
     ];
+
+    public function getPointsAttribute($value)
+    {
+        return (int) $value;
+    }
 
     public function addresses() {
         return $this->hasMany(UserAddress::class);

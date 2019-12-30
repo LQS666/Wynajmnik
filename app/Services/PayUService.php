@@ -5,7 +5,6 @@ namespace App\Services;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
-use Illuminate\Support\Facades\Log;
 
 class PayUService
 {
@@ -17,6 +16,8 @@ class PayUService
 
     private const PAYMENT_NEW_URL = 'https://secure.snd.payu.com/paygw/UTF/NewPayment';
     private const PAYMENT_GET_URL = 'https://secure.snd.payu.com/paygw/UTF/Payment/get';
+
+    private const FINISHED_STATUS = 99;
 
     private const STATUSES = [
         1, 2, 3, 4, 5, 7, 99, 888
@@ -77,6 +78,23 @@ class PayUService
         } else {
             return $model;
         }
+    }
+
+    /**
+     * @param array $fields
+     * @param string $key
+     * @param string $hash
+     * @return string
+     */
+    public static function getSig(array $fields, $key = self::SECOND_KEY, $hash = 'md5')
+    {
+        $sig = '';
+        foreach ($fields as $value) {
+            $sig .= $value;
+        }
+        $sig .= $key;
+
+        return hash($hash, $sig);
     }
 
     /**
@@ -148,38 +166,87 @@ class PayUService
      * @param Request $request
      * @param Model $model
      */
-    public static function handleStatus(Request $request, Model $model)
+    public static function handleStatus(array $request, Model $model)
     {
-        // TODO
-        //Log::debug(json_encode($request->all()));
-
-        /*$posId     = (int) $request->get('pos_id');
-        $sessionId = $request->get('session_id');
-        $ts        = $request->get('ts');
-        $sig       = md5($posId . $sessionId . $ts . self::SECOND_KEY); //$request->get('sig');
-
-        if ($posId && $sessionId && $ts && $sig) {
-            if ($posId !== self::POS_ID) {
-                return 'WRONG POS_ID';
+        if (!empty($request['pos_id']) && !empty($request['session_id']) && !empty($request['ts']) && !empty($request['sig'])) {
+            if ($request['pos_id'] !== self::POS_ID) {
+                throw new \Exception('WRONG POS_ID PLACED IN REQUEST: ' . json_encode($request));
             }
 
-            if ($sig !== md5($posId . $sessionId . $ts . self::SECOND_KEY)) {
-                return 'WRONG SIG';
+            if ($request['sig'] !== self::getSig([
+                    $request['pos_id'],
+                    $request['session_id'],
+                    $request['ts']
+                ])) {
+
+                throw new \Exception('WRONG SIG PLACED IN REQUEST: ' . json_encode($request));
             }
+
+            //////////////////////////////////////////////////////////
+
+            $form = [
+                'pos_id'     => $request['pos_id'],
+                'session_id' => $request['session_id'],
+                'ts'         => $_ts = time(),
+                'sig'        => self::getSig([
+                    $request['pos_id'],
+                    $request['session_id'],
+                    $_ts
+                ], self::FIRST_KEY)
+            ];
+            unset($_ts);
 
             $client = new Client();
-
             $response = $client->post(self::PAYMENT_GET_URL, [
-                'form_params' => [
-                    'pos_id' => $posId,
-                    'session_id' => $sessionId,
-                    'ts' => $ts,
-                    'sig' => $sig
-                ]
+                'form_params' => $form
             ]);
 
-            dd($response);
-        }*/
+            //////////////////////////////////////////////////////////
+
+            if ($response->getReasonPhrase() === 'OK') {
+                $response = simplexml_load_string($response->getBody());
+
+                $payment = [
+                    'pos_id'     => (string) $response->trans->pos_id[0],
+                    'session_id' => (string) $response->trans->session_id[0],
+                    'order_id'   => (string) $response->trans->order_id[0],
+                    'status'     => (string) $response->trans->status[0],
+                    'amount'     => (string) $response->trans->amount[0],
+                    'desc'       => (string) $response->trans->desc[0],
+                    'ts'         => (string) $response->trans->ts[0],
+
+                    'trans_id'   => (string) $response->trans->id[0],
+                    'sig'        => (string) $response->trans->sig[0]
+                ];
+
+                if ($payment['sig'] !== self::getSig([
+                        $payment['pos_id'],
+                        $payment['session_id'],
+                        $payment['order_id'],
+                        $payment['status'],
+                        $payment['amount'],
+                        $payment['desc'],
+                        $payment['ts']
+                    ])) {
+
+                    throw new \Exception('WRONG SID PLACED IN RESPONSE: ' . json_encode($payment));
+                }
+
+                if ($model = self::getModel($model, $payment['order_id'], $payment['session_id'])) {
+                    if ($model->status_id !== self::FINISHED_STATUS) {
+                        $model->update([
+                            'transaction_id' => (int) $payment['trans_id'],
+                            'status' => (int) $payment['status']
+                        ]);
+                        return (int) $payment['status'] === self::FINISHED_STATUS ? $model : null;
+                    }
+                } else {
+                    throw new \Exception('PAYMENT NOT FOUND: ' . json_encode($payment));
+                }
+            } else {
+                throw new \Exception('ERROR RESPONSE STATUS: ' . json_encode($form));
+            }
+        }
     }
 
     /**

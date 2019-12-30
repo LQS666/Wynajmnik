@@ -7,6 +7,7 @@ use App\Http\Requests\StorePayment;
 use App\Payment;
 use App\Services\PayUService as PayU;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class PaymentController extends Controller
 {
@@ -75,6 +76,18 @@ class PaymentController extends Controller
 
     public function report(Request $request)
     {
-        PayU::handleStatus($request, new Payment());
+        if ($request = $request->all()) {
+            try {
+                if ($payment = PayU::handleStatus($request, new Payment())) {
+                    if ($payment->owner) {
+                        $payment->owner->update([
+                            'points' => ($payment->owner->points + $payment->amount)
+                        ]);
+                    }
+                }
+            } catch (\Exception $e) {
+                Log::debug($e->getMessage());
+            }
+        }
     }
 }
