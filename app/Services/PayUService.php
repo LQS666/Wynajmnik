@@ -170,7 +170,7 @@ class PayUService
     {
         if (!empty($request['pos_id']) && !empty($request['session_id']) && !empty($request['ts']) && !empty($request['sig'])) {
             if ((int) $request['pos_id'] !== self::POS_ID) {
-                throw new \Exception('WRONG POS_ID PLACED IN REQUEST: ' . json_encode($request));
+                throw new \Exception(['desc' => 'WRONG POS_ID PLACED IN REQUEST', 'data' => json_encode($request)]);
             }
 
             if ($request['sig'] !== self::getSig([
@@ -179,7 +179,7 @@ class PayUService
                     $request['ts']
                 ])) {
 
-                throw new \Exception('WRONG SIG PLACED IN REQUEST: ' . json_encode($request));
+                throw new \Exception(['desc' => 'WRONG SIG PLACED IN REQUEST', 'data' => json_encode($request)]);
             }
 
             //////////////////////////////////////////////////////////
@@ -229,7 +229,7 @@ class PayUService
                         $payment['ts']
                     ])) {
 
-                    throw new \Exception('WRONG SID PLACED IN RESPONSE: ' . json_encode($payment));
+                    throw new \Exception(['desc' => 'WRONG SID PLACED IN RESPONSE', 'data' => json_encode($payment)]);
                 }
 
                 if ($model = self::getModel($model, $payment['order_id'], $payment['session_id'])) {
@@ -241,10 +241,10 @@ class PayUService
                         return (int) $payment['status'] === self::FINISHED_STATUS ? $model : null;
                     }
                 } else {
-                    throw new \Exception('PAYMENT NOT FOUND: ' . json_encode($payment));
+                    throw new \Exception(['desc' => 'PAYMENT NOT FOUND', 'data' => json_encode($payment)]);
                 }
             } else {
-                throw new \Exception('ERROR RESPONSE STATUS: ' . json_encode($form));
+                throw new \Exception(['desc' => $response->getStatusCode(), 'data' => json_encode($form)]);
             }
         }
     }
