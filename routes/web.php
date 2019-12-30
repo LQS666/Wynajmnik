@@ -12,3 +12,6 @@
 */
 
 Route::get('/', 'HomeController@index')->name('home');
+
+// Reports
+Route::post('/reports/report', 'MyAccount\PaymentController@report');

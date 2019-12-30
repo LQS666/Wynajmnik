@@ -34,6 +34,5 @@ Route::group(['prefix' => 'my-account', 'namespace' => 'MyAccount'], function() 
     Route::get('/payments', 'PaymentController@index')->name('my-account.payments');
     Route::post('/payments', 'PaymentController@store');
     Route::get('/payments/finish', 'PaymentController@finish');
-    Route::post('/payments/report', 'PaymentController@report');
     Route::get('/payments/{payment}', 'PaymentController@send')->name('my-account.payment');
 });
