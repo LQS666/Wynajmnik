@@ -24,7 +24,7 @@
     </main>
     <aside class="welcome-right">
         <div class="wrapper">
-            <img class="welcome__image" src="{{ asset('/assets/images/header.svg')}}" alt="Swirl Graphic">
+            <img class="welcome__image" src="{{ asset('/assets/images/home_page/header.svg')}}" alt="header_image">
         </div>
     </aside>
 </header>
@@ -45,7 +45,7 @@
 <section class="about">
     <div class="about__content">
         <div class="about__image-container">
-            <img src="{{ asset('/assets/images/about.jpg')}}" alt="">
+            <img src="{{ asset('/assets/images/home_page/about.jpg')}}" alt="about_image">
         </div>
         <div class="about__content__desc">
             <p>
@@ -61,7 +61,7 @@
         <div class="cta__clouds"></div>
         <div class="cta__content">
             <p>{{ __('home.about.cta') }}</p> 
-            <a href="" class="button">{{ __('home.about.cta-btn') }}</a>
+            <a href="{{ route('register') }}" class="button">{{ __('home.about.cta-btn') }}</a>
         </div>
       </div>
     </div>
@@ -77,13 +77,13 @@
                 <h4>{{ __('home.promo.item1') }}</h4>
             </div>
             <div class="promo__item1__img">
-                <img src="{{ asset('/assets/images/promo1.svg')}}">
+                <img src="{{ asset('/assets/images/home_page/promo1.svg')}}" alt="infographic1">
             </div>
         </div>
 
         <div class="promo__item2">
             <div class="promo__item2__img">
-                <img src="{{ asset('/assets/images/promo2.svg')}}">
+                <img src="{{ asset('/assets/images/home_page/promo2.svg')}}" alt="infographic2">
             </div>
             <div class="promo__item2__desc">
                 <h4>{{ __('home.promo.item2') }}</h4>

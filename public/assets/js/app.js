@@ -19491,7 +19491,7 @@ heroAnimation.set(".welcome-header", {
   y: -20,
   stagger: .4,
   opacity: 0
-}).from("aside", {
+}).from(".welcome-right", {
   backgroundPosition: '200px 0px',
   opacity: 0
 }, "-=1.5").from(".welcome__image", {

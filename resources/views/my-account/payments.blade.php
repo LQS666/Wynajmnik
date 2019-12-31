@@ -16,7 +16,7 @@
                 @endforeach
             </form>
             <div class="loader">
-                <img class="loader__icon" src="{{ asset('/assets/images/logo_icon.png')}}" />
+                <img class="loader__icon" src="{{ asset('/assets/images/brand/logo_icon.png')}}" />
                 <p class="loading">{!! __('dashboard/payment.loading') !!}</p>
             </div>
             @else

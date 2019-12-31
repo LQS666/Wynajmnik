@@ -5,7 +5,7 @@ const controlerGSAP = new ScrollMagic.Controller();
 const heroAnimation = gsap.timeline({ defaults: { duration: 1 } });
 heroAnimation.set(".welcome-header", { visibility: "visible" })
     .from(".fade-up", { y: -20, stagger: .4, opacity: 0 })
-    .from("aside", { backgroundPosition: '200px 0px', opacity: 0 }, "-=1.5")
+    .from(".welcome-right", { backgroundPosition: '200px 0px', opacity: 0 }, "-=1.5")
     .from(".welcome__image", { x: 100, opacity: 0 }, "-=1.5")
 
 const heroTimeline = gsap.to(".welcome__content", { y: '-50', duration: 1 })

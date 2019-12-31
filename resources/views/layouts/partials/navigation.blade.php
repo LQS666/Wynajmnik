@@ -4,7 +4,7 @@
     <nav class="flex fixed w-full z-50 items-center justify-between bg-white py-3 px-12 shadow-md">
         <div>
             <a href="{{ url('/') }}" class="mt-0 text-purple-second hover:text-indigo-700 transition">
-                <img style="height: 50px;" src="{{ asset('/assets/images/logo_purple.png')}}" />
+                <img style="height: 50px;" src="{{ asset('/assets/images/brand/logo_purple.png')}}" />
             </a>
         </div>
         <div class="flex items-center w-auto">
@@ -24,7 +24,7 @@
             @endguest
             @auth
             <div>
-                <a href="#"
+                <a href="{{ route('my-account.product-new') }}"
                     class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-purple-second bg-purple-second hover:border-purple-second transition mt-4 lg:mt-0 hover:bg-white hover:text-purple-second">
                     <i class="fa fa-plus mr-3" aria-hidden="true"></i>
                     {{ __('base.addItem') }}

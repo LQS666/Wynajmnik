@@ -42,7 +42,7 @@
                                 <div class="uploadContainer">
                                     <input class="upload" type="file" id="files" name="pictures[]" multiple>
                                     <div class="uploadText">
-                                        <img src="{{ asset('/assets/images/add_img.svg')}}" alt="">
+                                        <img src="{{ asset('/assets/images/icons/add_img.svg')}}" alt="">
                                         <p>{{ __('dashboard/product-add.add-photos') }}</p>
                                     </div>
                                 </div>

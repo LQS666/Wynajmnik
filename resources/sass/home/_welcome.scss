@@ -74,12 +74,12 @@ header {
         
                         @media screen and (min-width: 768px) {
                             @apply pl-16;
-                            background: url(../images/search.png) no-repeat 1rem 50%;
-                            background-size: 2rem;
+                            background: url(../images/icons/search.svg) no-repeat 1rem 50%;
+                            background-size: 1.2rem;
         
                             &:focus {
-                                background: url(../images/search.png) no-repeat 1rem 40%;
-                                background-size: 2.5rem;
+                                background: url(../images/icons/search.svg) no-repeat 1rem 40%;
+                                background-size: 1.5rem;
                             }
                         }
                     }

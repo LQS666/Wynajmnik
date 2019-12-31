@@ -37,7 +37,7 @@
 
             <div class="addAddress__popup">
                 <div class="addAddress__popup__content">
-                    <img class="addAddress__popup__close" src="{{ asset('/assets/images/close.svg')}}" alt="close" />
+                    <img class="addAddress__popup__close" src="{{ asset('/assets/images/icons/close.svg')}}" alt="close" />
                     <h2 class="addAddress__popup__title">Dodaj adres</h2>
                     <form method="post" action="{{ route('my-account.addresses') }}" id="addEditForm" class="form">
                         @csrf
