@@ -5,19 +5,19 @@
 <header class="welcome-header">
     <main class="welcome">
         <div class="welcome__content">
-            <h1 class="fade-up">Wypożycz wszystko, tutaj.</h1>
-            <p class="fade-up">Ludzie poszukują specjalistycznego sprzętu.</p>
+            <h1 class="fade-up">{{ __('home.hero.title') }}</h1>
+            <p class="fade-up">{{ __('home.hero.desc') }}</p>
             <div class="welcome__content__searchbar fade-up">
                 <form class="search">
-                    <input type="search" class="search__input" name="search" placeholder="np. dron"
+                    <input type="search" class="search__input" name="search" placeholder="{{ __('home.hero.placeholder') }}"
                         autocomplete="off" required>
-                    <button class="search__btn">{{ __('home.search') }}</button>
+                    <button class="search__btn">{{ __('home.hero.search') }}</button>
                 </form>
             </div>
             <div class="welcome__content__other fade-up">
-                <span>{{ __('home.other') }}</span>
+                <span>{{ __('home.hero.other') }}</span>
                 <a href="#">
-                    {{ __('home.categories') }}
+                    {{ __('home.hero.categories') }}
                 </a>
             </div>
         </div>
@@ -33,18 +33,12 @@
 
 <section class="advantages">
     <div class="advantages__container container">
+        @foreach(range(1, 3) as $item)
         <div class="advantages__item">
-            <p class="advantages__title">Oszczędzaj pieniądze</p>
-            <p class="advantages__desc">Kupuj mniej. Po co kupować rzeczy, które zostaną użyte raz na rok? Zarabiaj na sprzęcie, którego nie używasz.</p>
+            <p class="advantages__title">{{ __('home.advantages.'. $item .'.title') }}</p>
+            <p class="advantages__desc">{{ __('home.advantages.'. $item .'.desc') }}</p>
         </div>
-        <div class="advantages__item">
-            <p class="advantages__title">Dostęp do wszystkiego</p>
-            <p class="advantages__desc">Otrzymaj dostęp do sporej bazy przedmiotów najwyższej jakości.</p>
-        </div>
-        <div class="advantages__item">
-            <p class="advantages__title">Oczyść planetę</p>
-            <p class="advantages__desc">Dbaj o środowisko. Nie trzymaj niepotrzebnych rzeczy i nie zagracaj mieszkania.</p>
-        </div>
+        @endforeach
     </div>
 </section>
 
@@ -55,19 +49,19 @@
         </div>
         <div class="about__content__desc">
             <p>
-                <span>Wynajmnik.pl</span> 
-                jest platformą służącą do wymiany dronów i sprzętu z nimi związanego. 
+                <span>{{ __('home.about.title') }}</span> 
+                {{ __('home.about.desc') }}
             </p>
         </div>
-        <div class="about__content__title"><p>It's simple to share</p></div>
+        <div class="about__content__title"><p>{{ __('home.about.motto') }}</p></div>
     </div>
     <div class="cta-start">
     </div>
     <div class="cta">
         <div class="cta__clouds"></div>
         <div class="cta__content">
-            <p>Znajdź, wypożycz, lataj!</p> 
-            <a href="" class="button">Zarejestruj się już teraz</a>
+            <p>{{ __('home.about.cta') }}</p> 
+            <a href="" class="button">{{ __('home.about.cta-btn') }}</a>
         </div>
       </div>
     </div>
@@ -80,7 +74,7 @@
 
         <div class="promo__item1">
             <div class="promo__item1__desc">
-                <h4>Od specjalistów, dla specjalistów i domowych użytkowników. Jesteś fotografem i potrzebujesz drona na jeden dzień? </h4>
+                <h4>{{ __('home.promo.item1') }}</h4>
             </div>
             <div class="promo__item1__img">
                 <img src="{{ asset('/assets/images/promo1.svg')}}">
@@ -92,8 +86,8 @@
                 <img src="{{ asset('/assets/images/promo2.svg')}}">
             </div>
             <div class="promo__item2__desc">
-                <h4>Chciałbyś spróbować lotów dronami RC w goglach? Nic prostszego! </h4>
-                <h4>Masz na oku nową maszynę, ale nie wiesz czy będzie dla Ciebie idealna?</h4>
+                <h4>{{ __('home.promo.item2') }}</h4>
+                <h4>{{ __('home.promo.item3') }}</h4>
             </div>
         </div>
     </div>
