@@ -3,9 +3,9 @@
     &__item1 {
         @apply flex flex-wrap;
         &__desc {
-            @apply w-5/6 p-6 flex flex-col justify-center mt-12;
+            @apply w-full py-6 px-16 flex flex-col justify-center mt-24;
             @media (min-width: 640px) {
-                @apply w-1/2;
+                @apply w-1/2 px-6 mt-12;
             }
             h4 {
                 @apply text-xl text-gray-700 mb-3 relative leading-snug;
@@ -46,9 +46,9 @@
             }
         }
         &__desc {
-            @apply w-full p-6 mt-12 flex flex-col justify-center;
+            @apply w-full py-6 px-16 mt-24 flex flex-col justify-center items-center;
             @media (min-width: 640px) {
-                @apply w-1/2;
+                @apply w-1/2 px-6 mt-12;
             }
             h4 {
                 @apply text-xl text-gray-700 mb-3 relative leading-snug mb-6;

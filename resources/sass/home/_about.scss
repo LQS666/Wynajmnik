@@ -3,29 +3,43 @@
     width: 100vw;
 
     &__content {
-        @apply flex justify-around px-24 py-32 relative;
-        height: 800px;
+        @apply flex justify-around px-0 py-32 relative;
+        height: 650px;
         width: 100vw;
+        @media screen and (min-width: 768px) {
+            @apply px-24 py-32;
+            height: 800px;
+        }
 
         &__desc {
-            @apply pt-12 text-3xl text-gray-700;
+            @apply pt-3 text-2xl text-gray-700 px-6;
             width: 650px;
+            @media screen and (min-width: 768px) {
+                @apply px-0 pt-12 text-3xl;
+            }
             span {
                 @apply font-semibold;
             }
         }
 
         &__title {
-            @apply bg-purple-second px-16 py-3 rounded text-white text-center block mx-auto my-0 absolute text-6xl;
+            @apply bg-purple-second px-12 py-3 font-semibold rounded-lg text-white text-center block mx-auto my-0 absolute text-4xl;
             top: 40%;
-            left: 32%;
+            left: 28%;
+            @media screen and (min-width: 768px) {
+                @apply text-6xl px-16;
+                left: 32%;
+            }
         }
     }
 
     &__image-container {
-        @apply rounded ml-6 overflow-hidden;
+        @apply rounded ml-3 overflow-hidden;
         height: 500px;
         width: 350px;
+        @media screen and (min-width: 768px) {
+            @apply ml-6;
+        }
         img {
             @apply h-full w-full object-cover;
         }
@@ -83,7 +97,10 @@
         @apply flex flex-col justify-center items-center mt-16;
 
         p {
-            @apply font-semibold text-center text-white mx-auto my-0 text-4xl;
+            @apply font-semibold text-center text-white mx-auto my-0 text-2xl;
+            @media screen and (min-width: 768px) {
+                @apply text-4xl;
+            }
         }
 
         a {
