@@ -1,106 +1,135 @@
-header {
-    background: rgb(248, 248, 255);
-    background: linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(248, 248, 255, 1) 100%);
-    padding-top: 80px;
+
+
+
+.welcome-header {
+    visibility: hidden;
 }
 
-.header-content {
-    @apply px-3 mx-auto flex flex-wrap flex-col items-center;
-
-    @media screen and (min-width: 768px) {
-        @apply pt-32 flex-row;
+header {
+    @apply m-0;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    @media (min-width: 992px) {
+        grid-template-columns: auto 40%;
     }
 
-    &__left {
-        @apply flex flex-col w-full justify-center items-start text-center;
-
-        @media screen and (min-width: 992px) {
-            @apply w-1/2 text-left;
+    .welcome {
+        @apply z-10;
+        min-height: 100vh;
+        display: grid;
+        margin-left: 5%;
+        margin-right: 5%;
+        place-content: center;
+        @media (min-width: 992px) {
+            margin-left: 10%;
         }
-    }
 
-    &__right {
-        @apply w-full py-6 text-center;
+        &__content {
+            @apply w-full;
 
-        @media screen and (min-width: 992px) {
-            @apply w-1/2 py-0;
-        }
-    }
-
-    &__title {
-        @apply block my-4 text-5xl font-bold leading-tight text-gray-800;
-    }
-
-    &__desc {
-        @apply leading-normal text-2xl mb-8 text-gray-600;
-    }
-
-    &__other {
-        @apply mt-6 mr-5 text-right;
-
-        a {
-            @apply inline-block text-sm px-4 py-2 leading-none border rounded text-purple-second border-purple-second;
-
-            &:hover {
-                @apply border-indigo-700 text-white bg-indigo-500;
+            h1 {
+                @apply block my-4 text-5xl font-bold leading-tight text-gray-800 bg-white rounded-lg;
             }
-        }
 
-        span {
-            @apply mr-1;
-        }
-    }
+            p {
+                @apply leading-normal text-xl mb-8 text-gray-600 bg-white rounded-lg;
+            }
 
-    &__searchbar {
-        @apply flex w-full my-0 mt-6 border-2 rounded border-purple-second z-10;
-        flex: 1;
-        box-shadow: 0 7px 14px rgba(0, 0, 0, 0.12), 0 5px 5px rgba(0, 0, 0, 0.12);
+            &__other {
+                @apply mt-6 mr-5 text-left;
+        
+                a {
+                    @apply inline-block text-sm px-4 py-2 leading-none border rounded text-purple-second bg-transparent border-purple-second;
+        
+                    &:hover {
+                        @apply border-indigo-700 text-white bg-indigo-500;
+                    }
+                }
+        
+                span {
+                    @apply mr-1;
+                }
+            }
 
-        @media screen and (min-width: 768px) {
-            @apply mt-0;
-            width: 700px;
-        }
-
-        .search {
-            @apply flex items-center bg-white;
-            flex: 1;
-
-            .search__input {
-                @apply flex pl-3 relative border-none outline-none;
+            &__searchbar {
+                @apply flex w-full my-0 mt-6 border-2 rounded border-purple-second z-10;
                 flex: 1;
-                letter-spacing: .07rem;
-                transition: background .5s;
-
+                box-shadow: 0 7px 14px rgba(0, 0, 0, 0.12), 0 5px 5px rgba(0, 0, 0, 0.12);
+        
                 @media screen and (min-width: 768px) {
-                    @apply pl-16;
-                    background: url(../images/search.png) no-repeat 1rem 50%;
-                    background-size: 2rem;
-
-                    &:focus {
-                        background: url(../images/search.png) no-repeat 1rem 40%;
-                        background-size: 2.5rem;
+                    @apply mt-0;
+                    width: 600px;
+                }
+        
+                .search {
+                    @apply flex items-center bg-white;
+                    flex: 1;
+        
+                    .search__input {
+                        @apply flex pl-3 relative border-none outline-none;
+                        flex: 1;
+                        letter-spacing: .07rem;
+                        transition: background .5s;
+        
+                        @media screen and (min-width: 768px) {
+                            @apply pl-16;
+                            background: url(../images/search.png) no-repeat 1rem 50%;
+                            background-size: 2rem;
+        
+                            &:focus {
+                                background: url(../images/search.png) no-repeat 1rem 40%;
+                                background-size: 2.5rem;
+                            }
+                        }
+                    }
+        
+                    .search__btn {
+                        @apply uppercase font-bold cursor-pointer text-white border-0;
+                        margin: 6px;
+                        padding: 12px 10px;
+                        border-radius: 6px;
+                        background-size: 200%;
+                        background-image: linear-gradient(315deg, #6e72fc 0%, #ad1deb 74%);
+                        transition: background .5s;
+        
+                        @media screen and (min-width: 768px) {
+                            margin: 8px 16px;
+                            padding: 12px 50px;
+                        }
+        
+                        &:hover {
+                            background-position: right;
+                        }
                     }
                 }
             }
-
-            .search__btn {
-                @apply uppercase font-bold cursor-pointer text-white border-0;
-                margin: 6px;
-                padding: 12px 10px;
-                border-radius: 6px;
-                background-size: 200%;
-                background-image: linear-gradient(315deg, #6e72fc 0%, #ad1deb 74%);
-                transition: background .5s;
-
-                @media screen and (min-width: 768px) {
-                    margin: 8px 16px;
-                    padding: 12px 50px;
-                }
-
-                &:hover {
-                    background-position: right;
-                }
-            }
         }
     }
+
+    .welcome-right {
+        @apply bg-gray-100 hidden;
+        min-height: 600px;
+        @media (min-width: 992px) {
+            display: block;
+        }
+    }
+
+    .welcome__image {
+        @apply block absolute;
+        width: 70%;
+        right: 2%;
+        bottom: 0;
+        opacity: .8;
+        @media (min-width: 1200px) {
+            width: 50%;
+            opacity: 1;
+        }
+    }
+
+    a {
+        @apply inline-block text-white font-semibold uppercase no-underline p-2;
+        background: #B100F2;
+    }
+
 }

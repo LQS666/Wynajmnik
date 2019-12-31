@@ -1,7 +1,7 @@
 @section('footer')
 
 <footer>
-    <div class="footer-content container">
+    {{-- <div class="footer-content container">
         <div class="footer-content__item mb-6">
             <a class="footer-content__item__title" href="#">
                 Wynajmnik.pl
@@ -58,7 +58,7 @@
                 </li>
             </ul>
         </div>
-    </div>
+    </div> --}}
 
     <div class="flex items-center justify-center py-3 bg-gray-900">
         <div>

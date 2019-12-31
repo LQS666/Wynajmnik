@@ -1,0 +1,93 @@
+.about {
+    @apply mx-auto my-0 overflow-hidden;
+    width: 100vw;
+
+    &__content {
+        @apply flex justify-around px-24 py-32 relative;
+        height: 800px;
+        width: 100vw;
+
+        &__desc {
+            @apply pt-12 text-3xl text-gray-700;
+            width: 650px;
+            span {
+                @apply font-semibold;
+            }
+        }
+
+        &__title {
+            @apply bg-purple-second px-16 py-3 rounded text-white text-center block mx-auto my-0 absolute text-6xl;
+            top: 40%;
+            left: 32%;
+        }
+    }
+
+    &__image-container {
+        @apply rounded ml-6 overflow-hidden;
+        height: 500px;
+        width: 350px;
+        img {
+            @apply h-full w-full object-cover;
+        }
+    }
+}
+
+.cta-start,
+.cta-end {
+    @apply relative;
+    height: 10vh;
+
+    &::before {
+        @apply absolute;
+        content: '';
+        bottom: -1px;
+        left: 0;
+        right: 0;
+        height: 100px;
+        clip-path: polygon(100% 0, 0 100%, 100% 100%);
+    }
+}
+
+.cta-start {
+    @apply bg-white;
+
+    &::before {
+        background: #ACE6FF;
+    }
+}
+
+.cta-end {
+    background: #63D0FF;
+
+    &::before {
+        @apply bg-white;
+    }
+}
+
+.cta {
+    @apply w-full relative flex justify-center items-center;
+    height: 450px;
+    background: #63D0FF;
+
+    &__clouds {
+        @apply w-full absolute;
+        background: url("./../images/clouds.png") repeat-x 0 bottom #ACE6FF;
+        height: 200px;
+        min-height: 200px;
+        top: 0;
+        left: 0;
+        transform: translate3d(0, 0, 0.01);
+    }
+
+    &__content {
+        @apply flex flex-col justify-center items-center mt-16;
+
+        p {
+            @apply font-semibold text-center text-white mx-auto my-0 text-4xl;
+        }
+
+        a {
+            @apply text-center mt-6;
+        }
+    }
+}

@@ -19429,6 +19429,8 @@ __webpack_require__(/*! ./upload_images */ "./resources/js/upload_images.js");
 
 __webpack_require__(/*! ./mobile_menu */ "./resources/js/mobile_menu.js");
 
+__webpack_require__(/*! ./gsap */ "./resources/js/gsap.js");
+
 
 window.addEventListener('load', function () {
   new _Form__WEBPACK_IMPORTED_MODULE_0__["default"]('.form');
@@ -19465,6 +19467,114 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     encrypted: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/gsap.js":
+/*!******************************!*\
+  !*** ./resources/js/gsap.js ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// Controller
+var controlerGSAP = new ScrollMagic.Controller(); // Animation
+
+var heroAnimation = gsap.timeline({
+  defaults: {
+    duration: 1
+  }
+});
+heroAnimation.set(".welcome-header", {
+  visibility: "visible"
+}).from(".fade-up", {
+  y: -20,
+  stagger: .4,
+  opacity: 0
+}).from("aside", {
+  backgroundPosition: '200px 0px',
+  opacity: 0
+}, "-=1.5").from(".welcome__image", {
+  x: 100,
+  opacity: 0
+}, "-=1.5");
+var heroTimeline = gsap.to(".welcome__content", {
+  y: '-50',
+  duration: 1
+});
+var advantagesTimeline = gsap.to(".before-advantages", {
+  height: '2vh',
+  duration: 1
+});
+var aboutTimeline = gsap.timeline({
+  defaults: {
+    duration: 1
+  }
+});
+aboutTimeline.to(".about__image-container img", {
+  y: '-100',
+  duration: 1
+}).to(".about__content__title", {
+  y: '100',
+  duration: 1
+}, "-=1");
+var promoTimeline = gsap.timeline({
+  defaults: {
+    duration: 1
+  }
+});
+promoTimeline.to(".promo__item1__desc h4", {
+  y: '-80',
+  duration: 1
+}).to(".promo__item2__desc h4", {
+  y: '-80',
+  duration: 1
+}, "-=1"); // Scene
+
+var heroSection = new ScrollMagic.Scene({
+  triggerElement: ".welcome-header",
+  duration: '100%',
+  triggerHook: 0
+}).setTween(heroTimeline).addTo(controlerGSAP);
+var advantagesSection = new ScrollMagic.Scene({
+  triggerElement: ".before-advantages",
+  duration: '100%',
+  triggerHook: 0.9
+}).setTween(advantagesTimeline).addTo(controlerGSAP);
+var aboutSection = new ScrollMagic.Scene({
+  triggerElement: '.about__content',
+  triggerHook: 0.7,
+  duration: '100%'
+}).setTween(aboutTimeline).addTo(controlerGSAP);
+var promoSection = new ScrollMagic.Scene({
+  triggerElement: '.promo',
+  triggerHook: 0.8,
+  duration: '100%'
+}).setTween(promoTimeline).addTo(controlerGSAP); // Clouds Animation
+
+document.addEventListener("DOMContentLoaded", function (event) {
+  function clouds() {
+    var tl = gsap.timeline({
+      repeat: -1
+    });
+    tl.to(".cta__clouds", 52, {
+      backgroundPosition: "-2247px bottom",
+      force3D: true,
+      rotation: 0.01,
+      z: 0.01,
+      ease: Linear.easeNone
+    });
+    return tl;
+  }
+
+  var masterTL = new TimelineMax({
+    repeat: -1
+  });
+
+  window.onload = function () {
+    masterTL.add(clouds(), 0).timeScale(0.7).progress(1).progress(0).play();
+  };
+});
 
 /***/ }),
 

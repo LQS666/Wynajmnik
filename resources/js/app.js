@@ -2,6 +2,7 @@ require('./bootstrap');
 require('./add_product');
 require('./upload_images');
 require('./mobile_menu');
+require('./gsap');
 
 import Form from './Form';
 

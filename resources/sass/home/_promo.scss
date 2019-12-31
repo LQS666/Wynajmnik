@@ -3,24 +3,30 @@
     &__item1 {
         @apply flex flex-wrap;
         &__desc {
-            @apply w-5/6 p-6 flex flex-col justify-center;
+            @apply w-5/6 p-6 flex flex-col justify-center mt-12;
             @media (min-width: 640px) {
                 @apply w-1/2;
             }
-            h3 {
-                @apply text-3xl text-gray-800 font-bold leading-none mb-3;
-            }
-            p {
-                @apply text-gray-600 mb-8;
+            h4 {
+                @apply text-xl text-gray-700 mb-3 relative leading-snug;
+                &::before {
+                    @apply absolute bg-purple-second;
+                    content: "";
+                    top: 0;
+                    left: -20px;
+                    width: 8px;
+                    height: 100%;
+                }
             }
         }
         &__img {
-            @apply w-full p-6;
+            @apply w-full p-6 overflow-hidden;
             @media (min-width: 640px) {
                 @apply w-1/2;
             }
             img {
-                @apply w-full h-64 mx-auto;
+                @apply w-full mx-auto;
+                height: 320px;
             }
         }
     }
@@ -35,19 +41,25 @@
                 @apply w-1/2;
             }
             img {
-                @apply w-5/6 h-64 mx-auto;
+                @apply w-5/6 mx-auto;
+                height: 320px;
             }
         }
         &__desc {
-            @apply w-full p-6 mt-6 flex flex-col justify-center;
+            @apply w-full p-6 mt-12 flex flex-col justify-center;
             @media (min-width: 640px) {
                 @apply w-1/2;
             }
-            h3 {
-                @apply text-3xl text-gray-800 font-bold leading-none mb-3;
-            }
-            p {
-                @apply text-gray-600 mb-8;
+            h4 {
+                @apply text-xl text-gray-700 mb-3 relative leading-snug mb-6;
+                &::before {
+                    @apply absolute bg-purple-second;
+                    content: "";
+                    top: 0;
+                    left: -20px;
+                    width: 8px;
+                    height: 100%;
+                }
             }
         }
     }
