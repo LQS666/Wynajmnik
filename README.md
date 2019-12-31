@@ -34,12 +34,19 @@ Wynajmnik.pl jest platformą służącą do wymiany dronów i sprzętu z nim zwi
 #### Uruchamianie:
 * **Przejdź** do katalogu: `cd Wynajmnik`.
 * **Edytuj** plik `.env` i  **ustaw** poprawne połączenie z bazą danych.
-* **Wykonaj** polecenia: `composer install` oraz `npm install` w celu pobrania niezbędnych paczek zdefiniowanych w **composer.json** i **packages.json**.
+* **Wykonaj** polecenia: `composer install` oraz `npm install` w celu pobrania niezbędnych paczek zdefiniowanych w **composer.json** i **package.json**.
 
 ## Technologie
 
-* Laravel 6.0
+#### Backend:
+* Laravel 6
+* PHP 7.3
+
+#### Frontend:
 * SCSS
 * TailwindCSS
+* JQuery 3.2 + JQuery Validate
+* GSAP 3.0
+* ScrollMagic 2.0.3
 
 ## Autorzy
