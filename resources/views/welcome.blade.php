@@ -93,4 +93,17 @@
     </div>
 </section>
 
+<section class="cookie-wrapper">
+    <div class="cookie-content">
+        <div class="cookie-text-wrapper">
+            <p class="cookie-text">{{ __('cookies.text') }}
+                <a href="{{ asset('/storage/Polityka_Prywatności.pdf')}}" target="_blank">{{ __('cookies.privacy_policy') }}</a>
+            </p>
+        </div>
+        <div class="cookie-button-wrapper">
+            <a id="cookie_accept_btn" class="cookie-button">{{ __('cookies.agreed') }}</a>
+        </div>
+    </div>
+</section>
+
 @endsection

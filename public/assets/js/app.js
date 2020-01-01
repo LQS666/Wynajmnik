@@ -19431,6 +19431,8 @@ __webpack_require__(/*! ./mobile_menu */ "./resources/js/mobile_menu.js");
 
 __webpack_require__(/*! ./gsap */ "./resources/js/gsap.js");
 
+__webpack_require__(/*! ./cookies */ "./resources/js/cookies.js");
+
 
 window.addEventListener('load', function () {
   new _Form__WEBPACK_IMPORTED_MODULE_0__["default"]('.form');
@@ -19467,6 +19469,27 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     encrypted: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/cookies.js":
+/*!*********************************!*\
+  !*** ./resources/js/cookies.js ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  if (document.cookie.replace(/(?:(?:^|.*;\s*)gt_accepted\s*\=\s*([^;]*).*$)|^.*$/, "$1") != "yes") {
+    $('.cookie-wrapper').delay(3000).fadeIn(1500);
+  }
+
+  ;
+  $('#cookie_accept_btn').click(function () {
+    document.cookie = "gt_accepted=yes; expires=Mon, 24 Jun 2022 15:00:00 GMT; path=/";
+    $('.cookie-wrapper').fadeOut(350);
+  });
+});
 
 /***/ }),
 
