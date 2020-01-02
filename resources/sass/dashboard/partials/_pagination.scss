@@ -1,0 +1,43 @@
+.pagination-container {
+    .pagination {
+        @apply flex mt-6;
+        li {
+            @apply p-1;
+            a {
+                @apply font-semibold text-gray-700 relative inline-block no-underline text-xl;
+                padding: 8px 18px 10px;
+                z-index: 1;
+                &:before {
+                    @apply bg-white absolute rounded-full h-full w-full;
+                    content: "";
+                    top: 0;
+                    left: 0;	
+                    z-index: -1;
+                }
+            }
+        }
+        li,
+        li.active {
+            span {
+                @apply font-semibold text-gray-400 relative inline-block no-underline text-xl;
+                padding: 8px 18px 10px;
+                z-index: 1;
+                &:before {
+                    @apply bg-white absolute rounded-full h-full w-full;
+                    content: "";
+                    top: 0;
+                    left: 0;
+                    z-index: -1;
+                }
+            }
+        }
+        li.active {
+            span {
+                @apply text-white;
+                &:before {
+                    @apply bg-purple-second;
+                }
+            }
+        }
+    }
+}

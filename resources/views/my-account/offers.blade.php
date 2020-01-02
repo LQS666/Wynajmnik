@@ -54,6 +54,10 @@
             </table>
         </div>
 
+        <div class="pagination-container">
+            {{ $offers->links() }}
+        </div>
+
         @else
 
         <div class="flex justify-center items-center bg-purple-main w-1/2 py-3 rounded-lg">

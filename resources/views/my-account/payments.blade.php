@@ -87,6 +87,10 @@
             </table>
         </div>
 
+        <div class="pagination-container">
+            {{ $payments->links() }}
+        </div>
+
         @else
 
         <div class="payment__empty-list">

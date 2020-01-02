@@ -14402,6 +14402,72 @@ span.error {
   font-size: 0.875rem;
 }
 
+.pagination-container .pagination {
+  display: -webkit-box;
+  display: flex;
+  margin-top: 1.5rem;
+}
+
+.pagination-container .pagination li {
+  padding: 0.25rem;
+}
+
+.pagination-container .pagination li a {
+  font-weight: 600;
+  color: #4a5568;
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  font-size: 1.25rem;
+  padding: 8px 18px 10px;
+  z-index: 1;
+}
+
+.pagination-container .pagination li a:before {
+  background-color: #fff;
+  position: absolute;
+  border-radius: 9999px;
+  height: 100%;
+  width: 100%;
+  content: "";
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.pagination-container .pagination li span,
+.pagination-container .pagination li.active span {
+  font-weight: 600;
+  color: #cbd5e0;
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  font-size: 1.25rem;
+  padding: 8px 18px 10px;
+  z-index: 1;
+}
+
+.pagination-container .pagination li span:before,
+.pagination-container .pagination li.active span:before {
+  background-color: #fff;
+  position: absolute;
+  border-radius: 9999px;
+  height: 100%;
+  width: 100%;
+  content: "";
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.pagination-container .pagination li.active span {
+  color: #fff;
+}
+
+.pagination-container .pagination li.active span:before {
+  background-color: #6c63ff;
+}
+
 @media (min-width: 640px){
   .sm\:sr-only{
     position: absolute;
