@@ -9,7 +9,7 @@ use Illuminate\Support\Str;
 class Product extends Model
 {
     protected $fillable = [
-        'user_id', 'slug', 'name', 'desc', 'price', 'premium', 'visible'
+        'user_id', 'user_address_id', 'slug', 'name', 'desc', 'price', 'premium', 'visible'
     ];
 
     protected $dispatchesEvents = [
