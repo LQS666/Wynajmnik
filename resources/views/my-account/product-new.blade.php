@@ -11,7 +11,8 @@
 
         <h2 class="font-semibold">{{ __('dashboard/product-add.title') }}</h2>
 
-        <form action="#" id="product-add">
+        <form method="POST" action="{{ route('my-account.product-new') }}" id="product-add">
+            @csrf
             <div class="progress-wrap">
                 <div class="line-progress-bar">
                     <div class="line"></div>
@@ -109,7 +110,7 @@
                                 <input type="checkbox" id="{{ $filter['id'] }}" value="{{ $filter['id'] }}">
                                 <span class="checking"></span>
                                 <span>{{ $filter['name'] }}</span>
-                            
+
                             @foreach($filter['values'] as $values)
                             <div class="area{{ $filter['id'] }} hidden ml-6 mt-2">
                                 <label>

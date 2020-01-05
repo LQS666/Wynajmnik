@@ -8,6 +8,7 @@ use App\Product;
 use App\ProductPicture;
 use App\Services\ImageHandlerService;
 use Illuminate\Foundation\Auth\RedirectsUsers;
+use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 
 class ProductController extends Controller
@@ -42,6 +43,24 @@ class ProductController extends Controller
 
         if (isset($validated['pictures']) && is_array($validated['pictures'])) {
             ImageHandlerService::storeRelationshipImages($product, ProductPicture::class, $validated['pictures']);
+        }
+
+        if (isset($validated['category']) && isset($validated['subcategory'])) {
+            $product->categories()->attach($validated['category']);
+            $product->categories()->attach($validated['subcategory']);
+        }
+
+        if (isset($validated['filters']) && is_array($validated['filters'])) {
+            foreach ($validated['filters'] as $fid) {
+                $product->filterValues()->attach($fid, ['visible' => true]);
+            }
+        }
+
+        if (isset($validated['dateFrom']) && isset($validated['dateTo'])) {
+            $product->availabilities()->create([
+                'date_start' => $validated['dateFrom'],
+                'date_end' => $validated['dateTo']
+            ]);
         }
 
         return redirect($this->redirectPath())
