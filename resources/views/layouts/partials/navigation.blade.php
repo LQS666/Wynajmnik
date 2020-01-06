@@ -47,6 +47,13 @@
                         {{ $user['email'] }}
                     </span>
                     <div class="w-full border-gray-200 border-b-2"></div>
+                    <div class="flex px-4 py-4 text-black">
+                        <span>
+                            {{ __('base.premium') }}: {{ $user['points'] }} 
+                        </span>
+                        <a href="{{ route('my-account.payments') }}" class="pl-2">{{ __('base.addPremium') }}</a>
+                    </div>
+                    <div class="w-full border-gray-200 border-b-2"></div>
                     <a href="{{ route('my-account.products') }}"
                         class="block px-4 py-2 text-gray-700 hover:bg-purple-second hover:text-white rounded font-normal">{{ __('base.myItems') }}</a>
                     <a href="{{ route('my-account.offer') }}"

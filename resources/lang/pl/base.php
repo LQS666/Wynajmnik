@@ -13,6 +13,8 @@ return [
     'myAddress' => 'Adresy',
     'myAccount' => 'Ustawienia',
     'payment' => 'Płatności',
+    'premium' => 'Punkty Premium',
+    'addPremium' => 'Doładuj',
     'passwordChange' => 'Zmiana hasła',
     'rights' => 'Wszelkie prawa zastrzeżone',
 ];
