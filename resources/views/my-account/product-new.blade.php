@@ -26,16 +26,19 @@
 
             <div class="tab-content">
                 <div class="tab-panel" id="step1">
-                    <p class="my-6 py-3 px-6 border text-center bg-purple-third rounded-lg font-semibold">{{ __('dashboard/product-add.step1') }}</p>
+                    <p class="my-6 py-3 px-6 border text-center bg-purple-third rounded-lg font-semibold">
+                        {{ __('dashboard/product-add.step1') }}</p>
                     <ul>
                         <li>
                             <label>{{ __('dashboard/product-add.name') }}</label>
                             <div class="errorTxt"></div>
-                            <input type="text" name="name" placeholder="{{ __('dashboard/product-add.name-placeholder') }}">
+                            <input type="text" name="name"
+                                placeholder="{{ __('dashboard/product-add.name-placeholder') }}">
                         </li>
                         <li>
                             <label>{{ __('dashboard/product-add.desc') }}</label>
-                            <textarea rows="4" cols="50" name="desc" placeholder="{{ __('dashboard/product-add.desc-placeholder') }}"></textarea>
+                            <textarea rows="4" cols="50" name="desc"
+                                placeholder="{{ __('dashboard/product-add.desc-placeholder') }}"></textarea>
                         </li>
                         <li>
                             <label>{{ __('dashboard/product-add.photos') }}</label>
@@ -55,7 +58,8 @@
                     </ul>
                 </div>
                 <div class="tab-panel" id="step2">
-                    <p class="my-6 py-5 px-6 border text-center bg-purple-third rounded-lg font-semibold">{{ __('dashboard/product-add.step2') }}</p>
+                    <p class="my-6 py-5 px-6 border text-center bg-purple-third rounded-lg font-semibold">
+                        {{ __('dashboard/product-add.step2') }}</p>
                     <ul>
                         @if (count($categories) > 0)
                         <li>
@@ -103,24 +107,23 @@
                         @endif
 
                         @if (count($filters) > 0)
-                        <li >
+                        <li>
                             <label>{{ __('dashboard/product-add.filters') }}</label>
                             @foreach ($filters as $filter)
                             <label class="checkbox py-2 border-b border-purple-main">
                                 <input type="checkbox" id="{{ $filter['id'] }}" value="{{ $filter['id'] }}">
                                 <span class="checking"></span>
                                 <span>{{ $filter['name'] }}</span>
-
-                            @foreach($filter['values'] as $values)
-                            <div class="area{{ $filter['id'] }} hidden ml-6 mt-2">
-                                <label>
-                                    <input type="checkbox" name="{{ $values['value'] }}" value="{{ $values['value'] }}">
-                                    <span class="checking"></span>
-                                    <span>{{ $values['value'] }}</span>
-                                </label>
-                            </div>
-                            @endforeach
-                        </label>
+                                @foreach($filter['values'] as $values)
+                                <div class="area{{ $filter['id'] }} hidden ml-6 mt-2">
+                                    <label>
+                                        <input type="checkbox" name="filters[]" value="{{ $values['id'] }}">
+                                        <span class="checking"></span>
+                                        <span>{{ $values['value'] }}</span>
+                                    </label>
+                                </div>
+                                @endforeach
+                            </label>
                             @endforeach
                         </li>
                         @endif
@@ -131,7 +134,8 @@
                     </ul>
                 </div>
                 <div class="tab-panel" id="step3">
-                    <p class="my-6 py-5 px-6 border text-center bg-purple-third rounded-lg font-semibold">{{ __('dashboard/product-add.step3') }}</p>
+                    <p class="my-6 py-5 px-6 border text-center bg-purple-third rounded-lg font-semibold">
+                        {{ __('dashboard/product-add.step3') }}</p>
                     <ul>
                         <li>
                             <label>{{ __('dashboard/product-add.address') }}</label>
@@ -159,7 +163,8 @@
                             <input type="date" name="dateTo" value="2019-12-26">
                         </li>
                         <li class="flex justify-center mt-6">
-                            <button class="button submit-btn" type="submit">{{ __('dashboard/product-add.submit') }}</button>
+                            <button class="button submit-btn"
+                                type="submit">{{ __('dashboard/product-add.submit') }}</button>
                         </li>
                     </ul>
                 </div>

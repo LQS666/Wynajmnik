@@ -15,7 +15,7 @@
             </div>
         </li>
         <li class="sidenav-list__item">
-            <div class="flex pl-2 py-0 font-semibold text-gray-500 text-sm justify-between items-center">
+            <div class="flex pl-2 py-0 font-semibold text-gray-500 text-sm items-center">
                 <span>
                     {{ __('base.premium') }}: {{ $user['points'] }}
                 </span>
