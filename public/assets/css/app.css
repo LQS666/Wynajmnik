@@ -11918,12 +11918,12 @@ table th {
   color: #000;
 }
 
-table tr:nth-child(2n) {
-  background-color: #fff;
+table tr {
+  border: 1px solid #e8e8e8;
 }
 
-table tr:nth-child(2n+1) {
-  background-color: #f8f9ff;
+table tr:nth-child(2n) {
+  background-color: #fff;
 }
 
 table tr:first-child {

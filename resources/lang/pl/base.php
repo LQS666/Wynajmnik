@@ -17,4 +17,5 @@ return [
     'addPremium' => 'Doładuj',
     'passwordChange' => 'Zmiana hasła',
     'rights' => 'Wszelkie prawa zastrzeżone',
+    'welcome' => 'Witaj,',
 ];

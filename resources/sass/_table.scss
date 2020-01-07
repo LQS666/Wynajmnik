@@ -31,12 +31,9 @@ table {
     }
 
     tr {
+        border: 1px solid #e8e8e8;
         &:nth-child(2n) {
             @apply bg-white;
-        }
-
-        &:nth-child(2n+1) {
-            @apply bg-purple-third;
         }
 
         &:first-child {
