@@ -8,7 +8,6 @@ use App\Product;
 use App\ProductPicture;
 use App\Services\ImageHandlerService;
 use Illuminate\Foundation\Auth\RedirectsUsers;
-use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 
 class ProductController extends Controller

@@ -16,6 +16,10 @@ class Product extends Model
         'deleting' => ImageHandleOnDelete::class
     ];
 
+    public function getRouteKeyName() {
+        return 'slug';
+    }
+
     public function scopeUser($query, $user_id) {
         return $query->where('user_id', $user_id);
     }

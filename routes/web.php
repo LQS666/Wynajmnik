@@ -11,7 +11,12 @@
 |
 */
 
+// Home
 Route::get('/', 'HomeController@index')->name('home');
+
+// Offers
+Route::get('/offers/{category?}', 'OfferController@index')->name('offers');
+Route::get('/offers/{category}/{product}', 'OfferController@offer');
 
 // Reports
 Route::post('/reports/report', 'MyAccount\PaymentController@report');

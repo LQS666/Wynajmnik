@@ -11,6 +11,10 @@ class Category extends Model
         'sub', 'slug', 'name', 'desc', 'visible'
     ];
 
+    public function getRouteKeyName() {
+        return 'slug';
+    }
+
     public function setNameAttribute($value) {
         $this->attributes['name'] = $value;
         $this->attributes['slug'] = Str::slug($value);
@@ -20,8 +24,8 @@ class Category extends Model
         return $this->belongsToMany(Product::class);
     }
 
-    public function scopeMaincategories() {
-        return $this->where('sub', '=', null)->where('visible', '=', true);
+    public function scopeMaincategories($query, $value = null) {
+        return $query->where('sub', '=', $value)->where('visible', '=', true);
     }
 
     public function subcategories() {
