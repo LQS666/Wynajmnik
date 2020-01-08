@@ -8,6 +8,12 @@
                 <img class="border-2 border-purple-main" style="width: 120px; height: 120px" src="{{ $user->avatarUrl }}" alt="Avatar">
             </div>
         </li>
+        @else 
+        <li class="sidenav-list__item">
+            <div class="flex justify-center">
+                <img class="border-2 border-purple-main" style="width: 120px; height: 120px" src="{{ asset('/assets/images/avatar.png')}}" alt="Avatar">
+            </div>
+        </li>
         @endif
         <li class="sidenav-list__item">
             <div class="flex pt-2 font-semibold text-gray-700 text-base justify-center items-center">

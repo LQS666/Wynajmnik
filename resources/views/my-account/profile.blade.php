@@ -13,6 +13,8 @@
             <div class="photo-upload">
                 @if ($user->avatar)
                 <img class="photo-upload__image" id="photoUploader" src="{{ $user->avatarUrl }}" alt="Avatar">
+                @else
+                <img class="photo-upload__image" id="photoUploader" src="{{ asset('/assets/images/avatar.png') }}" alt="Avatar">
                 @endif
                 <label class="photo-upload__btn">
                     <input type="file" name="avatar" id="avatar" class="photo-upload__btn-uploader"

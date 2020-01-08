@@ -36,7 +36,7 @@
                     @if ($user->avatar)
                         <img class="h-full w-full object-cover" src="{{ $user->avatarUrl }}" alt="Avatar">
                     @else
-                        <img class="h-full w-full object-cover" src="{{ asset('/assets/images/avatar.jpg') }}" alt="Avatar">
+                        <img class="h-full w-full object-cover" src="{{ asset('/assets/images/avatar.png') }}" alt="Avatar">
                     @endif
                 </button>
                 <div class="hidden group-hover:block absolute right-0 w-56 py-3 bg-white rounded-lg shadow-xl text-sm">

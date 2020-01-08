@@ -23,7 +23,6 @@
                     </ul>
                 </div>
             </div>
-
             <div class="tab-content">
                 <div class="tab-panel" id="step1">
                     <p class="my-6 py-3 px-6 border text-center bg-purple-third rounded-lg font-semibold">
