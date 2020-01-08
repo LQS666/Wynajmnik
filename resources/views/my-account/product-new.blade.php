@@ -140,10 +140,13 @@
                             <label>{{ __('dashboard/product-add.address') }}</label>
                             <div class="errorTxt"></div>
                             <select name="address">
-                                <option value="">{{ __('dashboard/product-add.select') }}</option>
-                                <option value="adres1">Adres</option>
-                                <option value="adres2">Adres</option>
-                                <option value="adres3">Adres</option>
+                                @foreach($user["addresses"] as $addresses)
+                                <option class="text-sm" value="{{ $addresses['id'] }}">
+                                    ul. {{ $addresses['street'] }}
+                                    {{ $addresses['home_number'] }}/{{ $addresses['apartment_number'] }},
+                                    {{ $addresses['zip_code'] }} {{ $addresses['city'] }}
+                                </option>
+                                @endforeach
                             </select>
                         </li>
                         <li>
