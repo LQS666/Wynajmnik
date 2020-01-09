@@ -26,11 +26,10 @@ class ProductService
     public static function store(array $validated)
     {
         $product = new Product();
-        $product->fill($validated);
-        $product->fill([
-            'user_id' => Auth::user()->id,
+        $product->fill(array_merge($validated, [
+            'user_id' => Auth::id(),
             'user_address_id' => $validated['address']
-        ]);
+        ]));
         $product->save();
 
         self::syncCategories($product, [
