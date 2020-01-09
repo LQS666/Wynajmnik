@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 
-class PayUService
+final class PayUService
 {
     private const POS_ID = 372196;
     private const POS_AUTH_KEY = 'BNHLTjK';

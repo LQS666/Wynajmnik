@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StorePayment;
 use App\Payment;
 use App\Services\PayUService as PayU;
+use App\Services\PointService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
@@ -80,9 +81,10 @@ class PaymentController extends Controller
             try {
                 if ($payment = PayU::handleStatus($request, new Payment())) {
                     if ($payment->owner) {
-                        $payment->owner->update([
-                            'points' => ($payment->owner->points + $payment->amount)
-                        ]);
+                        //$payment->owner->update([
+                        //    'points' => ($payment->owner->points + $payment->amount)
+                        //]);
+                        PointService::makePositiveTransaction($payment->owner, PointService::ADD_POINTS, $payment->amount);
                     }
                 }
                 return 'OK';
