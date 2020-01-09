@@ -32,7 +32,7 @@ class OfferController extends Controller
 
     public function update(UpdateOffer $request, Offer $offer)
     {
-        $this->authorize('update-this', $offer->product);
+        $this->authorize('areYouOwner', $offer->product);
 
         $offer->update($request->validated());
 

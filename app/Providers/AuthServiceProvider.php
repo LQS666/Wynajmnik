@@ -27,12 +27,12 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies();
 
         // If passed model belongs to user
-        Gate::define('update-this', function ($user, Model $model) {
+        Gate::define('areYouOwner', function ($user, Model $model) {
             return $user->id === $model->user_id;
         });
 
         // If passed model does not belong to user
-        Gate::define('add-offer', function ($user, Model $model) {
+        Gate::define('!areYouOwner', function ($user, Model $model) {
             return $user->id !== $model->user_id;
         });
     }

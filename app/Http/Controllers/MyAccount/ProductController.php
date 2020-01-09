@@ -5,20 +5,20 @@ namespace App\Http\Controllers\MyAccount;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProduct;
 use App\Product;
-use App\ProductPicture;
-use App\Services\ImageHandlerService;
+use App\Services\ProductService;
 use Illuminate\Foundation\Auth\RedirectsUsers;
-use Illuminate\Support\Arr;
+use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
     use RedirectsUsers;
 
-    protected $redirectTo = '/my-account/products';
+    protected $redirectTo;
 
     public function __construct()
     {
         // auth middleware defined for group in RouteServiceProvider
+        $this->redirectTo = route('my-account.products');
     }
 
     public function index()
@@ -27,40 +27,20 @@ class ProductController extends Controller
         return view('my-account.products');
     }
 
-    public function new() {
+    public function new(Request $request) {
         // Values [$categories, $filters] bound to view in ViewServiceProvider
+
+        if (count($request->user()->addresses) === 0) { // if dont have any defined addresses redirect to addresses view
+            return redirect(route('my-account.addresses'))
+                                 ->with('sweet.info', trans('message.productAddressAdd'));
+        }
+
         return view('my-account.product-new');
     }
 
     public function store(StoreProduct $request)
     {
-        $validated = $request->validated();
-
-        $product = new Product();
-        $product->fill(Arr::add($validated, 'user_id', $request->user()->id));
-        $product->save();
-
-        if (isset($validated['pictures']) && is_array($validated['pictures'])) {
-            ImageHandlerService::storeRelationshipImages($product, ProductPicture::class, $validated['pictures']);
-        }
-
-        if (isset($validated['category']) && isset($validated['subcategory'])) {
-            $product->categories()->attach($validated['category']);
-            $product->categories()->attach($validated['subcategory']);
-        }
-
-        if (isset($validated['filters']) && is_array($validated['filters'])) {
-            foreach ($validated['filters'] as $fid) {
-                $product->filterValues()->attach($fid, ['visible' => true]);
-            }
-        }
-
-        if (isset($validated['dateFrom']) && isset($validated['dateTo'])) {
-            $product->availabilities()->create([
-                'date_start' => $validated['dateFrom'],
-                'date_end' => $validated['dateTo']
-            ]);
-        }
+        ProductService::store($request->validated());
 
         return redirect($this->redirectPath())
                              ->with('sweet.success', trans('message.productAdded'));
@@ -69,46 +49,40 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         // Values [$categories, $filters] bound to view in ViewServiceProvider
-        $this->authorize('update-this', $product);
+        $this->authorize('areYouOwner', $product);
 
         return view('my-account.product-edit', [
             'product' => $product
         ]);
     }
 
-    public function update(StoreProduct $request, Product $product)
+    public function update(StoreProduct $request, Product $product) // TODO change StoreProduct to UpdateProduct
     {
-        $this->authorize('update-this', $product);
+        $this->authorize('areYouOwner', $product);
 
-        $validated = $request->validated();
-
-        $product->update($validated);
-
-        if (isset($validated['pictures']) && is_array($validated['pictures'])) {
-            ImageHandlerService::storeRelationshipImages($product, ProductPicture::class, $validated['pictures']);
-        }
+        ProductService::update($product, $request->validated());
 
         return redirect()->back()
-                         ->with('sweet.success', trans('message.addressUpdated'));
+                         ->with('sweet.success', trans('message.productUpdated'));
     }
 
     public function destroy(Product $product)
     {
-        $this->authorize('update-this', $product);
+        $this->authorize('areYouOwner', $product);
 
-        $product->delete(); // Fire event on deleting to delete images from storage
+        ProductService::destroy($product);
 
         return redirect($this->redirectPath())
-                             ->with('sweet.success', trans('message.addressDeleted'));
+                             ->with('sweet.success', trans('message.productDestroyed'));
     }
 
-    public function destroyPicture(ProductPicture $picture)
+    /*public function destroyPicture(ProductPicture $picture)
     {
-        $this->authorize('update-this', $picture->product);
+        $this->authorize('areYouOwner', $picture->product);
 
         $picture->delete(); // Fire event on deleting to delete images from storage
 
         return redirect($this->redirectPath())
-                             ->with('sweet.success', trans('message.addressDeleted'));
-    }
+                             ->with('sweet.success', trans('message.productPictureDestroyed'));
+    }*/
 }

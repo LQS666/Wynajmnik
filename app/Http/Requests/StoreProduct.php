@@ -36,8 +36,6 @@ class StoreProduct extends FormRequest
             'price' => ['required', 'numeric', 'min:0.01'],
             'premium' => ['nullable', 'boolean'],
             'visible' => ['nullable', 'boolean'],
-            'dateFrom' => ['required', 'date', 'date_format:Y-m-d'],
-            'dateTo' => ['required', 'date', 'date_format:Y-m-d', 'gt:dateFrom'],
         ];
     }
 }

@@ -16,8 +16,15 @@ class ProductComposer
     }
 
     public function compose(View $view) {
-        $filters = Filter::with('values')->where('visible', '=', true)->get();
-        $categories = Category::maincategories()->with('subcategories')->get();
+        $filters = Filter::with('values')->where('visible', true)->get();
+
+        $categories = Category::maincategories()->with([
+            'subcategories' => function ($query) {
+                $query->where('visible', true);
+            }
+        ])
+        ->where('visible', true)
+        ->get();
 
         $view->with('filters', $filters);
         $view->with('categories', $categories);

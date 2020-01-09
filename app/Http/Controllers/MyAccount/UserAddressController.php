@@ -59,7 +59,7 @@ class UserAddressController extends Controller
      */
     public function edit(UserAddress $address)
     {
-        $this->authorize('update-this', $address);
+        $this->authorize('areYouOwner', $address);
 
         return view('my-account.address', [
             'address' => $address
@@ -75,7 +75,7 @@ class UserAddressController extends Controller
      */
     public function update(StoreUserAddress $request, UserAddress $address)
     {
-        $this->authorize('update-this', $address);
+        $this->authorize('areYouOwner', $address);
 
         $address->fill($request->validated());
         $address->save();
@@ -92,7 +92,7 @@ class UserAddressController extends Controller
      */
     public function destroy(UserAddress $address)
     {
-        $this->authorize('update-this', $address);
+        $this->authorize('areYouOwner', $address);
 
         $address->delete();
 

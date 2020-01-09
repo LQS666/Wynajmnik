@@ -4,12 +4,19 @@ namespace App;
 
 use App\Events\ImageHandleOnDelete;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
 
 class Product extends Model
 {
+    use SoftDeletes;
+
     protected $fillable = [
         'user_id', 'user_address_id', 'slug', 'name', 'desc', 'price', 'premium', 'visible'
+    ];
+
+    protected $dates = [
+        'deleted_at'
     ];
 
     protected $dispatchesEvents = [
@@ -27,10 +34,6 @@ class Product extends Model
     public function setNameAttribute($value) {
         $this->attributes['name'] = $value;
         $this->attributes['slug'] = Str::slug($value);
-    }
-
-    public function availabilities() {
-        return $this->hasMany(ProductAvailability::class);
     }
 
     public function images() {
