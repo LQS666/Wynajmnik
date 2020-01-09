@@ -137,8 +137,26 @@
                         {{ __('dashboard/product-add.step3') }}</p>
                     <ul>
                         <li>
-                            <label>{{ __('dashboard/product-add.address') }}</label>
+                            <label class="checkbox py-2 border-b border-purple-main">
+                                <input type="checkbox" name="premium" id="premium" value="false">
+                                <span class="checking"></span>
+                                <span>{{ __('dashboard/product-add.premium') }}</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="checkbox py-2 border-b border-purple-main">
+                                <input type="checkbox" name="visible" id="visible" value="false">
+                                <span class="checking"></span>
+                                <span>{{ __('dashboard/product-add.visible') }}</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label>{{ __('dashboard/product-add.price') }}</label>
                             <div class="errorTxt"></div>
+                            <input type="number" name="price">
+                        </li>
+                        <li>
+                            <label>{{ __('dashboard/product-add.address') }}</label>
                             <select name="address">
                                 @foreach($user["addresses"] as $addresses)
                                 <option class="text-sm" value="{{ $addresses['id'] }}">
@@ -148,21 +166,6 @@
                                 </option>
                                 @endforeach
                             </select>
-                        </li>
-                        <li>
-                            <label>{{ __('dashboard/product-add.price') }}</label>
-                            <div class="errorTxt"></div>
-                            <input type="number" name="price">
-                        </li>
-                        <li>
-                            <label>{{ __('dashboard/product-add.date-from') }}</label>
-                            <div class="errorTxt"></div>
-                            <input type="date" name="dateFrom" value="2019-12-26">
-                        </li>
-                        <li>
-                            <label>{{ __('dashboard/product-add.date-to') }}</label>
-                            <div class="errorTxt"></div>
-                            <input type="date" name="dateTo" value="2019-12-26">
                         </li>
                         <li class="flex justify-center mt-6">
                             <button class="button submit-btn"

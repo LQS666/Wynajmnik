@@ -18,7 +18,7 @@ return [
     'filters' => 'Filtry ( opcjonalnie )',
     'address' => 'Adres',
     'price' => 'Cena',
-    'date-from' => 'Data od',
-    'date-to' => 'Data do',
+    'premium' => 'Ogłoszenie Premium',
+    'visible' => 'Aktywne',
     'submit' => 'Dodaj przedmiot',
 ];

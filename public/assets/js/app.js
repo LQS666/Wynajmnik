@@ -19408,6 +19408,20 @@ $("#category").click(function () {
     $('.cat' + category).show();
   };
 });
+$("#premium").on('change', function () {
+  if ($(this).is(':checked')) {
+    $(this).attr('value', 'true');
+  } else {
+    $(this).attr('value', 'false');
+  }
+});
+$("#visible").on('change', function () {
+  if ($(this).is(':checked')) {
+    $(this).attr('value', 'true');
+  } else {
+    $(this).attr('value', 'false');
+  }
+});
 
 /***/ }),
 
