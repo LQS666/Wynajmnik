@@ -20,15 +20,15 @@ class Category extends Model
         $this->attributes['slug'] = Str::slug($value);
     }
 
+    public function scopeMaincategories($query, $value = null) {
+        return $query->where('sub', '=', $value)->where('visible', true);
+    }
+
     public function products() {
         return $this->belongsToMany(Product::class);
     }
 
-    public function scopeMaincategories($query, $value = null) {
-        return $query->where('sub', '=', $value)->where('visible', '=', true);
-    }
-
     public function subcategories() {
-        return $this->hasMany(Category::class, 'sub')->where('visible', '=', true);
+        return $this->hasMany(Category::class, 'sub')->where('visible', true);
     }
 }

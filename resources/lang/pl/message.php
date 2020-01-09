@@ -11,4 +11,9 @@ return [
     'addressAdded' => 'Sukces!#Adres został poprawnie dodany!',
     'addressUpdated' => 'Sukces!#Adres został poprawnie zaktualizowany!',
     'addressDeleted' => 'Sukces!#Adres został poprawnie usunięty!',
+
+    'productAdded' => 'Sukces!#Produkt został poprawnie dodany!',
+    'productUpdated' => 'Sukces!#Product został poprawnie zaktualizowany!',
+    'productDestroyed' => 'Sukces!#Produkt został poprawnie usunięty!',
+    'productAddressAdd' => 'Alert!#Dodaj chociaż jeden adres, by móc swobodnie dodawać produkty',
 ];

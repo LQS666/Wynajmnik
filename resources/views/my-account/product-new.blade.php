@@ -11,7 +11,7 @@
 
         <h2 class="font-semibold">{{ __('dashboard/product-add.title') }}</h2>
 
-        <form method="POST" action="{{ route('my-account.product-new') }}" id="product-add">
+        <form method="POST" action="{{ route('my-account.product-new') }}" id="product-add" enctype="multipart/form-data">
             @csrf
             <div class="progress-wrap">
                 <div class="line-progress-bar">

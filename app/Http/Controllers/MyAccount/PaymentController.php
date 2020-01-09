@@ -46,7 +46,7 @@ class PaymentController extends Controller
 
     public function send(Payment $payment)
     {
-        $this->authorize('update-this', $payment);
+        $this->authorize('areYouOwner', $payment);
 
         if (!empty($payment->error)) {
             return view('my-account.payments-finish', [
