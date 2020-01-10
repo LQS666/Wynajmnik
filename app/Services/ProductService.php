@@ -6,7 +6,7 @@ use App\Product;
 use App\ProductPicture;
 use Illuminate\Support\Facades\Auth;
 
-class ProductService
+final class ProductService
 {
     public static function storeImages(Product $product, array $pictures)
     {
@@ -64,4 +64,6 @@ class ProductService
     {
         $product->delete(); // Fire event on deleting to delete images from storage
     }
+
+    private function __construct() {}
 }

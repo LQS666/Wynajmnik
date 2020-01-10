@@ -29,33 +29,43 @@ final class PointService
         self::ADD_PREMIUM => 300
     ];
 
-    private static function checkTransaction(User $user, int $mode)
+    private static function checkTransaction(array $modes, User $user = null)
     {
         if (is_null($user) && !Auth::check()) {
             // TODO throw
         }
 
-        if (!in_array($mode, self::SIGN)) {
-            // TODO throw
+        foreach ($modes as $mode) {
+            if (!in_array($mode, self::SIGN)) {
+                // TODO throw
+            }
         }
     }
 
-    public static function makePositiveTransaction(User $user, int $mode, int $points, string $desc = null)
+    public static function checkIfEnough(array $modes, User $user = null)
     {
-        self::checkTransaction($user, $mode);
-        if ($points > 0) {
-            return self::makeTransaction($user, $mode, $points, $desc);
+        self::checkTransaction($modes, $user);
+
+        $user = !is_null($user) ? $user : Auth::user();
+        $cost = 0;
+
+        foreach ($modes as $mode) {
+            $cost += self::COST[$mode];
         }
+
+        return ($user->points - $cost) >= 0;
     }
 
-    public static function makeNegativeTransaction(int $mode, string $desc = null)
+    public static function makeAnyTransaction(int $mode, User $user = null, int $points = null)
     {
-        self::checkTransaction(null, $mode);
+        self::checkTransaction([$mode], $user);
 
-        return self::makeTransaction(Auth::user(), $mode, self::COST[$mode], $desc);
+        $user = !is_null($user) ? $user : Auth::user();
+
+        self::makeTransaction($user, $mode, !is_null($points) ? $points : self::COST[$mode]);
     }
 
-    private static function makeTransaction(User $user, int $mode, int $points,  string $desc = null)
+    private static function makeTransaction(User $user, int $mode, int $points)
     {
         $source = $user->points;
         $result = $source + (self::SIGN[$mode] === '+' ? $points : -$points);
@@ -72,12 +82,13 @@ final class PointService
                 'source' => $source,
                 'result' => $result,
                 'operation' => self::OPERATION[$mode],
-                'desc' => is_null($desc) ? trans('points.' . self::OPERATION[$mode]) : $desc
+                'desc' => trans('points.operation.' . self::OPERATION[$mode])
             ]);
 
             return true;
         }
-
         return false;
     }
+
+    private function __construct() {}
 }

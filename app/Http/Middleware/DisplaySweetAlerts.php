@@ -23,6 +23,12 @@ class DisplaySweetAlerts
         Alert::info($value[0], !empty($value[1]) ? $value[1] : $value[0]);
     }
 
+    private function error(string $value) {
+        $value = $this->prepare($value);
+
+        Alert::error($value[0], !empty($value[1]) ? $value[1] : $value[0]);
+    }
+
     /**
      * Handle an incoming request.
      *

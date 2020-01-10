@@ -44,6 +44,8 @@ class User extends Authenticatable implements MustVerifyEmail
         'updated' => ImageHandleOnUpdate::class
     ];
 
+    protected const FREE_ADD_LIMIT = 5;
+
     public $dir = 'avatars';
 
     public $images = [
@@ -53,6 +55,12 @@ class User extends Authenticatable implements MustVerifyEmail
     public function getPointsAttribute($value)
     {
         return (int) $value;
+    }
+
+    public function getFreeAddCountAttribute()
+    {
+        $count = self::FREE_ADD_LIMIT - count($this->products);
+        return $count > 0 ? $count : 0;
     }
 
     public function addresses() {

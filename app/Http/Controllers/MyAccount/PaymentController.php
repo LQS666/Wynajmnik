@@ -81,10 +81,7 @@ class PaymentController extends Controller
             try {
                 if ($payment = PayU::handleStatus($request, new Payment())) {
                     if ($payment->owner) {
-                        //$payment->owner->update([
-                        //    'points' => ($payment->owner->points + $payment->amount)
-                        //]);
-                        PointService::makePositiveTransaction($payment->owner, PointService::ADD_POINTS, $payment->amount);
+                        PointService::makeAnyTransaction(PointService::ADD_POINTS, $payment->owner, $payment->amount);
                     }
                 }
                 return 'OK';

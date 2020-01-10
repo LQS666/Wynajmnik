@@ -5,6 +5,7 @@ namespace App\Http\Controllers\MyAccount;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProduct;
 use App\Product;
+use App\Services\PointService;
 use App\Services\ProductService;
 use Illuminate\Foundation\Auth\RedirectsUsers;
 use Illuminate\Http\Request;
@@ -40,7 +41,31 @@ class ProductController extends Controller
 
     public function store(StoreProduct $request)
     {
-        ProductService::store($request->validated());
+        $validated = $request->validated();
+
+        ########################################
+
+        $to_check = [];
+
+        if ($request->user()->freeAddCount === 0) {
+            $to_check[] = PointService::ADD_OVER_LIMIT;
+        }
+
+        if (!empty($validated['premium'])) {
+            $to_check[] = PointService::ADD_PREMIUM;
+        }
+
+        if (!PointService::checkIfEnough($to_check)) {
+            return redirect()->back()
+                             ->with('sweet.error', trans('message.notEnoughPoints'));
+        }
+
+        ########################################
+
+        ProductService::store($validated);
+        foreach ($to_check as $mode) {
+            PointService::makeAnyTransaction($mode);
+        }
 
         return redirect($this->redirectPath())
                              ->with('sweet.success', trans('message.productAdded'));

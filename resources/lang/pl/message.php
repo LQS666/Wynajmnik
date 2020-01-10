@@ -16,4 +16,6 @@ return [
     'productUpdated' => 'Sukces!#Product został poprawnie zaktualizowany!',
     'productDestroyed' => 'Sukces!#Produkt został poprawnie usunięty!',
     'productAddressAdd' => 'Alert!#Dodaj chociaż jeden adres, by móc swobodnie dodawać produkty',
+
+    'notEnoughPoints' => 'Przykro nam#Posiadasz zbyt mało punktów PREMIUM aby wykonać tę operację',
 ];
