@@ -1,0 +1,94 @@
+.products {
+    @apply w-full py-1;
+    @media screen and (min-width: 1200px) {
+        @apply w-4/5;
+    }
+    &__item {
+        @apply block w-full pb-4;
+        border-bottom: 1px solid #d8d8d8;
+        @media screen and (min-width: 1200px) {
+            @apply p-2 pb-4;
+        }
+        &:hover {
+            background: #FAFBFC;
+        }
+    }
+
+    &__info {
+        @apply flex justify-between items-center w-full;
+    }
+
+    &__left-side {
+        @apply flex;
+
+        &__photo {
+            @apply flex flex-col justify-center items-center pr-1;
+        }
+
+        &__content {
+            @apply flex flex-col;
+        }
+
+        .itemImg {
+            @apply p-4 object-cover;
+            width: 10rem;
+            height: 10rem;
+        }
+
+        .status {
+            @apply text-white px-2 py-1 mr-4 mb-6 text-center rounded-lg;
+            width: 100px;
+            &.isActive {
+                @apply bg-green-500;
+            }
+            &.isNotActive {
+                @apply bg-red-400;
+            }
+        }
+
+        .premium {
+            @apply text-gray-700 px-6 py-1 mb-6 text-center rounded-lg; 
+            width: 150px;
+            background: #ffdd59;
+        }
+
+        .title {
+            @apply text-gray-700 font-semibold uppercase;
+        }
+
+        .offers {
+            @apply mb-3 text-sm text-gray-600;
+        }
+    }
+
+    &__right-side {
+        @apply flex flex-col justify-center items-center;
+        @media screen and (min-width: 1200px) {
+            @apply flex-row;
+        }
+
+        .price {
+            @apply text-center pr-0;
+            @media screen and (min-width: 1200px) {
+                @apply pr-6;
+            }
+            p {
+                @apply font-semibold text-gray-700 text-xl;
+            }
+        }
+        .actions {
+            @apply flex;
+            @media screen and (min-width: 1200px) {
+                @apply pr-3;
+            }
+            .action-btn {
+                @apply block text-gray-500 text-2xl;
+                opacity: .5;
+                &:hover {
+                    @apply text-purple-second;
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}

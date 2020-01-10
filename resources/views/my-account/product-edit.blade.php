@@ -12,7 +12,7 @@
         <h2 class="font-semibold">{{ __('dashboard/product.edit') }}</h2>
 
         <div class="container">
-            <form method="post" action="{{ route('my-account.product', ['product' => $product['id']]) }}" class="form" enctype="multipart/form-data">
+            <form method="post" action="{{ route('my-account.product', ['product' => $product['slug']]) }}" class="form" enctype="multipart/form-data">
                 @csrf
                 @method('PATCH')
                 <div class="form--input-box" data-title="address">

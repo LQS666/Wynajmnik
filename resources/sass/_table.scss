@@ -27,17 +27,22 @@ table {
     }
 
     th {
-        @apply text-black;
+        @apply text-black text-purple-second border-0;
     }
 
     tr {
         border: 1px solid #e8e8e8;
+
         &:nth-child(2n) {
             @apply bg-white;
         }
 
         &:first-child {
-            @apply bg-purple-main;
+            background: #FAFBFC;
+        }
+
+        &:hover:not(:first-child) {
+            cursor: pointer;
         }
     }
 }
