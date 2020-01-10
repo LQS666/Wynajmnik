@@ -116,17 +116,17 @@ $("#category").click(function () {
 
 $("#premium").on('change', function () {
     if ($(this).is(':checked')) {
-        $(this).attr('value', 'true');
+        $(this).attr('value', '1');
     } else {
-        $(this).attr('value', 'false');
+        $(this).attr('value', '0');
     }
 });
 
 $("#visible").on('change', function () {
     if ($(this).is(':checked')) {
-        $(this).attr('value', 'true');
+        $(this).attr('value', '1');
     } else {
-        $(this).attr('value', 'false');
+        $(this).attr('value', '0');
     }
 });
 
