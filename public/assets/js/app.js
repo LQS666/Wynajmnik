@@ -19545,7 +19545,7 @@ if (location.pathname === '/') {
     backgroundPosition: '200px 0px',
     opacity: 0
   }, "-=1.5").from(".welcome__image", {
-    x: 100,
+    x: 30,
     opacity: 0
   }, "-=1.5");
   var heroTimeline = gsap.to(".welcome__content", {

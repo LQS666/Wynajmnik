@@ -1,7 +1,6 @@
 .before-advantages {
-    @apply bg-purple-second;
+    @apply bg-purple-second w-full overflow-hidden;
     height: 15vh;
-    width: 100vw;
 }
 
 .advantages {

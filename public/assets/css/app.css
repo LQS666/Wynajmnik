@@ -12363,6 +12363,7 @@ a {
 }
 
 .welcome-header {
+  overflow: hidden;
   visibility: hidden;
 }
 
@@ -12819,8 +12820,9 @@ footer .footer-content__item__li a:hover {
 
 .before-advantages {
   background-color: #6c63ff;
+  width: 100%;
+  overflow: hidden;
   height: 15vh;
-  width: 100vw;
 }
 
 .advantages {
@@ -12891,12 +12893,7 @@ footer .footer-content__item__li a:hover {
 }
 
 .about {
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 0;
-  margin-bottom: 0;
   overflow: hidden;
-  width: 100vw;
 }
 
 .about__content {
@@ -12909,7 +12906,6 @@ footer .footer-content__item__li a:hover {
   padding-bottom: 8rem;
   position: relative;
   height: 650px;
-  width: 100vw;
 }
 
 @media screen and (min-width: 768px) {
@@ -13038,6 +13034,7 @@ footer .footer-content__item__li a:hover {
           justify-content: center;
   -webkit-box-align: center;
           align-items: center;
+  overflow: hidden;
   height: 450px;
   background: #63D0FF;
 }

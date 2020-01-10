@@ -4,7 +4,7 @@ return [
     'title' => 'Dodaj przedmiot',
     'step1' => 'Podstawowe informacje',
     'step2' => 'Wybór kategorii i ustawienie filtrów - uzupełnij je, aby zwiększyć zainteresowanie ofertą',
-    'step3' => 'Ustal miejsce odbioru, cenę przedmiotu i termin trwania ogłoszenia',
+    'step3' => 'Ustal dodatkowe parametry, cenę przedmiotu i miejsce odbioru.',
     'name' => 'Nazwa',
     'name-placeholder' => 'Wpisz nazwę przedmiotu',
     'desc' => 'Opis',
@@ -19,7 +19,7 @@ return [
     'filters' => 'Filtry ( opcjonalnie )',
     'address' => 'Adres',
     'price' => 'Cena',
-    'premium' => 'Ogłoszenie Premium',
+    'premium' => 'Premium',
     'visible' => 'Aktywne',
     'submit' => 'Dodaj przedmiot',
 ];

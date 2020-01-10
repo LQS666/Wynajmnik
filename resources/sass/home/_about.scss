@@ -1,11 +1,9 @@
 .about {
-    @apply mx-auto my-0 overflow-hidden;
-    width: 100vw;
+    @apply overflow-hidden;
 
     &__content {
         @apply flex justify-around px-0 py-32 relative;
         height: 650px;
-        width: 100vw;
         @media screen and (min-width: 768px) {
             @apply px-24 py-32;
             height: 800px;
@@ -79,7 +77,7 @@
 }
 
 .cta {
-    @apply w-full relative flex justify-center items-center;
+    @apply w-full relative flex justify-center items-center overflow-hidden;
     height: 450px;
     background: #63D0FF;
 

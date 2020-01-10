@@ -7,7 +7,7 @@ if (location.pathname === '/') {
     heroAnimation.set(".welcome-header", { visibility: "visible" })
         .from(".fade-up", { y: -20, stagger: .4, opacity: 0 })
         .from(".welcome-right", { backgroundPosition: '200px 0px', opacity: 0 }, "-=1.5")
-        .from(".welcome__image", { x: 100, opacity: 0 }, "-=1.5")
+        .from(".welcome__image", { x: 30, opacity: 0 }, "-=1.5")
 
     const heroTimeline = gsap.to(".welcome__content", { y: '-50', duration: 1 })
     const advantagesTimeline = gsap.to(".before-advantages", { height: '2vh', duration: 1 })
