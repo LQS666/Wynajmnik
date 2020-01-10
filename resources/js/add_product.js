@@ -84,6 +84,20 @@ $(".step2").click(function () {
     }
 });
 
+$(".step2back").click(function () {
+    $(".tab-panel").hide();
+    $("#step1").fadeIn(1000);
+    $('.progressbar-dots').removeClass('active');
+    $('.progressbar-dots:nth-child(1)').addClass('active');
+});
+
+$(".step3back").click(function () {
+    $(".tab-panel").hide();
+    $("#step2").fadeIn(1000);
+    $('.progressbar-dots').removeClass('active');
+    $('.progressbar-dots:nth-child(2)').addClass('active');
+});
+
 $(".checkbox :checkbox").click(function () {
     let filterValue = ".area" + this.value;
     if (this.checked) $(filterValue).show();

@@ -12,6 +12,7 @@ return [
     'photos' => 'Zdjęcia',
     'add-photos' => 'Dodaj zdjęcia',
     'next' => 'Dalej',
+    'back' => 'Wstecz',
     'category' => 'Kategoria',
     'subcategory' => 'Podkategoria',
     'select' => 'Wybierz',

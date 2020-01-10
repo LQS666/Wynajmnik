@@ -128,7 +128,8 @@
                         @endif
 
                         <li class="flex justify-center mt-6" style="list-style: none;">
-                            <button class="button step2" type="button">{{ __('dashboard/product-add.next') }}</button>
+                            <button class="button step2back mr-2" type="button">{{ __('dashboard/product-add.back') }}</button>
+                            <button class="button step2 ml-2" type="button">{{ __('dashboard/product-add.next') }}</button>
                         </li>
                     </ul>
                 </div>
@@ -168,7 +169,8 @@
                             </select>
                         </li>
                         <li class="flex justify-center mt-6">
-                            <button class="button submit-btn"
+                            <button class="button step3back mr-2" type="button">{{ __('dashboard/product-add.back') }}</button>
+                            <button class="button submit-btn ml-2"
                                 type="submit">{{ __('dashboard/product-add.submit') }}</button>
                         </li>
                     </ul>
