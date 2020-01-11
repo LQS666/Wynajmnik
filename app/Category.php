@@ -17,7 +17,14 @@ class Category extends Model
 
     public function setNameAttribute($value) {
         $this->attributes['name'] = $value;
-        $this->attributes['slug'] = Str::slug($value);
+
+        $slug = Str::slug($value);
+
+        if (Category::where('slug', $slug)->first()) { //::withTrashed()
+            $this->attributes['slug'] = time() . '-' . $slug;
+        } else {
+            $this->attributes['slug'] = Str::slug($slug);
+        }
     }
 
     public function scopeMaincategories($query, $value = null) {

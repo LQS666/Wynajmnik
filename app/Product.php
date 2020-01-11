@@ -33,7 +33,14 @@ class Product extends Model
 
     public function setNameAttribute($value) {
         $this->attributes['name'] = $value;
-        $this->attributes['slug'] = Str::slug($value);
+
+        $slug = Str::slug($value);
+
+        if (Product::withTrashed()->where('slug', $slug)->first()) {
+            $this->attributes['slug'] = time() . '-' . $slug;
+        } else {
+            $this->attributes['slug'] = Str::slug($slug);
+        }
     }
 
     public function images() {
