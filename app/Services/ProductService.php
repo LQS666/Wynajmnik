@@ -55,6 +55,20 @@ final class ProductService
     {
         $product->update($validated);
 
+        self::syncCategories($product, [
+            $validated['category'],
+            $validated['subcategory']
+        ]);
+
+        if (isset($validated['filters']) && is_array($validated['filters'])) {
+            $validated['filters'] = array_flip($validated['filters']);
+            $validated['filters'] = array_map(function() {
+                return ['visible' => true];
+            }, $validated['filters']);
+
+            self::syncFilters($product, $validated['filters']);
+        }
+
         if (isset($validated['pictures']) && is_array($validated['pictures'])) {
             self::storeImages($product, $validated['pictures']);
         }

@@ -55,7 +55,7 @@ class ProductController extends Controller
             $to_check[] = PointService::ADD_PREMIUM;
         }
 
-        if (!PointService::checkIfEnough($to_check)) {
+        if (!empty($to_check) && !PointService::checkIfEnough($to_check)) {
             return redirect()->back()
                              ->with('sweet.error', trans('message.notEnoughPoints'));
         }
@@ -63,8 +63,10 @@ class ProductController extends Controller
         ########################################
 
         ProductService::store($validated);
-        foreach ($to_check as $mode) {
-            PointService::makeAnyTransaction($mode);
+        if (!empty($to_check)) {
+            foreach ($to_check as $mode) {
+                PointService::makeAnyTransaction($mode);
+            }
         }
 
         return redirect($this->redirectPath())
@@ -85,10 +87,32 @@ class ProductController extends Controller
     {
         $this->authorize('areYouOwner', $product);
 
-        ProductService::update($product, $request->validated());
+        $validated = $request->validated();
 
-        return redirect()->back()
-                         ->with('sweet.success', trans('message.productUpdated'));
+        ########################################
+
+        $to_check = [];
+
+        if (!empty($validated['premium'])) {
+            $to_check[] = PointService::ADD_PREMIUM;
+        }
+
+        if (!empty($to_check) && !PointService::checkIfEnough($to_check)) {
+            return redirect()->back()
+                             ->with('sweet.error', trans('message.notEnoughPoints'));
+        }
+
+        ########################################
+
+        ProductService::update($product, $validated);
+        if (!empty($to_check)) {
+            foreach ($to_check as $mode) {
+                PointService::makeAnyTransaction($mode);
+            }
+        }
+
+        return redirect($this->redirectPath())
+                             ->with('sweet.success', trans('message.productUpdated'));
     }
 
     public function destroy(Product $product)
