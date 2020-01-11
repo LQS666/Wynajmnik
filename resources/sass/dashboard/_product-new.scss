@@ -1,6 +1,6 @@
 #product-add {
     @apply mx-auto my-2;
-    max-width: 540px;
+    max-width: 920px;
 
     ul {
         @apply pl-0;
@@ -13,7 +13,7 @@
     input,
     textarea,
     select {
-        @apply rounded-lg w-full border border-purple-main text-left text-black bg-white text-lg mb-5 py-0 px-6;
+        @apply rounded-lg w-full border border-purple-main text-left text-black bg-white mb-5 py-0 px-6;
         box-sizing: border-box;
         letter-spacing: normal;
         height: 50px;
@@ -31,7 +31,7 @@
 
     textarea {
         @apply py-3 px-6 leading-normal;
-        height: 120px;
+        height: 300px;
     }
 
     input:focus,
@@ -42,14 +42,13 @@
     }
 
     label {
-        @apply text-lg mb-2 block;
+        @apply mb-2 block;
     }
 
     .checkbox {
-
         input[type="checkbox"],
         input[type="radio"] {
-            @apply absolute opacity-0;
+            @apply hidden opacity-0;
             z-index: -1;
         }
 
