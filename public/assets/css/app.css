@@ -13664,7 +13664,7 @@ footer .footer-content__item__li a:hover {
   margin-right: auto;
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
-  max-width: 540px;
+  max-width: 920px;
 }
 
 #product-add ul {
@@ -13685,7 +13685,6 @@ footer .footer-content__item__li a:hover {
   text-align: left;
   color: #000;
   background-color: #fff;
-  font-size: 1.125rem;
   margin-bottom: 1.25rem;
   padding-top: 0;
   padding-bottom: 0;
@@ -13715,7 +13714,7 @@ footer .footer-content__item__li a:hover {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   line-height: 1.5;
-  height: 120px;
+  height: 300px;
 }
 
 #product-add input:focus,
@@ -13727,14 +13726,13 @@ footer .footer-content__item__li a:hover {
 }
 
 #product-add label {
-  font-size: 1.125rem;
   margin-bottom: 0.5rem;
   display: block;
 }
 
 #product-add .checkbox input[type=checkbox],
 #product-add .checkbox input[type=radio] {
-  position: absolute;
+  display: none;
   opacity: 0;
   z-index: -1;
 }
