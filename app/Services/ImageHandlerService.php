@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
 
-class ImageHandlerService
+final class ImageHandlerService
 {
     /**
      * @param string $relationship
@@ -74,4 +74,6 @@ class ImageHandlerService
             Storage::delete($images);
         }
     }
+
+    private function __construct() {}
 }

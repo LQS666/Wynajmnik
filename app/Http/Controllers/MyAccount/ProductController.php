@@ -4,6 +4,7 @@ namespace App\Http\Controllers\MyAccount;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProduct;
+use App\Http\Requests\UpdateProduct;
 use App\Product;
 use App\Services\PointService;
 use App\Services\ProductService;
@@ -83,7 +84,7 @@ class ProductController extends Controller
         ]);
     }
 
-    public function update(StoreProduct $request, Product $product) // TODO change StoreProduct to UpdateProduct
+    public function update(UpdateProduct $request, Product $product)
     {
         $this->authorize('areYouOwner', $product);
 
