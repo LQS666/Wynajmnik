@@ -53,7 +53,7 @@ class ViewServiceProvider extends ServiceProvider
         );
 
         View::composer(
-            ['web.offers'], 'App\Http\View\Composers\Web\OffersComposer'
+            ['web.products'], 'App\Http\View\Composers\Web\ProductsComposer'
         );
 
         // TODO

@@ -8,7 +8,7 @@
             <h1 class="fade-up">{{ __('home.hero.title') }}</h1>
             <p class="fade-up">{{ __('home.hero.desc') }}</p>
             <div class="welcome__content__searchbar fade-up">
-                <form class="search">
+                <form class="search" method="GET" action="{{ route('web.search') }}">
                     <input type="search" class="search__input" name="search" placeholder="{{ __('home.hero.placeholder') }}"
                         autocomplete="off" required>
                     <button class="search__btn">{{ __('home.hero.search') }}</button>
@@ -16,7 +16,7 @@
             </div>
             <div class="welcome__content__other fade-up">
                 <span>{{ __('home.hero.other') }}</span>
-                <a href="#">
+                <a href="{{ route('web.categories') }}">
                     {{ __('home.hero.categories') }}
                 </a>
             </div>
@@ -49,7 +49,7 @@
         </div>
         <div class="about__content__desc">
             <p>
-                <span>{{ __('home.about.title') }}</span> 
+                <span>{{ __('home.about.title') }}</span>
                 {{ __('home.about.desc') }}
             </p>
         </div>
@@ -60,7 +60,7 @@
     <div class="cta">
         <div class="cta__clouds"></div>
         <div class="cta__content">
-            <p>{{ __('home.about.cta') }}</p> 
+            <p>{{ __('home.about.cta') }}</p>
             <a href="{{ route('register') }}" class="button">{{ __('home.about.cta-btn') }}</a>
         </div>
       </div>

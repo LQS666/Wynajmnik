@@ -6,8 +6,10 @@ use App\Events\ImageHandleOnDelete;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
+use Spatie\Searchable\Searchable;
+use Spatie\Searchable\SearchResult;
 
-class Product extends Model
+class Product extends Model implements Searchable
 {
     use SoftDeletes;
 
@@ -61,5 +63,9 @@ class Product extends Model
 
     public function filterValues() {
         return $this->belongsToMany(FilterValue::class);
+    }
+
+    public function getSearchResult(): SearchResult {
+        return new SearchResult($this, $this->name, route('web.product', $this->slug));
     }
 }

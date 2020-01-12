@@ -8,7 +8,7 @@ use App\Product;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\View\View;
 
-class OffersComposer
+class ProductsComposer
 {
     private $category;
 

@@ -15,7 +15,9 @@ return [
     'productAdded' => 'Sukces!#Produkt został poprawnie dodany!',
     'productUpdated' => 'Sukces!#Product został poprawnie zaktualizowany!',
     'productDestroyed' => 'Sukces!#Produkt został poprawnie usunięty!',
-    'productAddressAdd' => 'Alert!#Dodaj chociaż jeden adres, by móc swobodnie dodawać produkty',
+    'productAddressAdd' => 'Alert!#Dodaj chociaż jeden adres, by móc swobodnie dodawać produkty.',
 
-    'notEnoughPoints' => 'Przykro nam#Posiadasz zbyt mało punktów PREMIUM aby wykonać tę operację',
+    'notEnoughPoints' => 'Przykro nam#Posiadasz zbyt mało punktów PREMIUM aby wykonać tę operację.',
+
+    'emptySearchInput' => 'Uwaga#Wpisz jakąkolwiek frazę aby móc przeszukiwać naszą bazę ofert.',
 ];
