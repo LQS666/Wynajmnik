@@ -19406,8 +19406,8 @@ $(".step3back").click(function () {
   $('.progressbar-dots').removeClass('active');
   $('.progressbar-dots:nth-child(2)').addClass('active');
 });
-$(".checkbox :checkbox").click(function () {
-  var filterValue = ".area" + this.value;
+$(".main-checkbox :checkbox").click(function () {
+  var filterValue = this.value;
   if (this.checked) $(filterValue).show();else $(filterValue).hide();
 });
 $("#category").click(function () {
@@ -19458,6 +19458,8 @@ __webpack_require__(/*! ./mobile_menu */ "./resources/js/mobile_menu.js");
 __webpack_require__(/*! ./gsap */ "./resources/js/gsap.js");
 
 __webpack_require__(/*! ./cookies */ "./resources/js/cookies.js");
+
+__webpack_require__(/*! ./gallery */ "./resources/js/gallery.js");
 
 
 window.addEventListener('load', function () {
@@ -19516,6 +19518,76 @@ $(document).ready(function () {
     $('.cookie-wrapper').fadeOut(350);
   });
 });
+
+/***/ }),
+
+/***/ "./resources/js/gallery.js":
+/*!*********************************!*\
+  !*** ./resources/js/gallery.js ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+var galleryItem = document.getElementsByClassName("gallery-item");
+var lightBoxContainer = document.createElement("div");
+var lightBoxContent = document.createElement("div");
+var lightBoxImg = document.createElement("img");
+var lightBoxPrev = document.createElement("div");
+var lightBoxNext = document.createElement("div");
+lightBoxContainer.classList.add("lightbox");
+lightBoxContent.classList.add("lightbox-content");
+lightBoxPrev.classList.add("fa", "fa-angle-left", "lightbox-prev");
+lightBoxNext.classList.add("fa", "fa-angle-right", "lightbox-next");
+lightBoxContainer.appendChild(lightBoxContent);
+lightBoxContent.appendChild(lightBoxImg);
+lightBoxContent.appendChild(lightBoxPrev);
+lightBoxContent.appendChild(lightBoxNext);
+document.body.appendChild(lightBoxContainer);
+var index = 1;
+
+function showLightBox(n) {
+  if (n > galleryItem.length) {
+    index = 1;
+  } else if (n < 1) {
+    index = galleryItem.length;
+  }
+
+  var imageLocation = galleryItem[index - 1].children[0].getAttribute("src");
+  lightBoxImg.setAttribute("src", imageLocation);
+}
+
+function currentImage() {
+  lightBoxContainer.style.display = "block";
+  var imageIndex = parseInt(this.getAttribute("data-index"));
+  showLightBox(index = imageIndex);
+}
+
+for (var i = 0; i < galleryItem.length; i++) {
+  galleryItem[i].addEventListener("click", currentImage);
+}
+
+function slideImage(n) {
+  showLightBox(index += n);
+}
+
+function prevImage() {
+  slideImage(-1);
+}
+
+function nextImage() {
+  slideImage(1);
+}
+
+lightBoxPrev.addEventListener("click", prevImage);
+lightBoxNext.addEventListener("click", nextImage);
+
+function closeLightBox() {
+  if (this === event.target) {
+    lightBoxContainer.style.display = "none";
+  }
+}
+
+lightBoxContainer.addEventListener("click", closeLightBox);
 
 /***/ }),
 

@@ -98,8 +98,8 @@ $(".step3back").click(function () {
     $('.progressbar-dots:nth-child(2)').addClass('active');
 });
 
-$(".checkbox :checkbox").click(function () {
-    let filterValue = ".area" + this.value;
+$(".main-checkbox :checkbox").click(function () {
+    let filterValue = this.value;
     if (this.checked) $(filterValue).show();
     else $(filterValue).hide();
 });

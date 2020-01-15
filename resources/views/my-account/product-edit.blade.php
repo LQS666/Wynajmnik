@@ -16,6 +16,7 @@
                 id="product-add" enctype="multipart/form-data">
                 @csrf
                 @method('PATCH')
+
                 <div class="form--input-box" data-title="address">
                     <label class="font-semibold" for="name">{{ __('dashboard/product.name') }}</label>
                     <input type="text" name="name" id="name" value="{{ old('name', $product['name']) }}" />
@@ -24,32 +25,36 @@
                     <label class="font-semibold" for="desc">{{ __('dashboard/product.desc') }}</label>
                     <textarea name="desc" rows="10" cols="50">{{$product['desc']}}</textarea>
                 </div>
-                <div class="form--input-box" data-title="address">
-                    <label class="font-semibold" for="price">{{ __('dashboard/product.price') }}</label>
-                    <input type="text" name="price" id="price" value="{{ old('price', $product['price']) }}" />
+
+                <div class="w-full flex flex-col lg:flex-row py-6">
+                    <div class="form--input-box w-full lg:w-1/2" data-title="address">
+                        <label class="font-semibold" for="price">{{ __('dashboard/product.price') }}</label>
+                        <input type="text" name="price" id="price" value="{{ old('price', $product['price']) }}" />
+                    </div>
+                    <div class="w-full px-6 lg:w-1/2">
+                        {!! $product['visible'] ?
+                        '' : '
+                        <div>
+                            <label class="checkbox py-2 border-b border-purple-main">
+                                <input type="checkbox" name="visible" id="visible" value="false">
+                                <span class="checking"></span>
+                                <span>Aktualne</span>
+                            </label>
+                        </div>'
+                        !!}
+
+                        {!! $product['premium'] ?
+                        '' : '
+                        <div>
+                            <label class="checkbox py-2 border-b border-purple-main">
+                                <input type="checkbox" name="premium" id="premium" value="false">
+                                <span class="checking"></span>
+                                <span>Oznacz jako Premium</span>
+                            </label>
+                        </div>'
+                        !!}
+                    </div>
                 </div>
-                {!! $product['visible'] ?
-                '' : '
-                <div>
-                    <label class="checkbox py-2 border-b border-purple-main">
-                        <input type="checkbox" name="visible" id="visible" value="false">
-                        <span class="checking"></span>
-                        <span>Aktualne</span>
-                    </label>
-                </div>'
-                !!}
-
-                {!! $product['premium'] ?
-                '' : '
-                <div>
-                    <label class="checkbox py-2 border-b border-purple-main">
-                        <input type="checkbox" name="premium" id="premium" value="false">
-                        <span class="checking"></span>
-                        <span>Premium</span>
-                    </label>
-                </div>'
-                !!}
-
 
                 @if (count($categories) > 0)
                 <div>
@@ -97,16 +102,16 @@
                 </div>
                 @endif
 
-                @if (count($filters) > 0)
+                {{-- @if (count($filters) > 0)
                 <div>
                     <label class="font-semibold">{{ __('dashboard/product-add.filters') }}</label>
                     @foreach ($filters as $filter)
-                    <label class="checkbox py-2 border-b border-purple-main">
-                        <input type="checkbox" id="{{ $filter['id'] }}" value="{{ $filter['id'] }}">
+                    <label class="main-checkbox checkbox py-2 border-b border-purple-main">
+                        <input type="checkbox" id="{{ $filter['id'] }}" value="{{ '.area'.$filter['id'] }}">
                         <span class="checking"></span>
                         <span>{{ $filter['name'] }}</span>
                         @foreach($filter['values'] as $values)
-                        <div class="area{{ $filter['id'] }} hidden ml-6 mt-2">
+                        <div class="area{{ $filter['id'] }} ml-6 mt-2">
                             <label>
                                 <input type="checkbox" name="filters[]" value="{{ $values['id'] }}">
                                 <span class="checking"></span>
@@ -117,9 +122,9 @@
                     </label>
                     @endforeach
                 </div>
-                @endif
+                @endif --}}
 
-                <div>
+                <div class="py-6">
                     <label class="font-semibold">{{ __('dashboard/product-add.address') }}</label>
                     <select name="address">
                         @foreach($user["addresses"] as $addresses)
@@ -129,7 +134,7 @@
                             {{ $addresses['home_number'] }}/{{ $addresses['apartment_number'] }},
                             {{ $addresses['zip_code'] }} {{ $addresses['city'] }}
                         </option>
-                        @else 
+                        @else
                         <option class="text-sm" value="{{ $addresses['id'] }}">
                             ul. {{ $addresses['street'] }}
                             {{ $addresses['home_number'] }}/{{ $addresses['apartment_number'] }},
@@ -141,12 +146,30 @@
                 </div>
 
                 <div>
-                    <label class="font-semibold">{{ __('dashboard/product-add.photos') }}</label>
+                    <section id="gallery">
+                        <div class="gallery-info">
+                            <h4>{{ __('dashboard/product-add.photos') }}</h4>
+                        </div>
+                        <div class="gallery-container">
+                            @foreach($product["images"] as $product_image)
+                            <div class="gallery-item-wrapper">
+                                <div class="gallery-item" data-index="{{ $product_image->id }}">
+                                    <img src="{{ Storage::url($product_image->file) }}" alt="{{ $product_image->alt }}">
+                                </div>
+                                <form method="" action="">
+                                    <div class="flex justify-end items-center">
+                                        <button class="text-red-500">{{ __('dashboard/address.delete') }}</button>
+                                    </div>
+                                </form>
+                            </div>
+                            @endforeach
+                        </div>
+                    </section>
                     <div id="selectedFiles">
                         <div class="uploadContainer">
                             <input class="upload" type="file" id="files" name="pictures[]" multiple>
                             <div class="uploadText">
-                                <img src="{{ asset('/assets/images/icons/add_img.svg')}}" alt="">
+                                <img src="{{ asset('/assets/images/icons/add_img.svg')}}" alt="image">
                                 <p>{{ __('dashboard/product-add.add-photos') }}</p>
                             </div>
                         </div>

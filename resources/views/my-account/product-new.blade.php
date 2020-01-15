@@ -109,8 +109,8 @@
                         <li>
                             <label>{{ __('dashboard/product-add.filters') }}</label>
                             @foreach ($filters as $filter)
-                            <label class="checkbox py-2 border-b border-purple-main">
-                                <input type="checkbox" id="{{ $filter['id'] }}" value="{{ $filter['id'] }}">
+                            <label class="main-checkbox checkbox py-2 border-b border-purple-main">
+                                <input type="checkbox" id="{{ $filter['id'] }}" value="{{ '.area'.$filter['id'] }}">
                                 <span class="checking"></span>
                                 <span>{{ $filter['name'] }}</span>
                                 @foreach($filter['values'] as $values)

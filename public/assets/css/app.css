@@ -14458,6 +14458,154 @@ span.error {
   background-color: #6c63ff;
 }
 
+#gallery {
+  background-color: #eeedfc;
+  margin-bottom: 1.5rem;
+  border-radius: 0.5rem;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+#gallery .gallery-info {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+#gallery .gallery-info h4 {
+  text-align: center;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  color: #000;
+  font-weight: 600;
+}
+
+#gallery .gallery-container {
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: wrap;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+  background-color: #fff;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.2);
+  padding: 10px;
+}
+
+#gallery .gallery-container .gallery-item-wrapper {
+  flex-basis: 100%;
+  height: 200px;
+  margin-bottom: 30px;
+}
+
+@media (min-width: 480px) {
+  #gallery .gallery-container .gallery-item-wrapper {
+    flex-basis: 49.8%;
+  }
+}
+
+@media (min-width: 768px) {
+  #gallery .gallery-container .gallery-item-wrapper {
+    flex-basis: 32.7%;
+  }
+}
+
+#gallery .gallery-container .gallery-item {
+  cursor: pointer;
+  margin-bottom: 1px;
+  opacity: 0.85;
+}
+
+#gallery .gallery-container .gallery-item:hover {
+  opacity: 1;
+}
+
+#gallery .gallery-container .gallery-item img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.lightbox {
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.8);
+  top: 0;
+  left: 0;
+  z-index: 9999;
+}
+
+.lightbox-content {
+  position: relative;
+  width: 90%;
+  height: 60%;
+  margin: 20% auto;
+}
+
+@media (min-width: 480px) {
+  .lightbox-content {
+    width: 80%;
+    height: 60%;
+    margin: 15% auto;
+  }
+}
+
+@media (min-width: 768px) {
+  .lightbox-content {
+    width: 70%;
+    height: 80%;
+    margin: 5% auto;
+  }
+}
+
+.lightbox-content img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.lightbox-prev,
+.lightbox-next {
+  position: absolute;
+  background-color: #6c63ff;
+  color: #fff;
+  padding: 15px;
+  top: 45%;
+  cursor: pointer;
+}
+
+.lightbox-prev:hover,
+.lightbox-next:hover {
+  opacity: 0.8;
+}
+
+.lightbox-prev {
+  left: 0;
+}
+
+.lightbox-next {
+  right: 0;
+}
+
 @media (min-width: 640px){
   .sm\:sr-only{
     position: absolute;

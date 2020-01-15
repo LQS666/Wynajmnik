@@ -18,15 +18,21 @@
                     <div class="products__info">
                         <div class="products__left-side">
                             <div class="product__left-side__photo">
+                                @if (count($product['images']) > 0)
+                                <img class="itemImg" src="{{ Storage::url($product->images->first()['file']) }}" alt="{{ Str::limit($product['name'], 20, ' ...') }}" />
+                                @else
                                 <img class="itemImg" src="{{ asset('/assets/images/item.jpeg')}}" alt="{{ Str::limit($product['name'], 20, ' ...') }}" />
+                                @endif
                             </div>
                             <div class="product__left-side__content">
+                                <a href="{{ route('my-account.product', ['product' => $product['slug']]) }}">
                                 <div class="flex pt-3">
                                     {!! $product['visible'] ? '<p class="status isActive">Aktualne</p>' : '<p class="status isNotActive">Nieaktualne</p>' !!}
                                     {!! $product['premium'] ? '<p class="premium">Premium<i class="ml-1 fa fa-check" aria-hidden="true"></i></p>' : '' !!}
                                 </div>
                                 <h3 class="title">{{ Str::limit($product['name'], 40, ' ...') }}</h3>
                                 <p class="offers">{{ __('dashboard/product.offers_length') }}: 666</p>
+                                </a>
                             </div>
                         </div>
 
