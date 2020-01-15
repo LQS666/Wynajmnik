@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProduct;
 use App\Http\Requests\UpdateProduct;
 use App\Product;
+use App\ProductPicture;
 use App\Services\PointService;
 use App\Services\ProductService;
 use Illuminate\Foundation\Auth\RedirectsUsers;
@@ -126,13 +127,13 @@ class ProductController extends Controller
                              ->with('sweet.success', trans('message.productDestroyed'));
     }
 
-    /*public function destroyPicture(ProductPicture $picture)
+    public function destroyPicture(ProductPicture $picture)
     {
         $this->authorize('areYouOwner', $picture->product);
 
         $picture->delete(); // Fire event on deleting to delete images from storage
 
-        return redirect($this->redirectPath())
-                             ->with('sweet.success', trans('message.productPictureDestroyed'));
-    }*/
+        return redirect()->back()
+                         ->with('sweet.success', trans('message.productPictureDestroyed'));
+    }
 }

@@ -28,7 +28,7 @@ Route::group(['prefix' => 'my-account', 'namespace' => 'MyAccount'], function() 
     Route::patch('/products/{product}', 'ProductController@update');
 
     // Product Pictures
-    Route::delete('/product-pictures/{picture}', 'ProductController@destroyPicture')->name('my-account.product-picture');
+    Route::get('/product-pictures/{picture}', 'ProductController@destroyPicture')->name('my-account.product-picture');
 
     // PayU
     Route::get('/payments', 'PaymentController@index')->name('my-account.payments');

@@ -156,11 +156,9 @@
                                 <div class="gallery-item" data-index="{{ $product_image->id }}">
                                     <img src="{{ Storage::url($product_image->file) }}" alt="{{ $product_image->alt }}">
                                 </div>
-                                <form method="" action="">
-                                    <div class="flex justify-end items-center">
-                                        <button class="text-red-500">{{ __('dashboard/address.delete') }}</button>
-                                    </div>
-                                </form>
+                                <div class="flex justify-end items-center">
+                                    <a href="{{ route('my-account.product-picture', $product_image->id) }}" class="text-red-500">{{ __('dashboard/address.delete') }}</a>
+                                </div>
                             </div>
                             @endforeach
                         </div>

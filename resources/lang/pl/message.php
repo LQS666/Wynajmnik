@@ -20,4 +20,6 @@ return [
     'notEnoughPoints' => 'Przykro nam#Posiadasz zbyt mało punktów PREMIUM aby wykonać tę operację.',
 
     'emptySearchInput' => 'Uwaga#Wpisz jakąkolwiek frazę aby móc przeszukiwać naszą bazę ofert.',
+
+    'productPictureDestroyed' => 'Sukces!#Zdjęcie zostało poprawnie usunięte!',
 ];
