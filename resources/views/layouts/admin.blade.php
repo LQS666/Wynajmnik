@@ -5,7 +5,11 @@
 <div class="grid-container">
 
     @section('sidebar')
-    @include('layouts.partials.sidebar')
+    @if ($user->admin)
+        @include('layouts.partials.sidebar-admin')
+    @else
+        @include('layouts.partials.sidebar')
+    @endif
     @show
 
     <main class="main">

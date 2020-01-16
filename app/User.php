@@ -63,6 +63,11 @@ class User extends Authenticatable implements MustVerifyEmail
         return $count > 0 ? $count : 0;
     }
 
+    public function getAdminAttribute()
+    {
+        return $this->id === 1;
+    }
+
     public function addresses() {
         return $this->hasMany(UserAddress::class);
     }

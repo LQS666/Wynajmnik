@@ -43,6 +43,8 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapAuthRoutes();
 
         $this->mapMyAccountRoutes();
+
+        $this->mapAdminRoutes();
     }
 
     /**
@@ -100,5 +102,19 @@ class RouteServiceProvider extends ServiceProvider
         Route::middleware(['web', 'my-account'])
              ->namespace($this->namespace)
              ->group(base_path('routes/my-account.php'));
+    }
+
+    /**
+     * Define the "admin" routes for the application.
+     *
+     * These routes all receive the same middlewares as web routes
+     *
+     * @return void
+     */
+    protected function mapAdminRoutes()
+    {
+        Route::middleware(['web', 'admin'])
+             ->namespace($this->namespace)
+             ->group(base_path('routes/admin.php'));
     }
 }
