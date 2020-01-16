@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\View\Composers;
+namespace App\Http\View\Composers\MyAccount;
 
 use App\Offer;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
-class OffersComposer
+class OffersMyComposer
 {
     protected $user;
 
@@ -17,8 +17,10 @@ class OffersComposer
 
     public function compose(View $view) {
         $offers = Offer::whereHas('product', function (Builder $query) {
-            $query->user(1);
-        })->paginate(10);
+            $query->user($this->user->id);
+        })
+        ->orderBy('created_at', 'desc')
+        ->paginate(10);
 
         $view->with('offers', $offers);
     }

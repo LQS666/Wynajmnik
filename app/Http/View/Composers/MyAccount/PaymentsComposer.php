@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\View\Composers;
+namespace App\Http\View\Composers\MyAccount;
 
-use App\Product;
+use App\Payment;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
-class ProductsComposer
+class PaymentsComposer
 {
     protected $user;
 
@@ -15,10 +15,10 @@ class ProductsComposer
     }
 
     public function compose(View $view) {
-        $products = Product::user($this->user->id)
+        $payments = Payment::user($this->user->id)
                             ->orderBy('created_at')
                             ->paginate(10);
 
-        $view->with('products', $products);
+        $view->with('payments', $payments);
     }
 }

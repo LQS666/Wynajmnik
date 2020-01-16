@@ -22,4 +22,14 @@ return [
     'emptySearchInput' => 'Uwaga#Wpisz jakąkolwiek frazę aby móc przeszukiwać naszą bazę ofert.',
 
     'productPictureDestroyed' => 'Sukces!#Zdjęcie zostało poprawnie usunięte!',
+
+    'offerCreated' => 'Sukces!#Oferta została wysłana!',
+    'offerAccepted' => 'Sukces!#Oferta została zaakceptowana!',
+    'offerRejected' => 'Sukces!#Oferta została odrzucona!',
+    'offerCanceled' => 'Sukces!#Oferta została anulowana!',
+    'offerAlreadyBooked' => 'Alert!#Oferta posiada już rezerwacje w tym terminie!',
+    'offerAlreadyAccepted' => 'Alert!#Oferta została już zaakceptowana!',
+    'offerAlreadyRejected' => 'Alert!#Oferta została już odrzucona!',
+    'offerAlreadyCanceled' => 'Alert!#Oferta została już anulowana!',
+    'offerAlreadyHandled' => 'Alert!#Nie można anulować oferty. Oferta została już obsłużona przez wystawiającego.',
 ];

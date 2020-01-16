@@ -11,19 +11,26 @@
 |
 */
 
-// Home
-Route::get('/', 'HomeController@index')->name('home');
+Route::group(['namespace' => 'Web'], function() {
 
-// Categories
-Route::get('/categories/{category?}', 'CategoryController@index')->name('web.categories');
-Route::get('/categories/{category}/{product}', 'ProductController@category')->name('web.category.product');
+    // Home
+    Route::get('/', 'HomeController@index')->name('home');
 
-// Products
-Route::get('/products', 'ProductController@index')->name('web.products');
-Route::get('/products/{product}', 'ProductController@show')->name('web.product');
+    // Categories
+    Route::get('/categories/{category?}', 'CategoryController@index')->name('web.categories');
+    Route::get('/categories/{category}/{product}', 'ProductController@category')->name('web.category.product');
 
-// Search
-Route::get('/search', 'SearchController')->name('web.search');
+    // Products
+    Route::get('/products', 'ProductController@index')->name('web.products');
+    Route::get('/products/{product}', 'ProductController@show')->name('web.product');
+
+    // Offer
+    Route::post('/products/{product}', 'OfferController@store');
+
+    // Search
+    Route::get('/search', 'SearchController')->name('web.search');
+
+});
 
 // Reports
 Route::post('/reports/report', 'MyAccount\PaymentController@report');

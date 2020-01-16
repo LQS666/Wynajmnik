@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', __('dashboard/offer.title'))
+@section('title', __('dashboard/offer.title-foreign'))
 
 @section('profile')
 
@@ -9,7 +9,7 @@
 
     <div class="main-dashboard-panel">
 
-        <h2 class="font-semibold">{{ __('dashboard/offer.title') }}</h2>
+        <h2 class="font-semibold">{{ __('dashboard/offer.title-foreign') }}</h2>
 
         @if (count($offers) > 0)
 
@@ -44,14 +44,11 @@
                     </td>
                     <td class="offer">
                         @if (true)
-                            {{ __('dashboard/offer.accepted') }}
-                        @endif
-                        {{-- @if (true)
                             {{ __('dashboard/offer.rejected') }}
                         @endif
                         @if (true)
                             {{ __('dashboard/offer.waiting') }}
-                        @endif --}}
+                        @endif
                     </td>
                 </tr>
                 @endforeach

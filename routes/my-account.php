@@ -9,8 +9,12 @@ Route::group(['prefix' => 'my-account', 'namespace' => 'MyAccount'], function() 
     Route::post('/password-change', 'ChangePasswordController@change')->name('my-account.password-change');
 
     // Offers
-    Route::get('/offers', 'OfferController@index')->name('my-account.offer');
-    Route::post('/offers/{offer}', 'OfferController@update');
+    Route::get('/offers/my', 'OfferController@showMy')->name('my-account.my-offer');
+    Route::delete('/offers/my/{offer}', 'OfferController@cancel');
+
+    Route::get('/offers/foreign', 'OfferController@showForeign')->name('my-account.foreign-offer');
+    Route::delete('/offers/foreign/{offer}', 'OfferController@reject');
+    Route::patch('/offers/foreign/{offer}', 'OfferController@accept');
 
     // Addresses
     Route::get('/addresses', 'UserAddressController@index')->name('my-account.addresses');

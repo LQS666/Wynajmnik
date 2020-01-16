@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Offer extends Model
 {
+    use SoftDeletes;
+
     protected $fillable = [
         'user_id', 'product_id', 'desc', 'price', 'date_start', 'date_end', 'accepted_at', 'rejected_at'
     ];

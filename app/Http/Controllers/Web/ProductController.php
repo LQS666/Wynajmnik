@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Web;
 
 use App\Category;
+use App\Http\Controllers\Controller;
 use App\Product;
 
 class ProductController extends Controller

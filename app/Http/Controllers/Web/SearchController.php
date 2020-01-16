@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Web;
 
+use App\Http\Controllers\Controller;
 use App\Product;
 use App\Search\ProductSearchAspect;
 use Illuminate\Http\Request;

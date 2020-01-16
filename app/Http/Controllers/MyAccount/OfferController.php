@@ -3,42 +3,77 @@
 namespace App\Http\Controllers\MyAccount;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreOffer;
-use App\Http\Requests\UpdateOffer;
 use App\Offer;
-use App\Product;
-use Illuminate\Support\Arr;
 
 class OfferController extends Controller
 {
-    public function index()
+    public function showMy()
     {
-        // Values [$products] bound to view in ViewServiceProvider
-        return view('my-account.offers');
+        // Values [$offers] bound to view in ViewServiceProvider
+        return view('my-account.offers-my');
     }
 
-    public function store(StoreOffer $request)
+    public function showForeign()
     {
-        $validated = $request->validated();
-
-        $this->authorize('add-offer', Product::find($validated->product_id));
-
-        $offer = new Offer();
-        $offer->fill(Arr::add($validated, 'user_id', $request->user()->id));
-        $offer->save();
-
-        // TODO send email by event
+        // Values [$offers] bound to view in ViewServiceProvider
+        return view('my-account.offers-foreign');
     }
 
-    public function update(UpdateOffer $request, Offer $offer)
+    public function accept(Offer $offer)
     {
         $this->authorize('areYouOwner', $offer->product);
 
-        $offer->update($request->validated());
+        if (!is_null($offer->accepted_at)) {
+            return redirect()->back()
+                             ->with('sweet.info', trans('message.offerAlreadyAccepted'));
+        }
+
+        $offer->update([
+            'accepted_at' => time()
+        ]);
 
         // TODO fire event
 
         return redirect()->back()
-                         ->with('sweet.success', trans('message.addressUpdated'));
+                         ->with('sweet.success', trans('message.offerAccepted'));
+    }
+
+    public function reject(Offer $offer)
+    {
+        $this->authorize('areYouOwner', $offer->product);
+
+        if (!is_null($offer->rejected_at)) {
+            return redirect()->back()
+                             ->with('sweet.info', trans('message.offerAlreadyRejected'));
+        }
+
+        $offer->update([
+            'rejected_at' => time()
+        ]);
+
+        // TODO fire event
+
+        return redirect()->back()
+                         ->with('sweet.success', trans('message.offerRejected'));
+    }
+
+    public function cancel(Offer $offer)
+    {
+        $this->authorize('areYouOwner', $offer);
+
+        if (!is_null($offer->deleted_at)) {
+            return redirect()->back()
+                             ->with('sweet.info', trans('message.offerAlreadyCanceled'));
+        }
+
+        if (!is_null($offer->accepted_at) || !is_null($offer->rejected_at)) {
+            return redirect()->back()
+                             ->with('sweet.info', trans('message.offerAlreadyHandled'));
+        }
+
+        $offer->delete();
+
+        return redirect()->back()
+                         ->with('sweet.success', trans('message.offerCanceled'));
     }
 }

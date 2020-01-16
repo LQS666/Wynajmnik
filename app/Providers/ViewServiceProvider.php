@@ -24,20 +24,33 @@ class ViewServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        ################################################################################################
+        # GLOBAL
+
         View::composer(
             ['*'], 'App\Http\View\Composers\GlobalComposer'
         );
 
+        ################################################################################################
+        # ADMIN
+
+        ################################################################################################
+        # MY ACCOUNT
+
         View::composer(
-            ['my-account.addresses'], 'App\Http\View\Composers\AddressesComposer'
+            ['my-account.addresses'], 'App\Http\View\Composers\MyAccount\AddressesComposer'
         );
 
         View::composer(
-            ['my-account.products'], 'App\Http\View\Composers\ProductsComposer'
+            ['my-account.products'], 'App\Http\View\Composers\MyAccount\ProductsComposer'
         );
 
         View::composer(
-            ['my-account.offers'], 'App\Http\View\Composers\OffersComposer'
+            ['my-account.offers-my'], 'App\Http\View\Composers\MyAccount\OffersMyComposer'
+        );
+
+        View::composer(
+            ['my-account.offers-foreign'], 'App\Http\View\Composers\MyAccount\OffersForeignComposer'
         );
 
         View::composer(
@@ -45,20 +58,18 @@ class ViewServiceProvider extends ServiceProvider
                 'my-account.product-new',
                 'my-account.product-edit'
             ],
-            'App\Http\View\Composers\ProductComposer'
+            'App\Http\View\Composers\MyAccount\ProductComposer'
         );
 
         View::composer(
-            ['my-account.payments'], 'App\Http\View\Composers\PaymentsComposer'
+            ['my-account.payments'], 'App\Http\View\Composers\MyAccount\PaymentsComposer'
         );
+
+        ################################################################################################
+        # WEB
 
         View::composer(
             ['web.products'], 'App\Http\View\Composers\Web\ProductsComposer'
         );
-
-        // TODO
-        //View::composer(
-        //    ['my-account.profile'], 'App\Http\View\Composers\MyAccountComposer'
-        //);
     }
 }

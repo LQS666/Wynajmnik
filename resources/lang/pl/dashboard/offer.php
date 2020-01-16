@@ -1,7 +1,8 @@
 <?php
 
 return [
-    'title' => 'Oferty, które ja wysłałem',
+    'title-my' => 'Moje oferty',
+    'title-foreign' => 'Propozycje ofert',
     'id' => 'ID',
     'item' => 'Przedmiot',
     'desc' => 'Opis',

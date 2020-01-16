@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\View\Composers;
+namespace App\Http\View\Composers\MyAccount;
 
 use App\UserAddress;
 use Illuminate\Http\Request;
