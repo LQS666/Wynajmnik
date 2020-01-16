@@ -146,23 +146,32 @@
                 </div>
 
                 <div>
+                    
                     <section id="gallery">
                         <div class="gallery-info">
                             <h4>{{ __('dashboard/product-add.photos') }}</h4>
                         </div>
+                        @if (count($product->images) > 0)
                         <div class="gallery-container">
                             @foreach($product["images"] as $product_image)
                             <div class="gallery-item-wrapper">
                                 <div class="gallery-item" data-index="{{ $product_image->id }}">
                                     <img src="{{ Storage::url($product_image->file) }}" alt="{{ $product_image->alt }}">
                                 </div>
-                                <div class="flex justify-end items-center">
+                                <div class="flex justify-end items-center mx-2">
                                     <a href="{{ route('my-account.product-picture', $product_image->id) }}" class="text-red-500">{{ __('dashboard/address.delete') }}</a>
                                 </div>
                             </div>
                             @endforeach
                         </div>
+                        @else
+                        <div class="flex justify-center items-center border-t border-white py-6 px-3">
+                            {{ __('dashboard/product.empty-gallery') }}
+                        </div>
+                        @endif
                     </section>
+                    
+                    
                     <div id="selectedFiles">
                         <div class="uploadContainer">
                             <input class="upload" type="file" id="files" name="pictures[]" multiple>

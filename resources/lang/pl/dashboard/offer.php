@@ -1,16 +1,17 @@
 <?php
 
 return [
-    'title' => 'Złożone oferty',
+    'title' => 'Oferty, które ja wysłałem',
     'id' => 'ID',
-    'photo' => 'Zdjęcie',
-    'name' => 'Nazwa',
+    'item' => 'Przedmiot',
     'desc' => 'Opis',
     'price' => 'Cena',
-    'accepted_at' => 'Zaakceptowano dnia',
-    'rejected_at' => 'Odrzucono dnia',
+    'accepted' => 'Zaakceptowano',
+    'rejected' => 'Odrzucono',
+    'waiting' => 'Oczekuje',
     'date_start' => 'Od',
     'date_end' => 'Do',
     'currency' => 'zł',
+    'status' => 'Status',
     'empty-table' => 'Brak ofert do wyświetlenia',
 ];

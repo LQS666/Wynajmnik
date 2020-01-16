@@ -17,22 +17,21 @@
             <table cellspacing="0">
 
                 <tr class="border-b">
-                    <th>{{ __('dashboard/offer.photo') }}</th>
-                    <th>{{ __('dashboard/offer.name') }}</th>
+                    <th>{{ __('dashboard/offer.item') }}</th>
                     <th>{{ __('dashboard/offer.price') }}</th>
                     <th>{{ __('dashboard/offer.date_start') }}</th>
                     <th>{{ __('dashboard/offer.date_end') }}</th>
-                    <th>{{ __('dashboard/offer.accepted_at') }}</th>
-                    <th>{{ __('dashboard/offer.rejected_at') }}</th>
+                    <th>{{ __('dashboard/offer.status') }}</th>
                 </tr>
 
                 @foreach($offers as $offer)
                 <tr>
                     <td class="offer flex justify-center">
-                        <img src="{{ asset('/assets/images/avatar.jpg') }}" alt="Item" />
-                    </td>
-                    <td class="offer">
-                        <span class="block pb-2">{{ Str::limit($offer['name'], 80, ' ...') }}</span>
+                        @if (count($offer->product->images) > 0)
+                        <img class="itemImg" src="{{ Storage::url($offer->product->images->first()['file']) }}" />
+                        @else
+                        <img class="itemImg" src="{{ asset('/assets/images/item.jpeg')}}" />
+                        @endif
                     </td>
                     <td class="offer">
                         {{ $offer['price'] }} {{ __('dashboard/offer.currency') }}
@@ -44,10 +43,15 @@
                         {{ $offer['date_end'] }}
                     </td>
                     <td class="offer">
-                        {!! $offer['accepted_at'] ? $offer['accepted_at'] : '-' !!}
-                    </td>
-                    <td class="offer">
-                        {!! $offer['rejected_at'] ? $offer['rejected_at'] : '-' !!}
+                        @if (true)
+                            {{ __('dashboard/offer.accepted') }}
+                        @endif
+                        {{-- @if (true)
+                            {{ __('dashboard/offer.rejected') }}
+                        @endif
+                        @if (true)
+                            {{ __('dashboard/offer.waiting') }}
+                        @endif --}}
                     </td>
                 </tr>
                 @endforeach
