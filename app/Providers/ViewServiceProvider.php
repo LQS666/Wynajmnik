@@ -38,6 +38,10 @@ class ViewServiceProvider extends ServiceProvider
             ['admin.categories'], 'App\Http\View\Composers\Admin\CategoriesComposer'
         );
 
+        View::composer(
+            ['admin.sites'], 'App\Http\View\Composers\Admin\SitesComposer'
+        );
+
         ################################################################################################
         # MY ACCOUNT
 

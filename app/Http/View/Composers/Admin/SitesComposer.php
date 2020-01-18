@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Http\View\Composers;
+namespace App\Http\View\Composers\Admin;
 
 use App\Site;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
-use Illuminate\Support\Facades\Storage;
 
-class GlobalComposer
+class SitesComposer
 {
     protected $user;
 
@@ -16,14 +15,9 @@ class GlobalComposer
     }
 
     public function compose(View $view) {
-        if (!empty($this->user->avatar)) {
-            $this->user->avatarUrl = Storage::url($this->user->avatar);
-        }
-
         $sites = Site::orderBy('created_at', 'desc')
                      ->get();
 
-        $view->with('user', $this->user);
         $view->with('sites', $sites);
     }
 }

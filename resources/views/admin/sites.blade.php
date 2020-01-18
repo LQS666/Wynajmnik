@@ -2,7 +2,7 @@
 
 @section('title', '')
 
-@section('categories')
+@section('site')
 
 
 <div class="main-dashboard-panels">
@@ -11,8 +11,7 @@
         <h2 class="font-semibold"></h2>
 
         <div class="container">
-            {{ dd($category) }}
-            {{ dd($categories) }}
+            {{ dd($sites) }}
         </div>
     </div>
 </div>

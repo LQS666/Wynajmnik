@@ -30,6 +30,9 @@ Route::group(['namespace' => 'Web'], function() {
     // Search
     Route::get('/search', 'SearchController')->name('web.search');
 
+    // Site
+    Route::get('/sites/{site}', 'SiteController')->name('web.site');
+
 });
 
 // Reports

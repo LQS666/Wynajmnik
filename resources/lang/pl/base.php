@@ -21,4 +21,5 @@ return [
     'welcome' => 'Witaj,',
     'categories' => 'Kategorie',
     'panel' => 'Panel zarządzania',
+    'sites' => 'Strony tekstowe',
 ];

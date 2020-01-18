@@ -36,4 +36,8 @@ return [
     'categoryCreated' => 'Sukces!#Kategoria została poprawnie utworzona!',
     'categoryUpdated' => 'Sukces!#Kategoria została poprawnie zaktualizowana!',
     'categoryDestroyed' => 'Sukces!#Kategoria została poprawnie usunięta!',
+
+    'siteCreated' => 'Sukces!#Strona została poprawnie utworzona!',
+    'siteUpdated' => 'Sukces!#Strona została poprawnie zaktualizowana!',
+    'siteDestroyed' => 'Sukces!#Strona została poprawnie usunięta!',
 ];
