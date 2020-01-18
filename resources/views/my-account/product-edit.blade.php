@@ -155,7 +155,7 @@
                         <div class="gallery-container">
                             @foreach($product["images"] as $product_image)
                             <div class="gallery-item-wrapper">
-                                <div class="gallery-item" data-index="{{ $product_image->id }}">
+                                <div class="gallery-item" data-index="{{ $loop->index + 1 }}">
                                     <img src="{{ Storage::url($product_image->file) }}" alt="{{ $product_image->alt }}">
                                 </div>
                                 <div class="flex justify-end items-center mx-2">
