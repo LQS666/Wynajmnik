@@ -23,7 +23,7 @@
                 </div>
                 <div class="form--input-box" data-title="address">
                     <label class="font-semibold" for="desc">{{ __('dashboard/product.desc') }}</label>
-                    <textarea name="desc" rows="10" cols="50">{{$product['desc']}}</textarea>
+                    <textarea id="wysiwyg" name="desc" rows="10" cols="50">{{$product['desc']}}</textarea>
                 </div>
 
                 <div class="w-full flex flex-col lg:flex-row py-6">

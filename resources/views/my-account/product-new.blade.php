@@ -36,7 +36,7 @@
                         </li>
                         <li>
                             <label>{{ __('dashboard/product-add.desc') }}</label>
-                            <textarea rows="4" cols="50" name="desc"
+                            <textarea id="wysiwyg" rows="4" cols="50" name="desc"
                                 placeholder="{{ __('dashboard/product-add.desc-placeholder') }}"></textarea>
                         </li>
                         <li>
