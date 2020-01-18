@@ -12,6 +12,15 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {
     Route::delete('/categories/{category}', 'CategoryController@destory');
     Route::patch('/categories/{category}', 'CategoryController@update');
 
+    // Products
+    Route::get('/products', 'ProductController@index')->name('admin.products');
+    Route::get('/products/{product}', 'ProductController@edit')->name('admin.product');
+    Route::delete('/products/{product}', 'ProductController@destroy');
+    Route::patch('/products/{product}', 'ProductController@update');
+
+    // Product Pictures
+    Route::get('/product-pictures/{picture}', 'ProductController@destroyPicture')->name('admin.product-picture');
+
     // Sites
     Route::get('/sites', 'SiteController@show')->name('admin.sites');
     Route::post('/sites', 'SiteController@store');
