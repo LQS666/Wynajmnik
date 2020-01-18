@@ -34,6 +34,10 @@ class ViewServiceProvider extends ServiceProvider
         ################################################################################################
         # ADMIN
 
+        View::composer(
+            ['admin.categories'], 'App\Http\View\Composers\Admin\CategoriesComposer'
+        );
+
         ################################################################################################
         # MY ACCOUNT
 

@@ -21,7 +21,7 @@ class CreateCategoriesTable extends Migration
             $table->boolean('visible')->default(false);
             $table->timestamps();
 
-            $table->foreign('sub')->references('id')->on('categories');
+            $table->foreign('sub')->references('id')->on('categories')->onDelete('cascade');
         });
     }
 

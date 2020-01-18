@@ -32,4 +32,8 @@ return [
     'offerAlreadyRejected' => 'Alert!#Oferta została już odrzucona!',
     'offerAlreadyCanceled' => 'Alert!#Oferta została już anulowana!',
     'offerAlreadyHandled' => 'Alert!#Nie można anulować oferty. Oferta została już obsłużona przez wystawiającego.',
+
+    'categoryCreated' => 'Sukces!#Kategoria została poprawnie utworzona!',
+    'categoryUpdated' => 'Sukces!#Kategoria została poprawnie zaktualizowana!',
+    'categoryDestroyed' => 'Sukces!#Kategoria została poprawnie usunięta!',
 ];

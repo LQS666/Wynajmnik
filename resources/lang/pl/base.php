@@ -19,4 +19,6 @@ return [
     'passwordChange' => 'Zmiana hasła',
     'rights' => 'Wszelkie prawa zastrzeżone',
     'welcome' => 'Witaj,',
+    'categories' => 'Kategorie',
+    'panel' => 'Panel zarządzania',
 ];

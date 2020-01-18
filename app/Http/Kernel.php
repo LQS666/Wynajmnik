@@ -47,6 +47,7 @@ class Kernel extends HttpKernel
 
         'my-account' => [
             \App\Http\Middleware\Authenticate::class,
+            \App\Http\Middleware\User::class,
         ],
 
         'admin' => [
