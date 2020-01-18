@@ -22,6 +22,7 @@ module.exports = {
         'purple-third': '#f8f9ff',
         'green-main': '#2ecc71',
         'gray-main': '#fcfcfc',
+        'gray-text': '#888',
       },
     },
   },

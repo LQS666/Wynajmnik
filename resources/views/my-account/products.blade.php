@@ -21,7 +21,7 @@
                                 @if (count($product['images']) > 0)
                                 <img class="itemImg" src="{{ Storage::url($product->images->first()['file']) }}" alt="{{ Str::limit($product['name'], 20, ' ...') }}" />
                                 @else
-                                <img class="itemImg" src="{{ asset('/assets/images/item.jpeg')}}" alt="{{ Str::limit($product['name'], 20, ' ...') }}" />
+                                <img class="itemImg" src="{{ asset('/assets/images/item.jpeg')}}" alt="Default Image" />
                                 @endif
                             </div>
                             <div class="product__left-side__content">
