@@ -15,9 +15,14 @@ class ProductsComposer
     }
 
     public function compose(View $view) {
-        $products = Product::user($this->user->id)
-                            ->orderBy('created_at')
-                            ->paginate(10);
+        if ($this->user->admin) {
+            $products = Product::orderBy('created_at')
+                               ->paginate(10);
+        } else {
+            $products = Product::user($this->user->id)
+                               ->orderBy('created_at')
+                               ->paginate(10);
+        }
 
         $view->with('products', $products);
     }

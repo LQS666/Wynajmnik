@@ -50,7 +50,11 @@ class ViewServiceProvider extends ServiceProvider
         );
 
         View::composer(
-            ['my-account.products'], 'App\Http\View\Composers\MyAccount\ProductsComposer'
+            [
+                'my-account.products',
+                'admin.products',
+            ],
+            'App\Http\View\Composers\MyAccount\ProductsComposer'
         );
 
         View::composer(
@@ -64,7 +68,8 @@ class ViewServiceProvider extends ServiceProvider
         View::composer(
             [
                 'my-account.product-new',
-                'my-account.product-edit'
+                'my-account.product-edit',
+                'admin.product-edit'
             ],
             'App\Http\View\Composers\MyAccount\ProductComposer'
         );
