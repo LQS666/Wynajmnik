@@ -20,7 +20,7 @@
 
 <nav class="results-nav">
     <ul>
-        <li><a href="" class="active">Wszystkie przedmioty</a></li>
+        <li><a href="" class="active">{{ __('web/products.all_products') }}</a></li>
         <li><a href="">RC</a></li>
         <li><a href="">Akcesoria</a></li>
     </ul>
@@ -31,7 +31,7 @@
     <div class="filter-section__wrapper">
         <section class="filter-section">
             <div class="form--input-box m-3">
-                <input type="search" class="search__input" name="search" placeholder="{{ __('home.hero.placeholder') }}"
+                <input type="search" class="search__input" name="search" placeholder="{{ __('web/products.placeholder') }}"
                 autocomplete="off" required>
             </div>
             <button class="search-button mb-4">{{ __('home.hero.search') }}</button>
@@ -121,7 +121,7 @@
                 </div>
             </div>
             <div class="profile__button"><a href="{{ route('web.product', ['product' => $product['slug']]) }}"
-                    class="button">Zarezerwuj</a></div>
+                    class="button">{{ __('web/products.button') }}</a></div>
         </div>
         @endforeach
         
