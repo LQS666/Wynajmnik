@@ -25,15 +25,13 @@ class Product extends Model implements Searchable
         'deleting' => ImageHandleOnDelete::class
     ];
 
-    public function getRouteKeyName() {
+    public function getRouteKeyName()
+    {
         return 'slug';
     }
 
-    public function scopeUser($query, $user_id) {
-        return $query->where('user_id', $user_id);
-    }
-
-    public function setNameAttribute($value) {
+    public function setNameAttribute($value)
+    {
         $this->attributes['name'] = $value;
 
         $slug = Str::slug($value);
@@ -45,27 +43,38 @@ class Product extends Model implements Searchable
         }
     }
 
-    public function images() {
+    public function scopeUser($query, $user_id)
+    {
+        return $query->where('user_id', $user_id);
+    }
+
+    public function images()
+    {
         return $this->hasMany(ProductPicture::class);
     }
 
-    public function owner() {
+    public function owner()
+    {
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function offers() {
+    public function offers()
+    {
         return $this->hasMany(Offer::class);
     }
 
-    public function categories() {
+    public function categories()
+    {
         return $this->belongsToMany(Category::class);
     }
 
-    public function filterValues() {
+    public function filterValues()
+    {
         return $this->belongsToMany(FilterValue::class);
     }
 
-    public function getSearchResult(): SearchResult {
+    public function getSearchResult(): SearchResult
+    {
         return new SearchResult($this, $this->name, route('web.product', $this->slug));
     }
 }

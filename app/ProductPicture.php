@@ -9,6 +9,8 @@ use Illuminate\Support\Str;
 
 class ProductPicture extends Model
 {
+    public $dir = 'product_picture';
+
     protected $fillable = [
         'product_id', 'alt', 'file', 'visible'
     ];
@@ -17,9 +19,13 @@ class ProductPicture extends Model
         'deleting' => ImageHandleOnDelete::class
     ];
 
-    public $dir = 'product_picture';
+    public function getUrlAttribute()
+    {
+        return Str::startsWith($this->file, 'http') ? $this->file : Storage::url($this->file);
+    }
 
-    public function setFileAttribute($value) {
+    public function setFileAttribute($value)
+    {
         $this->attributes['file'] = $value;
         if (empty($this->attributes['alt'])) {
             $this->attributes['alt'] = explode('/', $this->attributes['file']);
@@ -27,11 +33,8 @@ class ProductPicture extends Model
         }
     }
 
-    public function getUrlAttribute() {
-        return Str::startsWith($this->file, 'http') ? $this->file : Storage::url($this->file);
-    }
-
-    public function product() {
+    public function product()
+    {
         return $this->belongsTo(Product::class);
     }
 }

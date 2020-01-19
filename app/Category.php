@@ -11,31 +11,36 @@ class Category extends Model
         'sub', 'slug', 'name', 'desc', 'visible'
     ];
 
-    public function getRouteKeyName() {
+    public function getRouteKeyName()
+    {
         return 'slug';
     }
 
-    public function setNameAttribute($value) {
+    public function setNameAttribute($value)
+    {
         $this->attributes['name'] = $value;
 
         $slug = Str::slug($value);
 
-        if (Category::where('slug', $slug)->first()) { //::withTrashed()
+        if (Category::where('slug', $slug)->first()) {
             $this->attributes['slug'] = time() . '-' . $slug;
         } else {
             $this->attributes['slug'] = Str::slug($slug);
         }
     }
 
-    public function scopeMaincategories($query, $value = null) {
-        return $query->where('sub', '=', $value)->where('visible', true);
+    public function scopeMaincategories($query, $value = null)
+    {
+        return $query->where('sub', $value)->where('visible', true);
     }
 
-    public function products() {
+    public function products()
+    {
         return $this->belongsToMany(Product::class);
     }
 
-    public function subcategories() {
+    public function subcategories()
+    {
         return $this->hasMany(Category::class, 'sub')->where('visible', true);
     }
 }

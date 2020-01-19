@@ -11,16 +11,18 @@ class Site extends Model
         'slug', 'name', 'content', 'author', 'visible'
     ];
 
-    public function getRouteKeyName() {
+    public function getRouteKeyName()
+    {
         return 'slug';
     }
 
-    public function setNameAttribute($value) {
+    public function setNameAttribute($value)
+    {
         $this->attributes['name'] = $value;
 
         $slug = Str::slug($value);
 
-        if (Site::where('slug', $slug)->first()) { //::withTrashed()
+        if (Site::where('slug', $slug)->first()) {
             $this->attributes['slug'] = time() . '-' . $slug;
         } else {
             $this->attributes['slug'] = Str::slug($slug);

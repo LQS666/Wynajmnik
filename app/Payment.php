@@ -11,37 +11,45 @@ class Payment extends Model
         'user_id', 'first_name', 'last_name', 'amount', 'desc', 'client_ip', 'session_id', 'ts', 'sig', 'transaction_id', 'status', 'error', 'returned'
     ];
 
-    public function scopeUser($query, $user_id) {
-        return $query->where('user_id', $user_id);
-    }
-
-    public function getOrderIdAttribute() {
+    public function getOrderIdAttribute()
+    {
         return $this->id;
     }
 
-    public function getAmountAttribute($value) {
+    public function getAmountAttribute($value)
+    {
         return (int) $value;
     }
 
-    public function getErrorAttribute($value) {
+    public function getErrorAttribute($value)
+    {
         return PayUService::getError($value) ? [$value => PayUService::getError($value)] : $value;
     }
 
-    public function getErrorIdAttribute() {
+    public function getErrorIdAttribute()
+    {
         $error = $this->error;
         return (int) (is_array($error) ? key($error) : $error);
     }
 
-    public function getStatusAttribute($value) {
+    public function getStatusAttribute($value)
+    {
         return PayUService::getStatus($value) ? [$value => PayUService::getStatus($value)] : $value;
     }
 
-    public function getStatusIdAttribute() {
+    public function getStatusIdAttribute()
+    {
         $status = $this->status;
         return (int) (is_array($status) ? key($status) : $status);
     }
 
-    public function owner() {
+    public function scopeUser($query, $user_id)
+    {
+        return $query->where('user_id', $user_id);
+    }
+
+    public function owner()
+    {
         return $this->belongsTo(User::class, 'user_id');
     }
 }

@@ -10,11 +10,13 @@ class UserAddress extends Model
         'user_id', 'street', 'home_number', 'apartment_number', 'city', 'zip_code', 'latitude', 'longitude'
     ];
 
-    public function scopeUser($query, $user_id) {
+    public function scopeUser($query, $user_id)
+    {
         return $query->where('user_id', $user_id);
     }
 
-    public function owner() {
+    public function owner()
+    {
         return $this->belongsTo(User::class, 'user_id');
     }
 }
