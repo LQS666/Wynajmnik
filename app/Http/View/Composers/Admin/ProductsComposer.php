@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\View\Composers\MyAccount;
+namespace App\Http\View\Composers\Admin;
 
 use App\Product;
 use Illuminate\Http\Request;
@@ -15,8 +15,7 @@ class ProductsComposer
     }
 
     public function compose(View $view) {
-        $products = Product::user($this->user->id)
-            ->orderBy('created_at', 'desc')
+        $products = Product::orderBy('created_at', 'desc')
             ->paginate(10);
 
         $view->with('products', $products);

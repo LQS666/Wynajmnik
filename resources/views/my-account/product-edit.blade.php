@@ -32,16 +32,13 @@
                         <input type="text" name="price" id="price" value="{{ old('price', $product['price']) }}" />
                     </div>
                     <div class="w-full px-6 lg:w-1/2">
-                        {!! $product['visible'] ?
-                        '' : '
                         <div>
                             <label class="checkbox py-2 border-b border-purple-main">
                                 <input type="checkbox" name="visible" id="visible" value="false">
                                 <span class="checking"></span>
                                 <span>Aktualne</span>
                             </label>
-                        </div>'
-                        !!}
+                        </div>
 
                         {!! $product['premium'] ?
                         '' : '
@@ -146,7 +143,7 @@
                 </div>
 
                 <div>
-                    
+
                     <section id="gallery">
                         <div class="gallery-info">
                             <h4>{{ __('dashboard/product-add.photos') }}</h4>
@@ -170,8 +167,8 @@
                         </div>
                         @endif
                     </section>
-                    
-                    
+
+
                     <div id="selectedFiles">
                         <div class="uploadContainer">
                             <input class="upload" type="file" id="files" name="pictures[]" multiple>

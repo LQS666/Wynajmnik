@@ -25,14 +25,15 @@
                                 @endif
                             </div>
                             <div class="product__left-side__content">
-                                <a href="{{ route('admin.product', ['product' => $product['slug']]) }}">
                                 <div class="flex pt-3">
                                     {!! $product['visible'] ? '<p class="status isActive">Aktualne</p>' : '<p class="status isNotActive">Nieaktualne</p>' !!}
                                     {!! $product['premium'] ? '<p class="premium">Premium<i class="ml-1 fa fa-check" aria-hidden="true"></i></p>' : '' !!}
                                 </div>
-                                <h3 class="title">{{ Str::limit($product['name'], 40, ' ...') }}</h3>
-                                <p class="offers">{{ __('dashboard/product.offers_length') }}: 666</p>
+                                <a href="{{ route('admin.product', ['product' => $product['slug']]) }}">
+                                    <h3 class="title">{{ Str::limit($product['name'], 40, ' ...') }}</h3>
                                 </a>
+                                <span class="offers">{{ __('dashboard/product.offers_all_length') }}: {{ count($product->offers) }}</span><br/>
+                                <span class="offers">{{ __('dashboard/product.offers_unhandled_length') }}: {{ count($product->offersUnhandled) }}</span>
                             </div>
                         </div>
 

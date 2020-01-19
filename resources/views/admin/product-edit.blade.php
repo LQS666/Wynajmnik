@@ -23,7 +23,7 @@
                 </div>
                 <div class="form--input-box" data-title="address">
                     <label class="font-semibold" for="desc">{{ __('dashboard/product.desc') }}</label>
-                    <textarea name="desc" rows="10" cols="50">{{$product['desc']}}</textarea>
+                    <textarea id="wysiwyg" name="desc" rows="10" cols="50">{{$product['desc']}}</textarea>
                 </div>
 
                 <div class="w-full flex flex-col lg:flex-row py-6">
@@ -32,27 +32,20 @@
                         <input type="text" name="price" id="price" value="{{ old('price', $product['price']) }}" />
                     </div>
                     <div class="w-full px-6 lg:w-1/2">
-                        {!! $product['visible'] ?
-                        '' : '
                         <div>
                             <label class="checkbox py-2 border-b border-purple-main">
                                 <input type="checkbox" name="visible" id="visible" value="false">
                                 <span class="checking"></span>
                                 <span>Aktualne</span>
                             </label>
-                        </div>'
-                        !!}
-
-                        {!! $product['premium'] ?
-                        '' : '
+                        </div>
                         <div>
                             <label class="checkbox py-2 border-b border-purple-main">
                                 <input type="checkbox" name="premium" id="premium" value="false">
                                 <span class="checking"></span>
                                 <span>Oznacz jako Premium</span>
                             </label>
-                        </div>'
-                        !!}
+                        </div>
                     </div>
                 </div>
 
@@ -127,18 +120,18 @@
                 <div class="py-6">
                     <label class="font-semibold">{{ __('dashboard/product-add.address') }}</label>
                     <select name="address">
-                        @foreach($user["addresses"] as $addresses)
-                        @if ( $product['user_address_id'] === $addresses['id'] )
-                        <option class="text-sm" selected value="{{ $addresses['id'] }}">
-                            ul. {{ $addresses['street'] }}
-                            {{ $addresses['home_number'] }}/{{ $addresses['apartment_number'] }},
-                            {{ $addresses['zip_code'] }} {{ $addresses['city'] }}
+                        @foreach($addresses as $address)
+                        @if ( $product['user_address_id'] === $address['id'] )
+                        <option class="text-sm" selected value="{{ $address['id'] }}">
+                            ul. {{ $address['street'] }}
+                            {{ $address['home_number'] }}/{{ $address['apartment_number'] }},
+                            {{ $address['zip_code'] }} {{ $address['city'] }}
                         </option>
                         @else
-                        <option class="text-sm" value="{{ $addresses['id'] }}">
-                            ul. {{ $addresses['street'] }}
-                            {{ $addresses['home_number'] }}/{{ $addresses['apartment_number'] }},
-                            {{ $addresses['zip_code'] }} {{ $addresses['city'] }}
+                        <option class="text-sm" value="{{ $address['id'] }}">
+                            ul. {{ $address['street'] }}
+                            {{ $address['home_number'] }}/{{ $address['apartment_number'] }},
+                            {{ $address['zip_code'] }} {{ $address['city'] }}
                         </option>
                         @endif
                         @endforeach
