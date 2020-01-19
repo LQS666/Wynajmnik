@@ -5,6 +5,7 @@ require('./mobile_menu');
 require('./gsap');
 require('./cookies');
 require('./gallery');
+require('./single_product');
 require('./wysiwyg');
 
 import Form from './Form';

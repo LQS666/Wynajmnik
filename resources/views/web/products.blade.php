@@ -17,6 +17,12 @@
     @endforeach
 </div>
 </div> --}}
+<div class="product-view__gallery">
+    <div class="loader">
+        <img class="loader__icon" src="{{ asset('/assets/images/brand/logo_icon.png')}}" />
+        <p class="loading">Ładowanie listy przedmiotów</p>
+    </div>
+</div>
 
 <nav class="results-nav">
     <ul>
@@ -28,73 +34,73 @@
 
 <main class="results">
     <form class="form" method="GET" action="{{ route('web.search') }}">
-    <div class="filter-section__wrapper">
-        <section class="filter-section">
-            <div class="form--input-box m-3">
-                <input type="search" class="search__input" name="search" placeholder="{{ __('web/products.placeholder') }}"
-                autocomplete="off" required>
-            </div>
-            <button class="search-button mb-4">{{ __('home.hero.search') }}</button>
-                
-            <div class="filters">
-                <h5 class="filters__title">Parametr 1</h5>
-                <div class="filters__item">
-                    <div class="checkbox">
-                        <input id="checkbox-1" type="checkbox" name="camera" value="1" />
-                        <label for="checkbox-1">Opcja<span class="box"></span></label>
-                        </div>
+        <div class="filter-section__wrapper">
+            <section class="filter-section">
+                <div class="form--input-box m-3">
+                    <input type="search" class="search__input" name="search"
+                        placeholder="{{ __('web/products.placeholder') }}" autocomplete="off" required>
                 </div>
-                <div class="filters__item">
-                    <div class="checkbox">
-                        <input id="checkbox-2" type="checkbox" name="camera" value="1" />
-                        <label for="checkbox-2">Opcja<span class="box"></span></label>
-                    </div>
-                </div>
-                <div class="filters__item">
-                    <div class="checkbox">
-                        <input id="checkbox-3" type="checkbox" name="camera" value="1" />
-                        <label for="checkbox-3">Opcja<span class="box"></span></label>
-                    </div>
-                </div>
-                <div class="filters__item">
-                    <div class="checkbox">
-                        <input id="checkbox-4" type="checkbox" name="camera" value="1" />
-                        <label for="checkbox-4">Opcja<span class="box"></span></label>
-                    </div>
-                </div>
-            </div>
-            <div class="filters">
-                <h5 class="filters__title">Parametr 2</h5>
-                <div class="filters__item">
-                    <div class="checkbox">
-                        <input id="checkbox-5" type="checkbox" name="distance[]" value="1" />
-                        <label for="checkbox-5">Opcja<span class="box"></span></label>
-                    </div>
-                </div>
-                <div class="filters__item">
-                    <div class="checkbox">
-                        <input id="checkbox-6" type="checkbox" name="distance[]" value="1" />
-                        <label for="checkbox-6">Opcja<span class="box"></span></label>
-                    </div>
-                </div>
-                <div class="filters__item">
-                    <div class="checkbox">
-                        <input id="checkbox-7" type="checkbox" name="distance[]" value="1" />
-                        <label for="checkbox-7">Opcja<span class="box"></span></label>
-                    </div>
-                </div>
-                <div class="filters__item">
-                    <div class="checkbox">
-                        <input id="checkbox-8" type="checkbox" name="distance[]" value="1" />
-                        <label for="checkbox-8">Opcja<span class="box"></span></label>
-                    </div>
-                </div>
-            </div>
-            
-        </section>
-    </div>
+                <button class="search-button mb-4">{{ __('home.hero.search') }}</button>
 
-</form>
+                <div class="filters">
+                    <h5 class="filters__title">Parametr 1</h5>
+                    <div class="filters__item">
+                        <div class="checkbox">
+                            <input id="checkbox-1" type="checkbox" name="camera" value="1" />
+                            <label for="checkbox-1">Opcja<span class="box"></span></label>
+                        </div>
+                    </div>
+                    <div class="filters__item">
+                        <div class="checkbox">
+                            <input id="checkbox-2" type="checkbox" name="camera" value="1" />
+                            <label for="checkbox-2">Opcja<span class="box"></span></label>
+                        </div>
+                    </div>
+                    <div class="filters__item">
+                        <div class="checkbox">
+                            <input id="checkbox-3" type="checkbox" name="camera" value="1" />
+                            <label for="checkbox-3">Opcja<span class="box"></span></label>
+                        </div>
+                    </div>
+                    <div class="filters__item">
+                        <div class="checkbox">
+                            <input id="checkbox-4" type="checkbox" name="camera" value="1" />
+                            <label for="checkbox-4">Opcja<span class="box"></span></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="filters">
+                    <h5 class="filters__title">Parametr 2</h5>
+                    <div class="filters__item">
+                        <div class="checkbox">
+                            <input id="checkbox-5" type="checkbox" name="distance[]" value="1" />
+                            <label for="checkbox-5">Opcja<span class="box"></span></label>
+                        </div>
+                    </div>
+                    <div class="filters__item">
+                        <div class="checkbox">
+                            <input id="checkbox-6" type="checkbox" name="distance[]" value="1" />
+                            <label for="checkbox-6">Opcja<span class="box"></span></label>
+                        </div>
+                    </div>
+                    <div class="filters__item">
+                        <div class="checkbox">
+                            <input id="checkbox-7" type="checkbox" name="distance[]" value="1" />
+                            <label for="checkbox-7">Opcja<span class="box"></span></label>
+                        </div>
+                    </div>
+                    <div class="filters__item">
+                        <div class="checkbox">
+                            <input id="checkbox-8" type="checkbox" name="distance[]" value="1" />
+                            <label for="checkbox-8">Opcja<span class="box"></span></label>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+
+    </form>
 
     <section class="results__section results--grid">
         @foreach ($products as $product)
@@ -124,7 +130,7 @@
                     class="button">{{ __('web/products.button') }}</a></div>
         </div>
         @endforeach
-        
+
         <div class="pagination-container">
             {{ $products->links() }}
         </div>
