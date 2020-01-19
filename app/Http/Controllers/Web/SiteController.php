@@ -15,7 +15,7 @@ class SiteController extends Controller
 
     public function __construct()
     {
-        $this->redirectTo = route('home');
+        $this->redirectTo = route('web.home');
     }
 
     public function __invoke(Site $site)

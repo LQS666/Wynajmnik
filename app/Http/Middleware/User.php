@@ -24,7 +24,7 @@ class User
     public function handle($request, Closure $next)
     {
         if ($this->user->admin) {
-            return redirect(route('home'));
+            return redirect(route('web.home'));
         }
 
         return $next($request);
