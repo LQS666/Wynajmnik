@@ -40,4 +40,12 @@ return [
     'siteCreated' => 'Sukces!#Strona została poprawnie utworzona!',
     'siteUpdated' => 'Sukces!#Strona została poprawnie zaktualizowana!',
     'siteDestroyed' => 'Sukces!#Strona została poprawnie usunięta!',
+
+    'filterCreated' => 'Sukces!#Filter została poprawnie utworzona!',
+    'filterUpdated' => 'Sukces!#Filter została poprawnie zaktualizowana!',
+    'filterDestroyed' => 'Sukces!#Filter została poprawnie usunięta!',
+
+    'filterValueCreated' => 'Sukces!#Wartość filtra została poprawnie utworzona!',
+    'filterValueUpdated' => 'Sukces!#Wartość filtra została poprawnie zaktualizowana!',
+    'filterValueDestroyed' => 'Sukces!#Wartość filtra została poprawnie usunięta!',
 ];

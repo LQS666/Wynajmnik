@@ -22,4 +22,5 @@ return [
     'categories' => 'Kategorie',
     'panel' => 'Panel zarządzania',
     'sites' => 'Strony tekstowe',
+    'filters' => 'Filtry',
 ];

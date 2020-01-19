@@ -11,7 +11,7 @@
         <h2 class="font-semibold"></h2>
 
         <div class="container">
-            {{ dd($site) }}
+            {{ dd($filter) }}
         </div>
     </div>
 </div>

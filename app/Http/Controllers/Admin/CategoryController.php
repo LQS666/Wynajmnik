@@ -58,10 +58,13 @@ class CategoryController extends Controller
 
     public function destroy(Category $category)
     {
-        if (is_null($category->sub)) {
-            Category::where('sub', $category->id)->delete();
+        if (count($category->subcategories) > 0) {
+            foreach ($category->subcategories as $subcategory) {
+                $subcategory->products()->detach();
+            }
+            $category->subcategories()->delete();
         }
-
+        $category->products()->detach();
         $category->delete();
 
         return redirect()->back()

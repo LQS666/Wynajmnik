@@ -41,12 +41,12 @@ class ProductsComposer
                                 ->where('visible', true)
                                 ->orderBy('premium')
                                 ->orderBy('created_at')
-                                ->paginate(25);
+                                ->paginate(24);
         } else {
             $products = Product::where('visible', true)
                                 ->orderBy('premium')
                                 ->orderBy('created_at')
-                                ->paginate(25);
+                                ->paginate(24);
         }
 
         ////////////////////////////////////////////////////////////////////////////////////

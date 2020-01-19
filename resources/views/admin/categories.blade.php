@@ -2,7 +2,7 @@
 
 @section('title', '')
 
-@section('categories')
+@section('profile')
 
 
 <div class="main-dashboard-panels">
