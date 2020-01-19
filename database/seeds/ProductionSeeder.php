@@ -4,6 +4,7 @@ use App\Category;
 use App\Filter;
 use App\FilterValue;
 use App\Product;
+use App\Site;
 use App\User;
 use App\UserAddress;
 use Illuminate\Database\Seeder;
@@ -273,6 +274,55 @@ class ProductionSeeder extends Seeder
             $product = Product::create($product);
             $product->categories()->sync([1, 3]);
             $product->filterValues()->sync([1, 7, 8, 13, 15, 16]);
+        }
+
+        ##############################################
+
+        $sites = [
+            [
+                'name' => 'Polityka cookies',
+                'content' => '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mauris metus, fermentum at scelerisque quis, condimentum ac tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at magna consequat, porttitor nulla quis, maximus turpis. Maecenas gravida libero at condimentum scelerisque. Phasellus feugiat, urna sit amet sagittis consequat, tortor mi euismod massa, varius auctor lacus justo id ex. Phasellus condimentum augue sit amet metus aliquet, sit amet egestas velit lobortis. Integer lobortis in diam et faucibus. Aenean interdum scelerisque pretium. Maecenas vehicula arcu ac luctus luctus.</p>'
+                            .'<p>Nulla sollicitudin ut justo a blandit. Aenean ut ornare sem. Integer semper arcu ac auctor pellentesque. Donec blandit, felis eget luctus facilisis, orci odio tincidunt purus, ut viverra metus diam sed ex. Donec tellus nulla, malesuada et nulla id, tincidunt mollis elit. In elementum sem ac lectus venenatis vestibulum in vitae tortor. In sagittis, lorem id vulputate vehicula, libero mi dignissim risus, id euismod velit felis quis dolor. Donec eu pharetra nunc. Morbi vestibulum, enim sit amet gravida varius, neque augue porttitor sapien, id vestibulum ipsum purus ac felis. Sed pharetra non nibh in consequat. Pellentesque finibus lacus lorem, ac aliquet diam convallis quis. Donec eros dui, pulvinar quis nulla ut, aliquet luctus arcu. Cras pretium velit a pellentesque euismod. Curabitur nunc diam, venenatis sed fringilla eu, vestibulum vitae odio. Phasellus iaculis diam turpis.</p>'
+                            .'<p>Suspendisse sed augue lobortis, egestas turpis nec, elementum metus. Donec ultrices turpis id nunc volutpat luctus. Proin vitae lorem varius, commodo velit interdum, imperdiet tellus. In hac habitasse platea dictumst. Sed a sollicitudin justo. Aliquam eu placerat eros. Aliquam iaculis lacinia erat ut scelerisque. </p>',
+                'author' => 'Admin',
+                'visible' => 1
+            ],
+            [
+                'name' => 'Regulamin',
+                'content' => '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mauris metus, fermentum at scelerisque quis, condimentum ac tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at magna consequat, porttitor nulla quis, maximus turpis. Maecenas gravida libero at condimentum scelerisque. Phasellus feugiat, urna sit amet sagittis consequat, tortor mi euismod massa, varius auctor lacus justo id ex. Phasellus condimentum augue sit amet metus aliquet, sit amet egestas velit lobortis. Integer lobortis in diam et faucibus. Aenean interdum scelerisque pretium. Maecenas vehicula arcu ac luctus luctus.</p>'
+                            .'<p>Nulla sollicitudin ut justo a blandit. Aenean ut ornare sem. Integer semper arcu ac auctor pellentesque. Donec blandit, felis eget luctus facilisis, orci odio tincidunt purus, ut viverra metus diam sed ex. Donec tellus nulla, malesuada et nulla id, tincidunt mollis elit. In elementum sem ac lectus venenatis vestibulum in vitae tortor. In sagittis, lorem id vulputate vehicula, libero mi dignissim risus, id euismod velit felis quis dolor. Donec eu pharetra nunc. Morbi vestibulum, enim sit amet gravida varius, neque augue porttitor sapien, id vestibulum ipsum purus ac felis. Sed pharetra non nibh in consequat. Pellentesque finibus lacus lorem, ac aliquet diam convallis quis. Donec eros dui, pulvinar quis nulla ut, aliquet luctus arcu. Cras pretium velit a pellentesque euismod. Curabitur nunc diam, venenatis sed fringilla eu, vestibulum vitae odio. Phasellus iaculis diam turpis.</p>'
+                            .'<p>Suspendisse sed augue lobortis, egestas turpis nec, elementum metus. Donec ultrices turpis id nunc volutpat luctus. Proin vitae lorem varius, commodo velit interdum, imperdiet tellus. In hac habitasse platea dictumst. Sed a sollicitudin justo. Aliquam eu placerat eros. Aliquam iaculis lacinia erat ut scelerisque. </p>',
+                'author' => 'Admin',
+                'visible' => 1
+            ],
+            [
+                'name' => 'O nas',
+                'content' => '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mauris metus, fermentum at scelerisque quis, condimentum ac tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at magna consequat, porttitor nulla quis, maximus turpis. Maecenas gravida libero at condimentum scelerisque. Phasellus feugiat, urna sit amet sagittis consequat, tortor mi euismod massa, varius auctor lacus justo id ex. Phasellus condimentum augue sit amet metus aliquet, sit amet egestas velit lobortis. Integer lobortis in diam et faucibus. Aenean interdum scelerisque pretium. Maecenas vehicula arcu ac luctus luctus.</p>'
+                            .'<p>Nulla sollicitudin ut justo a blandit. Aenean ut ornare sem. Integer semper arcu ac auctor pellentesque. Donec blandit, felis eget luctus facilisis, orci odio tincidunt purus, ut viverra metus diam sed ex. Donec tellus nulla, malesuada et nulla id, tincidunt mollis elit. In elementum sem ac lectus venenatis vestibulum in vitae tortor. In sagittis, lorem id vulputate vehicula, libero mi dignissim risus, id euismod velit felis quis dolor. Donec eu pharetra nunc. Morbi vestibulum, enim sit amet gravida varius, neque augue porttitor sapien, id vestibulum ipsum purus ac felis. Sed pharetra non nibh in consequat. Pellentesque finibus lacus lorem, ac aliquet diam convallis quis. Donec eros dui, pulvinar quis nulla ut, aliquet luctus arcu. Cras pretium velit a pellentesque euismod. Curabitur nunc diam, venenatis sed fringilla eu, vestibulum vitae odio. Phasellus iaculis diam turpis.</p>'
+                            .'<p>Suspendisse sed augue lobortis, egestas turpis nec, elementum metus. Donec ultrices turpis id nunc volutpat luctus. Proin vitae lorem varius, commodo velit interdum, imperdiet tellus. In hac habitasse platea dictumst. Sed a sollicitudin justo. Aliquam eu placerat eros. Aliquam iaculis lacinia erat ut scelerisque. </p>',
+                'author' => 'Admin',
+                'visible' => 1
+            ],
+            [
+                'name' => 'Jak zacząć',
+                'content' => '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mauris metus, fermentum at scelerisque quis, condimentum ac tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at magna consequat, porttitor nulla quis, maximus turpis. Maecenas gravida libero at condimentum scelerisque. Phasellus feugiat, urna sit amet sagittis consequat, tortor mi euismod massa, varius auctor lacus justo id ex. Phasellus condimentum augue sit amet metus aliquet, sit amet egestas velit lobortis. Integer lobortis in diam et faucibus. Aenean interdum scelerisque pretium. Maecenas vehicula arcu ac luctus luctus.</p>'
+                            .'<p>Nulla sollicitudin ut justo a blandit. Aenean ut ornare sem. Integer semper arcu ac auctor pellentesque. Donec blandit, felis eget luctus facilisis, orci odio tincidunt purus, ut viverra metus diam sed ex. Donec tellus nulla, malesuada et nulla id, tincidunt mollis elit. In elementum sem ac lectus venenatis vestibulum in vitae tortor. In sagittis, lorem id vulputate vehicula, libero mi dignissim risus, id euismod velit felis quis dolor. Donec eu pharetra nunc. Morbi vestibulum, enim sit amet gravida varius, neque augue porttitor sapien, id vestibulum ipsum purus ac felis. Sed pharetra non nibh in consequat. Pellentesque finibus lacus lorem, ac aliquet diam convallis quis. Donec eros dui, pulvinar quis nulla ut, aliquet luctus arcu. Cras pretium velit a pellentesque euismod. Curabitur nunc diam, venenatis sed fringilla eu, vestibulum vitae odio. Phasellus iaculis diam turpis.</p>'
+                            .'<p>Suspendisse sed augue lobortis, egestas turpis nec, elementum metus. Donec ultrices turpis id nunc volutpat luctus. Proin vitae lorem varius, commodo velit interdum, imperdiet tellus. In hac habitasse platea dictumst. Sed a sollicitudin justo. Aliquam eu placerat eros. Aliquam iaculis lacinia erat ut scelerisque. </p>',
+                'author' => 'Admin',
+                'visible' => 1
+            ],
+            [
+                'name' => 'FAQ',
+                'content' => '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mauris metus, fermentum at scelerisque quis, condimentum ac tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at magna consequat, porttitor nulla quis, maximus turpis. Maecenas gravida libero at condimentum scelerisque. Phasellus feugiat, urna sit amet sagittis consequat, tortor mi euismod massa, varius auctor lacus justo id ex. Phasellus condimentum augue sit amet metus aliquet, sit amet egestas velit lobortis. Integer lobortis in diam et faucibus. Aenean interdum scelerisque pretium. Maecenas vehicula arcu ac luctus luctus.</p>'
+                            .'<p>Nulla sollicitudin ut justo a blandit. Aenean ut ornare sem. Integer semper arcu ac auctor pellentesque. Donec blandit, felis eget luctus facilisis, orci odio tincidunt purus, ut viverra metus diam sed ex. Donec tellus nulla, malesuada et nulla id, tincidunt mollis elit. In elementum sem ac lectus venenatis vestibulum in vitae tortor. In sagittis, lorem id vulputate vehicula, libero mi dignissim risus, id euismod velit felis quis dolor. Donec eu pharetra nunc. Morbi vestibulum, enim sit amet gravida varius, neque augue porttitor sapien, id vestibulum ipsum purus ac felis. Sed pharetra non nibh in consequat. Pellentesque finibus lacus lorem, ac aliquet diam convallis quis. Donec eros dui, pulvinar quis nulla ut, aliquet luctus arcu. Cras pretium velit a pellentesque euismod. Curabitur nunc diam, venenatis sed fringilla eu, vestibulum vitae odio. Phasellus iaculis diam turpis.</p>'
+                            .'<p>Suspendisse sed augue lobortis, egestas turpis nec, elementum metus. Donec ultrices turpis id nunc volutpat luctus. Proin vitae lorem varius, commodo velit interdum, imperdiet tellus. In hac habitasse platea dictumst. Sed a sollicitudin justo. Aliquam eu placerat eros. Aliquam iaculis lacinia erat ut scelerisque. </p>',
+                'author' => 'Admin',
+                'visible' => 1
+            ],
+        ];
+
+        foreach ($sites as $site) {
+            Site::create($site);
         }
 
     }
