@@ -25,14 +25,15 @@
                                 @endif
                             </div>
                             <div class="product__left-side__content">
-                                <a href="{{ route('my-account.product', ['product' => $product['slug']]) }}">
                                 <div class="flex pt-3">
                                     {!! $product['visible'] ? '<p class="status isActive">Aktualne</p>' : '<p class="status isNotActive">Nieaktualne</p>' !!}
                                     {!! $product['premium'] ? '<p class="premium">Premium<i class="ml-1 fa fa-check" aria-hidden="true"></i></p>' : '' !!}
                                 </div>
-                                <h3 class="title">{{ Str::limit($product['name'], 40, ' ...') }}</h3>
-                                <a href="{{ route('my-account.foreign-offer', ['unhandled']) }}" class="offers">{{ __('dashboard/product.offers_length') }}: {{ count($product->offersUnhandled) }}</a>
+                                <a href="{{ route('my-account.product', ['product' => $product['slug']]) }}">
+                                    <h3 class="title">{{ Str::limit($product['name'], 40, ' ...') }}</h3>
                                 </a>
+                                <a href="{{ route('my-account.foreign-offer', ['product' => $product['id']]) }}" class="offers">{{ __('dashboard/product.offers_all_length') }}: {{ count($product->offers) }}</a><br/>
+                                <a href="{{ route('my-account.foreign-offer', ['unhandled' => 1]) }}" class="offers">{{ __('dashboard/product.offers_unhandled_length') }}: {{ count($product->offersUnhandled) }}</a>
                             </div>
                         </div>
 

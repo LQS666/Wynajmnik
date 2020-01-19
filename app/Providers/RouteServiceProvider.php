@@ -23,6 +23,7 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        // TODO add router patterns
         Route::pattern('id', '[0-9]+');
         Route::pattern('address', '[0-9]+');
 

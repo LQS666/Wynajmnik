@@ -19,6 +19,11 @@ class Filter extends Model
         return $string ? implode(',', self::TYPES) : self::TYPES;
     }
 
+    public function scopeVisible($query)
+    {
+        return $query->where('visible', true);
+    }
+
     public function values()
     {
         return $this->hasMany(FilterValue::class);

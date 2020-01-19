@@ -24,14 +24,16 @@ class ProductComposer
             }
         }
 
-        $filters = Filter::with('values')->where('visible', true)->get();
+        $filters = Filter::with('values')
+            ->visible()
+            ->get();
 
         $categories = Category::maincategories()->with([
             'subcategories' => function ($query) {
-                $query->where('visible', true);
+                $query->visible();
             }
         ])
-        ->where('visible', true)
+        ->visible()
         ->get();
 
         if (!empty($this->product)) {

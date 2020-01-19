@@ -34,6 +34,11 @@ class Category extends Model
         return $query->where('sub', $value)->where('visible', true);
     }
 
+    public function scopeVisible($query)
+    {
+        return $query->where('visible', true);
+    }
+
     public function products()
     {
         return $this->belongsToMany(Product::class);

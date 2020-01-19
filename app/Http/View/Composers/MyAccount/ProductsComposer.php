@@ -16,11 +16,11 @@ class ProductsComposer
 
     public function compose(View $view) {
         if ($this->user->admin) {
-            $products = Product::orderBy('created_at')
+            $products = Product::orderBy('created_at', 'desc')
                                ->paginate(10);
         } else {
             $products = Product::user($this->user->id)
-                               ->orderBy('created_at')
+                               ->orderBy('created_at', 'desc')
                                ->paginate(10);
         }
 
