@@ -27,8 +27,7 @@ class PaymentController extends Controller
     {
         $validated = $request->validated();
 
-        $payment = new Payment();
-        $payment->fill([
+        $payment = Payment::create([
             'user_id' => $request->user()->id,
             'first_name' => $request->user()->name,
             'last_name' => $request->user()->surname,
@@ -38,7 +37,6 @@ class PaymentController extends Controller
             'session_id' => session()->getId() . time(),
             'ts' => (int) round(microtime(true) * 1000)
         ]);
-        $payment->save();
 
         return redirect()->route('my-account.payment', [
             'payment' => $payment->id

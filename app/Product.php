@@ -58,6 +58,11 @@ class Product extends Model implements Searchable
         return $this->belongsTo(User::class, 'user_id');
     }
 
+    public function address()
+    {
+        return $this->belongsTo(UserAddress::class, 'user_address_id');
+    }
+
     public function offers()
     {
         return $this->hasMany(Offer::class);

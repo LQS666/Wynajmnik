@@ -35,7 +35,7 @@ class ProductController extends Controller
 
         if (count($request->user()->addresses) === 0) { // if dont have any defined addresses redirect to addresses view
             return redirect(route('my-account.addresses'))
-                                 ->with('sweet.info', trans('message.productAddressAdd'));
+                ->with('sweet.info', trans('message.productAddressAdd'));
         }
 
         return view('my-account.product-new');
@@ -72,7 +72,7 @@ class ProductController extends Controller
         }
 
         return redirect($this->redirectPath())
-                             ->with('sweet.success', trans('message.productAdded'));
+            ->with('sweet.success', trans('message.productAdded'));
     }
 
     public function edit(Product $product)
@@ -114,7 +114,7 @@ class ProductController extends Controller
         }
 
         return redirect($this->redirectPath())
-                             ->with('sweet.success', trans('message.productUpdated'));
+            ->with('sweet.success', trans('message.productUpdated'));
     }
 
     public function destroy(Product $product)
@@ -124,7 +124,7 @@ class ProductController extends Controller
         ProductService::destroy($product);
 
         return redirect($this->redirectPath())
-                             ->with('sweet.success', trans('message.productDestroyed'));
+            ->with('sweet.success', trans('message.productDestroyed'));
     }
 
     public function destroyPicture(ProductPicture $picture)

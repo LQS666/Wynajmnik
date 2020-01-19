@@ -5,18 +5,18 @@ namespace App\Http\Controllers\MyAccount;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UpdateUser;
 use App\Services\ImageHandlerService;
-use Illuminate\Support\Arr;
+use App\Traits\ChangePasswords;
 
 class ChangeAccountController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+    use ChangePasswords;
+
+    protected $redirectTo;
+
     public function __construct()
     {
         // auth middleware defined for group in RouteServiceProvider
+        $this->redirectTo = route('my-account.profile');
     }
 
     public function change(UpdateUser $request)
@@ -29,7 +29,7 @@ class ChangeAccountController extends Controller
 
         $request->user()->update($validated);
 
-        return redirect()->back()
-                         ->with('sweet.success', trans('message.accountChanged'));
+        return redirect($this->redirectPath())
+            ->with('sweet.success', trans('message.accountChanged'));
     }
 }

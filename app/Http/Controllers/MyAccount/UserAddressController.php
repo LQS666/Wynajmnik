@@ -12,35 +12,20 @@ class UserAddressController extends Controller
 {
     use RedirectsUsers;
 
-    /**
-     * Where to redirect users after specified actions.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/my-account/addresses';
+    protected $redirectTo;
 
     public function __construct()
     {
         // auth middleware defined for group in RouteServiceProvider
+        $this->redirectTo = route('my-account.addresses');
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         // Values [$addresses] bound to view in ViewServiceProvider
         return view('my-account.addresses');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreUserAddress  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(StoreUserAddress $request)
     {
         UserAddress::create(
@@ -48,15 +33,9 @@ class UserAddressController extends Controller
         );
 
         return redirect($this->redirectPath())
-                             ->with('sweet.success', trans('message.addressAdded'));
+            ->with('sweet.success', trans('message.addressCreated'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\UserAddress  $address
-     * @return \Illuminate\Http\Response
-     */
     public function edit(UserAddress $address)
     {
         $this->authorize('areYouOwner', $address);
@@ -66,37 +45,28 @@ class UserAddressController extends Controller
         ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreUserAddress  $request
-     * @param  \App\UserAddress  $address
-     * @return \Illuminate\Http\Response
-     */
     public function update(StoreUserAddress $request, UserAddress $address)
     {
         $this->authorize('areYouOwner', $address);
 
-        $address->fill($request->validated());
-        $address->save();
+        $address->update($request->validated());
 
         return redirect($this->redirectPath())
-                             ->with('sweet.success', trans('message.addressUpdated'));
+            ->with('sweet.success', trans('message.addressUpdated'));
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\UserAddress  $address
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(UserAddress $address)
     {
         $this->authorize('areYouOwner', $address);
 
+        if (count($address->products) > 0) { // if address bound with products, do not remove
+            return redirect()->back()
+                ->with('sweet.error', trans('message.addressBoundWithProduct'));
+        }
+
         $address->delete();
 
         return redirect($this->redirectPath())
-                             ->with('sweet.success', trans('message.addressDeleted'));
+            ->with('sweet.success', trans('message.addressDestroyed'));
     }
 }

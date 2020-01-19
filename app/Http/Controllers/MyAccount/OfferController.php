@@ -7,6 +7,11 @@ use App\Offer;
 
 class OfferController extends Controller
 {
+    public function __construct()
+    {
+        // auth middleware defined for group in RouteServiceProvider
+    }
+
     public function showMy()
     {
         // Values [$offers] bound to view in ViewServiceProvider
@@ -32,7 +37,7 @@ class OfferController extends Controller
             'accepted_at' => time()
         ]);
 
-        // TODO fire event
+        // TODO fire event, send email
 
         return redirect()->back()
                          ->with('sweet.success', trans('message.offerAccepted'));
@@ -51,7 +56,7 @@ class OfferController extends Controller
             'rejected_at' => time()
         ]);
 
-        // TODO fire event
+        // TODO fire event, send email
 
         return redirect()->back()
                          ->with('sweet.success', trans('message.offerRejected'));
@@ -71,7 +76,7 @@ class OfferController extends Controller
                              ->with('sweet.info', trans('message.offerAlreadyHandled'));
         }
 
-        $offer->delete();
+        $offer->delete(); // soft delete
 
         return redirect()->back()
                          ->with('sweet.success', trans('message.offerCanceled'));

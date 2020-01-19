@@ -8,9 +8,10 @@ return [
 
     'accountChanged' => 'Sukces!#Twoje dane zostały zmienione!',
 
-    'addressAdded' => 'Sukces!#Adres został poprawnie dodany!',
+    'addressCreated' => 'Sukces!#Adres został poprawnie dodany!',
     'addressUpdated' => 'Sukces!#Adres został poprawnie zaktualizowany!',
-    'addressDeleted' => 'Sukces!#Adres został poprawnie usunięty!',
+    'addressDestroyed' => 'Sukces!#Adres został poprawnie usunięty!',
+    'addressBoundWithProduct' => 'Alert!#Nie można usunąć adresu. Adres powiązany jest z Twoim produktami.',
 
     'productAdded' => 'Sukces!#Produkt został poprawnie dodany!',
     'productUpdated' => 'Sukces!#Product został poprawnie zaktualizowany!',
