@@ -31,7 +31,7 @@
                                     {!! $product['premium'] ? '<p class="premium">Premium<i class="ml-1 fa fa-check" aria-hidden="true"></i></p>' : '' !!}
                                 </div>
                                 <h3 class="title">{{ Str::limit($product['name'], 40, ' ...') }}</h3>
-                                <p class="offers">{{ __('dashboard/product.offers_length') }}: 666</p>
+                                <a href="{{ route('my-account.foreign-offer', ['unhandled']) }}" class="offers">{{ __('dashboard/product.offers_length') }}: {{ count($product->offersUnhandled) }}</a>
                                 </a>
                             </div>
                         </div>

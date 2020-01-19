@@ -68,6 +68,11 @@ class Product extends Model implements Searchable
         return $this->hasMany(Offer::class);
     }
 
+    public function offersUnhandled()
+    {
+        return $this->offers()->unhandled();
+    }
+
     public function categories()
     {
         return $this->belongsToMany(Category::class);

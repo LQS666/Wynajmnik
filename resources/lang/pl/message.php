@@ -5,7 +5,6 @@ return [
     'login' => 'Witaj :name!#Zostałeś poprawnie zalogowany!',
     'logout' => 'Do zobaczenia!#Zostałeś poprawanie wylogowany!',
     'passwordChanged' => 'Sukces!#Twoje hasło zostało zmienione!',
-
     'accountChanged' => 'Sukces!#Twoje dane zostały zmienione!',
 
     'addressCreated' => 'Sukces!#Adres został poprawnie dodany!',
@@ -13,16 +12,14 @@ return [
     'addressDestroyed' => 'Sukces!#Adres został poprawnie usunięty!',
     'addressBoundWithProduct' => 'Alert!#Nie można usunąć adresu. Adres powiązany jest z Twoim produktami.',
 
-    'productAdded' => 'Sukces!#Produkt został poprawnie dodany!',
+    'productAdded' => 'Sukces!#Produkt został poprawnie utworzony!',
     'productUpdated' => 'Sukces!#Product został poprawnie zaktualizowany!',
     'productDestroyed' => 'Sukces!#Produkt został poprawnie usunięty!',
-    'productAddressAdd' => 'Alert!#Dodaj chociaż jeden adres, by móc swobodnie dodawać produkty.',
+    'productAddressAdd' => 'Alert!#Musisz dodać adres, aby móc swobodnie dodawać produkty.',
+    'productPictureDestroyed' => 'Sukces!#Zdjęcie zostało poprawnie usunięte!',
 
     'notEnoughPoints' => 'Przykro nam#Posiadasz zbyt mało punktów PREMIUM aby wykonać tę operację.',
-
     'emptySearchInput' => 'Uwaga#Wpisz jakąkolwiek frazę aby móc przeszukiwać naszą bazę ofert.',
-
-    'productPictureDestroyed' => 'Sukces!#Zdjęcie zostało poprawnie usunięte!',
 
     'offerCreated' => 'Sukces!#Oferta została wysłana!',
     'offerAccepted' => 'Sukces!#Oferta została zaakceptowana!',

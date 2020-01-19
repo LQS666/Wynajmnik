@@ -13,7 +13,7 @@ return [
     'add_date' => 'Data dodania',
     'actions' => 'Akcje',
     'rate' => 'Ocena',
-    'offers_length' => 'Ilość ofert',
+    'offers_length' => 'Ilość nierozpatrzonych ofert',
     'currency' => 'zł',
     'edit' => 'Edytuj',
     'return' => 'Powrót',

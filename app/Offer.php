@@ -27,6 +27,11 @@ class Offer extends Model
         return $query->where('product_id', $product_id);
     }
 
+    public function scopeUnhandled($query)
+    {
+        return $query->where('accepted_at', null)->where('rejected_at', null);
+    }
+
     public function owner()
     {
         return $this->belongsTo(User::class, 'user_id');
