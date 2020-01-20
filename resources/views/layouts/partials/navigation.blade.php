@@ -9,12 +9,8 @@
         </div>
         <div class="flex items-center w-auto">
             <div class="text-sm flex-grow">
-                <a href="#"
+                <a href="{{ route('web.products') }}"
                     class="inline-block mt-0 mr-8 text-gray-500 hover:text-gray-800 transition">{{ __('base.offers') }}</a>
-            </div>
-            <div class="text-sm flex-grow">
-                <a href="#"
-                    class="inline-block mt-0 mr-8 text-gray-500 hover:text-gray-800 transition">{{ __('base.map') }}</a>
             </div>
             @guest
             <div class="text-sm flex-grow">
