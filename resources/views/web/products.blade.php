@@ -23,6 +23,15 @@
             </li>
         @endforeach
     </ul>
+    @if (!empty($category) && count($current) > 0)
+        <ul class="bg-gray-700">
+            @foreach ($current as $_category)
+                <li>
+                    <a href="{{ route('web.categories', ['category' => $_category['slug']]) }}" class="{{ (!empty($category) && $category['id'] === $_category['id']) ? 'active' : '' }}">{{ $_category['name'] }}</a>
+                </li>
+            @endforeach
+        </ul>
+    @endif
 </nav>
 @endif
 

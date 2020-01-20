@@ -32,15 +32,22 @@ class ProductsComposer
 
         ////////////////////////////////////////////////////////////////////////////////////
 
-        $categories = Category::with(['subcategories' => function ($query) {
-            $query->visible();
-        }])
-        ->maincategories(
-            isset($this->category) ?
-                (empty($this->category->sub) ? $this->category->id : $this->category->sub)
-                    : null)
-        ->visible()
-        ->get();
+        $categories = $current = Category::maincategories()
+            ->visible()
+            ->get();
+
+        if (isset($this->category)) {
+            $current = Category::with(['subcategories' => function ($query) {
+                $query->visible();
+            }])
+            ->maincategories(
+                isset($this->category) ?
+                    (empty($this->category->sub) ? $this->category->id : $this->category->sub)
+                        : null
+            )
+            ->visible()
+            ->get();
+        }
 
         ////////////////////////////////////////////////////////////////////////////////////
 
@@ -78,6 +85,7 @@ class ProductsComposer
 
         $view->with([
             'categories' => $categories,
+            'current' => $current,
             'filters' => $filters,
             'products' => $products,
             'parameters' => $this->parameters,
