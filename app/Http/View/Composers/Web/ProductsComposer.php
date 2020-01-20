@@ -63,8 +63,11 @@ class ProductsComposer
 
         if (!is_null($this->parameters['filter'])) { // TODO optimize this query by Laravel Eloquent
             foreach ($this->parameters['filter'] as $filter) {
+                if (!is_array($filter)) {
+                    continue;
+                }
                 $products = $products->whereHas('filterValues', function (Builder $query) use ($filter) {
-                    $query->where('filter_values.id', $filter);
+                    $query->whereIn('filter_values.id', array_map('intval', $filter));
                 });
             }
         }

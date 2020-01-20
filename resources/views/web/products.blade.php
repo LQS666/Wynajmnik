@@ -51,11 +51,13 @@
                             <div class="filters">
                                 <h5 class="filters__title">{{ $filter['name'] }}</h5>
 
-                                @foreach ($filter->values as $value)
+                                @foreach ($filter->values as $_vi => $value)
                                 <div class="filters__item">
                                     <div class="checkbox">
-                                        <input id="checkbox-{{ $value['id'] }}" type="checkbox" name="filter[]" value="{{ $value['id'] }}"
-                                            {{ (!empty($parameters['filter']) && in_array($value['id'], $parameters['filter'])) ? ' checked="checked"' : '' }}
+                                        <input id="checkbox-{{ $value['id'] }}" type="checkbox" name="filter[{{ $filter['id'] }}][]" value="{{ $value['id'] }}"
+                                            {{ (!empty($parameters['filter'][$filter['id']]) && in_array($value['id'], $parameters['filter'][$filter['id']])) ?
+                                                ' checked="checked"' :
+                                                    '' }}
                                         />
                                         <label for="checkbox-{{ $value['id'] }}">{{ $value['value'] }}<span class="box"></span></label>
                                     </div>
