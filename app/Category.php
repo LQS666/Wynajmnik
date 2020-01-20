@@ -31,7 +31,7 @@ class Category extends Model
 
     public function scopeMaincategories($query, $value = null)
     {
-        return $query->where('sub', $value)->where('visible', true);
+        return $query->where('sub', $value);
     }
 
     public function scopeVisible($query)
@@ -46,6 +46,6 @@ class Category extends Model
 
     public function subcategories()
     {
-        return $this->hasMany(Category::class, 'sub')->where('visible', true);
+        return $this->hasMany(Category::class, 'sub');
     }
 }

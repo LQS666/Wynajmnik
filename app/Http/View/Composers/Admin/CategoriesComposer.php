@@ -15,9 +15,9 @@ class CategoriesComposer
     }
 
     public function compose(View $view) {
-        $categories = Category::maincategories()
-                              ->with('subcategories')
-                              ->get();
+        $categories = Category::with('subcategories')
+            ->maincategories()
+            ->get();
 
         $view->with('categories', $categories);
     }

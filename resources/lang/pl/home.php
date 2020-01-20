@@ -10,6 +10,7 @@ return [
         'placeholder' => 'np. dron',
         'other' => 'lub sprawdź',
         'categories' => 'kategorie',
+        'filter' => 'Filtruj',
     ],
     'advantages' => [
         '1' => [

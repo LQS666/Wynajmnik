@@ -4,6 +4,7 @@ namespace App\Http\View\Composers\MyAccount;
 
 use App\Category;
 use App\Filter;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -28,11 +29,10 @@ class ProductComposer
             ->visible()
             ->get();
 
-        $categories = Category::maincategories()->with([
-            'subcategories' => function ($query) {
-                $query->visible();
-            }
-        ])
+        $categories = Category::with(['subcategories' => function ($query) {
+            $query->visible();
+        }])
+        ->maincategories()
         ->visible()
         ->get();
 

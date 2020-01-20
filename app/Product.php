@@ -48,6 +48,11 @@ class Product extends Model implements Searchable
         return $query->where('user_id', $user_id);
     }
 
+    public function scopeVisible($query)
+    {
+        return $query->where('visible', true);
+    }
+
     public function images()
     {
         return $this->hasMany(ProductPicture::class);
