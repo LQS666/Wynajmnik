@@ -28,6 +28,11 @@
                             <span class="address__zip_code">{{ $address['zip_code'] }}</span>
                             <span class="address__city">{{ $address['city'] }}</span>
                         </div>
+                        @if ($address['latitude'] || $address['longitue'])
+                            <div>
+                                <span class="address__latitude-longitude">{{ $address['latitude'] . '/' . $address['longitude'] }}</span>
+                            </div>
+                        @endif
                     </div>
                     <div class="address__edit"><i class="fa fa-pencil mr-2" aria-hidden="true"></i><span>{{ __('dashboard/address.edit') }}</span></div>
                 </div>
@@ -61,6 +66,14 @@
                         <div class="form--input-box" data-title="address">
                             <label for="city">{{ __('dashboard/address.city') }}</label>
                             <input type="text" name="city" id="city" value="{{ old('city') }}" />
+                        </div>
+                        <div class="form--input-box" data-title="address">
+                            <label for="latitude">{{ __('dashboard/address.latitude') }}*</label>
+                            <input type="text" name="latitude" id="latitude" value="{{ old('latitude') }}" />
+                        </div>
+                        <div class="form--input-box" data-title="address">
+                            <label for="longitude">{{ __('dashboard/address.longitude') }}*</label>
+                            <input type="text" name="longitude" id="longitude" value="{{ old('longitude') }}" />
                         </div>
                         <div class="flex justify-center mt-12">
                             <button id="button_save"
@@ -99,7 +112,7 @@ function clearForm(e) {
         addAddress__button.addEventListener('click', function() {
             addAddress__popup.classList.add('is-visible');
         });
-        
+
         addAddress__close.addEventListener('click', function() {
             addAddress__popup.classList.remove('is-visible');
         });

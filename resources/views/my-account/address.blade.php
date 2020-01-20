@@ -35,6 +35,14 @@
                     <label for="city">{{ __('dashboard/address.city') }}</label>
                     <input type="text" name="city" id="city" value="{{ old('city', $address['city']) }}" />
                 </div>
+                <div class="form--input-box" data-title="address">
+                    <label for="latitude">{{ __('dashboard/address.latitude') }}*</label>
+                    <input type="text" name="latitude" id="latitude" value="{{ old('latitude', $address['latitude']) }}" />
+                </div>
+                <div class="form--input-box" data-title="address">
+                    <label for="longitude">{{ __('dashboard/address.longitude') }}*</label>
+                    <input type="text" name="longitude" id="longitude" value="{{ old('longitude', $address['longitude']) }}" />
+                </div>
                 <div class="flex justify-center mt-12">
                     <button id="button_save" class="button">{{ __('dashboard/address.save') }}</button>
                 </div>

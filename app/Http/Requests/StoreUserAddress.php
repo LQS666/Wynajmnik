@@ -29,8 +29,8 @@ class StoreUserAddress extends FormRequest
             'apartment_number' => ['nullable', 'string', 'max:10'],
             'city' => ['required', 'string', 'max:255'],
             'zip_code' => ['required', 'string', 'max:6'],
-            'latitude' => ['nullable', 'numeric', 'between:-90,00.90,00'],
-            'longitude' => ['nullable', 'numeric', 'between:-90,00.90,00']
+            'latitude' => ['nullable', 'numeric', 'between:-90.00,90.00'],
+            'longitude' => ['nullable', 'numeric', 'between:-180.00,180.00']
         ];
     }
 }

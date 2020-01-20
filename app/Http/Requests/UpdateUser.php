@@ -27,7 +27,8 @@ class UpdateUser extends FormRequest
             'avatar' => ['nullable', 'image', 'max:100', 'dimensions:max_width=256,max_height:256,ratio=1'],
             'name' => ['required', 'string', 'max:255'],
             'surname' => ['required', 'string', 'max:255'],
-            'birth_date' => ['required', 'date', 'date_format:Y-m-d']
+            'birth_date' => ['required', 'date', 'date_format:Y-m-d'],
+            'email_contact' => ['nullable', 'email', 'unique:users,email_contact,'.$this->user()->id],
         ];
     }
 }

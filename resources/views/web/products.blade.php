@@ -86,7 +86,7 @@
         <div class="profile">
             <div class="profile__image">
                 @if (count($product['images']) > 0)
-                <img class="itemImg" src="{{ Storage::url($product->images->first()['file']) }}"
+                <img class="itemImg" src="{{ $product->images->first()['url'] }}"
                     alt="{{ Str::limit($product['name'], 20, ' ...') }}" />
                 @else
                 <img class="itemImg" src="{{ asset('/assets/images/item.jpeg')}}" alt="Default Image" />

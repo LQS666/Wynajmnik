@@ -14,7 +14,7 @@ Route::group(['namespace' => 'Web', 'as' => 'web.'], function() {
     Route::get('/products/{product}', 'ProductController@show')->name('product');
 
     // Offer
-    Route::post('/products/{product}', 'OfferController@store');
+    Route::post('/products/{product}', 'OfferController@store')->name('offer');
 
     // Search
     Route::get('/search', 'SearchController')->name('search');

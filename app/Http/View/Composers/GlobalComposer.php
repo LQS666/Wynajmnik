@@ -5,7 +5,6 @@ namespace App\Http\View\Composers;
 use App\Site;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
-use Illuminate\Support\Facades\Storage;
 
 class GlobalComposer
 {
@@ -16,10 +15,6 @@ class GlobalComposer
     }
 
     public function compose(View $view) {
-        if (!empty($this->user->avatar)) {
-            $this->user->avatarUrl = Storage::url($this->user->avatar);
-        }
-
         $sites = Site::orderBy('created_at', 'desc')
                      ->get();
 

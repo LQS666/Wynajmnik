@@ -7,6 +7,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Storage;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -21,7 +22,7 @@ class User extends Authenticatable implements MustVerifyEmail
     ];
 
     protected $fillable = [
-        'name', 'surname', 'birth_date', 'avatar', 'points', 'register_ip', 'last_login_ip', 'last_login_at', 'email', 'password',
+        'name', 'surname', 'birth_date', 'avatar', 'points', 'register_ip', 'last_login_ip', 'last_login_at', 'email', 'email_contact', 'password',
     ];
 
     protected $hidden = [
@@ -52,6 +53,11 @@ class User extends Authenticatable implements MustVerifyEmail
     public function getAdminAttribute()
     {
         return $this->id === 1;
+    }
+
+    public function getAvatarUrlAttribute()
+    {
+        return Storage::url($this->avatar);
     }
 
     public function addresses()

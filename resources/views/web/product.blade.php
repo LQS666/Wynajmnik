@@ -4,11 +4,6 @@
 
 @section('content')
 
-{{-- <div class="container">
-    {{ dd($product) }}
-{{ dd($category) }}
-</div> --}}
-
 <main class="product-view">
     <div class="product-view__gallery">
         <a href="{{ route('web.categories') }}" class="block mt-3">{{ __('web/product.goback') }}</a>
@@ -21,40 +16,32 @@
             <div class="synch-carousels">
                 <div class="navigation child">
                     <div class="gallery">
-                        <div class="item">
-                            <img src="{{ asset('/assets/images/item.jpeg')}}" alt="">
-                        </div>
-                        <div class="item">
-                            <img src="{{ asset('/assets/images/item.jpeg')}}" alt="">
-                        </div>
-                        <div class="item">
-                            <img src="{{ asset('/assets/images/item.jpeg')}}" alt="">
-                        </div>
-                        <div class="item">
-                            <img src="{{ asset('/assets/images/item.jpeg')}}" alt="">
-                        </div>
-                        <div class="item">
-                            <img src="{{ asset('/assets/images/item.jpeg')}}" alt="">
-                        </div>
+                        @if (count($product['images']) > 0)
+                            @foreach ($product['images'] as $image)
+                                <div class="item">
+                                    <img src="{{ $image['url'] }}" alt="">
+                                </div>
+                            @endforeach
+                        @else
+                            <div class="item">
+                                <img src="{{ asset('/assets/images/item.jpeg')}}" alt="">
+                            </div>
+                        @endif
                     </div>
                 </div>
                 <div class="main-photo child">
                     <div class="gallery2">
-                        <div class="item">
-                            <img src="{{ asset('/assets/images/item.jpeg')}}" alt="" />
-                        </div>
-                        <div class="item">
-                            <img src="{{ asset('/assets/images/item.jpeg')}}" alt="" />
-                        </div>
-                        <div class="item">
-                            <img src="{{ asset('/assets/images/item.jpeg')}}" alt="" />
-                        </div>
-                        <div class="item">
-                            <img src="{{ asset('/assets/images/item.jpeg')}}" alt="" />
-                        </div>
-                        <div class="item">
-                            <img src="{{ asset('/assets/images/item.jpeg')}}" alt="" />
-                        </div>
+                        @if (count($product['images']) > 0)
+                            @foreach ($product['images'] as $image)
+                                <div class="item">
+                                    <img src="{{ $image['url'] }}" alt="">
+                                </div>
+                            @endforeach
+                        @else
+                            <div class="item">
+                                <img src="{{ asset('/assets/images/item.jpeg')}}" alt="">
+                            </div>
+                        @endif
                     </div>
                     <div class="nav-arrows">
                         <button class="arrow-left">
@@ -94,7 +81,7 @@
             <div class="flex justify-center">
                 @if ($product->owner->avatar)
                 <img class="border-2 border-purple-third rounded-full" style="width: 120px; height: 120px"
-                    src="{{ $product->owner->avatar }}" alt="Avatar">
+                    src="{{ $product->owner->avatarUrl }}" alt="Avatar">
                 @else
                 <img class="border-2 border-purple-third rounded-full" style="width: 120px; height: 120px"
                     src="{{ asset('/assets/images/avatar.png')}}" alt="Avatar">
@@ -102,37 +89,47 @@
             </div>
             <span class="product-view__details__name">{{ $product->owner->name }}</span>
             <span class="product-view__details__date">{{ __('web/product.user_since') }}
-                {{ \Carbon\Carbon::parse($product->owner->email_verified_at)->format('d.m.Y') }}</span>
+                {{ \Carbon\Carbon::parse($product->owner->created_at)->format('d.m.Y') }}</span>
         </div>
-        <a href="" class="product-view__contact">
-            <span>{{ __('web/product.message') }}</span>
-        </a>
-        <a href="{{ route('web.categories') }}" class="product-view__others">
+
+        @if (!empty($product['owner']['email_contact']))
+            <a href="mailto:{{ $product['owner']['email_contact'] }}" class="product-view__contact">
+                <span>{{ __('web/product.message') }}</span>
+            </a>
+        @endif
+        {{--<a href="{{ route('web.categories') }}" class="product-view__others">
             <span>{{ __('web/product.other_items') }}</span>
-        </a>
+        </a>--}}
 
-        <form class="product-view__reservation" action="">
-            <h4>{{ __('web/product.reservation') }}</h4>
-            <div>	
-                <label>{{ __('web/product.from') }}</label>		
-                <input type="date" name="" value="2019-12-26">	
-            </div>	
-            <div>	
-                <label>{{ __('web/product.to') }}</label>		
-                <input type="date" name="" value="2019-12-26">	
-            </div>
-            <button type="submit" class="product-view__reservation__submit">{{ __('web/product.reservation_button') }}</button>
-        </form>
+        @auth
+        @if (!$user->admin)
+            <form class="product-view__reservation" method="POST" action="{{ route('web.offer', ['product' => $product['slug']]) }}">
+                @csrf
+                <h4>{{ __('web/product.reservation') }}</h4>
+                <div>
+                    <label>{{ __('web/product.from') }}</label>
+                    <input type="date" name="date_start" value="{{ date('Y-m-d') }}">
+                </div>
+                <div>
+                    <label>{{ __('web/product.to') }}</label>
+                    <input type="date" name="date_end value="{{ date('Y-m-d') }}">
+                </div>
+                <button type="submit" class="product-view__reservation__submit">{{ __('web/product.reservation_button') }}</button>
+            </form>
+        @endif
+        @endauth
 
-        <div class="product-view__map__title">{{ __('web/product.map') }}</div>
-        <div class="product-view__map">
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1533.3945083810524!2d16.921737224749837!3d52.40464562802438!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x12916d24a02efb00!2sWy%C5%BCsza%20Szko%C5%82a%20Bankowa%20w%20Poznaniu!5e0!3m2!1spl!2spl!4v1579452815952!5m2!1spl!2spl"
-                width="100%" height="400" frameborder="0" style="border:0;" allowfullscreen="">
-            </iframe>
-            <div class="map-panel">
+        @if (!empty($product['address']['latitude']) && !empty($product['address']['longitude']))
+            <div class="product-view__map__title">{{ __('web/product.map') }}</div>
+            <div class="product-view__map">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1533.3945083810524!2d16.921737224749837!3d52.40464562802438!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x12916d24a02efb00!2sWy%C5%BCsza%20Szko%C5%82a%20Bankowa%20w%20Poznaniu!5e0!3m2!1spl!2spl!4v1579452815952!5m2!1spl!2spl"
+                    width="100%" height="400" frameborder="0" style="border:0;" allowfullscreen="">
+                </iframe>
+                <div class="map-panel">
+                </div>
             </div>
-        </div>
+        @endif
     </div>
 </main>
 

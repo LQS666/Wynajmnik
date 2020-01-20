@@ -42,6 +42,11 @@
                 <input type="date" name="birth_date" id="birth_date"
                     value="{{ old('birth_date', $user['birth_date']->format('Y-m-d')) }}">
             </div>
+            <div class="form--input-box">
+                <label for="email_contact">{{ __('dashboard/profile.email_contact') }}</label>
+                <input type="email" name="email_contact" id="email_contact" value="{{ old('email_contact', $user['email_contact']) }}"
+                    autocomplete="off">
+            </div>
             <button type="submit" class="button button--block mt-12">{{ __('dashboard/profile.submit') }}</button>
         </form>
     </div>
