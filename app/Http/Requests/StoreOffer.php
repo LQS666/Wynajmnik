@@ -24,11 +24,10 @@ class StoreOffer extends FormRequest
     public function rules()
     {
         return [
-            'product_id' => ['required', 'numeric', 'min:1', 'exists:products'],
-            'desc' => ['nullable', 'string'],
             'price' => ['required', 'numeric', 'min:0.01'],
             'date_start' => ['nullable', 'date', 'date_format:Y-m-d'],
-            'date_end' => ['nullable', 'date', 'date_format:Y-m-d'],
+            'date_end' => ['nullable', 'date', 'date_format:Y-m-d'], // , 'after_or_equal:date_start'
+            'note' => ['nullable', 'string'],
         ];
     }
 }

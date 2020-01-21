@@ -103,19 +103,31 @@
 
         @auth
         @if (!$user->admin)
-            <form class="product-view__reservation" method="POST" action="{{ route('web.offer', ['product' => $product['slug']]) }}">
-                @csrf
-                <h4>{{ __('web/product.reservation') }}</h4>
-                <div>
-                    <label>{{ __('web/product.from') }}</label>
-                    <input type="date" name="date_start" value="{{ date('Y-m-d') }}">
-                </div>
-                <div>
-                    <label>{{ __('web/product.to') }}</label>
-                    <input type="date" name="date_end value="{{ date('Y-m-d') }}">
-                </div>
-                <button type="submit" class="product-view__reservation__submit">{{ __('web/product.reservation_button') }}</button>
-            </form>
+            @if ($user['id'] !== $product['owner']['id'])
+                <form class="product-view__reservation" method="POST" action="{{ route('web.offer', ['product' => $product['slug']]) }}">
+                    @csrf
+                    <h4>{{ __('web/product.reservation') }}</h4>
+                    <div>
+                        <label>{{ __('web/product.amount') }}</label>
+                        <input type="number" name="price" value="{{ old('amount', $product['price']) }}">
+                    </div>
+                    <div>
+                        <label>{{ __('web/product.from') }}</label>
+                        <input type="date" name="date_start" value="{{ old('date_start', date('Y-m-d')) }}">
+                    </div>
+                    <div>
+                        <label>{{ __('web/product.to') }}</label>
+                        <input type="date" name="date_end" value="{{ old('date_end', date('Y-m-d')) }}">
+                    </div>
+                    <div>
+                        <label>{{ __('web/product.note') }}</label>
+                        <textarea name="note">{{ old('note') }}</textarea>
+                    </div>
+                    <button type="submit" class="product-view__reservation__submit">{{ __('web/product.reservation_button') }}</button>
+                </form>
+            @else
+                <div class="product-view__reservation">{{ __('web/product.you_are_the_owner') }}</div>
+            @endif
         @endif
         @endauth
 

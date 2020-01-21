@@ -6,28 +6,38 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreOffer;
 use App\Offer;
 use App\Product;
-use Illuminate\Support\Arr;
+use App\Services\OfferService;
 
 class OfferController extends Controller
 {
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('user');
     }
 
     public function store(Product $product, StoreOffer $request)
     {
-        $validated = $request->validated();
-
         $this->authorize('!areYouOwner', $product);
 
-        // TODO CHECK DATES VALUES
+        $validated = $request->validated();
+        $validated['product_id'] = $product->id;
+        $validated['user_id'] = $request->user()->id;
 
-        $offer = Offer::create(Arr::add($validated, 'user_id', $request->user()->id));
+        try
+        {
+            OfferService::valid($validated);
 
-        // TODO send email by event
+            // TODO send email by event
+            Offer::create($validated);
 
-        return redirect()->back()
-                         ->with('sweet.success', trans('message.offerCreated'));
+            return redirect()->back()
+                ->with('sweet.success', trans('message.offerSend'));
+        } catch (\Exception $e) {
+            // TODO send email by event
+
+            return redirect()->back()
+                ->with('sweet.error', $e->getMessage());
+        }
     }
 }

@@ -46,4 +46,9 @@ return [
     'filterValueCreated' => 'Sukces!#Wartość filtra została poprawnie utworzona!',
     'filterValueUpdated' => 'Sukces!#Wartość filtra została poprawnie zaktualizowana!',
     'filterValueDestroyed' => 'Sukces!#Wartość filtra została poprawnie usunięta!',
+
+    'offerSend' => 'Sukces!#Oferta została poprawnie złożona. Wysłaliśmy także informacje o Twojej ofercie Wystawiającemu.',
+    'offerDatesInWrongOrder' => 'Błąd!#Data początkowa musi być mniejsza lub równa dacie końcowej.',
+    'offerDatesInThePast' => 'Błąd!#Daty wskazują na okres z przeszłości.',
+    'offerDatesAlreadyTaken' => 'Błąd!#Wybrany przez Ciebie zakres jest już zajęty.',
 ];

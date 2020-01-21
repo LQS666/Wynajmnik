@@ -15,7 +15,7 @@ class OffersMyComposer
     }
 
     public function compose(View $view) {
-        $offers = Offer::user($this->user)->withTrashed()
+        $offers = Offer::user($this->user->id)->withTrashed()
                                           ->orderBy('created_at', 'desc')
                                           ->paginate(10);
 

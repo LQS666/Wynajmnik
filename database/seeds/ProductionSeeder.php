@@ -35,8 +35,19 @@ class ProductionSeeder extends Seeder
                 'points' => 10000,
                 'register_ip' => '192.168.0.1',
                 'email' => 'user@user.pl',
+                'email_contact' => 'test@test.pl',
                 'email_verified_at' => time(),
                 'password' => bcrypt('user'),
+            ],
+            [
+                'name' => 'Offer',
+                'surname' => 'Testowy',
+                'birth_date' => '2000-01-01',
+                'points' => 10000,
+                'register_ip' => '192.168.0.1',
+                'email' => 'offer@offer.pl',
+                'email_verified_at' => time(),
+                'password' => bcrypt('offer'),
             ]
         ];
 

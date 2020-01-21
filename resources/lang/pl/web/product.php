@@ -14,5 +14,8 @@ return [
     'reservation_button' => 'Złóż ofertę rezerwacji',
     'from' => 'Od',
     'to' => 'Do',
+    'amount' => 'Propozycja ceny',
+    'note' => 'Zostaw notkę',
     'map' => 'Zobacz jak do nas dojechać',
+    'you_are_the_owner' => 'Nie możesz złożyć oferty na swój własny produkt.',
 ];
