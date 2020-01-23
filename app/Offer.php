@@ -15,17 +15,17 @@ class Offer extends Model
     ];
 
     protected $dates = [
-        'accepted_at', 'rejected_at'
+        /*'date_start', 'date_end', */'accepted_at', 'rejected_at'
     ];
 
-    public function getDateStartFullAttribute($value)
+    public function getDateStartWithTimeAttribute()
     {
-        return Carbon::parse($value)->startOfDay();
+        return Carbon::parse($this->date_start)->startOfDay();
     }
 
-    public function getDateEndFullAttribute($value)
+    public function getDateEndWithTimeAttribute()
     {
-        return Carbon::parse($value)->endofDay();
+        return Carbon::parse($this->date_end)->endofDay();
     }
 
     public function scopeUser($query, $user_id)
@@ -38,9 +38,14 @@ class Offer extends Model
         return $query->where('product_id', $product_id);
     }
 
-    public function scopeFromToday($query)
+    public function scopeNew($query)
     {
         return $query->whereRaw('`offers`.`date_end` >= CURDATE()');
+    }
+
+    public function scopeOld($query)
+    {
+        return $query->whereRaw('`offers`.`date_end` < CURDATE()');
     }
 
     public function scopeUnhandled($query)

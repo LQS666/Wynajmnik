@@ -26,18 +26,19 @@ class OfferController extends Controller
 
         try
         {
-            OfferService::valid($validated);
-
-            // TODO send email by event
-            Offer::create($validated);
-
-            return redirect()->back()
-                ->with('sweet.success', trans('message.offerSend'));
+            OfferService::create($validated);
         } catch (\Exception $e) {
             // TODO send email by event
 
             return redirect()->back()
-                ->with('sweet.error', $e->getMessage());
+                ->with('sweet.error', trans('message.' . $e->getMessage()));
         }
+
+        Offer::create($validated);
+
+        // TODO send email by event
+
+        return redirect()->back()
+                ->with('sweet.success', trans('message.offerSend'));
     }
 }

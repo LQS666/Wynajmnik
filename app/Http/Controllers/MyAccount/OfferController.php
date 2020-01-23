@@ -4,6 +4,7 @@ namespace App\Http\Controllers\MyAccount;
 
 use App\Http\Controllers\Controller;
 use App\Offer;
+use App\Services\OfferService;
 
 class OfferController extends Controller
 {
@@ -28,57 +29,61 @@ class OfferController extends Controller
     {
         $this->authorize('areYouOwner', $offer->product);
 
-        if (!is_null($offer->accepted_at)) {
+        try
+        {
+            OfferService::accept($offer);
+        } catch (\Exception $e) {
             return redirect()->back()
-                             ->with('sweet.info', trans('message.offerAlreadyAccepted'));
+                ->with('sweet.error', trans('message.' . $e->getMessage()));
         }
 
         $offer->update([
             'accepted_at' => time()
         ]);
 
-        // TODO fire event, send email
+        // TODO send mail
 
         return redirect()->back()
-                         ->with('sweet.success', trans('message.offerAccepted'));
+            ->with('sweet.error', trans('message.offerAccepted'));
     }
 
     public function reject(Offer $offer)
     {
         $this->authorize('areYouOwner', $offer->product);
 
-        if (!is_null($offer->rejected_at)) {
+        try
+        {
+            OfferService::reject($offer);
+        } catch (\Exception $e) {
             return redirect()->back()
-                             ->with('sweet.info', trans('message.offerAlreadyRejected'));
+                ->with('sweet.error', trans('message.' . $e->getMessage()));
         }
 
         $offer->update([
             'rejected_at' => time()
         ]);
 
-        // TODO fire event, send email
+        // TODO send mail
 
         return redirect()->back()
-                         ->with('sweet.success', trans('message.offerRejected'));
+            ->with('sweet.error', trans('message.offerRejected'));
     }
 
-    public function cancel(Offer $offer)
+    public function destroy(Offer $offer)
     {
         $this->authorize('areYouOwner', $offer);
 
-        if (!is_null($offer->deleted_at)) {
+        try
+        {
+            OfferService::cancel($offer);
+        } catch (\Exception $e) {
             return redirect()->back()
-                             ->with('sweet.info', trans('message.offerAlreadyCanceled'));
+                ->with('sweet.error', trans('message.' . $e->getMessage()));
         }
 
-        if (!is_null($offer->accepted_at) || !is_null($offer->rejected_at)) {
-            return redirect()->back()
-                             ->with('sweet.info', trans('message.offerAlreadyHandled'));
-        }
-
-        $offer->delete(); // soft delete
+        $offer->delete();
 
         return redirect()->back()
-                         ->with('sweet.success', trans('message.offerCanceled'));
+            ->with('sweet.error', trans('message.offerCanceled'));
     }
 }
