@@ -32,6 +32,12 @@ class CategoryController extends Controller
         ]);
     }
 
+    public function edit(Category $category) {
+        return view('admin.category', [
+            'category' => $category
+        ]);
+    }
+
     public function store(StoreCategory $request, Category $category = null)
     {
         $validated = $request->validated();
@@ -43,17 +49,21 @@ class CategoryController extends Controller
         Category::create($validated);
 
         return redirect()->back()
-                         ->with('sweet.success', trans('message.categoryCreated'));
+            ->with('sweet.success', trans('message.categoryCreated'));
     }
 
     public function update(StoreCategory $request, Category $category)
     {
         $validated = $request->validated();
 
+        if (!isset($validated['visible'])) {
+            $validated['visible'] = false;
+        }
+
         $category->update($validated);
 
-        return redirect()->back()
-                         ->with('sweet.success', trans('message.categoryUpdated'));
+        return redirect(route('admin.category', ['category' => $category['slug']]))
+            ->with('sweet.success', trans('message.categoryUpdated'));
     }
 
     public function destroy(Category $category)
@@ -67,7 +77,7 @@ class CategoryController extends Controller
         $category->products()->detach();
         $category->delete();
 
-        return redirect()->back()
-                         ->with('sweet.success', trans('message.categoryDestroyed'));
+        return redirect($this->redirectPath())
+            ->with('sweet.success', trans('message.categoryDestroyed'));
     }
 }

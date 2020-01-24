@@ -9,6 +9,7 @@ return [
     'logout' => 'Wyloguj się',
     'addItem' => 'Dodaj przedmiot',
     'myItems' => 'Moje przedmioty (:count)',
+    'allItems' => 'Wszystkie przedmioty',
     'myOffers' => 'Moje oferty (:count)',
     'foreignOffers' => 'Propozycje ofert (:count)',
     'myAddress' => 'Adresy (:count)',

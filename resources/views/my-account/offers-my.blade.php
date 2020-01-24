@@ -63,7 +63,7 @@
                                 @csrf
                                 @method('delete')
                                 <button class="button">{{ __('dashboard/offer.cancel_btn') }}</button>
-                        </form>
+                            </form>
                         @endif
                     </td>
                 </tr>

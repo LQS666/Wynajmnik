@@ -16,10 +16,15 @@ class Category extends Model
         return 'slug';
     }
 
+    public function getSubCountAttribute()
+    {
+        return count($this->subcategories);
+    }
+
     public function setNameAttribute($value)
     {
         $this->attributes['name'] = $value;
-        $this->attributes['slug'] = GlobalService::generateSlug($value, $this, true);
+        $this->attributes['slug'] = GlobalService::generateSlug($value, $this);
     }
 
     public function scopeMaincategories($query, $value = null)

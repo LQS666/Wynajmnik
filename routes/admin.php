@@ -8,8 +8,10 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.'], fu
     // Categories
     Route::get('/categories/{category?}', 'CategoryController@show')->name('categories');
     Route::post('/categories/{category?}', 'CategoryController@store');
-    Route::delete('/categories/{category}', 'CategoryController@destory');
-    Route::patch('/categories/{category}', 'CategoryController@update');
+
+    Route::get('/category/{category}', 'CategoryController@edit')->name('category');
+    Route::delete('/category/{category}', 'CategoryController@destroy');
+    Route::patch('/category/{category}', 'CategoryController@update');
 
     // Filters
     Route::get('/filters', 'FilterController@show')->name('filters');
