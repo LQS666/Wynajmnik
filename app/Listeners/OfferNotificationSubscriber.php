@@ -7,7 +7,6 @@ use Illuminate\Queue\InteractsWithQueue;
 
 class OfferNotificationSubscriber implements ShouldQueue
 {
-    public $queue = 'offerNotification';
     public $delay = 10;
 
     public function sendNotification($event)
