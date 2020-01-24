@@ -2,8 +2,8 @@
 
 namespace App;
 
+use App\Services\GlobalService;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Str;
 
 class Site extends Model
 {
@@ -19,13 +19,6 @@ class Site extends Model
     public function setNameAttribute($value)
     {
         $this->attributes['name'] = $value;
-
-        $slug = Str::slug($value);
-
-        if (Site::where('slug', $slug)->first()) {
-            $this->attributes['slug'] = time() . '-' . $slug;
-        } else {
-            $this->attributes['slug'] = Str::slug($slug);
-        }
+        $this->attributes['slug'] = GlobalService::generateSlug($value, $this);
     }
 }

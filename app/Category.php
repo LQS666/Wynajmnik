@@ -2,8 +2,8 @@
 
 namespace App;
 
+use App\Services\GlobalService;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Str;
 
 class Category extends Model
 {
@@ -19,14 +19,7 @@ class Category extends Model
     public function setNameAttribute($value)
     {
         $this->attributes['name'] = $value;
-
-        $slug = Str::slug($value);
-
-        if (Category::where('slug', $slug)->first()) {
-            $this->attributes['slug'] = time() . '-' . $slug;
-        } else {
-            $this->attributes['slug'] = Str::slug($slug);
-        }
+        $this->attributes['slug'] = GlobalService::generateSlug($value, $this, true);
     }
 
     public function scopeMaincategories($query, $value = null)

@@ -3,9 +3,9 @@
 namespace App;
 
 use App\Events\ImageHandleOnDelete;
+use App\Services\GlobalService;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Support\Str;
 use Spatie\Searchable\Searchable;
 use Spatie\Searchable\SearchResult;
 
@@ -33,14 +33,7 @@ class Product extends Model implements Searchable
     public function setNameAttribute($value)
     {
         $this->attributes['name'] = $value;
-
-        $slug = Str::slug($value);
-
-        if (Product::withTrashed()->where('slug', $slug)->first()) {
-            $this->attributes['slug'] = time() . '-' . $slug;
-        } else {
-            $this->attributes['slug'] = Str::slug($slug);
-        }
+        $this->attributes['slug'] = GlobalService::generateSlug($value, $this, true);
     }
 
     public function scopeUser($query, $user_id)
