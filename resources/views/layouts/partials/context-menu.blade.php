@@ -20,7 +20,7 @@
     <a href="{{ route('my-account.my-offers') }}"
         class="block px-4 py-2 text-gray-700 hover:bg-purple-second hover:text-white rounded font-normal">{{ __('base.myOffers', ['count' => $counters['my-offers']]) }}</a>
     <a href="{{ route('my-account.foreign-offers') }}"
-        class="block px-4 py-2 text-gray-700 hover:bg-purple-second hover:text-white rounded font-normal">{{ __('base.foreignOffers', ['count' => $counters['my-addresses']]) }}</a>
+        class="block px-4 py-2 text-gray-700 hover:bg-purple-second hover:text-white rounded font-normal">{{ __('base.foreignOffers', ['count' => $counters['foreign-offers']]) }}</a>
     <div class="w-full border-gray-200 border-b-2"></div>
     {{-- <a href="{{ route('my-account.profile') }}"
     class="block px-4 py-2 text-gray-700 hover:bg-purple-second hover:text-white rounded
