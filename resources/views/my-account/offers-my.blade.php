@@ -11,10 +11,11 @@
         <h2 class="font-semibold">{{ __('dashboard/offer.title-my') }}</h2>
 
         <div class="flex mb-12 justify-around w-1/2">
-            <a href="" class="mx-6">{{ __('dashboard/offer.all') }}</a>
-            <a href="" class="mx-6">{{ __('dashboard/offer.accept') }}</a>
-            <a href="" class="mx-6">{{ __('dashboard/offer.reject') }}</a>
-            <a href="" class="mx-6">{{ __('dashboard/offer.wait') }}</a>
+            <a href="{{ route('my-account.my-offers') }}" class="mx-6">{{ __('dashboard/offer.all') }}</a>
+            <a href="{{ route('my-account.my-offers', ['status' => 'accepted']) }}" class="mx-6">{{ __('dashboard/offer.accept') }}</a>
+            <a href="{{ route('my-account.my-offers', ['status' => 'rejected']) }}" class="mx-6">{{ __('dashboard/offer.reject') }}</a>
+            <a href="{{ route('my-account.my-offers', ['status' => 'waiting']) }}" class="mx-6">{{ __('dashboard/offer.wait') }}</a>
+            <a href="{{ route('my-account.my-offers', ['status' => 'cancelled']) }}" class="mx-6">{{ __('dashboard/offer.cancel') }}</a>
         </div>
 
         @if (count($offers) > 0)
@@ -28,6 +29,7 @@
                     <th>{{ __('dashboard/offer.price') }}</th>
                     <th>{{ __('dashboard/offer.date') }}</th>
                     <th>{{ __('dashboard/offer.status') }}</th>
+                    <th>{{ __('dashboard/offer.cancel_btn') }}</th>
                 </tr>
 
                 @foreach($offers as $offer)
@@ -53,14 +55,15 @@
                         {{ $offer['date_start'] }} - {{ $offer['date_end'] }}
                     </td>
                     <td class="offer">
-                        @if ( $offer['accepted_at'] )
-                            {{ __('dashboard/offer.accepted') }}
-                        @endif
-                        @if ( $offer['rejected_at'] )
-                            {{ __('dashboard/offer.rejected') }}
-                        @endif
-                        @if ( (!$offer['accepted_at']) && (!$offer['rejected_at']) )
-                            {{ __('dashboard/offer.waiting') }}
+                        {{ $offer['status'] }}
+                    </td>
+                    <td class="offer">
+                        @if (!$offer['isUnhandled'] && !$offer['isCancelled'])
+                            <form method="post" action="{{ route('my-account.my-offer', ['offer' => $offer['id']]) }}" class="mb-0">
+                                @csrf
+                                @method('delete')
+                                <button class="button">{{ __('dashboard/offer.cancel_btn') }}</button>
+                        </form>
                         @endif
                     </td>
                 </tr>

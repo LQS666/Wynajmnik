@@ -52,7 +52,7 @@
             </a>
         </li>
         <li class="sidenav-list__item">
-            <a href="{{ route('my-account.my-offer') }}" {!! request()->routeIs('my-account.my-offer') ? 'class="active"' : ''
+            <a href="{{ route('my-account.my-offers') }}" {!! request()->routeIs('my-account.my-offers') ? 'class="active"' : ''
                 !!}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                     <path
@@ -62,7 +62,7 @@
             </a>
         </li>
         <li class="sidenav-list__item">
-            <a href="{{ route('my-account.foreign-offer') }}" {!! request()->routeIs('my-account.foreign-offer') ? 'class="active"' : ''
+            <a href="{{ route('my-account.foreign-offers') }}" {!! request()->routeIs('my-account.foreign-offers') ? 'class="active"' : ''
                 !!}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                     <path

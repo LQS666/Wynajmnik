@@ -32,8 +32,8 @@
                                 <a href="{{ route('my-account.product', ['product' => $product['slug']]) }}">
                                     <h3 class="title">{{ Str::limit($product['name'], 40, ' ...') }}</h3>
                                 </a>
-                                <a href="{{ route('my-account.foreign-offer', ['product' => $product['id']]) }}" class="offers">{{ __('dashboard/product.offers_all_length') }}: {{ count($product->offers) }}</a><br/>
-                                <a href="{{ route('my-account.foreign-offer', ['unhandled' => 1]) }}" class="offers">{{ __('dashboard/product.offers_unhandled_length') }}: {{ count($product->offersUnhandled) }}</a>
+                                <a href="{{ route('my-account.foreign-offers', ['product' => $product['id']]) }}" class="offers">{{ __('dashboard/product.offers_all_length') }}: {{ count($product->offers) }}</a><br/>
+                                <a href="{{ route('my-account.foreign-offers', ['product' => $product['id'], 'status' => 'waiting']) }}" class="offers">{{ __('dashboard/product.offers_unhandled_length') }}: {{ count($product->offersUnhandled) }}</a>
                             </div>
                         </div>
 

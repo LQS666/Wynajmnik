@@ -11,22 +11,26 @@ final class PointService
     public const ADD_OVER_LIMIT = 1;
     public const ADD_PREMIUM = 2;
     public const ADD_POINTS = 3;
+    public const ACCEPT = 4;
 
     private const OPERATION = [
         self::ADD_OVER_LIMIT => 'ADD_OVER_LIMIT',
         self::ADD_PREMIUM => 'ADD_PREMIUM',
         self::ADD_POINTS => 'ADD_POINTS',
+        self::ACCEPT => 'ACCEPT',
     ];
 
     private const SIGN = [
         self::ADD_OVER_LIMIT => '-',
         self::ADD_PREMIUM => '-',
         self::ADD_POINTS => '+',
+        self::ACCEPT => '-',
     ];
 
     private const COST = [
-        self::ADD_OVER_LIMIT => 300,
-        self::ADD_PREMIUM => 300
+        self::ADD_OVER_LIMIT => 500,
+        self::ADD_PREMIUM => 500,
+        self::ACCEPT => 1000,
     ];
 
     private static function checkTransaction(array $modes, User $user = null)

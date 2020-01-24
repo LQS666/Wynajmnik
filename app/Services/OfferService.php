@@ -41,16 +41,6 @@ final class OfferService
             ->get();
     }
 
-    private static function isUnhandled(Offer $offer): bool
-    {
-        return (!is_null($offer['accepted_at']) || !is_null($offer['rejected_at']));
-    }
-
-    private static function isCanceled(Offer $offer): bool
-    {
-        return !is_null($offer['deleted_at']);
-    }
-
     private static function valid(array &$validated): void
     {
         $start = self::convertDateToStart($validated['date_start']);
@@ -84,41 +74,29 @@ final class OfferService
 
     public static function accept(Offer $offer): void
     {
-        if (self::isUnhandled($offer)) {
+        if ($offer['isUnhandled']) {
             throw new \Exception('offerAlreadyHandled');
         }
 
-        self::valid($offer->toArray());
-        //self::clear($offer->product_id); // TODO reject rubbish offers
+        $offer = $offer->toArray();
+        self::valid($offer);
     }
 
     public static function reject(Offer $offer): void
     {
-        if (self::isUnhandled($offer)) {
+        if ($offer['isUnhandled']) {
             throw new \Exception('offerAlreadyHandled');
         }
     }
 
     public static function cancel(Offer $offer): void
     {
-        if (self::isCanceled($offer)) {
+        if ($offer['isCanceled']) {
             throw new \Exception('offerAlreadyCanceled');
         }
 
         self::reject($offer);
     }
-
-    //private static function clear(int $pid): void
-    //{
-    //    $unhandledOffers = self::getUnhandledOffers($pid);
-    //    if (count($unhandledOffers) > 0) {
-    //        foreach ($unhandledOffers as $offer) {
-    //            $offer->update([
-    //                'rejected_at' => time()
-    //            ]);
-    //        }
-    //    }
-    //}
 
     private function __construct() {}
 }

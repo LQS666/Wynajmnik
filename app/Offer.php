@@ -28,6 +28,33 @@ class Offer extends Model
         return Carbon::parse($this->date_end)->endofDay();
     }
 
+    public function getStatusAttribute()
+    {
+        if (!is_null($this['accepted_at'])) {
+            return trans('dashboard/offer.accepted');
+        }
+
+        if (!is_null($this['rejected_at'])) {
+            return trans('dashboard/offer.rejected');
+        }
+
+        if (!is_null($this['deleted_at'])) {
+            return trans('dashboard/offer.cancelled');
+        }
+
+        return trans('dashboard/offer.waiting');
+    }
+
+    public function getIsUnhandledAttribute()
+    {
+        return (!is_null($this['accepted_at']) || !is_null($this['rejected_at']));
+    }
+
+    public function getIsCancelledAttribute()
+    {
+        return !is_null($this['deleted_at']);
+    }
+
     public function scopeUser($query, $user_id)
     {
         return $query->where('user_id', $user_id);
@@ -56,6 +83,16 @@ class Offer extends Model
     public function scopeAccepted($query)
     {
         return $query->where('accepted_at', '!=', null);
+    }
+
+    public function scopeRejected($query)
+    {
+        return $query->where('rejected_at', '!=', null);
+    }
+
+    public function scopeCancelled($query)
+    {
+        return $query->where('deleted_at', '!=', null);
     }
 
     public function owner()

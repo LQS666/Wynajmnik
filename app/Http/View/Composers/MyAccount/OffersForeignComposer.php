@@ -16,8 +16,8 @@ class OffersForeignComposer
     public function __construct(Request $request) {
         $this->user = $request->user();
 
-        if ($request->input('unhandled') == 1) {
-            $this->parm['unhandled'] = true;
+        if (in_array($request->input('status'), ['accepted', 'rejected', 'waiting', null])) {
+            $this->parm['status'] = $request->input('status');
         }
 
         if (is_numeric($request->input('product'))) {
@@ -35,7 +35,15 @@ class OffersForeignComposer
         })
         ->orderBy('created_at', 'desc');
 
-        if (isset($this->parm['unhandled'])) {
+        if ($this->parm['status'] == 'accepted') {
+            $offers = $offers->accepted();
+        }
+
+        if ($this->parm['status'] == 'rejected') {
+            $offers = $offers->rejected();
+        }
+
+        if ($this->parm['status'] == 'waiting') {
             $offers = $offers->unhandled();
         }
 

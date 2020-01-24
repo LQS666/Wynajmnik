@@ -8,6 +8,7 @@ use App\Events\RejectedOfferNotification;
 use App\Http\Controllers\Controller;
 use App\Offer;
 use App\Services\OfferService;
+use App\Services\PointService;
 
 class OfferController extends Controller
 {
@@ -40,15 +41,34 @@ class OfferController extends Controller
                 ->with('sweet.error', trans('message.' . $e->getMessage()));
         }
 
+        ########################################
+
+        $to_check = [
+            PointService::ACCEPT
+        ];
+
+        if (!empty($to_check) && !PointService::checkIfEnough($to_check)) {
+            return redirect()->back()
+                             ->with('sweet.error', trans('message.notEnoughPoints'));
+        }
+
+        ########################################
+
         $offer->update([
             'accepted_at' => time()
         ]);
+
+        if (!empty($to_check)) {
+            foreach ($to_check as $mode) {
+                PointService::makeAnyTransaction($mode);
+            }
+        }
 
         event(new AcceptedOfferNotification($offer));
         event(new ContactOfferNotification($offer));
 
         return redirect()->back()
-            ->with('sweet.error', trans('message.offerAccepted'));
+            ->with('sweet.success', trans('message.offerAccepted'));
     }
 
     public function reject(Offer $offer)
@@ -70,7 +90,7 @@ class OfferController extends Controller
         event(new RejectedOfferNotification($offer));
 
         return redirect()->back()
-            ->with('sweet.error', trans('message.offerRejected'));
+            ->with('sweet.success', trans('message.offerRejected'));
     }
 
     public function destroy(Offer $offer)
@@ -88,6 +108,6 @@ class OfferController extends Controller
         $offer->delete();
 
         return redirect()->back()
-            ->with('sweet.error', trans('message.offerCanceled'));
+            ->with('sweet.success', trans('message.offerCanceled'));
     }
 }

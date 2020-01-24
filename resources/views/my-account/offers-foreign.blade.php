@@ -12,10 +12,10 @@
         <h2 class="font-semibold">{{ __('dashboard/offer.title-foreign') }}</h2>
 
         <div class="flex mb-12 justify-around w-1/2">
-            <a href="" class="mx-6">{{ __('dashboard/offer.all') }}</a>
-            <a href="" class="mx-6">{{ __('dashboard/offer.accept') }}</a>
-            <a href="" class="mx-6">{{ __('dashboard/offer.reject') }}</a>
-            <a href="" class="mx-6">{{ __('dashboard/offer.wait') }}</a>
+            <a href="{{ route('my-account.foreign-offers') }}" class="mx-6">{{ __('dashboard/offer.all') }}</a>
+            <a href="{{ route('my-account.foreign-offers', ['status' => 'accepted']) }}" class="mx-6">{{ __('dashboard/offer.accept') }}</a>
+            <a href="{{ route('my-account.foreign-offers', ['status' => 'rejected']) }}" class="mx-6">{{ __('dashboard/offer.reject') }}</a>
+            <a href="{{ route('my-account.foreign-offers', ['status' => 'waiting']) }}" class="mx-6">{{ __('dashboard/offer.wait') }}</a>
         </div>
 
         @if (count($offers) > 0)
@@ -54,21 +54,21 @@
                         {{ $offer['date_start'] }} - {{ $offer['date_end'] }}
                     </td>
                     <td class="offer">
-                        @if ( $offer['accepted_at'] )
-                            {{ __('dashboard/offer.accepted') }}
-                        @endif
-                        @if ( $offer['rejected_at'] )
-                            {{ __('dashboard/offer.rejected') }}
-                        @endif
-                        @if ( (!$offer['accepted_at']) && (!$offer['rejected_at']) )
+                        @if (!$offer['isUnhandled'])
                             <div class="flex flex-col">
-                                <form action="">
+                                <form method="post" action="{{ route('my-account.foreign-offer', ['offer' => $offer['id']]) }}">
+                                    @csrf
+                                    @method('patch')
                                     <button class="button">{{ __('dashboard/offer.accept_btn') }}</button>
                                 </form>
-                                <form action="">
+                                <form method="post" action="{{ route('my-account.foreign-offer', ['offer' => $offer['id']]) }}">
+                                    @csrf
+                                    @method('delete')
                                     <button>{{ __('dashboard/offer.reject_btn') }}</button>
                                 </form>
                             </div>
+                        @else
+                            {{ $offer['status'] }}
                         @endif
                     </td>
                 </tr>

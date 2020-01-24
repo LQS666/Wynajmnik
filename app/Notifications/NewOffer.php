@@ -55,7 +55,10 @@ class NewOffer extends Notification
                 'product' => $this->product->name,
                 'product_url' => route('web.offer', ['product' => $this->product->slug])
             ]))
-            ->action(trans('notification.newOfferButton'), route('my-account.foreign-offer', ['pid' => $this->product->id]));
+            ->action(trans('notification.newOfferButton'), route('my-account.foreign-offers', [
+                'product' => $this->product->id,
+                'status' => 'waiting'
+            ]));
     }
 
     /**

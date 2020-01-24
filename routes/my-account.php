@@ -15,12 +15,12 @@ Route::group(['prefix' => 'my-account', 'namespace' => 'MyAccount', 'as' => 'my-
     Route::post('/password-change', 'ChangePasswordController@change')->name('password-change');
 
     // Offers - My
-    Route::get('/offers/my', 'OfferController@showMy')->name('my-offer');
-    Route::delete('/offers/my/{offer}', 'OfferController@cancel');
+    Route::get('/offers/my', 'OfferController@showMy')->name('my-offers');
+    Route::delete('/offers/my/{offer}', 'OfferController@destroy')->name('my-offer');
 
     // Offers - Foreign
-    Route::get('/offers/foreign', 'OfferController@showForeign')->name('foreign-offer');
-    Route::delete('/offers/foreign/{offer}', 'OfferController@reject');
+    Route::get('/offers/foreign', 'OfferController@showForeign')->name('foreign-offers');
+    Route::delete('/offers/foreign/{offer}', 'OfferController@reject')->name('foreign-offer');
     Route::patch('/offers/foreign/{offer}', 'OfferController@accept');
 
     // PayU
