@@ -1,5 +1,8 @@
-.table-items table {
-    @apply mx-auto;
+.table-items {
+    @apply w-full;
+    table {
+        @apply w-full
+    }
 }
 
 tr {

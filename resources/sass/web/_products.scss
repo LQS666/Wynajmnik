@@ -125,7 +125,7 @@ main section {
 
             &.results--grid {
                 .profile {
-                    @apply w-full m-auto overflow-hidden;
+                    @apply w-full mb-auto overflow-hidden;
                     grid: 340px auto auto / repeat(3, minmax(80px, 1fr));
                     grid-gap: 10px;
 
