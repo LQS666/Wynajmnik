@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Web;
 
+use App\Events\NewOfferNotification;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreOffer;
 use App\Offer;
@@ -28,15 +29,13 @@ class OfferController extends Controller
         {
             OfferService::create($validated);
         } catch (\Exception $e) {
-            // TODO send email by event
-
             return redirect()->back()
                 ->with('sweet.error', trans('message.' . $e->getMessage()));
         }
 
-        Offer::create($validated);
+        $offer = Offer::create($validated);
 
-        // TODO send email by event
+        event(new NewOfferNotification($offer));
 
         return redirect()->back()
                 ->with('sweet.success', trans('message.offerSend'));

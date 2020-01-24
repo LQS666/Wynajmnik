@@ -65,6 +65,7 @@ class ProductionSeeder extends Seeder
                 'apartment_number' => 5,
                 'city' => 'Test',
                 'zip_code' => '10-100',
+                'phone' => '567756567',
             ]
         ];
 

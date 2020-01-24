@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers\MyAccount;
 
+use App\Events\AcceptedOfferNotification;
+use App\Events\ContactOfferNotification;
+use App\Events\RejectedOfferNotification;
 use App\Http\Controllers\Controller;
 use App\Offer;
 use App\Services\OfferService;
@@ -41,7 +44,8 @@ class OfferController extends Controller
             'accepted_at' => time()
         ]);
 
-        // TODO send mail
+        event(new AcceptedOfferNotification($offer));
+        event(new ContactOfferNotification($offer));
 
         return redirect()->back()
             ->with('sweet.error', trans('message.offerAccepted'));
@@ -63,7 +67,7 @@ class OfferController extends Controller
             'rejected_at' => time()
         ]);
 
-        // TODO send mail
+        event(new RejectedOfferNotification($offer));
 
         return redirect()->back()
             ->with('sweet.error', trans('message.offerRejected'));

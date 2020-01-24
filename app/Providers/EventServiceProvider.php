@@ -17,7 +17,8 @@ class EventServiceProvider extends ServiceProvider
     protected $listen = [
         Registered::class => [
             SendEmailVerificationNotification::class,
-        ]
+        ],
+
     ];
 
     /**
@@ -27,6 +28,7 @@ class EventServiceProvider extends ServiceProvider
      */
     protected $subscribe = [
         'App\Listeners\ImageSubscriber',
+        'App\Listeners\OfferNotificationSubscriber',
     ];
 
     /**
