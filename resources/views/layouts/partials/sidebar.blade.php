@@ -48,7 +48,7 @@
                     <path
                         d="M15,8H8V5L4,9l4,4v-3h7c1.654,0,3,1.346,3,3s-1.346,3-3,3h-3v2h3c2.757,0,5-2.243,5-5S17.757,8,15,8z" />
                 </svg>
-                <span>{{ __('base.myItems') }}</span>
+                <span>{{ __('base.myItems', ['count' => $counters['my-products']]) }}</span>
             </a>
         </li>
         <li class="sidenav-list__item">
@@ -58,7 +58,7 @@
                     <path
                         d="M20,9l-4-4v3H9c-2.757,0-5,2.243-5,5s2.243,5,5,5h3v-2H9c-1.654,0-3-1.346-3-3s1.346-3,3-3h7v3L20,9z" />
                 </svg>
-                <span>{{ __('base.myOffers') }}</span>
+                <span>{{ __('base.myOffers', ['count' => $counters['my-offers']]) }}</span>
             </a>
         </li>
         <li class="sidenav-list__item">
@@ -68,7 +68,7 @@
                     <path
                         d="M20,9l-4-4v3H9c-2.757,0-5,2.243-5,5s2.243,5,5,5h3v-2H9c-1.654,0-3-1.346-3-3s1.346-3,3-3h7v3L20,9z" />
                 </svg>
-                <span>{{ __('base.foreignOffers') }}</span>
+                <span>{{ __('base.foreignOffers', ['count' => $counters['my-addresses']]) }}</span>
             </a>
         </li>
         <hr class="my-6">
@@ -79,7 +79,7 @@
                     <path
                         d="M12.707 2.293A.996.996 0 0 0 12 2H3a1 1 0 0 0-1 1v9c0 .266.105.52.293.707l9 9a.997.997 0 0 0 1.414 0l9-9a.999.999 0 0 0 0-1.414l-9-9zM12 19.586l-8-8V4h7.586l8 8L12 19.586z" />
                     <circle cx="7.507" cy="7.505" r="1.505" /></svg>
-                <span>{{ __('base.myAddress') }}</span>
+                <span>{{ __('base.myAddress', ['count' => $counters['foreign-offers']]) }}</span>
             </a>
         </li>
         <li class="sidenav-list__item">
