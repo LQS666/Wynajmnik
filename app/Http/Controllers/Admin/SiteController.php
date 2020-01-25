@@ -48,17 +48,21 @@ class SiteController extends Controller
     {
         $validated = $request->validated();
 
+        if (!isset($validated['visible'])) {
+            $validated['visible'] = false;
+        }
+
         $site->update($validated);
 
-        return redirect()->back()
-                         ->with('sweet.success', trans('message.siteUpdated'));
+        return redirect(route('admin.site', ['site' => $site]))
+            ->with('sweet.success', trans('message.siteUpdated'));
     }
 
     public function destroy(Site $site)
     {
         $site->delete();
 
-        return redirect()->back()
-                         ->with('sweet.success', trans('message.siteDestroyed'));
+        return redirect($this->redirectPath())
+            ->with('sweet.success', trans('message.siteDestroyed'));
     }
 }

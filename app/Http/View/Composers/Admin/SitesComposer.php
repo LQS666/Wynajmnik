@@ -15,8 +15,8 @@ class SitesComposer
     }
 
     public function compose(View $view) {
-        $sites = Site::orderBy('created_at', 'desc')
-                     ->get();
+        $sites = Site::orderBy('created_at')
+            ->paginate(10);
 
         $view->with('sites', $sites);
     }

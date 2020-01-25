@@ -25,7 +25,7 @@ class StoreSite extends FormRequest
     {
         return [
             'name' => ['required', 'string', 'max:255'],
-            'content' => ['required', 'string'],
+            'content' => ['nullable', 'string'],
             'author' => ['nullable', 'string', 'max:255'],
             'visible' => ['nullable', 'boolean'],
         ];
