@@ -38,11 +38,6 @@ final class ProductService
         ]);
 
         if (isset($validated['filters']) && is_array($validated['filters'])) {
-            $validated['filters'] = array_flip($validated['filters']);
-            $validated['filters'] = array_map(function() {
-                return ['visible' => true];
-            }, $validated['filters']);
-
             self::syncFilters($product, $validated['filters']);
         }
 
@@ -61,11 +56,6 @@ final class ProductService
         ]);
 
         if (isset($validated['filters']) && is_array($validated['filters'])) {
-            $validated['filters'] = array_flip($validated['filters']);
-            $validated['filters'] = array_map(function() {
-                return ['visible' => true];
-            }, $validated['filters']);
-
             self::syncFilters($product, $validated['filters']);
         }
 
@@ -76,7 +66,14 @@ final class ProductService
 
     public static function destroy(Product $product)
     {
-        $product->delete(); // Fire event on deleting to delete images from storage
+        if (count($product->images) > 0) {
+            foreach ($product->images as $image) {
+                $image->delete();
+            }
+        }
+        $product->categories()->detach();
+        $product->filterValues()->detach();
+        $product->delete();
     }
 
     private function __construct() {}

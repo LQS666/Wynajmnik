@@ -28,6 +28,8 @@ class CreatePaymentsTable extends Migration
             $table->unsignedSmallInteger('error')->default(0);
             $table->boolean('returned')->default(false);
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

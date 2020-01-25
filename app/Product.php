@@ -46,19 +46,19 @@ class Product extends Model implements Searchable
         return $query->where('visible', true);
     }
 
-    public function images()
-    {
-        return $this->hasMany(ProductPicture::class);
-    }
-
     public function owner()
     {
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function address()
+    public function offersUnhandled()
     {
-        return $this->belongsTo(UserAddress::class, 'user_address_id');
+        return $this->offers()->unhandled();
+    }
+
+    public function images()
+    {
+        return $this->hasMany(ProductPicture::class);
     }
 
     public function offers()
@@ -66,9 +66,9 @@ class Product extends Model implements Searchable
         return $this->hasMany(Offer::class);
     }
 
-    public function offersUnhandled()
+    public function address()
     {
-        return $this->offers()->unhandled();
+        return $this->belongsTo(UserAddress::class, 'user_address_id');
     }
 
     public function categories()
