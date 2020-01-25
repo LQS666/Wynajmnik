@@ -9,7 +9,7 @@ return [
     'name' => 'Nazwa',
     'sub' => 'Podkategorii',
     'desc' => 'Opis',
-    'visible' => 'Widoczna',
+    'visible' => 'Widoczność',
     'action' => 'Akcja',
 
     'yes' => 'Tak',

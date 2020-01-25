@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', __('dashboard/category.title'))
+@section('title', __('dashboard/category.title-' . ($category ? 'sub' : 'main')) . ($category ? ' - ' . $category['name'] : '') )
 
 @section('profile')
 
@@ -14,7 +14,7 @@
             </div>
         @endif
 
-        <h2 class="font-semibold">{{ __('dashboard/category.title-' . ($category ? 'sub' : 'main')) . ($category ? ': ' . $category['name'] : '') }}</h2>
+        <h2 class="font-semibold">{{ __('dashboard/category.title-' . ($category ? 'sub' : 'main')) . ($category ? ' - ' . $category['name'] : '') }}</h2>
 
         <div class="table-items">
             <table cellspacing="0">
@@ -34,24 +34,20 @@
                             @csrf
                             <table cellspacing="0">
                                 <tr>
-                                    <td width="10%"></td>
-                                    <td width="25%">
+                                    <td width="70%" colspan="4">
                                         <div class="form--input-box w-full">
-                                            <input type="text" name="name" id="name" value="{{ old('') }}" placeholder="{{ __('dashboard/category.name-placeholder') }}" autocomplete="off">
+                                            <input type="text" name="name" id="name" value="{{ old('name') }}" placeholder="{{ __('dashboard/category.name-placeholder') }}" autocomplete="off">
                                         </div>
                                     </td>
-                                    <td width="10%"></td>
-                                    <td width="25%"></td>
                                     <td width="10%">
                                         <div>
                                             <label class="checkbox py-2">
-                                                <input type="checkbox" name="visible" id="visible" value="false">
+                                                <input type="checkbox" name="visible" id="visible" value="1">
                                                 <span class="checking"></span>
                                             </label>
                                         </div>
                                     </td>
                                     <td width="20%">
-                                        @csrf
                                         <button class="button">{{ __('dashboard/category.btn_add') }}</button>
                                     </td>
                                 </tr>
@@ -70,7 +66,7 @@
                             @if ($category)
                                 {{ $_category['name'] }}
                             @else
-                                <a href="{{ route('admin.categories', ['category' => $_category['slug']]) }}">{{ $_category['name'] }}</a>
+                                <a href="{{ route('admin.categories', ['category' => $_category]) }}">{{ $_category['name'] }}</a>
                             @endif
                         </td>
                         <td class="category">
@@ -83,7 +79,7 @@
                             {{ __('dashboard/category.' . ($_category['visible'] ? 'yes' : 'no')) }}
                         </td>
                         <td class="category">
-                            <a href="{{ route('admin.category', ['category' => $_category['slug']]) }}">{{ __('dashboard/category.btn_edit') }}</a>
+                            <a href="{{ route('admin.category', ['category' => $_category]) }}">{{ __('dashboard/category.btn_edit') }}</a>
                         </td>
                     </tr>
                     @endforeach

@@ -17,7 +17,7 @@ class FiltersComposer
     public function compose(View $view) {
         $filters = Filter::with('values')
             ->orderBy('created_at', 'desc')
-            ->get();
+            ->paginate(10);
 
         $view->with('filters', $filters);
     }

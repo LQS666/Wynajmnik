@@ -9,6 +9,15 @@ use App\Http\Requests\StoreFilterValue;
 
 class FilterValueController extends Controller
 {
+    public function show(Filter $filter, FilterValue $filter_value = null)
+    {
+        // Value [$filterValues] bound to view in ViewServiceProvider
+        return view('admin.filter-values', [
+            'filter' => $filter,
+            'filter_value' => $filter_value
+        ]);
+    }
+
     public function store(StoreFilterValue $request, Filter $filter)
     {
         $validated = $request->validated();
@@ -16,25 +25,25 @@ class FilterValueController extends Controller
         $filter->values()->create($validated);
 
         return redirect()->back()
-                         ->with('sweet.success', trans('message.filterValueCreated'));
+            ->with('sweet.success', trans('message.filterValueCreated'));
     }
 
-    public function update(StoreFilterValue $request, FilterValue $value)
+    public function update(StoreFilterValue $request, Filter $filter, FilterValue $filter_value)
     {
         $validated = $request->validated();
 
-        $value->update($validated);
+        $filter_value->update($validated);
 
-        return redirect()->back()
-                         ->with('sweet.success', trans('message.filterValueUpdated'));
+        return redirect(route('admin.filter-values', ['filter' => $filter]))
+            ->with('sweet.success', trans('message.filterValueUpdated'));
     }
 
-    public function destroy(FilterValue $value)
+    public function destroy(Filter $filter, FilterValue $filter_value)
     {
-        $value->products()->detach();
-        $value->delete();
+        $filter_value->products()->detach();
+        $filter_value->delete();
 
-        return redirect()->back()
-                         ->with('sweet.success', trans('message.filterValueDestroyed'));
+        return redirect(route('admin.filter-values', ['filter' => $filter]))
+            ->with('sweet.success', trans('message.filterValueDestroyed'));
     }
 }

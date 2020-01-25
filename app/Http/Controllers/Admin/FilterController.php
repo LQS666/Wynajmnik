@@ -19,15 +19,10 @@ class FilterController extends Controller
         $this->redirectTo = route('admin.filters');
     }
 
-    public function show()
+    public function show(Filter $filter = null)
     {
         // Value [$filters] bound to view in ViewServiceProvider
-        return view('admin.filters');
-    }
-
-    public function edit(Filter $filter)
-    {
-        return view('admin.filter', [
+        return view('admin.filters', [
             'filter' => $filter
         ]);
     }
@@ -39,17 +34,21 @@ class FilterController extends Controller
         Filter::create($validated);
 
         return redirect()->back()
-                         ->with('sweet.success', trans('message.filterCreated'));
+            ->with('sweet.success', trans('message.filterCreated'));
     }
 
     public function update(StoreFilter $request, Filter $filter)
     {
         $validated = $request->validated();
 
+        if (!isset($validated['visible'])) {
+            $validated['visible'] = false;
+        }
+
         $filter->update($validated);
 
-        return redirect()->back()
-                         ->with('sweet.success', trans('message.filterUpdated'));
+        return redirect($this->redirectPath())
+            ->with('sweet.success', trans('message.filterUpdated'));
     }
 
     public function destroy(Filter $filter)
@@ -63,6 +62,6 @@ class FilterController extends Controller
         $filter->delete();
 
         return redirect()->back()
-                         ->with('sweet.success', trans('message.filterDestroyed'));
+            ->with('sweet.success', trans('message.filterDestroyed'));
     }
 }

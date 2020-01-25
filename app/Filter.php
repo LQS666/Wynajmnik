@@ -19,6 +19,11 @@ class Filter extends Model
         return $string ? implode(',', self::TYPES) : self::TYPES;
     }
 
+    public function getSubCountAttribute()
+    {
+        return count($this->values);
+    }
+
     public function scopeVisible($query)
     {
         return $query->where('visible', true);

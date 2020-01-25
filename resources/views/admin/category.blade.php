@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', __('dashboard/category.title'))
+@section('title', __('dashboard/category.category') . ' - ' . $category['name'])
 
 @section('profile')
 
@@ -10,17 +10,17 @@
 
         <div class="flex justify-between w-full mb-3">
             <a href="{{ route('admin.categories') }}" class="button button--purple font-normal">{{ __('dashboard/category.back') }}</a>
-            <form method="post" action="{{ route('admin.category', ['category' => $category['slug']]) }}" class="m-0">
+            <form method="post" action="{{ route('admin.category', ['category' => $category]) }}" class="m-0">
                 @csrf
                 @method('delete')
                 <button class="button">{{ __('dashboard/category.btn_delete') }}</button>
             </form>
         </div>
 
-        <h2 class="font-semibold">{{ __('dashboard/category.category') . ': ' . $category['name'] }}</h2>
+        <h2 class="font-semibold">{{ __('dashboard/category.category') . ' - ' . $category['name'] }}</h2>
 
         <div class="container">
-            <form method="POST" action="{{ route('admin.category', ['category' => $category['slug']]) }}" id="product-add">
+            <form method="POST" action="{{ route('admin.category', ['category' => $category]) }}" id="product-add">
                 @csrf
                 @method('patch')
                 <div class="form--input-box" data-title="address">

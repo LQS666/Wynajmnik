@@ -14,16 +14,16 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.'], fu
     Route::patch('/category/{category}', 'CategoryController@update');
 
     // Filters
-    Route::get('/filters', 'FilterController@show')->name('filters');
-    Route::post('/filters', 'FilterController@store');
-    Route::get('/filters/{filter}', 'FilterController@edit')->name('filter');
-    Route::delete('/filters/{filter}', 'FilterController@destory');
+    Route::get('/filters/{filter?}', 'FilterController@show')->name('filters');
+    Route::post('/filters/', 'FilterController@store');
+    Route::delete('/filters/{filter}', 'FilterController@destroy')->name('filter');
     Route::patch('/filters/{filter}', 'FilterController@update');
 
     // Filter's values
-    Route::post('/filter-values/{filter}', 'FilterValueController@store')->name('filter-value');
-    Route::delete('/filter-values/{filter_value}', 'FilterValueController@destroy');
-    Route::patch('/filter-values/{filter_value}', 'FilterValueController@update');
+    Route::get('/filter-values/{filter}/{filter_value?}', 'FilterValueController@show')->name('filter-values');
+    Route::post('/filter-values/{filter}', 'FilterValueController@store');
+    Route::delete('/filter-values/{filter}/{filter_value}', 'FilterValueController@destroy')->name('filter-value');
+    Route::patch('/filter-values/{filter}/{filter_value}', 'FilterValueController@update');
 
     // Products
     Route::get('/products', 'ProductController@index')->name('products');

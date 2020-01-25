@@ -62,7 +62,7 @@ class CategoryController extends Controller
 
         $category->update($validated);
 
-        return redirect(route('admin.category', ['category' => $category['slug']]))
+        return redirect(route('admin.category', ['category' => $category]))
             ->with('sweet.success', trans('message.categoryUpdated'));
     }
 
