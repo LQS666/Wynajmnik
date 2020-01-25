@@ -24,4 +24,5 @@ return [
     'panel' => 'Panel zarządzania',
     'sites' => 'Strony tekstowe',
     'filters' => 'Filtry',
+    'points' => 'Historia punktów',
 ];
