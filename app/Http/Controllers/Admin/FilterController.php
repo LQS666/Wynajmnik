@@ -59,6 +59,7 @@ class FilterController extends Controller
             }
             $filter->values()->delete();
         }
+        $filter->categories()->detach();
         $filter->delete();
 
         return redirect()->back()

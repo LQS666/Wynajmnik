@@ -42,6 +42,11 @@ class Category extends Model
         return $this->belongsToMany(Product::class);
     }
 
+    public function filters()
+    {
+        return $this->belongsToMany(Filter::class);
+    }
+
     public function parent()
     {
         return $this->belongsTo(Category::class, 'sub');

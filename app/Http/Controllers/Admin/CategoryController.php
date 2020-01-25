@@ -33,6 +33,7 @@ class CategoryController extends Controller
     }
 
     public function edit(Category $category) {
+        // Value [$filters] bound to view in ViewServiceProvider
         return view('admin.category', [
             'category' => $category
         ]);
@@ -60,6 +61,13 @@ class CategoryController extends Controller
             $validated['visible'] = false;
         }
 
+        if (isset($validated['filters'])) {
+            $category->filters()->sync($validated['filters']);
+            unset($validated['filters']);
+        } else {
+            $category->filters()->detach();
+        }
+
         $category->update($validated);
 
         return redirect(route('admin.category', ['category' => $category]))
@@ -71,10 +79,12 @@ class CategoryController extends Controller
         if (count($category->subcategories) > 0) {
             foreach ($category->subcategories as $subcategory) {
                 $subcategory->products()->detach();
+                $subcategory->filters()->detach();
             }
             $category->subcategories()->delete();
         }
         $category->products()->detach();
+        $category->filters()->detach();
         $category->delete();
 
         return redirect($this->redirectPath())

@@ -40,6 +40,19 @@
                     </label>
                 </div>
 
+                @if (count($filters) > 0)
+                    <h2 class="font-semibold mt-8">{{ __('dashboard/category.filters') }}</h2>
+                    <div class="w-full flex flex-col">
+                        @foreach ($filters as $filter)
+                            <label class="checkbox">
+                                <input type="checkbox" name="filters[]" id="filters" value="{{ $filter['id'] }}" {{ $category['filters']->contains('id', $filter['id']) ? 'checked="checked"' : '' }}>
+                                <span class="checking"></span>
+                                <span>{{ $filter['name'] }}</span>
+                            </label>
+                        @endforeach
+                    </div>
+                @endif
+
                 <div class="flex justify-center mt-6">
                     <button class="button">{{ __('dashboard/category.btn_change') }}</button>
                 </div>

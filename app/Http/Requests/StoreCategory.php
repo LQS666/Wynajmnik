@@ -27,6 +27,7 @@ class StoreCategory extends FormRequest
             'name' => ['required', 'string', 'max:255'],
             'desc' => ['nullable', 'string'],
             'visible' => ['nullable', 'boolean'],
+            'filters' => ['nullable', 'array', 'exists:filters,id'],
         ];
     }
 }

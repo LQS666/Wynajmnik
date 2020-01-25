@@ -33,4 +33,9 @@ class Filter extends Model
     {
         return $this->hasMany(FilterValue::class);
     }
+
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class);
+    }
 }

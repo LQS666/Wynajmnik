@@ -39,6 +39,10 @@ class ViewServiceProvider extends ServiceProvider
         );
 
         View::composer(
+            ['admin.category'], 'App\Http\View\Composers\Admin\CategoryComposer'
+        );
+
+        View::composer(
             ['admin.filters'], 'App\Http\View\Composers\Admin\FiltersComposer'
         );
 

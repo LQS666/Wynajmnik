@@ -52,8 +52,15 @@ class ProductsComposer
         ////////////////////////////////////////////////////////////////////////////////////
 
         $filters = Filter::with('values')
-            ->visible()
-            ->get();
+            ->visible();
+
+        if (isset($this->category)) {
+            $filters = $filters->whereHas('categories', function(Builder $query) {
+                $query->where('categories.id', $this->category->id);
+            });
+        }
+
+        $filters = $filters->get();
 
         ////////////////////////////////////////////////////////////////////////////////////
 

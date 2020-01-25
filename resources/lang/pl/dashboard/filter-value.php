@@ -17,6 +17,6 @@ return [
     'btn_delete' => 'Usuń',
     'btn_edit' => 'Edytuj',
     'btn_add' => 'Dodaj',
-    'btn_change' => 'Zmień',
+    'btn_change' => 'Zapisz',
     'btn_cancel' => 'Anuluj',
 ];
