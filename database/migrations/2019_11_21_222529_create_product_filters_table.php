@@ -17,7 +17,6 @@ class CreateProductFiltersTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('filter_value_id');
             $table->unsignedBigInteger('product_id');
-            $table->boolean('visible')->default(false);
             $table->timestamps();
 
             $table->foreign('filter_value_id')->references('id')->on('filter_values')->onDelete('cascade');

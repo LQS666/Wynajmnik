@@ -70,33 +70,13 @@
     </div>
     <div class="nav">
         <div class="nav__content">
-            <ul class="nav__list">
-                @auth
-                <li class="nav__list-item">
-                    <a href="#">{{ __('base.addItem') }}</a>
-                </li>
-                @endauth
-                <li class="nav__list-item">
-                    <a href="#">{{ __('base.offers') }}</a>
-                </li>
-                <li class="nav__list-item">
-                    <a href="#">{{ __('base.map') }}</a>
-                </li>
-                @auth
-                <li class="nav__list-item">
-                    <a href="{{ route('my-account.profile') }}">{{ __('base.myAccount') }}</a>
-                </li>
-                @endauth
-                @guest
-                <li class="nav__list-item">
-                    <a href="{{ route('login') }}">{{ __('base.login') }}</a>
-                </li>
-                @else
-                <li class="nav__list-item">
-                    <a href="{{ route('logout') }}">{{ __('base.logout') }}</a>
-                </li>
-                @endguest
-            </ul>
+        @section('mobile-menu')
+        @auth
+            @include('layouts.partials.mobile-menu-auth')
+        @else
+            @include('layouts.partials.mobile-menu')
+        @endauth
+        @show
         </div>
     </div>
 </nav>
