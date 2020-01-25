@@ -13,6 +13,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/ScrollMagic.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/plugins/animation.gsap.min.js"></script>
 
+{{-- FullCalendar --}}
+<script src="https://unpkg.com/@fullcalendar/core@4.3.1/main.min.js"></script>
+<script src="https://unpkg.com/@fullcalendar/core@4.3.1/locales-all.js"></script>
+<script src="https://unpkg.com/@fullcalendar/daygrid@4.3.0/main.min.js"></script>
+
 {{-- Custom --}}
 <script src="{{ asset('/assets/js/app.js') }}" type="module"></script>
 

@@ -5,6 +5,7 @@ return [
     'loading' => 'Ładowanie przedmiotu',
     'goback' => 'Powrót',
     'desc' => 'Opis',
+    'dates' => 'Dokonane rezerwacje',
     'price' => 'zł',
     'offer_added' => 'Ogłoszenie dodane',
     'user_since' => 'Użytkownik od',

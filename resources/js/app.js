@@ -7,6 +7,7 @@ require('./cookies');
 require('./gallery');
 require('./single_product');
 require('./wysiwyg');
+require('./fullcalendar');
 
 import Form from './Form';
 

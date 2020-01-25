@@ -21414,6 +21414,8 @@ __webpack_require__(/*! ./single_product */ "./resources/js/single_product.js");
 
 __webpack_require__(/*! ./wysiwyg */ "./resources/js/wysiwyg.js");
 
+__webpack_require__(/*! ./fullcalendar */ "./resources/js/fullcalendar.js");
+
 
 window.addEventListener('load', function () {
   new _Form__WEBPACK_IMPORTED_MODULE_0__["default"]('.form');
@@ -21470,6 +21472,29 @@ $(document).ready(function () {
     document.cookie = "gt_accepted=yes; expires=Mon, 24 Jun 2022 15:00:00 GMT; path=/";
     $('.cookie-wrapper').fadeOut(350);
   });
+});
+
+/***/ }),
+
+/***/ "./resources/js/fullcalendar.js":
+/*!**************************************!*\
+  !*** ./resources/js/fullcalendar.js ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+document.addEventListener('DOMContentLoaded', function () {
+  var calendarEl = document.getElementById('calendar');
+  var calendar = new FullCalendar.Calendar(calendarEl, {
+    locale: 'pl',
+    plugins: ['dayGrid'],
+    defaultView: 'dayGridMonth',
+    events: [{
+      start: '2020-01-25',
+      end: '2020-01-30'
+    }]
+  });
+  calendar.render();
 });
 
 /***/ }),
@@ -21739,7 +21764,7 @@ $(window).on("load", function () {
   handleCarouselsHeight();
   setTimeout(function () {
     $(".loader").fadeOut();
-  }, 300);
+  }, 200);
 });
 $(window).on("resize", _.debounce(function () {
   handleCarouselsHeight();
