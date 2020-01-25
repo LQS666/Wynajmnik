@@ -8,26 +8,12 @@ use App\Product;
 
 class ProductController extends Controller
 {
-    //public function index(Category $category = null)
-    //{
-    //    // Values [$categories, $current, $filters, $products] bound to view in ViewServiceProvider
-    //    return view('web.products', [
-    //        'category' => $category
-    //    ]);
-    //}
-
-    //public function offer(Category $category, Product $product)
-    //{
-    //    return view('web.product', [
-    //        'category' => $category,
-    //        'product' => $product
-    //    ]);
-    //}
-
     public function index()
     {
         // Values [$categories, $current, $filters, $products] bound to view in ViewServiceProvider
-        return view('web.products');
+        return view('web.products', [
+            'category' => null
+        ]);
     }
 
     public function show(Product $product)

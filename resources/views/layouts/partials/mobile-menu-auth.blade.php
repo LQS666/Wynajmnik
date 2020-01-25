@@ -10,7 +10,7 @@
         </li>
     @else
         <li class="nav__list-item">
-            <a href="{{ route('web.products') }}">{{ __('base.offers') }}</a>
+            <a href="{{ route('web.categories') }}">{{ __('base.offers') }}</a>
         </li>
         <li class="nav__list-item">
             <a href="{{ route('my-account.product-new') }}">{{ __('base.addItem') }}</a>

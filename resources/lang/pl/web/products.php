@@ -6,7 +6,7 @@ return [
     'placeholder' => 'Wpisz nazwę...',
     'search_placeholder' => 'Wpisz nazwę i naciśnij [ ENTER ]',
     'button' => 'Zarezerwuj',
-    'all_products' => 'Wszystkie przedmioty',
+    'all_products' => 'Wszystkie oferty',
     'empty_results' => 'Brak przedmiotów o frazie',
     'found_results' => 'Znalezionych przedmiotów',
     'found2_results' => 'dla wyrażenia',

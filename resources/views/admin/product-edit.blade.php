@@ -34,18 +34,22 @@
                     <div class="w-full px-6 lg:w-1/2">
                         <div>
                             <label class="checkbox py-2 border-b border-purple-main">
-                                <input type="checkbox" name="visible" id="visible" value="false">
+                                <input type="checkbox" name="visible" id="visible" value="1" {{ $product['visible'] ? 'checked="checked"' : '' }}>
                                 <span class="checking"></span>
-                                <span>Aktualne</span>
+                                <span>Widoczny</span>
                             </label>
                         </div>
+
+                        {!! $product['premium'] ?
+                        '' : '
                         <div>
                             <label class="checkbox py-2 border-b border-purple-main">
-                                <input type="checkbox" name="premium" id="premium" value="false">
+                                <input type="checkbox" name="premium" id="premium" value="1">
                                 <span class="checking"></span>
                                 <span>Oznacz jako Premium</span>
                             </label>
-                        </div>
+                        </div>'
+                        !!}
                     </div>
                 </div>
 
