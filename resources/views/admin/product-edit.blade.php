@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', __('dashboard/address.title'))
+@section('title', __('dashboard/product.product') . ' - ' . $product['name'])
 
 @section('profile')
 
@@ -9,7 +9,7 @@
 
     <div class="main-dashboard-panel">
 
-        <h2 class="font-semibold">{{ __('dashboard/product.edit') }}</h2>
+        <h2 class="font-semibold">{{ __('dashboard/product.edit') . ' - ' . $product['name'] }}</h2>
 
         <div class="container">
             <form method="post" action="{{ route('admin.product', ['product' => $product['slug']]) }}"
@@ -95,27 +95,27 @@
                 </div>
                 @endif
 
-                {{-- @if (count($filters) > 0)
-                <div>
-                    <label class="font-semibold">{{ __('dashboard/product-add.filters') }}</label>
-                    @foreach ($filters as $filter)
-                    <label class="main-checkbox checkbox py-2 border-b border-purple-main">
-                        <input type="checkbox" id="{{ $filter['id'] }}" value="{{ '.area'.$filter['id'] }}">
-                        <span class="checking"></span>
-                        <span>{{ $filter['name'] }}</span>
-                        @foreach($filter['values'] as $values)
-                        <div class="area{{ $filter['id'] }} ml-6 mt-2">
-                            <label>
-                                <input type="checkbox" name="filters[]" value="{{ $values['id'] }}">
+                @if (count($filters) > 0)
+                    <div>
+                        <label class="font-semibold">{{ __('dashboard/product-add.filters') }}</label>
+                        @foreach ($filters as $filter)
+                            <label class="main-checkbox checkbox py-2 border-b border-purple-main">
+                                <input type="checkbox" id="{{ $filter['id'] }}" value="{{ '.area'.$filter['id'] }}" autocomplete="off">
                                 <span class="checking"></span>
-                                <span>{{ $values['value'] }}</span>
+                                <span>{{ $filter['name'] . ' (' . ($product['filterValues']->where('filter_id', $filter['id'])->count()) . ')'}}</span>
+                                @foreach($filter['values'] as $values)
+                                    <div class="area{{ $filter['id'] }} hidden ml-6 mt-2">
+                                        <label>
+                                            <input type="checkbox" name="filters[]" value="{{ $values['id'] }}" {{ $product['filterValues']->contains('id', $values['id']) ? 'checked="checked"' : '' }}>
+                                            <span class="checking"></span>
+                                            <span>{{ $values['value'] }}</span>
+                                        </label>
+                                    </div>
+                                @endforeach
                             </label>
-                        </div>
                         @endforeach
-                    </label>
-                    @endforeach
-                </div>
-                @endif --}}
+                    </div>
+                @endif
 
                 <div class="py-6">
                     <label class="font-semibold">{{ __('dashboard/product-add.address') }}</label>

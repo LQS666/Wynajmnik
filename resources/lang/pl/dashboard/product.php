@@ -2,6 +2,7 @@
 
 return [
     'title' => 'Moje przedmioty',
+    'title-all' => 'Wszystkie przedmioty',
     'id' => 'ID',
     'photo' => 'Zdjęcie',
     'name' => 'Nazwa',
@@ -21,4 +22,5 @@ return [
     'save' => 'Zatwierdź',
     'empty-table' => 'Brak przedmiotów do wyświetlenia',
     'empty-gallery' => 'Ten produkt nie posiada jeszcze żadnych zdjęć. Dodaj je, aby zwiększyć zainteresowanie tą ofertą.',
+    'product' => 'Produkt',
 ];

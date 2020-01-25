@@ -113,7 +113,7 @@ class ProductController extends Controller
             }
         }
 
-        return redirect($this->redirectPath())
+        return redirect()->back()
             ->with('sweet.success', trans('message.productUpdated'));
     }
 

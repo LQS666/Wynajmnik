@@ -49,7 +49,7 @@
             </div>
         </form>
         @if (count($filters) > 0)
-            <form class="form" method="GET" action="{{ route('web.categories') }}">
+            <form class="form" method="GET" action="{{ route('web.categories', ['category' => $category]) }}">
                 <div class="filter-section__wrapper">
                     <section class="filter-section">
                         @foreach ($filters as $filter)

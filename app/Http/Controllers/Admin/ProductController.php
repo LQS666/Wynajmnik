@@ -42,8 +42,8 @@ class ProductController extends Controller
 
         ProductService::update($product, $validated);
 
-        return redirect($this->redirectPath())
-                             ->with('sweet.success', trans('message.productUpdated'));
+        return redirect()->back()
+            ->with('sweet.success', trans('message.productUpdated'));
     }
 
     public function destroy(Product $product)
@@ -51,7 +51,7 @@ class ProductController extends Controller
         ProductService::destroy($product);
 
         return redirect($this->redirectPath())
-                             ->with('sweet.success', trans('message.productDestroyed'));
+                ->with('sweet.success', trans('message.productDestroyed'));
     }
 
     public function destroyPicture(ProductPicture $picture)
@@ -59,6 +59,6 @@ class ProductController extends Controller
         $picture->delete(); // Fire event on deleting to delete images from storage
 
         return redirect()->back()
-                         ->with('sweet.success', trans('message.productPictureDestroyed'));
+            ->with('sweet.success', trans('message.productPictureDestroyed'));
     }
 }
