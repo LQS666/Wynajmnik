@@ -66,13 +66,15 @@
             </div>
         </div>
         <div class="product-view__desc">
-            <div class="product-view__filters">
-                @foreach ($product['filterValues'] as $value)
-                    <div class="product-view__filters__value">
-                        {{ $value['filter']['name'] }}: <span>{{ $value['value'] }}</span>
-                    </div>
-                @endforeach
-            </div>
+            @if (count($product['filterValues']) > 0)
+                <div class="product-view__filters">
+                    @foreach ($product['filterValues'] as $value)
+                        <div class="product-view__filters__value">
+                            {{ $value['filter']['name'] }}: <span>{{ $value['value'] }}</span>
+                        </div>
+                    @endforeach
+                </div>
+            @endif
             <h4>{{ __('web/product.desc') }}</h4>
             <span>{!! $product->desc !!}</span>
             <h4 class="pt-12">{{ __('web/product.dates') }}</h4>
@@ -106,9 +108,6 @@
                 <span>{{ __('web/product.message') }}</span>
             </a>
         @endif
-        {{--<a href="{{ route('web.categories') }}" class="product-view__others">
-            <span>{{ __('web/product.other_items') }}</span>
-        </a>--}}
 
         @auth
         @if (!$user->admin)
@@ -143,26 +142,24 @@
         @if (!empty($product['address']['latitude']) && !empty($product['address']['longitude']))
             <div class="product-view__map__title">{{ __('web/product.map') }}</div>
             <div class="product-view__map">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1533.3945083810524!2d16.921737224749837!3d52.40464562802438!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x12916d24a02efb00!2sWy%C5%BCsza%20Szko%C5%82a%20Bankowa%20w%20Poznaniu!5e0!3m2!1spl!2spl!4v1579452815952!5m2!1spl!2spl"
-                    width="100%" height="400" frameborder="0" style="border:0;" allowfullscreen="">
-                </iframe>
-                <div class="map-panel">
-                </div>
+                <div id="map" class="h-64"></div>
+                <script>
+                    function initMap() {
+                        var map = new google.maps.Map(document.getElementById('map'), {
+                            center: {lat: {{ $product['address']['latitude'] }}, lng: {{ $product['address']['longitude'] }}},
+                            zoom: 6,
+                            disableDefaultUI: true
+                        });
+                        new google.maps.Marker({
+                            position: {lat: {{ $product['address']['latitude'] }}, lng: {{ $product['address']['longitude'] }}},
+                            map: map
+                        });
+                    }
+                </script>
+                <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSr_vIX42l3b7Fll0dGkSymc-hczfA4C0&callback=initMap" async defer></script>
             </div>
         @endif
     </div>
 </main>
-
-
-<script>
-
-    const mapControl = document.querySelector('.map-panel');
-
-    mapControl.addEventListener('click', function () {
-        mapControl.classList.add('map-panel-hidden');
-    });
-
-</script>
 
 @endsection

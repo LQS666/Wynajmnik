@@ -48,6 +48,10 @@ final class ProductService
 
     public static function update(Product $product, array $validated)
     {
+        if (!isset($validated['visible'])) {
+            $validated['visible'] = false;
+        }
+
         $product->update($validated);
 
         self::syncCategories($product, [
