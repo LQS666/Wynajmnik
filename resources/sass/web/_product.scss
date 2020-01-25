@@ -5,8 +5,7 @@
 
     @media (min-width: 1200px) {
         @apply py-24;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        display: flex;
         grid-gap: 40px;
     }
 
@@ -15,13 +14,25 @@
         border-top: 0.5px solid #e3dddd;
     }
 
+    &__filters {
+        @apply flex flex-wrap pb-3 mb-12;
+        border-bottom: 1px solid #d8d8d8;
+        &__value {
+            @apply w-1/3;
+            span {
+                @apply text-purple-second;
+            }
+        }
+    }
+
     &__gallery,
     &__content {
         height: 100%;
     }
 
     &__content {
-        @apply mt-16;
+        @apply mt-16 mx-6;
+        min-width: 380px;
     }
 
     &__price {
@@ -318,3 +329,20 @@
         }
     }
 }
+
+#calendar {
+    max-width: 1000px;
+    margin: 20px auto;
+
+    .fc-button-primary {
+        @apply bg-purple-second;
+    }
+
+    .fc-event {
+        @apply bg-purple-second border border-purple-second;
+    }
+    
+    .fc-unthemed td.fc-today {
+        @apply bg-purple-main;
+    }
+  }

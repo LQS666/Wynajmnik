@@ -66,8 +66,17 @@
             </div>
         </div>
         <div class="product-view__desc">
+            <div class="product-view__filters">
+                @foreach ($product['filterValues'] as $value)
+                    <div class="product-view__filters__value">
+                        {{ $value['filter']['name'] }}: <span>{{ $value['value'] }}</span>
+                    </div>
+                @endforeach
+            </div>
             <h4>{{ __('web/product.desc') }}</h4>
             <span>{!! $product->desc !!}</span>
+            <h4 class="pt-12">{{ __('web/product.dates') }}</h4>
+            <div id='calendar'></div>
         </div>
     </div>
     <div class="product-view__content">
