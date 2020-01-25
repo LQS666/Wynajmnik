@@ -21739,7 +21739,7 @@ $(window).on("load", function () {
   handleCarouselsHeight();
   setTimeout(function () {
     $(".loader").fadeOut();
-  }, 300);
+  }, 200);
 });
 $(window).on("resize", _.debounce(function () {
   handleCarouselsHeight();

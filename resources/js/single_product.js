@@ -54,7 +54,7 @@ $(window).on("load", () => {
     handleCarouselsHeight();
     setTimeout(() => {
         $(".loader").fadeOut();
-    }, 300);
+    }, 200);
 });
 
 $(window).on(
