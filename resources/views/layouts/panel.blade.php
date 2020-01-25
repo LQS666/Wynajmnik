@@ -20,10 +20,6 @@
     @yield('beforeScripts')
     @include('layouts.partials.scripts')
     @yield('scripts')
- 
-    @section('footer')
-    @include('layouts.partials.footer')
-    @show
 
     @include('sweetalert::alert')
 </body>
