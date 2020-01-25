@@ -79,6 +79,26 @@
             <span>{!! $product->desc !!}</span>
             <h4 class="pt-12">{{ __('web/product.dates') }}</h4>
             <div id='calendar'></div>
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                const calendarEl = document.getElementById('calendar');
+
+                const calendar = new FullCalendar.Calendar(calendarEl, {
+                    locale: 'pl',
+                    plugins: ['dayGrid'],
+                    defaultView: 'dayGridMonth',
+                    events: [
+                        // JSON
+                        {
+                            start: '2020-01-25',
+                            end: '2020-01-30'
+                        },
+                    ]
+                });
+
+                calendar.render();
+            });
+            </script>
         </div>
     </div>
     <div class="product-view__content">
