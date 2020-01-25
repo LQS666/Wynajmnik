@@ -19,8 +19,9 @@ class GlobalComposer
     }
 
     public function compose(View $view) {
-        $sites = Site::orderBy('created_at', 'desc')
-            ->get();
+        // TODO sites
+        //$sites = Site::orderBy('created_at', 'desc')
+        //    ->get();
 
         if ($this->user && !$this->user->admin) {
             $counters = [
@@ -36,7 +37,6 @@ class GlobalComposer
 
         $view->with([
             'user' => $this->user,
-            'footer' => $sites,
             'counters' => isset($counters) ? $counters : [],
         ]);
     }

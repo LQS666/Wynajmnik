@@ -47,6 +47,7 @@ class Kernel extends HttpKernel
 
         'my-account' => [
             \App\Http\Middleware\Authenticate::class,
+            \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
             \App\Http\Middleware\User::class,
         ],
 
@@ -97,6 +98,7 @@ class Kernel extends HttpKernel
         \Illuminate\View\Middleware\ShareErrorsFromSession::class,
         \App\Http\Middleware\Authenticate::class,
         \App\Http\Middleware\Admin::class,
+        \App\Http\Middleware\User::class,
         \Illuminate\Routing\Middleware\ThrottleRequests::class,
         \Illuminate\Session\Middleware\AuthenticateSession::class,
         \Illuminate\Routing\Middleware\SubstituteBindings::class,

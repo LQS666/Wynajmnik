@@ -1,11 +1,15 @@
 <?php
 
 return [
-    'registered' => 'Witaj :name!#Zostałeś poprawnie zarejestrowany i zalogowany!',
+    'registered' => 'Witaj :name!#Zostałeś poprawnie zarejestrowany! Pamiętaj aby zweryfikować swój adres e-email przed zalogowaniem.',
     'login' => 'Witaj :name!#Zostałeś poprawnie zalogowany!',
     'logout' => 'Do zobaczenia!#Zostałeś poprawanie wylogowany!',
     'passwordChanged' => 'Sukces!#Twoje hasło zostało zmienione!',
     'accountChanged' => 'Sukces!#Twoje dane zostały zmienione!',
+
+    'verifyEmail' => 'Alert!#Musisz zweryfikować adres e-mail!',
+    'verificationReSend' => 'Sukces!#E-mail z linkiem aktywacyjnym został ponowownie wysłany!',
+    'emailVerified' => 'Sukces!#E-mail został zweryfikowany!',
 
     'addressCreated' => 'Sukces!#Adres został poprawnie dodany!',
     'addressUpdated' => 'Sukces!#Adres został poprawnie zaktualizowany!',
