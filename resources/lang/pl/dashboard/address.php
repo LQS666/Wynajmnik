@@ -8,6 +8,7 @@ return [
     'apartment_number' => 'Numer mieszkania',
     'zip_code' => 'Kod pocztowy',
     'city' => 'Miasto',
+    'phone' => 'Nr Telefonu',
     'latitude' => 'Szerokość geograficzna',
     'longitude' => 'Długość geograficzna',
     'save' => 'Zatwierdź',

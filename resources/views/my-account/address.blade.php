@@ -36,6 +36,10 @@
                     <input type="text" name="city" id="city" value="{{ old('city', $address['city']) }}" />
                 </div>
                 <div class="form--input-box" data-title="address">
+                    <label for="phone">{{ __('dashboard/address.phone') }}</label>
+                    <input type="text" name="phone" id="phone" value="{{ old('phone', $address['phone']) }}" />
+                </div>
+                <div class="form--input-box" data-title="address">
                     <label for="latitude">{{ __('dashboard/address.latitude') }}*</label>
                     <input type="text" name="latitude" id="latitude" value="{{ old('latitude', $address['latitude']) }}" />
                 </div>

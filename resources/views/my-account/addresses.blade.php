@@ -28,6 +28,9 @@
                             <span class="address__zip_code">{{ $address['zip_code'] }}</span>
                             <span class="address__city">{{ $address['city'] }}</span>
                         </div>
+                        <div>
+                            <span class="address__phone">{{ $address['phone'] }}</span>
+                        </div>
                         @if ($address['latitude'] || $address['longitue'])
                             <div>
                                 <span class="address__latitude-longitude">{{ $address['latitude'] . '/' . $address['longitude'] }}</span>
@@ -66,6 +69,10 @@
                         <div class="form--input-box" data-title="address">
                             <label for="city">{{ __('dashboard/address.city') }}</label>
                             <input type="text" name="city" id="city" value="{{ old('city') }}" />
+                        </div>
+                        <div class="form--input-box" data-title="address">
+                            <label for="phone">{{ __('dashboard/address.phone') }}</label>
+                            <input type="text" name="phone" id="phone" value="{{ old('phone') }}" />
                         </div>
                         <div class="form--input-box" data-title="address">
                             <label for="latitude">{{ __('dashboard/address.latitude') }}*</label>
