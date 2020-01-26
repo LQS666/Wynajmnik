@@ -9,6 +9,11 @@
             <span>{{ __('dashboard/site.author') }}: </span><span class="site__bar__author">{{ $site->author }}</span>
         </div>
         <div class="site__content">{!! $site->content !!}</div>
+        <div class="site__btn">
+            <a class="button" href="{{ url('/') }}">
+                {{ __('dashboard/site.back') }}
+            </a>
+        </div>
     </div>
 </div>
 
