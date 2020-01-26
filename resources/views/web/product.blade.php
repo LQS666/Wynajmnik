@@ -106,7 +106,7 @@
             <span>{{ __('web/product.offer_added') }} {{ \Carbon\Carbon::parse($product->created_at)->format('d.m.Y') }}</span>
         </div>
         <div class="product-view__price">
-            <span>{{ $product->price }} {{ __('web/product.price') }}</span>
+            <span>{{ $product->price }} {{ __('web/product.currency') }}</span>
         </div>
         <div class="product-view__details">
             <div class="flex justify-center">
