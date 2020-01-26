@@ -180,14 +180,14 @@ class ProductionSeeder extends Seeder
 
         $_filters = [
             [1, 2, 3, 4, 5, 6], // ID 1
-            [1, 6],             // ID 2
+            [6],                // ID 2
             [1, 2, 3, 4, 5, 6], // ID 3
             [1, 2, 3, 4, 5, 6], // ID 4
             [1, 2, 3, 4, 5, 6], // ID 5
-            [1, 6],             // ID 6
-            [1, 6],             // ID 7
-            [1, 6],             // ID 8
-            [1, 6],             // ID 9
+            [6],                // ID 6
+            [6],                // ID 7
+            [6],                // ID 8
+            [6],                // ID 9
         ];
 
         foreach ($categories as $i => $category) {
