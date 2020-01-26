@@ -87,13 +87,7 @@
                     locale: 'pl',
                     plugins: ['dayGrid'],
                     defaultView: 'dayGridMonth',
-                    events: [
-                        // JSON
-                        {
-                            start: '2020-01-25',
-                            end: '2020-01-30'
-                        },
-                    ]
+                    events: {!! $offers !!}
                 });
 
                 calendar.render();

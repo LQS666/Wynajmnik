@@ -18,6 +18,7 @@ class ProductController extends Controller
 
     public function show(Product $product)
     {
+        // Values [$offers] bound to view in ViewServiceProvider
         return view('web.product', [
             'product' => $product
         ]);

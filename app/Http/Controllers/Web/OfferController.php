@@ -15,7 +15,7 @@ class OfferController extends Controller
     {
         $this->middleware('auth');
         $this->middleware('user');
-        $this->middleware('verify');
+        $this->middleware('verified');
     }
 
     public function store(Product $product, StoreOffer $request)
