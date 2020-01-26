@@ -12819,9 +12819,7 @@ header a {
 footer {
   color: #fff;
   font-size: 0.875rem;
-  z-index: 50;
-  position: relative;
-  background: #F9F9FF;
+  background: #151414;
 }
 
 footer .footer-content {
@@ -12835,8 +12833,8 @@ footer .footer-content {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
           flex-direction: column;
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
 }
 
 @media screen and (min-width: 768px) {
@@ -12850,6 +12848,65 @@ footer .footer-content {
 footer .footer-content__item {
   -webkit-box-flex: 1;
           flex: 1 1 0%;
+}
+
+footer .footer-content__item:first-child {
+  -webkit-box-flex: 2;
+          flex: 2;
+}
+
+footer .footer-content__item__logo {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  margin-bottom: 0.75rem;
+}
+
+footer .footer-content__item__logo img {
+  display: block;
+  margin-bottom: 1.5rem;
+  max-width: 320px;
+}
+
+footer .footer-content__item__logo p {
+  max-width: 400px;
+  color: #7e7e7e;
+  line-height: 28px;
+}
+
+footer .footer-content__item__social-icon span {
+  color: #fff;
+  display: block;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+footer .footer-content__item__social-icon a {
+  color: #fff;
+  font-size: 18px;
+  margin-right: 15px;
+}
+
+footer .footer-content__item__social-icon i {
+  height: 40px;
+  width: 40px;
+  text-align: center;
+  line-height: 38px;
+  border-radius: 50%;
+}
+
+footer .footer-content__item__social-icon .facebook-bg {
+  background: #3B5998;
+}
+
+footer .footer-content__item__social-icon .twitter-bg {
+  background: #55ACEE;
+}
+
+footer .footer-content__item__social-icon .instagram-bg {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
 }
 
 footer .footer-content__item__title {
@@ -12871,7 +12928,7 @@ footer .footer-content__item__title:hover {
 
 footer .footer-content__item__subtitle {
   text-transform: uppercase;
-  color: #a0aec0;
+  color: #fff;
 }
 
 @media screen and (min-width: 768px) {
@@ -12895,11 +12952,33 @@ footer .footer-content__item__li {
 
 footer .footer-content__item__li a {
   text-decoration: none;
-  color: #2d3748;
+  color: #7e7e7e;
 }
 
 footer .footer-content__item__li a:hover {
   color: #6c63ff;
+}
+
+footer .footer-content__copyrights {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+          justify-content: center;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+  background: #202020;
+}
+
+footer .footer-content__copyrights span {
+  color: #878787;
+}
+
+footer .footer-content__copyrights span:first-child {
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  color: #fff;
 }
 
 .before-advantages {

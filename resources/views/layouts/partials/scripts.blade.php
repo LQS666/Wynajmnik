@@ -13,6 +13,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/ScrollMagic.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/plugins/animation.gsap.min.js"></script>
 
+{{-- AOS --}}
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
 {{-- FullCalendar --}}
 <script src="https://unpkg.com/@fullcalendar/core@4.3.1/main.min.js"></script>
 <script src="https://unpkg.com/@fullcalendar/core@4.3.1/locales-all.js"></script>

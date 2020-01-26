@@ -13,3 +13,5 @@ import Form from './Form';
 window.addEventListener('load', () => {
     new Form('.form');
 });
+
+AOS.init();

@@ -21418,6 +21418,7 @@ __webpack_require__(/*! ./wysiwyg */ "./resources/js/wysiwyg.js");
 window.addEventListener('load', function () {
   new _Form__WEBPACK_IMPORTED_MODULE_0__["default"]('.form');
 });
+AOS.init();
 
 /***/ }),
 

@@ -1,38 +1,115 @@
 footer {
-    @apply text-white text-sm z-50 relative;
-    background: #F9F9FF;
+    @apply text-white text-sm;
+    background: #151414;
+
     .footer-content {
-        @apply mx-auto px-8 w-full flex flex-col py-6;
+        @apply mx-auto px-8 w-full flex flex-col py-16;
+
         @media screen and (min-width: 768px) {
             @apply flex-row;
         }
+
         &__item {
             @apply flex-1;
+
+            &:first-child {
+                flex: 2;
+            }
+
+            &__logo {
+                @apply flex flex-col mb-3;
+
+                img {
+                    @apply block mb-6;
+                    max-width: 320px;
+                }
+
+                p {
+                    max-width: 400px;
+                    color: #7e7e7e;
+                    line-height: 28px;
+                }
+            }
+
+            &__social-icon {
+                span {
+                    color: #fff;
+                    display: block;
+                    font-size: 20px;
+                    margin-bottom: 20px;
+                }
+
+                a {
+                    color: #fff;
+                    font-size: 18px;
+                    margin-right: 15px;
+                }
+
+                i {
+                    height: 40px;
+                    width: 40px;
+                    text-align: center;
+                    line-height: 38px;
+                    border-radius: 50%;
+                }
+
+                .facebook-bg {
+                    background: #3B5998;
+                }
+
+                .twitter-bg {
+                    background: #55ACEE;
+                }
+
+                .instagram-bg {
+                    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+                }
+            }
+
             &__title {
                 @apply text-purple-second no-underline font-bold text-2xl;
+
                 &:hover {
                     @apply no-underline;
                 }
+
                 @media screen and (min-width: 992px) {
                     @apply text-4xl;
                 }
             }
+
             &__subtitle {
-                @apply uppercase text-gray-500;
+                @apply uppercase text-white;
+
                 @media screen and (min-width: 768px) {
                     @apply mb-6;
                 }
             }
+
             &__li {
                 @apply mt-2 inline-block mr-2;
+
                 @media screen and (min-width: 768px) {
                     @apply block mr-0;
                 }
+
                 a {
-                    @apply no-underline text-gray-800;
+                    @apply no-underline;
+                    color: #7e7e7e;
+
                     &:hover {
                         @apply text-purple-second;
                     }
+                }
+            }
+        }
+        &__copyrights {
+            @apply flex items-center justify-center py-5;
+            background: #202020;
+            span {
+                color: #878787;
+                &:first-child {
+                    @apply font-semibold tracking-tight text-white;
                 }
             }
         }
