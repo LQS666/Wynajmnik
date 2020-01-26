@@ -1,0 +1,22 @@
+.site {
+    @apply flex;
+    min-height: 100vh;
+    padding-top: 100px;
+    .container {
+        @apply mx-auto px-3;
+        max-width: 1100px;
+    }
+    &__bar {
+        @apply my-6 font-semibold;
+        &__author {
+            @apply text-purple-second;
+        }
+    }
+    &__content {
+        @apply text-justify leading-relaxed;
+    }
+    h2 {
+        @apply text-4xl mt-8 mb-0;
+        line-height: 72px;
+    }
+}
