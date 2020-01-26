@@ -28,6 +28,14 @@
                     <input type="text" name="name" id="name" value="{{ old('name', $site['name']) }}" />
                 </div>
                 <div class="form--input-box" data-title="address">
+                    <label class="font-semibold" for="group">{{ __('dashboard/site.group') }}</label>
+                    <input type="text" name="group" id="group" value="{{ old('group', $site['group']) }}" />
+                </div>
+                <div class="form--input-box" data-title="address">
+                    <label class="font-semibold" for="alias">{{ __('dashboard/site.alias') }}</label>
+                    <input type="text" name="alias" id="alias" value="{{ old('alias', $site['alias']) }}" />
+                </div>
+                <div class="form--input-box" data-title="address">
                     <label class="font-semibold" for="desc">{{ __('dashboard/site.content') }}</label>
                     <textarea id="wysiwyg" name="content" rows="10" cols="50">{{ old('content', $site['content']) }}</textarea>
                 </div>

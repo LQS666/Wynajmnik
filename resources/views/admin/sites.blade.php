@@ -62,7 +62,9 @@
                             {{ ++$i }}
                         </td>
                         <td class="category">
-                            {{ $_site['name'] }}
+                            {!! $_site['group'] ? nl2br(e($_site['group'] . "\n")) : '' !!}
+                            <b>{{ $_site['name'] }}</b>
+                            {!! $_site['link'] ? nl2br(e("\n(" . $_site['link'] . ')')) : '' !!}
                         </td>
                         <td class="category">
                             {{ Str::limit(strip_tags($_site['content']), 50) }}

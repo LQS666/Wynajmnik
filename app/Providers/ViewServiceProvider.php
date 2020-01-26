@@ -95,5 +95,9 @@ class ViewServiceProvider extends ServiceProvider
         View::composer(
             ['web.products'], 'App\Http\View\Composers\Web\ProductsComposer'
         );
+
+        View::composer(
+            ['layouts.partials.footer'], 'App\Http\View\Composers\Web\FooterComposer'
+        );
     }
 }

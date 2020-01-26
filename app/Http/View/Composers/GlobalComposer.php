@@ -19,10 +19,6 @@ class GlobalComposer
     }
 
     public function compose(View $view) {
-        // TODO sites
-        //$sites = Site::orderBy('created_at', 'desc')
-        //    ->get();
-
         if ($this->user && !$this->user->admin) {
             $counters = [
                 'my-products' => Product::user($this->user->id)->count(),

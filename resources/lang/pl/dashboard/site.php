@@ -5,6 +5,8 @@ return [
 
     'lp' => 'Lp.',
     'name' => 'Nazwa',
+    'group' => 'Grupa',
+    'alias' => 'Alias',
     'content' => 'Treść',
     'author' => 'Autor',
     'visible' => 'Widoczność',
