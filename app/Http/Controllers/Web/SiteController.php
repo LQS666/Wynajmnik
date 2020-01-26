@@ -18,7 +18,12 @@ class SiteController extends Controller
         $this->redirectTo = route('web.home');
     }
 
-    public function __invoke(Site $site)
+    public function index()
+    {
+        return redirect()->back();
+    }
+
+    public function show(Site $site)
     {
         if (empty($site->visible)) {
             return redirect($this->redirectPath());

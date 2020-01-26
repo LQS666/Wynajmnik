@@ -37,9 +37,8 @@ class ProductComposer
         if (count($offers) > 0) {
             foreach ($offers as $i => $offer) {
                 $dates[$i]['start'] = $offer['date_start'];
-                $dates[$i]['end'] = $offer['date_end'];
+                $dates[$i]['end'] = $offer['DateEndAsDate']->addDays(1)->toDateString();
             }
-
             $dates = json_encode($dates);
         }
 

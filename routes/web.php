@@ -20,7 +20,8 @@ Route::group(['namespace' => 'Web', 'as' => 'web.'], function() {
     Route::get('/search', 'SearchController')->name('search');
 
     // Site
-    Route::get('/sites/{site}', 'SiteController')->name('site');
+    Route::get('/sites', 'SiteController@index');
+    Route::get('/sites/{site}', 'SiteController@show')->name('site');
 
 });
 

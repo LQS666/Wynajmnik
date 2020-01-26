@@ -18,6 +18,16 @@ class Offer extends Model
         /*'date_start', 'date_end', */'accepted_at', 'rejected_at'
     ];
 
+    public function getDateStartAsDateAttribute()
+    {
+        return Carbon::parse($this->date_start);
+    }
+
+    public function getDateEndAsDateAttribute()
+    {
+        return Carbon::parse($this->date_end);
+    }
+
     public function getDateStartWithTimeAttribute()
     {
         return Carbon::parse($this->date_start)->startOfDay();
