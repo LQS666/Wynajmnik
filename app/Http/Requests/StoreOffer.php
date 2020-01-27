@@ -25,8 +25,8 @@ class StoreOffer extends FormRequest
     {
         return [
             'price' => ['required', 'numeric', 'min:0.01'],
-            'date_start' => ['nullable', 'date', 'date_format:Y-m-d'],
-            'date_end' => ['nullable', 'date', 'date_format:Y-m-d'], // , 'after_or_equal:date_start'
+            'date_start' => ['required', 'date', 'date_format:Y-m-d'],
+            'date_end' => ['required', 'date', 'date_format:Y-m-d'], // , 'after_or_equal:date_start'
             'note' => ['nullable', 'string'],
         ];
     }
