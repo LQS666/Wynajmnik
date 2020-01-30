@@ -15589,6 +15589,53 @@ main section {
   background-color: #eeedfc;
 }
 
+.site {
+  display: -webkit-box;
+  display: flex;
+  min-height: 100vh;
+  padding-top: 100px;
+}
+
+.site .container {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-bottom: 6rem;
+  max-width: 1100px;
+}
+
+.site__bar {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.site__bar__author {
+  color: #6c63ff;
+}
+
+.site__content {
+  text-align: justify;
+  line-height: 1.625;
+  margin-bottom: 3rem;
+}
+
+.site__btn {
+  display: -webkit-box;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: center;
+          justify-content: center;
+}
+
+.site h2 {
+  font-size: 2.25rem;
+  margin-top: 2rem;
+  margin-bottom: 0;
+  line-height: 72px;
+}
+
 @media (min-width: 640px){
   .sm\:sr-only{
     position: absolute;

@@ -67,6 +67,13 @@
                                     <button>{{ __('dashboard/offer.reject_btn') }}</button>
                                 </form>
                             </div>
+                        @elseif ($offer['isAccepted'])
+                            <div class="mb-4">{{ $offer['status'] }}</div>
+                            <form method="post" action="{{ route('my-account.foreign-offer', ['offer' => $offer['id']]) }}">
+                                @csrf
+                                @method('delete')
+                                <button class="button">{{ __('dashboard/offer.reject_btn') }}</button>
+                            </form>
                         @else
                             {{ $offer['status'] }}
                         @endif

@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'title' => 'Strony tesktowe',
+    'title' => 'Strony tekstowe',
 
     'lp' => 'Lp.',
     'name' => 'Nazwa',

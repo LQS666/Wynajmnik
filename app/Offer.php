@@ -55,14 +55,24 @@ class Offer extends Model
         return trans('dashboard/offer.waiting');
     }
 
-    public function getIsUnhandledAttribute()
+    public function getIsAcceptedAttribute()
     {
-        return (!is_null($this['accepted_at']) || !is_null($this['rejected_at']));
+        return !is_null($this['accepted_at']);
+    }
+
+    public function getIsRejectedAttribute()
+    {
+        return !is_null($this['rejected_at']);
     }
 
     public function getIsCancelledAttribute()
     {
         return !is_null($this['deleted_at']);
+    }
+
+    public function getIsUnhandledAttribute()
+    {
+        return (!is_null($this['accepted_at']) || !is_null($this['rejected_at']));
     }
 
     public function scopeUser($query, $user_id)

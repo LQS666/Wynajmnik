@@ -12,12 +12,14 @@ final class PointService
     public const ADD_PREMIUM = 2;
     public const ADD_POINTS = 3;
     public const ACCEPT = 4;
+    public const ACCEPT_REFUND = 5;
 
     private const OPERATION = [
         self::ADD_OVER_LIMIT => 'ADD_OVER_LIMIT',
         self::ADD_PREMIUM => 'ADD_PREMIUM',
         self::ADD_POINTS => 'ADD_POINTS',
         self::ACCEPT => 'ACCEPT',
+        self::ACCEPT_REFUND => 'ACCEPT_REFUND',
     ];
 
     private const SIGN = [
@@ -25,23 +27,25 @@ final class PointService
         self::ADD_PREMIUM => '-',
         self::ADD_POINTS => '+',
         self::ACCEPT => '-',
+        self::ACCEPT_REFUND => '+',
     ];
 
     private const COST = [
         self::ADD_OVER_LIMIT => 500,
         self::ADD_PREMIUM => 500,
         self::ACCEPT => 1000,
+        self::ACCEPT_REFUND => 750,
     ];
 
     private static function checkTransaction(array $modes, User $user = null)
     {
         if (is_null($user) && !Auth::check()) {
-            // TODO throw
+            throw new \Exception('Authorization error');
         }
 
         foreach ($modes as $mode) {
             if (!in_array($mode, self::SIGN)) {
-                // TODO throw
+                throw new \Exception('Unknown point mode');
             }
         }
     }
