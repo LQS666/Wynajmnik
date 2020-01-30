@@ -84,7 +84,7 @@ final class OfferService
 
     public static function reject(Offer $offer): void
     {
-        if ($offer['isUnhandled']) {
+        if ($offer['isRejected']) {
             throw new \Exception('offerAlreadyHandled');
         }
     }

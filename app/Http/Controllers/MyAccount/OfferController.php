@@ -83,7 +83,12 @@ class OfferController extends Controller
                 ->with('sweet.error', trans('message.' . $e->getMessage()));
         }
 
+        if ($offer['isAccepted']) {
+            PointService::makeAnyTransaction(PointService::ACCEPT_REFUND);
+        }
+
         $offer->update([
+            'accepted_at' => null,
             'rejected_at' => time()
         ]);
 
