@@ -14,6 +14,10 @@ final class PointService
     public const ACCEPT = 4;
     public const ACCEPT_REFUND = 5;
 
+    private const MODES = [
+        self::ADD_OVER_LIMIT, self::ADD_PREMIUM, self::ADD_POINTS, self::ACCEPT, self::ACCEPT_REFUND,
+    ];
+
     private const OPERATION = [
         self::ADD_OVER_LIMIT => 'ADD_OVER_LIMIT',
         self::ADD_PREMIUM => 'ADD_PREMIUM',
@@ -44,7 +48,7 @@ final class PointService
         }
 
         foreach ($modes as $mode) {
-            if (!in_array($mode, self::SIGN)) {
+            if (!in_array($mode, self::MODES)) {
                 throw new \Exception('Unknown point mode');
             }
         }

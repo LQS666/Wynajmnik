@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', __('dashboard/product.title'))
+@section('title', __('dashboard/product.title', ['count' => $counters['my-products'], 'free' => $counters['my-free-products']]))
 
 @section('profile')
 
@@ -8,7 +8,7 @@
 
     <div class="main-dashboard-panel">
 
-        <h2 class="font-semibold">{{ __('dashboard/product.title') }}</h2>
+        <h2 class="font-semibold">{{ __('dashboard/product.title', ['count' => $counters['my-products'], 'free' => $counters['my-free-products']]) }}</h2>
 
         @if (count($products) > 0)
         <div class="products">

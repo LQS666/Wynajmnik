@@ -79,8 +79,8 @@
                         {{ $payment['amount']}}
                     </td>
                     <td class="payment">
-                        {!! $payment['status'] ? '<span class="text-green-600">Opłacaono</span>' : '<span
-                            class="text-red-500">Nieopłacono</span>' !!}
+                        {!! $payment['status'] ? '<span class="text-green-600">'. __('dashboard/payment.paid') .'</span>' : '<span
+                            class="text-red-500">'. __('dashboard/payment.unpaid') .'</span>' !!}
                     </td>
                 </tr>
                 @endforeach

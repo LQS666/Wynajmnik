@@ -13,7 +13,7 @@ class User extends Authenticatable implements MustVerifyEmail
 {
     use Notifiable, SoftDeletes;
 
-    protected const FREE_ADD_LIMIT = 5;
+    public const FREE_ADD_LIMIT = 5;
 
     public $dir = 'avatars';
 
