@@ -8,7 +8,7 @@ return [
     'login' => 'Logowanie',
     'logout' => 'Wyloguj się',
     'addItem' => 'Dodaj przedmiot',
-    'myItems' => 'Moje przedmioty (:count)',
+    'myItems' => 'Moje przedmioty (:count/:free)',
     'allItems' => 'Wszystkie przedmioty',
     'myOffers' => 'Moje oferty (:count)',
     'foreignOffers' => 'Propozycje ofert (:count)',

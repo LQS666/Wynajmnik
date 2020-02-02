@@ -75,7 +75,7 @@ class ProductsComposer
             });
         }
 
-        if (!is_null($this->parameters['filter'])) { // TODO optimize this query by Laravel Eloquent
+        if (!is_null($this->parameters['filter'])) {
             foreach ($this->parameters['filter'] as $filter) {
                 if (!is_array($filter)) {
                     continue;

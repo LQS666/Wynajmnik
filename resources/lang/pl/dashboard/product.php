@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'title' => 'Moje przedmioty',
+    'title' => 'Moje przedmioty (:count/:free)',
     'title-all' => 'Wszystkie przedmioty',
     'id' => 'ID',
     'photo' => 'Zdjęcie',

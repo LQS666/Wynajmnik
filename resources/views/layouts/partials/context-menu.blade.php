@@ -16,7 +16,7 @@
     </div>
     <div class="w-full border-gray-200 border-b-2"></div>
     <a href="{{ route('my-account.products') }}"
-        class="block px-4 py-2 text-gray-700 hover:bg-purple-second hover:text-white rounded font-normal">{{ __('base.myItems', ['count' => $counters['my-products']]) }}</a>
+        class="block px-4 py-2 text-gray-700 hover:bg-purple-second hover:text-white rounded font-normal">{{ __('base.myItems', ['count' => $counters['my-products'], 'free' => $counters['my-free-products']]) }}</a>
     <a href="{{ route('my-account.my-offers') }}"
         class="block px-4 py-2 text-gray-700 hover:bg-purple-second hover:text-white rounded font-normal">{{ __('base.myOffers', ['count' => $counters['my-offers']]) }}</a>
     <a href="{{ route('my-account.foreign-offers') }}"

@@ -4,7 +4,7 @@ namespace App\Http\View\Composers;
 
 use App\Offer;
 use App\Product;
-use App\Site;
+use App\User;
 use App\UserAddress;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
@@ -21,6 +21,7 @@ class GlobalComposer
     public function compose(View $view) {
         if ($this->user && !$this->user->admin) {
             $counters = [
+                'my-free-products' => User::FREE_ADD_LIMIT,
                 'my-products' => Product::user($this->user->id)->count(),
                 'my-offers' => Offer::user($this->user->id)->count(),
                 'my-addresses' => UserAddress::user($this->user->id)->count(),

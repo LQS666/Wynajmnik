@@ -26,7 +26,6 @@ class ProductComposer
 
         $offers = Offer::prod($this->product['id'])
             ->accepted()
-            ->new()
             ->orderBy('date_start')
             ->get();
 
