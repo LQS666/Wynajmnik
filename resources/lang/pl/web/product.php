@@ -8,6 +8,7 @@ return [
     'dates' => 'Dokonane rezerwacje',
     'price' => 'Cena',
     'currency' => 'zł',
+    'per_day' => '/ dzień',
     'offer_added' => 'Ogłoszenie dodane',
     'user_since' => 'Użytkownik od',
     'message' => 'Napisz wiadomość',

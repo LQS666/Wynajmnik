@@ -83,7 +83,7 @@
 
     <section class="results__section results--grid">
         @foreach ($products as $product)
-        <div class="profile" data-aos="fade">
+        <div class="profile" data-aos="fade-left">
             <div class="profile__image">
                 @if (count($product['images']) > 0)
                 <img class="itemImg" src="{{ $product->images->first()['url'] }}"
@@ -107,7 +107,7 @@
                         </div>
                 @endif
                 <div>
-                    <h5 class="profile__stats__price">{{ __('web/product.price') }}: {{ $product['price'] }} {{ __('web/product.currency') }}</h5>
+                    <h5 class="profile__stats__price">{{ $product['price'] }} {{ __('web/product.currency') }} {{ __('web/product.per_day') }}</h5>
                 </div>
             </div>
             <div class="profile__button"><a href="{{ route('web.product', ['product' => $product['slug']]) }}"
