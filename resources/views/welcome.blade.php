@@ -97,7 +97,7 @@
     <div class="cookie-content">
         <div class="cookie-text-wrapper">
             <p class="cookie-text">{{ __('cookies.text') }}
-                <a href="{{ asset('/storage/Polityka_Prywatności.pdf')}}" target="_blank">{{ __('cookies.privacy_policy') }}</a>
+                <a href="http://wynajmnik.pl/sites/polityka-prywatnosci" target="_blank">{{ __('cookies.privacy_policy') }}</a>
             </p>
         </div>
         <div class="cookie-button-wrapper">
