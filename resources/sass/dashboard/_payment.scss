@@ -39,6 +39,47 @@
     }
 }
 
+.payment-finish {
+    @apply flex flex-col justify-center items-center w-full text-center;
+
+    .success,
+    .error {
+        @apply flex justify-center bg-gray-main;
+        border-radius: 150px;
+        height: 150px;
+        width: 150px;
+        i {
+            font-size: 60px;
+            line-height: 150px;
+            margin-left: -15px;
+        }
+        &__h1 {
+            @apply mt-10 mb-3 text-4xl;
+        }
+        &__p {
+            @apply text-gray-text;
+        }
+    }
+    
+    .success {
+        i {
+            @apply text-green-main;
+        }
+        &__h1 {
+            @apply text-green-main;
+        }
+    }
+
+    .error {
+        i {
+            @apply text-red-500;
+        }
+        &__h1 {
+            @apply text-red-500;
+        }
+    }
+}
+
 @keyframes loading {
     60% {
         text-shadow: 0.3em 0 0 #000;

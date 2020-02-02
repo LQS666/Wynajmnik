@@ -7,11 +7,20 @@
 
 <div class="main-dashboard-panels">
     <div class="main-dashboard-panel">
-        <div>
+        <div class="payment-finish">
             @if(count($errors) > 0)
-                {{ current($errors) }}
+            <div class="error">
+                <i>✖✓</i>
+            </div>
+            <h1 class="error__h1">{{ __('payments.payu.finish_title_error') }}</h1>
+            <p class="error__p">{{ __('payments.payu.finish_content_error') }}</p>
+            {{ current($errors) }}
             @else
-                {{ __('payments.payu.finish') }}
+            <div class="success">
+                <i>✓</i>
+            </div>
+            <h1 class="success__h1">{{ __('payments.payu.finish_title_success') }}</h1>
+            <p class="success__p">{{ __('payments.payu.finish_content_success') }}</p>
             @endif
         </div>
     </div>

@@ -51,7 +51,9 @@ return [
     'payu.status.7' => 'płatność zwrócona, otrzymano środki od klienta po wcześniejszym anulowaniu transakcji, lub nie było możliwości zwrotu środków w sposób automatyczny, sytuacje takie będą monitorowane i wyjaśniane przez zespół PayU',
     'payu.status.99' => 'płatność odebrana - zakończona',
     'payu.status.888' => 'błędny status - prosimy o kontakt',
-
-    'payu.finish' => 'Dziękujemy, płatność została zakończona pozytywnie. W ciągu kilku minut, na Państwa koncie powinny się pojawić zakupione produkty.'
+    'payu.finish_title_success' => 'Dziękujemy, płatność została zakończona pozytywnie.',
+    'payu.finish_content_success' => 'W ciągu kilku minut, na Państwa koncie powinny pojawić się zakupione produkty.',
+    'payu.finish_title_error' => 'Wystąpił błąd.',
+    'payu.finish_content_error' => 'Prosimy skontaktować się z nami.'
 
 ];
